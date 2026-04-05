@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DnD Combat Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Dungeons &amp; Dragons</h1>
+  <div class="tagline">Combat Tracker</div>
+  <div class="sword-icon">⚔️ 🏹 🔮 🛡</div>
+  <div class="ornament"></div>
+</header>
+
+<div class="combat-info">
+  <div class="round-lbl">Round</div>
+  <div class="round-num" id="roundNum">1</div>
+</div>
+
+<div class="controls">
+  <button class="btn btn-add" onclick="openAddModal()">✦ New Combatant</button>
+  <button class="btn btn-next" id="nextBtn" onclick="nextTurn()" disabled>
+    <span id="nextIcon">⚔️</span>      
+    <span id="nextTxt">Start Combat</span>
+  </button>
+</div>
+
+<main>
+  <div class="combatant-list" id="list">
+    <div class="empty-state">
+      <span class="empty-dragon">🐲</span>
+      <h3>✦ The battlefield is empty ✦</h3>
+      <p>Add players and monsters to start the combat</p>
+    </div>
+  </div>
+</main>
+
+<!-- ── ADD MODAL ── -->
+<div class="overlay" id="addModal" onclick="ovrClick(event,'addModal')">
+  <div class="modal">
+    <div class="modal-title">✦ New Combatant</div>
+
+    <div class="field">
+      <label>Name</label>
+      <input id="a-name" type="text" placeholder="Ex: Warrior Goblin, Thorin...">
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Initiative</label>
+        <input id="a-init" type="number" placeholder="10" min="-10">
+      </div>
+      <div class="field">
+        <label>HP</label>
+        <input id="a-hp" type="number" placeholder="10" min="1">
+      </div>
+      <div class="field">
+        <label>AC</label>
+        <input id="a-ac" type="number" placeholder="10" min="1">
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn btn-player" onclick="addCombatant('player')">🧙 Player</button>
+      <button class="btn btn-monster" onclick="addCombatant('monster')">👹 Monster</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── HP NUMPAD MODAL ── -->
+<div class="overlay" id="hpModal" onclick="ovrClick(event,'hpModal')">
+  <div class="modal modal-hp">
+    <div class="modal-title">❤️ Modify HP</div>
+    <div class="hp-display" id="hpDisp">_</div>
+    <div class="numpad">
+      <button class="np" onclick="npPress('1')">1</button>
+      <button class="np" onclick="npPress('2')">2</button>
+      <button class="np" onclick="npPress('3')">3</button>
+      <button class="np" onclick="npPress('4')">4</button>
+      <button class="np" onclick="npPress('5')">5</button>
+      <button class="np" onclick="npPress('6')">6</button>
+      <button class="np" onclick="npPress('7')">7</button>
+      <button class="np" onclick="npPress('8')">8</button>
+      <button class="np" onclick="npPress('9')">9</button>
+      <button class="np np-minus" onclick="applyHP(-1)">Damage</button>
+      <button class="np" onclick="npPress('0')">0</button>
+      <button class="np np-plus"  onclick="applyHP(1)">Heal</button>
+    </div>
+    <div class="modal-actions" style="margin-top:12px;">
+      <button class="np np-clr btn btn-ghost" onclick="npBack()">⌫ Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── STATUS MODAL ── -->
+<div class="overlay" id="statusModal" onclick="ovrClick(event,'statusModal')">
+  <div class="modal modal-status">
+    <div class="modal-title">⚡ Conditions</div>
+    <div class="status-grid" id="statusGrid"></div>
+    <div class="modal-actions">
+      <button class="btn btn-ok" onclick="applyStatuses()">Apply</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── COMBAT END MODAL ── -->
+<div class="overlay" id="combatEndModal">
+  <div class="modal modal-confirm">
+    <span class="skull-icon">🏆</span>
+    <span class="fallen-name">¡Victory!</span>
+    <p style="font-size:12px;margin-top:6px;">All monsters defeated</p>
+    <div class="modal-actions" style="margin-top:24px;">
+      <button class="btn btn-ok" onclick="closeCombatEnd()">Continue</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
