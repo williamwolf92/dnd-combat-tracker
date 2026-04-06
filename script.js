@@ -116,7 +116,7 @@ function addCombatant(type) {
   saveState();
   render();
 
-  toast(`${name} enter the combat - Init.: ${init}`);
+  toast(`${name} enter the combat - Initiative: ${init}`);
 }
 
 function insertInQueue(newId) {
@@ -531,6 +531,33 @@ document.addEventListener('keydown', e => {
     ['addModal','hpModal','statusModal'].forEach(closeModal);
   }
 });
+
+// ────────────────────────────────────────
+// VISUAL VIEWPORT — keep modals & toast
+// above the virtual keyboard on mobile
+// ────────────────────────────────────────
+function onViewportChange() {
+  const vv = window.visualViewport;
+  if (!vv) return;
+
+  // How much the keyboard has pushed up from the bottom
+  const keyboardH = window.innerHeight - vv.height - vv.offsetTop;
+
+  // Reposition every open overlay so it fills only the visible area
+  document.querySelectorAll('.overlay').forEach(el => {
+    el.style.top    = vv.offsetTop + 'px';
+    el.style.height = vv.height + 'px';
+  });
+
+  // Lift the toast above the keyboard
+  const toast = document.getElementById('toast');
+  toast.style.bottom = (30 + Math.max(0, keyboardH)) + 'px';
+}
+
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', onViewportChange);
+  window.visualViewport.addEventListener('scroll', onViewportChange);
+}
 
 // ────────────────────────────────────────
 // INIT

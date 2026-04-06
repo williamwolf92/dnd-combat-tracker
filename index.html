@@ -21,7 +21,7 @@
 </div>
 
 <div class="controls">
-  <button class="btn btn-add" onclick="openAddModal()">✦ New Combatant</button>
+  <button class="btn btn-add" onclick="openAddModal()">✦ Add Combatant</button>
   <button class="btn btn-next" id="nextBtn" onclick="nextTurn()" disabled>
     <span id="nextIcon">⚔️</span>      
     <span id="nextTxt">Start Combat</span>
@@ -109,9 +109,9 @@
 <!-- ── COMBAT END MODAL ── -->
 <div class="overlay" id="combatEndModal">
   <div class="modal modal-confirm">
-    <span class="skull-icon">🏆</span>
+    <span class="cup-icon">🏆</span>
     <span class="fallen-name">¡Victory!</span>
-    <p style="font-size:12px;margin-top:6px;">All monsters defeated</p>
+    <p style="font-size:17px;margin-top:6px;">All monsters defeated</p>
     <div class="modal-actions" style="margin-top:24px;">
       <button class="btn btn-ok" onclick="closeCombatEnd()">Continue</button>
     </div>
