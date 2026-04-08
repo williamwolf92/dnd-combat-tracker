@@ -116,7 +116,7 @@ function addCombatant(type) {
   saveState();
   render();
 
-  toast(`${name} enter the combat - Initiative: ${init}`);
+  toast(`${esc(name)} enters the combat - Initiative: ${init}`);
 }
 
 function insertInQueue(newId) {
@@ -314,7 +314,23 @@ function openHpModal(id) {
 }
 
 function npPress(d) {
-  if (hpStr.length >= 4) return;
+  if (hpStr.length >= 10) return;
+
+  if (d === 'd') {
+    // Needs at least one digit before it, no existing 'd', no existing '+'
+    if (hpStr.length === 0)        return;
+    if (hpStr.includes('d'))       return;
+    if (hpStr.includes('+'))       return;
+  }
+
+  if (d === '+') {
+    // Needs a 'd' already typed, at least one digit after 'd', no existing '+'
+    if (!hpStr.includes('d'))      return;
+    if (hpStr.includes('+'))       return;
+    const afterD = hpStr.split('d')[1];
+    if (!afterD || afterD.length === 0) return;
+  }
+
   hpStr += d;
   refreshDisp();
 }
@@ -325,21 +341,72 @@ function npBack() {
 }
 
 function refreshDisp() {
-  document.getElementById('hpDisp').textContent = hpStr || '_';
+  const el  = document.getElementById('hpDisp');
+  const len = hpStr.length;
+  el.textContent = hpStr || '_';
+  // Scale font down as expression grows
+  if      (len <= 3) el.style.fontSize = '42px';
+  else if (len <= 5) el.style.fontSize = '34px';
+  else if (len <= 7) el.style.fontSize = '28px';
+  else               el.style.fontSize = '22px';
+}
+
+// ────────────────────────────────────────
+// DICE EXPRESSION PARSER
+// Supports: plain integers  →  "12"
+//           dice notation   →  "2d6"  "2d6+3"
+// Returns { total, label } or null on invalid input
+// ────────────────────────────────────────
+function parseDiceExpr(str) {
+  if (!str) return null;
+
+  // Plain integer (no 'd')
+  if (!str.includes('d')) {
+    const n = parseInt(str, 10);
+    if (isNaN(n) || n <= 0) return null;
+    return { total: n, label: String(n) };
+  }
+
+  // Dice notation: XdY or XdY+Z
+  const m = str.match(/^(\d+)d(\d+)(?:\+(\d+))?$/);
+  if (!m) return null;
+
+  const count = parseInt(m[1], 10);
+  const sides = parseInt(m[2], 10);
+  const bonus = m[3] ? parseInt(m[3], 10) : 0;
+
+  if (count < 1 || sides < 1) return null;
+
+  let rolled = 0;
+  for (let i = 0; i < count; i++) {
+    rolled += Math.floor(Math.random() * sides) + 1;
+  }
+  const total = rolled + bonus;
+  return { total, label: `${str} = ${total}` };
 }
 
 function applyHP(sign) {
-  const amount = parseInt(hpStr) || 0;
   const c = getC(hpTarget);
   closeModal('hpModal');
-  if (!c || amount === 0) return;
+  if (!c) return;
 
-  c.hp = Math.max(0, c.hp + sign * amount);
+  const parsed = parseDiceExpr(hpStr);
+  if (!parsed || parsed.total === 0) return;
+
+  const { total, label } = parsed;
+  c.hp = Math.max(0, c.hp + sign * total);
   if (c.hp === 0) c.isDead = true;
 
   saveState();
   render();
   checkCombatEnd();
+
+  // Colored toast
+  if (sign < 0) {
+    toast(`<span style="color:var(--red)">⚔️ Damage: ${esc(label)}</span>`);
+  } else {
+    toast(`<span style="color:var(--green)">💚 Heal: ${esc(label)}</span>`);
+  }
 }
 
 // ────────────────────────────────────────
@@ -487,11 +554,9 @@ function render() {
     let el = listEl.querySelector(`.card[data-id="${id}"]`);
 
     if (el) {
-      // Solo tocar el DOM si algo cambió — no se re-dispara la animación
       if (el.className !== classes)   el.className = classes;
       if (el.innerHTML !== innerHTML) el.innerHTML = innerHTML;
     } else {
-      // Tarjeta nueva: crear elemento (aquí sí se dispara cardIn, es correcto)
       el = document.createElement('div');
       el.className    = classes;
       el.dataset.id   = String(id);
@@ -513,11 +578,11 @@ function render() {
 }
 
 // ────────────────────────────────────────
-// TOAST
+// TOAST  (supports innerHTML for colored messages)
 // ────────────────────────────────────────
 function toast(msg) {
   const el = document.getElementById('toast');
-  el.textContent = msg;
+  el.innerHTML = msg;
   el.classList.add('vis');
   clearTimeout(el._t);
   el._t = setTimeout(() => el.classList.remove('vis'), 2800);
@@ -540,16 +605,13 @@ function onViewportChange() {
   const vv = window.visualViewport;
   if (!vv) return;
 
-  // How much the keyboard has pushed up from the bottom
   const keyboardH = window.innerHeight - vv.height - vv.offsetTop;
 
-  // Reposition every open overlay so it fills only the visible area
   document.querySelectorAll('.overlay').forEach(el => {
     el.style.top    = vv.offsetTop + 'px';
     el.style.height = vv.height + 'px';
   });
 
-  // Lift the toast above the keyboard
   const toast = document.getElementById('toast');
   toast.style.bottom = (30 + Math.max(0, keyboardH)) + 'px';
 }
