@@ -2,21 +2,22 @@
 // CONDITION LIST
 // ────────────────────────────────────────
 const CONDITIONS = [
-  { id:'blinded',       lbl:'Blinded'       },
-  { id:'charmed',       lbl:'Charmed'    },
-  { id:'deafened',      lbl:'Deafened'  },
-  { id:'exhaustion',    lbl:'Exhaustion'  },
-  { id:'frightened',    lbl:'Frightened'     },
-  { id:'grappled',      lbl:'Greappled'     },
+  { id:'blinded',       lbl:'Blinded' },
+  { id:'charmed',       lbl:'Charmed' },
+  { id:'deafened',      lbl:'Deafened' },
+  { id:'exhaustion',    lbl:'Exhaustion' },
+  { id:'frightened',    lbl:'Frightened' },
+  { id:'grappled',      lbl:'Grappled' },
   { id:'incapacitated', lbl:'Incapacitated' },
-  { id:'invisible',     lbl:'Invisible'    },
-  { id:'paralyzed',     lbl:'Paralyzed'   },
-  { id:'petrified',     lbl:'Petrified'  },
-  { id:'poisoned',      lbl:'Poisoned'   },
-  { id:'prone',         lbl:'Prone'      },
-  { id:'restrained',    lbl:'Restrained'  },
-  { id:'stunned',       lbl:'Stunned'     },
-  { id:'unconscious',   lbl:'Unconcious' },
+  { id:'invisible',     lbl:'Invisible' },
+  { id:'paralyzed',     lbl:'Paralyzed' },
+  { id:'petrified',     lbl:'Petrified' },
+  { id:'poisoned',      lbl:'Poisoned' },
+  { id:'prone',         lbl:'Prone' },
+  { id:'restrained',    lbl:'Restrained' },
+  { id:'stunned',       lbl:'Stunned' },
+  { id:'unconscious',   lbl:'Unconscious' },
+  { id:'dot',           lbl:'D.o.T.' },
 ];
 
 // ────────────────────────────────────────
@@ -28,6 +29,8 @@ let uid          = 1;
 let round        = 1;
 let started      = false;
 let roundFirstId = null;
+let history      = [];
+let currentScreen = 'screenHome';
 
 // Modal state
 let hpTarget     = null;
@@ -35,13 +38,22 @@ let hpStr        = '';
 let statusTarget = null;
 let pendingConds = [];
 
+// Roll modal state
+let rollStr      = '';
+
+// Attack modal state
+let attackTarget = null;
+
+// Delete confirmation state
+let pendingDeleteId = null;
+
 // ────────────────────────────────────────
 // PERSISTENCIA (localStorage)
 // ────────────────────────────────────────
 const STORAGE_KEY = 'dnd_combat_state';
 
 function saveState() {
-  const state = { combatants, queue, uid, round, started, roundFirstId };
+  const state = { combatants, queue, uid, round, started, roundFirstId, history };
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {
     console.warn('Error saving state:', e);
   }
@@ -58,6 +70,7 @@ function loadState() {
     round        = state.round        ?? 1;
     started      = state.started      ?? false;
     roundFirstId = state.roundFirstId ?? null;
+    history      = state.history      || [];
   } catch(e) {
     console.warn('Error loading state:', e);
   }
@@ -77,7 +90,64 @@ function esc(s) {
     .replace(/"/g, '&quot;');
 }
 
-// Enable "Start Combat": (≥1 player AND ≥1 monster) OR ≥2 players
+// ────────────────────────────────────────
+// SCREEN MANAGEMENT
+// ────────────────────────────────────────
+function switchScreen(screenId) {
+  document.querySelectorAll('.screen').forEach(s => s.style.display = 'none');
+  document.getElementById(screenId).style.display = 'flex';
+  currentScreen = screenId;
+  
+  document.querySelectorAll('.footer-btn').forEach(btn => btn.classList.remove('active'));
+  const screens = ['screenHome', 'screenCombat', 'screenHistory', 'screenRoll'];
+  const idx = screens.indexOf(screenId);
+  if (idx >= 0) document.querySelectorAll('.footer-btn')[idx].classList.add('active');
+  
+  if (screenId === 'screenCombat') {
+    renderCombatScreen();
+  } else if (screenId === 'screenHistory') {
+    renderHistoryLog();
+  }
+}
+
+// ────────────────────────────────────────
+// HISTORY LOGGING
+// ────────────────────────────────────────
+function addHistory(msg, type = 'event') {
+  const now = new Date();
+  const time = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
+  history.push({ time, msg, type });
+  saveState();
+}
+
+function renderHistoryLog() {
+  const log = document.getElementById('historyLog');
+  if (history.length === 0) {
+    log.innerHTML = `<div class="empty-state">
+      <span class="empty-dragon">📜</span>
+      <h3>No events yet</h3>
+      <p>History will appear here</p>
+    </div>`;
+    return;
+  }
+  const entries = history.slice().reverse();
+  log.innerHTML = entries.map((e, i) => `<div class="history-entry" style="animation: slideIn 0.3s ease-out ${i*0.05}s both;">
+    <div class="entry-time">${e.time}</div>
+    <div class="entry-msg">${e.msg}</div>
+  </div>`).join('');
+}
+
+function clearHistory() {
+  history = [];
+  saveState();
+  renderHistoryLog();
+  toast('History cleared');
+}
+
+// ────────────────────────────────────────
+// COMBAT START CONDITION
+// Enable if: (≥1 player AND ≥1 monster) OR ≥2 players
+// ────────────────────────────────────────
 function canStartCombat() {
   const players  = combatants.filter(c => c.type === 'player').length;
   const monsters = combatants.filter(c => c.type === 'monster').length;
@@ -100,13 +170,99 @@ function openAddModal() {
   setTimeout(() => document.getElementById('a-name').focus(), 120);
 }
 
+// ── Initiative stepper buttons ──
+// Field can hold "+5"/"-2" (modifier: rolls 1d20+mod) or "14" (fixed value)
+function initStep(delta) {
+  const inp = document.getElementById('a-init');
+  const val = inp.value.trim();
+
+  if (!val) {
+    // Start from 0 modifier or 1 fixed
+    inp.value = delta > 0 ? '+1' : '-1';
+    return;
+  }
+
+  if (val.startsWith('+') || val.startsWith('-')) {
+    // Modifier mode: keep sign, clamp to show correctly
+    const n = parseInt(val, 10);
+    if (!isNaN(n)) {
+      const next = n + delta;
+      inp.value = next >= 0 ? `+${next}` : `${next}`;
+    }
+  } else {
+    // Fixed value mode: min 1
+    const n = parseInt(val, 10);
+    if (!isNaN(n)) {
+      inp.value = String(Math.max(1, n + delta));
+    } else {
+      inp.value = delta > 0 ? '1' : '1';
+    }
+  }
+}
+
+// ── Parse initiative: "+X"/"-X" → 1d20+mod, plain "N" → N ──
+function parseInitiative(str) {
+  if (!str) return null;
+  str = str.trim();
+  // Modifier format: starts with + or -
+  if (/^[+\-]\d+$/.test(str)) {
+    const mod = parseInt(str, 10);
+    const roll = Math.floor(Math.random() * 20) + 1;
+    return roll + mod;
+  }
+  // Plain integer
+  const n = parseInt(str, 10);
+  if (!isNaN(n) && n > 0) return n;
+  return null;
+}
+
+// ── HP input filter: only digits, 'd', '+', '-' ──
+function filterHpInput(el) {
+  el.value = el.value.replace(/[^0-9d+\-]/g, '');
+}
+
+//── Init. input filter: only digits, 'd', '+', '-' ──
+function filterInitInput(el) {
+  el.value = el.value.replace(/[^0-9+\-]/g, '');
+}
+
+// ── HP dice roller: supports #  |  #d#  |  #d#±# ──
+function parseDiceOrNumber(str) {
+  if (!str) return null;
+  str = str.trim();
+
+  // Plain integer
+  if (!str.includes('d')) {
+    const n = parseInt(str, 10);
+    return isNaN(n) || n <= 0 ? null : n;
+  }
+
+  // Dice notation: XdY or XdY+Z or XdY-Z
+  const m = str.match(/^(\d+)d(\d+)(?:([\+\-])(\d+))?$/);
+  if (!m) return null;
+
+  const count = parseInt(m[1], 10);
+  const sides = parseInt(m[2], 10);
+  const op    = m[3] || '+';
+  const mod   = m[4] ? parseInt(m[4], 10) : 0;
+
+  if (count < 1 || sides < 1) return null;
+
+  let rolled = 0;
+  for (let i = 0; i < count; i++) rolled += Math.floor(Math.random() * sides) + 1;
+  return op === '+' ? rolled + mod : rolled - mod;
+}
+
 function addCombatant(type) {
   const name = document.getElementById('a-name').value.trim();
   if (!name) { toast('✦ Please, enter name'); return; }
 
-  const init = parseInt(document.getElementById('a-init').value) || 10;
-  const hp   = Math.max(1, parseInt(document.getElementById('a-hp').value) || 10);
-  const ac   = Math.max(1, parseInt(document.getElementById('a-ac').value) || 10);
+  const initStr = document.getElementById('a-init').value.trim();
+  const hpStr   = document.getElementById('a-hp').value.trim();
+  const ac      = Math.max(1, parseInt(document.getElementById('a-ac').value) || 10);
+
+  const init = parseInitiative(initStr) ?? 10;
+  const hp   = Math.max(1, parseDiceOrNumber(hpStr) ?? 10);
 
   const c = { id: uid++, name, init, hp, maxHp: hp, ac, conds: [], isDead: false, type };
   combatants.push(c);
@@ -116,7 +272,8 @@ function addCombatant(type) {
   saveState();
   render();
 
-  toast(`${esc(name)} enters the combat - Initiative: ${init}`);
+  addHistory(`${esc(name)} enter combat:<br>Init: ${init} | ❤️: ${hp} | 🛡: ${ac}`, 'event');
+  toast(`${esc(name)} enter combat - Init.: ${init}`);
 }
 
 function insertInQueue(newId) {
@@ -129,8 +286,25 @@ function insertInQueue(newId) {
 }
 
 function removeCombatant(id) {
-  const listEl = document.getElementById('list');
-  const el     = listEl.querySelector(`.card[data-id="${id}"]`);
+  const c = getC(id);
+  if (!c) return;
+  pendingDeleteId = id;
+  document.getElementById('deleteConfirmName').textContent = c.name;
+  openModal('deleteConfirmModal');
+}
+
+function confirmDelete() {
+  if (!pendingDeleteId) return;
+
+  const id = pendingDeleteId;
+  const c  = getC(id);
+  const name = c ? c.name : 'Unknown';
+
+  closeModal('deleteConfirmModal');
+  pendingDeleteId = null;
+
+  const listEl = document.getElementById('listCombat');
+  const el     = listEl ? listEl.querySelector(`.card[data-id="${id}"]`) : null;
 
   const doRemove = () => {
     combatants = combatants.filter(c => c.id !== id);
@@ -144,36 +318,33 @@ function removeCombatant(id) {
     }
 
     saveState();
+    addHistory(`${esc(name)} removed from combat`, 'event');
 
-    // Snapshot remaining cards so we can FLIP them upward
-    const remaining = [...listEl.querySelectorAll('.card[data-id]')].filter(c => c !== el);
+    const remaining = listEl ? [...listEl.querySelectorAll('.card[data-id]')].filter(c => c !== el) : [];
     const snap = new Map();
     remaining.forEach(c => snap.set(c.dataset.id, c.getBoundingClientRect()));
 
     if (el) el.remove();
     render();
 
-    // FLIP — slide remaining cards up smoothly
-    listEl.querySelectorAll('.card[data-id]').forEach(card => {
-      const old = snap.get(card.dataset.id);
-      if (!old) return;
-      const now = card.getBoundingClientRect();
-      const dy  = old.top - now.top;
-      if (Math.abs(dy) < 1) return;
-
-      card.style.transition = 'none';
-      card.style.transform  = `translateY(${dy}px)`;
-      void card.offsetHeight; // force reflow
-      card.style.transition = 'transform 0.35s cubic-bezier(0.34, 1.1, 0.64, 1)';
-      card.style.transform  = '';
-      card.addEventListener('transitionend', () => {
-        card.style.transition = '';
-      }, { once: true });
-    });
+    if (listEl) {
+      listEl.querySelectorAll('.card[data-id]').forEach(card => {
+        const old = snap.get(card.dataset.id);
+        if (!old) return;
+        const now = card.getBoundingClientRect();
+        const dy  = old.top - now.top;
+        if (Math.abs(dy) < 1) return;
+        card.style.transition = 'none';
+        card.style.transform  = `translateY(${dy}px)`;
+        void card.offsetHeight;
+        card.style.transition = 'transform 0.35s cubic-bezier(0.34, 1.1, 0.64, 1)';
+        card.style.transform  = '';
+        card.addEventListener('transitionend', () => { card.style.transition = ''; }, { once: true });
+      });
+    }
   };
 
   if (el) {
-    // Slide-out exit animation via inline style (not affected by render's className updates)
     el.style.transition    = 'transform 0.24s ease-in, opacity 0.24s ease-in';
     el.style.pointerEvents = 'none';
     void el.offsetHeight;
@@ -186,14 +357,78 @@ function removeCombatant(id) {
 }
 
 // ────────────────────────────────────────
-// AC ADJUST
+// AC AND ATTACK
 // ────────────────────────────────────────
-function changeAC(id, delta) {
+function openAttackModal(id) {
+  attackTarget = id;
+  document.getElementById('attackBonus').value = '0';
+  document.querySelector('input[name="attackType"][value="normal"]').checked = true;
+  document.getElementById('attackResult').style.display = 'none';
+  openModal('attackModal');
+}
+
+function attackBonusChange(delta) {
+  const inp = document.getElementById('attackBonus');
+  inp.value = String(parseInt(inp.value || '0') + delta);
+}
+
+function executeAttack() {
+  const c = getC(attackTarget);
+  if (!c) return;
+
+  const bonus = parseInt(document.getElementById('attackBonus').value || '0');
+  const type  = document.querySelector('input[name="attackType"]:checked').value;
+
+  let roll1 = Math.floor(Math.random() * 20) + 1;
+  let roll2 = null;
+  let usedRoll = roll1;
+
+  if (type === 'advantage') {
+    roll2    = Math.floor(Math.random() * 20) + 1;
+    usedRoll = Math.max(roll1, roll2);
+  } else if (type === 'disadvantage') {
+    roll2    = Math.floor(Math.random() * 20) + 1;
+    usedRoll = Math.min(roll1, roll2);
+  }
+
+  const total = usedRoll + bonus;
+  const hit   = total >= c.ac;
+  const crit  = usedRoll === 20;
+
+  let resultMsg = '';
+  if (crit) {
+    resultMsg = '<span style="color:#ff0000; font-weight:bold;">💥 CRITICAL HIT!</span>';
+  } else {
+    resultMsg = `<span style="color:${hit ? 'var(--green)' : 'var(--red)'}; font-weight:bold;">${hit ? 'HIT' : 'FAIL'}</span>`;
+  }
+
+  const bonusStr = (bonus !== 0) ? ` (${bonus > 0 ? '+' : ''}${bonus})` : '';
+  let formula = '';
+
+  if (type === 'normal') {
+    formula = `🎲 1d20: ${usedRoll}${bonusStr} = ${total} ${total >= c.ac ? '≥' : '<'} 🛡${c.ac}`;
+  } else if (type === 'advantage') {
+    const higher = Math.max(roll1, roll2);
+    formula = `🎲 2d20 (${roll1}/${roll2}): ${higher}${bonusStr} = ${higher + bonus} ${higher + bonus >= c.ac ? '≥' : '<'} 🛡${c.ac}`;
+  } else if (type === 'disadvantage') {
+    const lower = Math.min(roll1, roll2);
+    formula = `🎲 2d20 (${roll1}/${roll2}): ${lower}${bonusStr} = ${lower + bonus} ${lower + bonus >= c.ac ? '≥' : '<'} 🛡${c.ac}`;
+  }
+
+  document.getElementById('resultMessage').innerHTML = resultMsg;
+  document.getElementById('resultFormula').textContent = formula;
+  document.getElementById('attackResult').style.display = 'block';
+
+  addHistory(`Attack vs. ${esc(c.name)}:<br>${formula}  | ${crit ? 'CRITICAL!' : (hit ? 'HIT' : 'FAIL')}`, 'attack');
+}
+
+function acChange(id, delta) {
   const c = getC(id);
   if (!c) return;
-  c.ac = Math.max(1, c.ac + delta);
+  c.ac = Math.max(1, (c.ac || 0) + delta);
   saveState();
   render();
+  addHistory(`${esc(c.name)}:<br>AC changed to ${c.ac}`, 'event');
 }
 
 // ────────────────────────────────────────
@@ -208,57 +443,62 @@ function nextTurn() {
     roundFirstId = queue[0];
     saveState();
     render();
+    addHistory('⚔️ COMBAT STARTED!', 'event');
+    toast('⚔️ COMBAT STARTED!');
     return;
   }
 
-  const listEl    = document.getElementById('list');
+  const listEl    = document.getElementById('listCombat');
   const leavingId = String(queue[0]);
-  const leavingEl = listEl.querySelector(`.card[data-id="${leavingId}"]`);
+  const leavingEl = listEl ? listEl.querySelector(`.card[data-id="${leavingId}"]`) : null;
 
   const doTurnChange = () => {
-    // Snapshot BEFORE removing leavingEl so remaining cards still occupy their old positions
     const snap = new Map();
-    listEl.querySelectorAll('.card[data-id]').forEach(card => {
-      if (card !== leavingEl) snap.set(card.dataset.id, card.getBoundingClientRect());
-    });
+    if (listEl) {
+      listEl.querySelectorAll('.card[data-id]').forEach(card => {
+        if (card !== leavingEl) snap.set(card.dataset.id, card.getBoundingClientRect());
+      });
+    }
 
-    if (leavingEl) leavingEl.remove(); // remove so render() recreates it fresh at the end
+    if (leavingEl) leavingEl.remove();
 
     const done = queue.shift();
     queue.push(done);
     const roundChanged = queue[0] === roundFirstId;
     if (roundChanged) round++;
     saveState();
-    render();
-    if (roundChanged) toast(`🔔 Round ${round}`);
+    renderCombatScreen();
 
-    // Phase 2 — FLIP remaining cards upward (identical to removeCombatant)
-    listEl.querySelectorAll(`.card[data-id]:not([data-id="${leavingId}"])`).forEach(card => {
-      const old = snap.get(card.dataset.id);
-      if (!old) return;
-      const now = card.getBoundingClientRect();
-      const dy  = old.top - now.top;
-      if (Math.abs(dy) < 1) return;
-      card.style.transition = 'none';
-      card.style.transform  = `translateY(${dy}px)`;
-      void card.offsetHeight;
-      card.style.transition = 'transform 0.35s cubic-bezier(0.34, 1.1, 0.64, 1)';
-      card.style.transform  = '';
-      card.addEventListener('transitionend', () => { card.style.transition = ''; }, { once: true });
-    });
+    if (roundChanged) {
+      addHistory(`Round ${round}`, 'round');
+      toast(`🔔 Round ${round}`);
+    }
 
-    // Phase 3 — returning card enters from the left at the bottom
-    const returnEl = listEl.querySelector(`.card[data-id="${leavingId}"]`);
-    if (returnEl) {
-      returnEl.style.animation = 'none';        // cancel default cardIn (top↓)
-      void returnEl.offsetHeight;
-      // slight delay so it arrives after others have started moving up
-      returnEl.style.animation = 'cardReturn 0.38s 0.18s cubic-bezier(0.34, 1.1, 0.64, 1) both';
-      returnEl.addEventListener('animationend', () => { returnEl.style.animation = 'none'; }, { once: true });
+    if (listEl) {
+      listEl.querySelectorAll(`.card[data-id]:not([data-id="${leavingId}"])`).forEach(card => {
+        const old = snap.get(card.dataset.id);
+        if (!old) return;
+        const now = card.getBoundingClientRect();
+        const dy  = old.top - now.top;
+        if (Math.abs(dy) < 1) return;
+        card.style.transition = 'none';
+        card.style.transform  = `translateY(${dy}px)`;
+        void card.offsetHeight;
+        card.style.transition = 'transform 0.35s cubic-bezier(0.34, 1.1, 0.64, 1)';
+        card.style.transform  = '';
+        card.addEventListener('transitionend', () => { card.style.transition = ''; }, { once: true });
+      });
+
+      const returnEl = listEl.querySelector(`.card[data-id="${leavingId}"]`);
+      if (returnEl) {
+        returnEl.style.animation = 'none';
+        void returnEl.offsetHeight;
+        returnEl.style.animation = 'cardReturn 0.38s 0.18s cubic-bezier(0.34, 1.1, 0.64, 1) both';
+        returnEl.addEventListener('animationend', () => { returnEl.style.animation = 'none'; }, { once: true });
+      }
     }
   };
 
-  // Phase 1 — active card slides out to the right (same as removeCombatant)
   if (leavingEl) {
     leavingEl.style.transition    = 'transform 0.24s ease-in, opacity 0.24s ease-in';
     leavingEl.style.pointerEvents = 'none';
@@ -286,6 +526,16 @@ function triggerCombatEnd() {
   started      = false;
   round        = 1;
   roundFirstId = null;
+
+  combatants.forEach(c => {
+    if (c.type === 'player') {
+      c.hp     = c.maxHp;
+      c.isDead = false;
+      c.conds  = [];
+    }
+  });
+
+  addHistory('Combat ended - Victory!', 'event');
   saveState();
   render();
   setTimeout(() => openModal('combatEndModal'), 300);
@@ -293,9 +543,11 @@ function triggerCombatEnd() {
 
 function closeCombatEnd() {
   closeModal('combatEndModal');
-  // Clear all combatants after victory
-  combatants   = [];
-  queue        = [];
+  combatants = combatants.filter(c => c.type === 'player');
+  queue = queue.filter(id => {
+    const c = getC(id);
+    return c && c.type === 'player';
+  });
   started      = false;
   round        = 1;
   roundFirstId = null;
@@ -317,21 +569,26 @@ function npPress(d) {
   if (hpStr.length >= 10) return;
 
   if (d === 'd') {
-    // Needs at least one digit before it, no existing 'd', no existing '+'
-    if (hpStr.length === 0)        return;
-    if (hpStr.includes('d'))       return;
-    if (hpStr.includes('+'))       return;
+    if (hpStr.length === 0) return;
+    if (hpStr.includes('d')) return;
+    if (hpStr.match(/[+\-]/)) return;
   }
 
-  if (d === '+') {
-    // Needs a 'd' already typed, at least one digit after 'd', no existing '+'
-    if (!hpStr.includes('d'))      return;
-    if (hpStr.includes('+'))       return;
-    const afterD = hpStr.split('d')[1];
-    if (!afterD || afterD.length === 0) return;
+  if (d === '±') {
+    if (!hpStr.includes('d')) return;
+    if (hpStr.includes('+')) {
+      hpStr = hpStr.replace('+', '-');
+    } else if (hpStr.includes('-')) {
+      hpStr = hpStr.replace('-', '+');
+    } else {
+      const afterD = hpStr.split('d')[1];
+      if (!afterD || afterD.length === 0) return;
+      hpStr += '+';
+    }
+  } else {
+    hpStr += d;
   }
 
-  hpStr += d;
   refreshDisp();
 }
 
@@ -344,45 +601,10 @@ function refreshDisp() {
   const el  = document.getElementById('hpDisp');
   const len = hpStr.length;
   el.textContent = hpStr || '_';
-  // Scale font down as expression grows
   if      (len <= 3) el.style.fontSize = '42px';
   else if (len <= 5) el.style.fontSize = '34px';
   else if (len <= 7) el.style.fontSize = '28px';
   else               el.style.fontSize = '22px';
-}
-
-// ────────────────────────────────────────
-// DICE EXPRESSION PARSER
-// Supports: plain integers  →  "12"
-//           dice notation   →  "2d6"  "2d6+3"
-// Returns { total, label } or null on invalid input
-// ────────────────────────────────────────
-function parseDiceExpr(str) {
-  if (!str) return null;
-
-  // Plain integer (no 'd')
-  if (!str.includes('d')) {
-    const n = parseInt(str, 10);
-    if (isNaN(n) || n <= 0) return null;
-    return { total: n, label: String(n) };
-  }
-
-  // Dice notation: XdY or XdY+Z
-  const m = str.match(/^(\d+)d(\d+)(?:\+(\d+))?$/);
-  if (!m) return null;
-
-  const count = parseInt(m[1], 10);
-  const sides = parseInt(m[2], 10);
-  const bonus = m[3] ? parseInt(m[3], 10) : 0;
-
-  if (count < 1 || sides < 1) return null;
-
-  let rolled = 0;
-  for (let i = 0; i < count; i++) {
-    rolled += Math.floor(Math.random() * sides) + 1;
-  }
-  const total = rolled + bonus;
-  return { total, label: `${str} = ${total}` };
 }
 
 function applyHP(sign) {
@@ -390,23 +612,86 @@ function applyHP(sign) {
   closeModal('hpModal');
   if (!c) return;
 
-  const parsed = parseDiceExpr(hpStr);
-  if (!parsed || parsed.total === 0) return;
+  const parsed = parseDiceOrNumber(hpStr);
+  if (parsed === null || parsed === 0) return;
 
-  const { total, label } = parsed;
-  c.hp = Math.max(0, c.hp + sign * total);
-  if (c.hp === 0) c.isDead = true;
+  const oldHp = c.hp;
+  const dmg   = sign < 0 ? parsed : 0;
+  const heal  = sign > 0 ? parsed : 0;
+
+  c.hp = Math.max(0, c.hp + sign * parsed);
+
+  if (oldHp > 0 && c.hp === 0) {
+    c.isDead = true;
+    addHistory(`${esc(c.name)}:<br>☠️ HP reduced to 0`, 'death');
+    toast(`☠️ ${esc(c.name)}'s HP reduced to 0`);
+  } else {
+    if (dmg > 0) {
+      addHistory(`${esc(c.name)}:<br>🩸 Takes ${dmg} damage`, 'damage');
+      toast(`<span style="color:var(--red);">🩸 ${esc(c.name)} takes ${dmg} damage</span>`);
+    } else if (heal > 0) {
+      addHistory(`${esc(c.name)}:<br>💚 Receives ${heal} heal`, 'heal');
+      toast(`<span style="color:var(--green);">💚 ${esc(c.name)} heals ${heal}</span>`);
+    }
+  }
 
   saveState();
   render();
   checkCombatEnd();
+}
 
-  // Colored toast
-  if (sign < 0) {
-    toast(`<span style="color:var(--red)">⚔️ Damage: ${esc(label)}</span>`);
-  } else {
-    toast(`<span style="color:var(--green)">💚 Heal: ${esc(label)}</span>`);
+// ────────────────────────────────────────
+// ROLL SCREEN
+// ────────────────────────────────────────
+function rollPress(d) {
+  if (rollStr.length >= 10) return;
+
+  if (d === 'd') {
+    if (rollStr.length === 0) return;
+    if (rollStr.includes('d')) return;
+    if (rollStr.match(/[+\-]/)) return;
   }
+
+  if (d === '±') {
+    if (!rollStr.includes('d')) return;
+    if (rollStr.includes('+')) {
+      rollStr = rollStr.replace('+', '-');
+    } else if (rollStr.includes('-')) {
+      rollStr = rollStr.replace('-', '+');
+    } else {
+      const afterD = rollStr.split('d')[1];
+      if (!afterD || afterD.length === 0) return;
+      rollStr += '+';
+    }
+  } else {
+    rollStr += d;
+  }
+
+  refreshRollDisp();
+}
+
+function rollBack() {
+  rollStr = rollStr.slice(0, -1);
+  refreshRollDisp();
+}
+
+function refreshRollDisp() {
+  const el  = document.getElementById('rollDisplay');
+  const len = rollStr.length;
+  el.textContent = rollStr || '_';
+  if      (len <= 3) el.style.fontSize = '42px';
+  else if (len <= 5) el.style.fontSize = '34px';
+  else if (len <= 7) el.style.fontSize = '28px';
+  else               el.style.fontSize = '22px';
+}
+
+function rollExecute() {
+  const parsed = parseDiceOrNumber(rollStr);
+  if (parsed === null) return;
+  addHistory(`🎲 Rolled ${rollStr} = ${parsed}`, 'roll');
+  toast(`🎲 ${rollStr} = ${parsed}`);
+  rollStr = '';
+  refreshRollDisp();
 }
 
 // ────────────────────────────────────────
@@ -422,11 +707,11 @@ function openStatusModal(id) {
 
 function buildStatusGrid() {
   document.getElementById('statusGrid').innerHTML = CONDITIONS.map(cd => `
-    <div class="s-opt ${pendingConds.includes(cd.id) ? 'chosen' : ''}"
+    <div class="s-opt ${pendingConds.includes(cd.id) ? 'chosen' : ''} ${cd.id === 'dot' ? 'is-dot' : ''}"
          onclick="toggleCond('${cd.id}', this)">
       <span>${cd.lbl}</span>
     </div>
-  `).join('');
+    `).join('');
 }
 
 function toggleCond(id, el) {
@@ -434,14 +719,25 @@ function toggleCond(id, el) {
     pendingConds = pendingConds.filter(c => c !== id);
     el.classList.remove('chosen');
   } else {
-    pendingConds.push(id);
+    if (id === 'dot') {
+      pendingConds.unshift(id);
+    } else {
+      pendingConds.push(id);
+    }
     el.classList.add('chosen');
   }
 }
 
 function applyStatuses() {
   const c = getC(statusTarget);
-  if (c) c.conds = [...pendingConds];
+  if (c) {
+    if (pendingConds.includes('dot')) {
+      pendingConds = pendingConds.filter(c => c !== 'dot');
+      c.conds = ['dot', ...pendingConds];
+    } else {
+      c.conds = [...pendingConds];
+    }
+  }
   closeModal('statusModal');
   saveState();
   render();
@@ -458,17 +754,16 @@ function removeCondition(cid, condId) {
 // BUILD CARD HTML
 // ────────────────────────────────────────
 function buildCard(c, idx) {
-  const isActive       = started && idx === 0;
-  const hpPct          = c.maxHp > 0 ? c.hp / c.maxHp : 0;
-  const isLow          = hpPct > 0 && hpPct <= 0.2;
-  const isZero         = c.hp === 0;
-  const typeClass      = c.type === 'player' ? 'player' : 'monster';
-  const hpEditDisabled = !started ? 'disabled' : '';
+  const isActive  = started && idx === 0;
+  const hpPct     = c.maxHp > 0 ? c.hp / c.maxHp : 0;
+  const isLow     = hpPct > 0 && hpPct <= 0.2;
+  const isZero    = c.hp === 0;
+  const typeClass = c.type === 'player' ? 'player' : 'monster';
 
-  const chips = c.conds.map(condId => {
+ const chips = c.conds.map(condId => {
     const cd = getCond(condId);
     return cd
-      ? `<span class="chip" onclick="removeCondition(${c.id},'${condId}')">${cd.lbl}<span class="chip-x">✕</span></span>`
+      ? `<span class="chip ${condId === 'dot' ? 'is-dot-chip' : ''}" onclick="removeCondition(${c.id},'${condId}')" title="Click to remove">${cd.lbl}</span>`
       : '';
   }).join('');
 
@@ -481,21 +776,22 @@ function buildCard(c, idx) {
   <button class="btn-remove" onclick="removeCombatant(${c.id})" title="Remove combatant">❌️</button>
 </div>
 <div class="card-stats">
-  <div class="hp-disp ${isLow ? 'low' : ''} ${isZero ? 'zero' : ''}">
+  <div class="hp-disp ${isLow ? 'low' : ''} ${isZero ? 'zero' : ''}" onclick="openHpModal(${c.id})" style="cursor:pointer;">
     <span class="stat-ico">❤️</span>
     <span class="stat-lbl">:</span>
     <span class="stat-val">${c.hp}/${c.maxHp}</span>
   </div>
-  <button class="hp-edit-btn" onclick="openHpModal(${c.id})" title="Modify HP" ${hpEditDisabled}>✏️ HP</button>
-  <div class="ac-wrap">
-    <div class="ac-disp">
-      <span class="stat-ico">🛡</span>
-      <span class="stat-lbl">:</span>
-      <span class="stat-val">${c.ac}</span>
+  <div style="display:flex;align-items:center;gap:6px;">
+    <div class="ac-wrap" style="cursor:pointer;" onclick="openAttackModal(${c.id})">
+      <div class="ac-disp">
+        <span class="stat-ico">🛡</span>
+        <span class="stat-lbl">:</span>
+        <span class="stat-val">${c.ac}</span>
+      </div>
     </div>
-    <div class="ac-btns">
-      <button class="ac-btn" onclick="changeAC(${c.id}, 1)" title="+1 AC">+</button>
-      <button class="ac-btn" onclick="changeAC(${c.id}, -1)" title="-1 AC">−</button>
+    <div class="ac-adjust" title="Adjust AC">
+      <button class="ac-btn" onclick="acChange(${c.id},1)">+</button>
+      <button class="ac-btn" onclick="acChange(${c.id},-1)">−</button>
     </div>
   </div>
   <button class="add-cond-btn" onclick="openStatusModal(${c.id})">Cond.</button>
@@ -515,21 +811,24 @@ function render() {
     roundFirstId = null;
   }
 
-  document.getElementById('roundNum').textContent = round;
+  // Always sync the round number display
+  const roundEl = document.getElementById('combatRoundNum');
+  if (roundEl) roundEl.textContent = round;
 
-  const btn = document.getElementById('nextBtn');
-
-  if (!started) {
-    btn.disabled = !canStartCombat();
-    document.getElementById('nextIcon').textContent = '⚔️';    
-    document.getElementById('nextTxt').textContent  = 'Start Combat';
-  } else {
-    btn.disabled = queue.length === 0;
-    document.getElementById('nextIcon').textContent = '▶';    
-    document.getElementById('nextTxt').textContent  = 'Next Turn';
+  // Update Start/Next button label and enabled state
+  const btn = document.getElementById('nextBtnCombat');
+  if (btn) {
+    if (!started) {
+      btn.textContent = '▶ Start';
+      btn.disabled    = !canStartCombat();
+    } else {
+      btn.textContent = '▶ Next';
+      btn.disabled    = queue.length === 0;
+    }
   }
 
-  const listEl = document.getElementById('list');
+  const listEl = document.getElementById('listCombat');
+  if (!listEl) return;
 
   if (queue.length === 0) {
     listEl.innerHTML = `
@@ -541,11 +840,9 @@ function render() {
     return;
   }
 
-  // Remove empty-state if exist
   const emptyEl = listEl.querySelector('.empty-state');
   if (emptyEl) emptyEl.remove();
 
-  // Rebuild / update card elements
   const orderedEls = queue.map((id, idx) => {
     const c = getC(id);
     if (!c) return null;
@@ -558,19 +855,17 @@ function render() {
       if (el.innerHTML !== innerHTML) el.innerHTML = innerHTML;
     } else {
       el = document.createElement('div');
-      el.className    = classes;
-      el.dataset.id   = String(id);
-      el.innerHTML    = innerHTML;
+      el.className  = classes;
+      el.dataset.id = String(id);
+      el.innerHTML  = innerHTML;
     }
     return el;
   }).filter(Boolean);
 
-  // Eliminar tarjetas que ya no están en la cola
   [...listEl.querySelectorAll('.card[data-id]')].forEach(el => {
     if (!orderedEls.includes(el)) el.remove();
   });
 
-  // Garantizar orden correcto; solo mover si la posición cambió
   orderedEls.forEach((el, idx) => {
     const currentAtIdx = listEl.children[idx];
     if (currentAtIdx !== el) listEl.insertBefore(el, currentAtIdx || null);
@@ -578,7 +873,17 @@ function render() {
 }
 
 // ────────────────────────────────────────
-// TOAST  (supports innerHTML for colored messages)
+// RENDER COMBAT SCREEN
+// ────────────────────────────────────────
+function renderCombatScreen() {
+  document.getElementById('combatRoundNum').textContent = round;
+
+  // Re-use render() since both share the same listCombat element
+  render();
+}
+
+// ────────────────────────────────────────
+// TOAST
 // ────────────────────────────────────────
 function toast(msg) {
   const el = document.getElementById('toast');
@@ -593,7 +898,7 @@ function toast(msg) {
 // ────────────────────────────────────────
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
-    ['addModal','hpModal','statusModal'].forEach(closeModal);
+    ['addModal','hpModal','statusModal','attackModal','deleteConfirmModal'].forEach(closeModal);
   }
 });
 
@@ -612,8 +917,8 @@ function onViewportChange() {
     el.style.height = vv.height + 'px';
   });
 
-  const toast = document.getElementById('toast');
-  toast.style.bottom = (30 + Math.max(0, keyboardH)) + 'px';
+  const toastEl = document.getElementById('toast');
+  toastEl.style.bottom = (30 + Math.max(0, keyboardH)) + 'px';
 }
 
 if (window.visualViewport) {
@@ -626,3 +931,5 @@ if (window.visualViewport) {
 // ────────────────────────────────────────
 loadState();
 render();
+switchScreen('screenHome');
+renderHistoryLog();

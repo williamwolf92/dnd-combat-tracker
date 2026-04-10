@@ -8,58 +8,149 @@
 </head>
 <body>
 
-<header>
-  <h1>Dungeons &amp; Dragons</h1>
-  <div class="tagline">Combat Tracker</div>
-  <div class="sword-icon">⚔️ 🏹 🔮 🛡</div>
-  <div class="ornament"></div>
-</header>
+<!-- ────── HOME SCREEN ────── -->
+<div class="screen" id="screenHome">
+  <header class="home-header">
+    <h1>Dungeons &amp; Dragons</h1>
+    <div class="tagline">Combat Tracker</div>
+    <div class="sword-icon">⚔️ 🏹 🔮 🛡</div>
+    <div class="ornament"></div>
+  </header>
 
-<div class="combat-info">
-  <div class="round-lbl">Round</div>
-  <div class="round-num" id="roundNum">1</div>
-</div>
+  <main class="home-main">
+    <div id="homeCustom">
+      <p class="home-intro">Welcome to <strong>DnD Combat Tracker</strong>. Here's a quick guide:</p><br>
 
-<div class="controls">
-  <button class="btn btn-add" onclick="openAddModal()">✦ Add Combatant</button>
-  <button class="btn btn-next" id="nextBtn" onclick="nextTurn()" disabled>
-    <span id="nextIcon">⚔️</span>      
-    <span id="nextTxt">Start Combat</span>
-  </button>
-</div>
+      <div class="home-section">
+        <div class="home-section-title"><b>⚔️ ADDING A COMBATANT</b></div>
+        <p>• Go to the <b>Combat</b> tab and tap <b>✦ Add</b> to add Players and Monsters. Enter Name, Initiative, HP and AC.</p>
+        <p>• <b>Initiative</b> accepts a fixed number (e.g. <em>14</em>) or a bonus modifier (e.g. <i>-2</i> / <i>+3</i>). A modifier will roll <b>1d20</b> and add it automatically.</p>
+        <p>• <b>HP</b> accepts a fixed number or a dice roll in the format <i><b>#d#</b></i> or <i><b>#d#±#</b></i> (e.g. <i>8d6+4</i>).</p>
+        <p>• <b>AC</b> only accepts a fixed number.</p>
+      </div>
 
-<main>
-  <div class="combatant-list" id="list">
-    <div class="empty-state">
-      <span class="empty-dragon">🐲</span>
-      <h3>✦ The battlefield is empty ✦</h3>
-      <p>Add players and monsters to start the combat</p>
+      <div class="home-section">
+        <div class="home-section-title"><b>❤️ MODIFYING HP</b></div>
+        <p>• Tap the ❤️<b>HP</b> value on a card. Use the numpad to enter a fixed number, a roll (<i><b>#d#</b></i>) or a roll with bonus (<i><b>#d#±#</b></i>), then tap <b>Damage</b> or <b>Heal</b>.</p>
+        <p>• A combatant's HP pulses red when it drops to 20% or below.</p>
+      </div>
+
+      <div class="home-section">
+        <div class="home-section-title"><b>🛡 ATTACK ROLLS</b></div>
+        <p>• Tap the 🛡<b>AC</b> value on a card to open the Attack Roll panel. The result will show <b>HIT</b>, <b>FAIL</b> or <b>CRITICAL!</b>.</p>
+        <p>• Use the <b>+/−</b> buttons to temporarily adjust AC.</p>
+      </div>
+
+      <div class="home-section">
+        <div class="home-section-title"><b>⚡ CONDITIONS</b></div>
+        <p>• Tap <b>Cond.</b> on a card to add conditions. Tap a condition chip to remove it.</p>
+        <p>• <b>D.o.T.</b> is a <b>Damage over Time</b> tag — it is not a real D&amp;D condition.</p>
+      </div>
     </div>
-  </div>
-</main>
+  </main>
+</div>
 
-<!-- ── ADD MODAL ── -->
+<!-- ────── COMBAT SCREEN ────── -->
+<div class="screen" id="screenCombat" style="display:none;">
+  <header class="combat-header">
+    <div class="combat-title">⚔️ COMBAT ⚔️</div>
+    <div class="combat-round">Round <span id="combatRoundNum">1</span></div>
+    <div class="combat-controls">
+      <button class="btn btn-add-sm" onclick="openAddModal()">✦ Add</button>
+      <button class="btn btn-next-sm" id="nextBtnCombat" onclick="nextTurn()">▶ Start</button>
+    </div>
+  </header>
+
+  <main class="combat-main">
+    <div class="combatant-list" id="listCombat"></div>
+  </main>
+</div>
+
+<!-- ────── HISTORY SCREEN ────── -->
+<div class="screen" id="screenHistory" style="display:none;">
+  <header class="history-header">
+    <div class="history-title">📋 History</div>
+    <button class="btn btn-cancel" onclick="clearHistory()" title="Clear history">🗑 Clear</button>
+  </header>
+
+  <main class="history-main">
+    <div class="history-log" id="historyLog">
+      <div class="empty-state">
+        <span class="empty-dragon">📜</span>
+        <h3>No events yet</h3>
+        <p>History will appear here</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- ────── ROLL SCREEN ────── -->
+<div class="screen" id="screenRoll" style="display:none;">
+  <header class="roll-header">
+    <div class="roll-title">🎲 Roll Dice</div>
+  </header>
+
+  <main class="roll-main">
+    <div class="roll-container">
+      <div class="roll-display" id="rollDisplay">_</div>
+      <div class="numpad">
+        <button class="np" onclick="rollPress('1')">1</button>
+        <button class="np" onclick="rollPress('2')">2</button>
+        <button class="np" onclick="rollPress('3')">3</button>
+        <button class="np" onclick="rollPress('4')">4</button>
+        <button class="np" onclick="rollPress('5')">5</button>
+        <button class="np" onclick="rollPress('6')">6</button>
+        <button class="np" onclick="rollPress('7')">7</button>
+        <button class="np" onclick="rollPress('8')">8</button>
+        <button class="np" onclick="rollPress('9')">9</button>
+        <button class="np np-dice" onclick="rollPress('d')">d</button>
+        <button class="np" onclick="rollPress('0')">0</button>
+        <button class="np np-toggle" onclick="rollPress('±')">±</button>
+        <button class="np np-roll" onclick="rollExecute()" style="grid-column: span 2;">🎲 ROLL</button>
+        <button class="np np-clr" onclick="rollBack()">⌫ Del</button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- ──────────────────── FOOTER NAVIGATION ──────────────────── -->
+<footer class="app-footer">
+  <button class="footer-btn" onclick="switchScreen('screenHome')" id="btnHome">🏠 Home</button>
+  <button class="footer-btn" onclick="switchScreen('screenCombat')" id="btnCombat">⚔️ Combat</button>
+  <button class="footer-btn" onclick="switchScreen('screenHistory')" id="btnHistory">📋 History</button>
+  <button class="footer-btn" onclick="switchScreen('screenRoll')" id="btnRoll">🎲 Roll</button>
+</footer>
+
+<!-- ──────────────────── ADD COMBATANT MODAL ──────────────────── -->
 <div class="overlay" id="addModal" onclick="ovrClick(event,'addModal')">
   <div class="modal">
     <div class="modal-title">✦ Add Combatant</div>
 
     <div class="field">
       <label>Name</label>
-      <input id="a-name" type="text" placeholder="Ex: Warrior Goblin, Thorin...">
+      <input id="a-name" type="text">
     </div>
 
     <div class="row">
+      <!-- Initiative: text supports "+5"/"-2" (modifier) or "14" (fixed) -->
       <div class="field">
         <label>Initiative</label>
-        <input id="a-init" type="number" placeholder="10" min="-10">
+        <div class="init-wrap">
+          <input id="a-init" type="text" oninput="filterInitInput(this)">
+          <div class="init-steppers">
+            <button class="btn-init-step" onclick="initStep(1)">+</button>
+            <button class="btn-init-step" onclick="initStep(-1)">−</button>
+          </div>
+        </div>
       </div>
+      <!-- HP: digits, d, +, - only. Formats: #  |  #d#  |  #d#±# -->
       <div class="field">
         <label>HP</label>
-        <input id="a-hp" type="number" placeholder="10" min="1">
+        <input id="a-hp" type="text" oninput="filterHpInput(this)">
       </div>
       <div class="field">
         <label>AC</label>
-        <input id="a-ac" type="number" placeholder="10" min="1">
+        <input id="a-ac" type="number" min="1">
       </div>
     </div>
 
@@ -70,7 +161,7 @@
   </div>
 </div>
 
-<!-- ── HP NUMPAD MODAL ── -->
+<!-- ────── HP NUMPAD MODAL ────── -->
 <div class="overlay" id="hpModal" onclick="ovrClick(event,'hpModal')">
   <div class="modal modal-hp">
     <div class="modal-title">❤️ Modify HP</div>
@@ -87,15 +178,15 @@
       <button class="np" onclick="npPress('9')">9</button>
       <button class="np np-dice" onclick="npPress('d')">d</button>
       <button class="np" onclick="npPress('0')">0</button>
-      <button class="np np-bonus" onclick="npPress('+')">+</button>
+      <button class="np np-toggle" onclick="npPress('±')">±</button>
       <button class="np np-minus" onclick="applyHP(-1)">Damage</button>
-      <button class="np np-plus"  onclick="applyHP(1)">Heal</button>
-      <button class="np np-clr"   onclick="npBack()">⌫ Del</button>
+      <button class="np np-plus" onclick="applyHP(1)">Heal</button>
+      <button class="np np-clr" onclick="npBack()">⌫ Del</button>
     </div>
   </div>
 </div>
 
-<!-- ── STATUS MODAL ── -->
+<!-- ────── STATUS CONDITIONS MODAL ────── -->
 <div class="overlay" id="statusModal" onclick="ovrClick(event,'statusModal')">
   <div class="modal modal-status">
     <div class="modal-title">⚡ Conditions</div>
@@ -106,7 +197,62 @@
   </div>
 </div>
 
-<!-- ── COMBAT END MODAL ── -->
+<!-- ────── ATTACK MODAL ────── -->
+<div class="overlay" id="attackModal" onclick="ovrClick(event,'attackModal')">
+  <div class="modal modal-attack">
+    <div class="modal-title">⚔️ Attack Roll</div>
+    
+    <div class="field">
+      <label>Attack Bonus</label>
+      <div class="bonus-stepper">
+        <button class="btn-stepper" onclick="attackBonusChange(-1)">−</button>
+        <input type="number" id="attackBonus" value="0">
+        <button class="btn-stepper" onclick="attackBonusChange(1)">+</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Roll Type</label>
+      <div class="radio-group">
+        <label class="radio-opt">
+          <input type="radio" name="attackType" value="normal" checked>
+          <span>Normal</span>
+        </label>
+        <label class="radio-opt">
+          <input type="radio" name="attackType" value="advantage">
+          <span>Advan.</span>
+        </label>
+        <label class="radio-opt">
+          <input type="radio" name="attackType" value="disadvantage">
+          <span>Disad.</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="attack-result" id="attackResult" style="display:none;">
+      <div class="result-message" id="resultMessage"></div>
+      <div class="result-formula" id="resultFormula"></div>
+    </div>
+
+    <div class="modal-actions" style="margin-top:20px;">
+      <button class="btn btn-ok" onclick="executeAttack()">⚔️ Attack</button>
+      <button class="btn btn-cancel" onclick="closeModal('attackModal')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ────── DELETE CONFIRMATION MODAL ────── -->
+<div class="overlay" id="deleteConfirmModal" onclick="ovrClick(event,'deleteConfirmModal')">
+  <div class="modal modal-confirm">
+    <div class="confirm-text">Do you want to remove <strong id="deleteConfirmName"></strong>?</div>
+    <div class="modal-actions" style="margin-top:20px;">
+      <button class="btn btn-ok" onclick="confirmDelete()">Yes</button>
+      <button class="btn btn-cancel" onclick="closeModal('deleteConfirmModal')">No</button>
+    </div>
+  </div>
+</div>
+
+<!-- ────── COMBAT END MODAL ────── -->
 <div class="overlay" id="combatEndModal">
   <div class="modal modal-confirm">
     <span class="cup-icon">🏆</span>
