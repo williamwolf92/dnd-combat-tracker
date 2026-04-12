@@ -30,6 +30,7 @@ let round        = 1;
 let started      = false;
 let roundFirstId = null;
 let history      = [];
+let combatStartRoster = [];   // {name, type} of combatants at start of each combat
 let currentScreen = 'screenHome';
 
 // Modal state
@@ -57,7 +58,7 @@ let pendingDeleteId = null;
 const STORAGE_KEY = 'dnd_combat_state';
 
 function saveState() {
-  const state = { combatants, queue, uid, round, started, roundFirstId, history };
+  const state = { combatants, queue, uid, round, started, roundFirstId, history, combatStartRoster };
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {
     console.warn('Error saving state:', e);
   }
@@ -68,13 +69,14 @@ function loadState() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return;
     const state = JSON.parse(raw);
-    combatants   = state.combatants   || [];
-    queue        = state.queue        || [];
-    uid          = state.uid          ?? 1;
-    round        = state.round        ?? 1;
-    started      = state.started      ?? false;
-    roundFirstId = state.roundFirstId ?? null;
-    history      = state.history      || [];
+    combatants        = state.combatants        || [];
+    queue             = state.queue             || [];
+    uid               = state.uid               ?? 1;
+    round             = state.round             ?? 1;
+    started           = state.started           ?? false;
+    roundFirstId      = state.roundFirstId      ?? null;
+    history           = state.history           || [];
+    combatStartRoster = state.combatStartRoster || [];
   } catch(e) {
     console.warn('Error loading state:', e);
   }
@@ -106,11 +108,26 @@ function switchScreen(screenId) {
   const screens = ['screenHome', 'screenCombat', 'screenHistory', 'screenRoll'];
   const idx = screens.indexOf(screenId);
   if (idx >= 0) document.querySelectorAll('.footer-btn')[idx].classList.add('active');
-  
+
+  const sharedHeader  = document.getElementById('sharedHeader');
+  const hCombat       = document.getElementById('sharedHeaderCombat');
+  const hHistory      = document.getElementById('sharedHeaderHistory');
+
   if (screenId === 'screenCombat') {
+    sharedHeader.style.display  = 'flex';
+    hCombat.style.display       = 'flex';
+    hHistory.style.display      = 'none';
     renderCombatScreen();
   } else if (screenId === 'screenHistory') {
+    sharedHeader.style.display  = 'flex';
+    hCombat.style.display       = 'none';
+    hHistory.style.display      = 'flex';
+    populateHistoryFilter();
     renderHistoryLog();
+  } else {
+    sharedHeader.style.display  = 'none';
+    hCombat.style.display       = 'none';
+    hHistory.style.display      = 'none';
   }
 }
 
@@ -124,9 +141,41 @@ function addHistory(msg, type = 'event') {
   saveState();
 }
 
+function populateHistoryFilter() {
+  const sel = document.getElementById('historyFilter');
+  const currentVal = sel.value;
+  sel.innerHTML = '<option value="all">All</option>';
+  combatStartRoster.forEach(c => {
+    const prefix = c.type === 'player' ? '(P)' : '(M)';
+    const opt = document.createElement('option');
+    opt.value = c.name;
+    opt.textContent = `${prefix} ${c.name}`;
+    sel.appendChild(opt);
+  });
+  // Restore previous selection if still valid
+  if ([...sel.options].some(o => o.value === currentVal)) {
+    sel.value = currentVal;
+  } else {
+    sel.value = 'all';
+  }
+}
+
+function applyHistoryFilter() {
+  renderHistoryLog();
+}
+
 function renderHistoryLog() {
   const log = document.getElementById('historyLog');
-  if (history.length === 0) {
+  const sel = document.getElementById('historyFilter');
+  const filterVal = sel ? sel.value : 'all';
+
+  let entries = history;
+  if (filterVal !== 'all') {
+    const escaped = esc(filterVal);
+    entries = history.filter(e => e.msg.includes(escaped));
+  }
+
+  if (entries.length === 0) {
     log.innerHTML = `<div class="empty-state">
       <span class="empty-dragon">📜</span>
       <h3>No events yet</h3>
@@ -134,8 +183,8 @@ function renderHistoryLog() {
     </div>`;
     return;
   }
-  const entries = history.slice().reverse();
-  log.innerHTML = entries.map((e, i) => `<div class="history-entry" style="animation: slideIn 0.3s ease-out ${i*0.05}s both;">
+  const reversed = entries.slice().reverse();
+  log.innerHTML = reversed.map((e, i) => `<div class="history-entry" style="animation: slideIn 0.3s ease-out ${i*0.05}s both;">
     <div class="entry-time">${e.time}</div>
     <div class="entry-msg">${e.msg}</div>
   </div>`).join('');
@@ -143,7 +192,9 @@ function renderHistoryLog() {
 
 function clearHistory() {
   history = [];
+  combatStartRoster = [];
   saveState();
+  populateHistoryFilter();
   renderHistoryLog();
   toast('History cleared');
 }
@@ -444,6 +495,12 @@ function nextTurn() {
     if (!canStartCombat()) return;
     started      = true;
     roundFirstId = queue[0];
+    // Record combatants in roster for history filtering (avoid name duplicates)
+    combatants.forEach(c => {
+      if (!combatStartRoster.some(r => r.name === c.name)) {
+        combatStartRoster.push({ name: c.name, type: c.type });
+      }
+    });
     saveState();
     render();
     addHistory('⚔️ <b>START COMBAT!</b>', 'event');
@@ -778,11 +835,11 @@ function applyStatuses() {
 
     added.forEach(id => {
       const cd = getCond(id);
-      if (cd) addHistory(`<b>${esc(c.name)}</b> gains condition:<br>⚡<b>${cd.lbl}</b>`, 'condition');
+      if (cd) addHistory(`<b>${esc(c.name)}</b> gains condition:<br>🟢 <b>${cd.lbl}</b>`, 'condition');
     });
     removed.forEach(id => {
       const cd = getCond(id);
-      if (cd) addHistory(`<b>${esc(c.name)}</b> loses condition:<br>⚡<b>${cd.lbl}</b>`, 'condition');
+      if (cd) addHistory(`<b>${esc(c.name)}</b> loses condition:<br>🔴 <b>${cd.lbl}</b>`, 'condition');
     });
   }
   closeModal('statusModal');
@@ -795,7 +852,7 @@ function removeCondition(cid, condId) {
   if (c) {
     const cd = getCond(condId);
     c.conds = c.conds.filter(id => id !== condId);
-    if (cd) addHistory(`<b>${esc(c.name)}</b> loses condition:<br>⚡<b>${cd.lbl}</b>`, 'condition');
+    if (cd) addHistory(`<b>${esc(c.name)}</b> loses condition:<br>🔴 <b>${cd.lbl}</b>`, 'condition');
   }
   saveState();
   render();

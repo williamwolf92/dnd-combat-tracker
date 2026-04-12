@@ -27,7 +27,8 @@ body {
 .screen {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
 }
 
@@ -117,58 +118,44 @@ header h1 {
   padding-left: 14px;
 }
 
-/* ── COMBAT HEADER ── */
-.combat-header {
+/* ── SHARED COMBAT / HISTORY HEADER ── */
+.shared-header {
+  flex-shrink: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--text);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+  padding: 10px;
+}
+
+#sharedHeaderCombat,
+#sharedHeaderHistory {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
   gap: 12px;
-  flex-wrap: wrap;
-  border-bottom: 2px solid var(--text);
-}
-
-.combat-title {
-  font-size: 18px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--red);
-  flex: 1;
-  min-width: 150px;
 }
 
 .combat-round {
-  font-size: 14px;
+  font-size: 30px;
   font-weight: 700;
   color: var(--text);
 }
 
-.combat-controls {
-  display: flex;
-  gap: 8px;
-}
-
-/* ── HISTORY HEADER ── */
-.history-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 20px;
-  gap: 12px;
-  border-bottom: 2px solid var(--text);
-}
-
-.history-title {
-  font-size: 18px;
+/* ── HISTORY FILTER DROPDOWN ── */
+.history-filter-select {
+  background: var(--btn-bg);
+  border: 2px solid var(--text);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--text);
-}
-
-/* Clear button inside history header — matches combat header small buttons */
-.history-header .btn {
   padding: 8px 10px;
-  font-size: 11px;
+  outline: none;
+  cursor: default;
+  max-width: 200px;
 }
 
 /* ── HISTORY LOG ── */
@@ -191,10 +178,11 @@ header h1 {
 .entry-time {
   font-family: 'Courier New', monospace;
   color: var(--green);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   align-content: center;
   flex-shrink: 0;
+  letter-spacing: -2px;
 }
 
 .entry-msg {
@@ -211,7 +199,9 @@ header h1 {
 /* ── ROLL SCREEN ── */
 .roll-header {
   text-align: center;
-  padding: 20px;
+  padding: 16px;
+  border-bottom: 1px solid var(--text);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.5);
 }
 
 .roll-title {
@@ -242,11 +232,11 @@ header h1 {
   justify-content: center;
   font-size: 42px;
   font-weight: 700;
+  letter-spacing: -5px;
   color: var(--text);
   margin-bottom: 14px;
   padding-top: 4px;
   font-family: 'Courier New', monospace;
-  transition: font-size 0.1s;
   overflow: hidden;
 }
 
@@ -255,14 +245,15 @@ header h1 {
   display: flex;
   justify-content: space-around;
   background: var(--bg);
-  border-top: 2px solid var(--text);
+  border-top: 1px solid var(--text);
   gap: 0;
   flex-shrink: 0;
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.5);
 }
 
 .footer-btn {
   flex: 1;
-  padding: 16px 8px;
+  padding: 12px 8px;
   background: none;
   border: none;
   color: var(--text);
@@ -281,7 +272,7 @@ header h1 {
 
 .footer-btn.active {
   color: var(--green);
-  border-top-color: var(--green);
+  background: var(--btn-bg);
 }
 
 /* ── EMPTY STATE ── */
@@ -323,28 +314,30 @@ header h1 {
   white-space: nowrap;
 }
 
-.btn-add-sm {
+.btn-add {
   background: var(--btn-bg);
   border-color: var(--green);
   color: var(--green);
   padding: 8px 10px;
   font-size: 11px;
+  font-weight: 700;
 }
-.btn-add-sm:active {
+.btn-add:active {
   transform: scale(0.95);
 }
 
-.btn-next-sm {
+.btn-next {
   background: var(--btn-bg);
   border-color: var(--red);
   color: var(--red);
   padding: 8px 10px;
   font-size: 11px;
+  font-weight: 700;
 }
-.btn-next-sm:active {
+.btn-next:active {
   transform: scale(0.95);
 }
-.btn-next-sm:disabled {
+.btn-next:disabled {
   opacity: 0.35;
   cursor: not-allowed;
   transform: none;
@@ -693,26 +686,32 @@ header h1 {
   background: var(--btn-bg);
   border-color: var(--green);
   color: var(--green);
+  font-weight: 700;
 }
-.btn-ok:active { transform: scale(0.97); }
+.btn-ok:active { transform: scale(0.95); }
 
 .btn-cancel {
   background: var(--btn-bg);
   border-color: var(--red);
   color: var(--red);
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: 700;
 }
-.btn-cancel:active { transform: scale(0.97); }
+.btn-cancel:active { transform: scale(0.95); }
 
 .btn-player {
   background: var(--btn-bg);
   border-color: var(--green);
   color: var(--green);
+  font-weight: 700;
 }
 
 .btn-monster {
   background: var(--btn-bg);
   border-color: var(--red);
   color: var(--red);
+  font-weight: 700;
 }
 
 /* ── HP NUMPAD MODAL ── */
@@ -728,6 +727,7 @@ header h1 {
   justify-content: center;
   font-size: 42px;
   font-weight: 700;
+  letter-spacing: -5px;
   color: var(--text);
   margin-bottom: 14px;
   padding-top: 4px;
@@ -854,14 +854,18 @@ header h1 {
   transition: all 0.15s;
 }
 .s-opt.chosen {
-  background: var(--btn-bg);
-  border-color: var(--red);
-  color: var(--red);
+  background: var(--red);
+  border-color: var(--text);
+  color: var(--bg);
   transform: scale(0.95);
 }
 
 .s-opt.is-dot {
-  background: rgba(255, 0, 0, 0.15);
+  background: rgba(255, 0, 0, 0.3);
+}
+
+.s-opt.is-dot.chosen {
+  background: var(--red);
 }
 
 /* ── ATTACK MODAL ── */
@@ -910,14 +914,14 @@ header h1 {
   font-size: 13px;
   font-family: Georgia, 'Times New Roman', serif;
   color: var(--text);
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s;
   text-align: center;
 }
 .attack-type-btn:active { transform: scale(0.95); }
 
 .attack-type-btn.active {
   background: var(--green);
-  border-color: var(--green);
+  border-color: var(--text);
   color: var(--bg);
   font-weight: 700;
 }
@@ -944,7 +948,10 @@ header h1 {
 }
 
 /* ── DELETE CONFIRMATION ── */
-.modal-confirm { max-width: 350px; text-align: center; }
+.modal-confirm {
+  max-width: 350px;
+  text-align: center;
+}
 
 .confirm-text {
   font-size: 16px;
@@ -952,7 +959,12 @@ header h1 {
   margin-bottom: 8px;
 }
 
-.cup-icon { font-size: 55px; display: block; margin-bottom: 12px; }
+.cup-icon { 
+  font-size: 55px;
+  display: block;
+  margin-bottom: 12px;
+}
+
 .fallen-name {
   font-size: 30px;
   font-weight: 700;

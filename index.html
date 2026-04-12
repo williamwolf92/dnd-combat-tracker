@@ -8,6 +8,24 @@
 </head>
 <body>
 
+<!-- ────── SHARED COMBAT / HISTORY HEADER ────── -->
+<header class="shared-header" id="sharedHeader" style="display:none;">
+
+  <div id="sharedHeaderCombat" style="display:none;">
+    <button class="btn btn-add" onclick="openAddModal()">✦ Add</button>
+    <div class="combat-round">Round <span id="combatRoundNum">1</span></div>
+    <button class="btn btn-next" id="nextBtnCombat" onclick="nextTurn()">▶ Start</button>
+  </div>
+
+  <div id="sharedHeaderHistory" style="display:none;">
+    <select id="historyFilter" class="history-filter-select" onchange="applyHistoryFilter()">
+      <option value="all">All</option>
+    </select>
+    <button class="btn btn-cancel" onclick="clearHistory()" title="Clear history">🗑 Clear</button>
+  </div>
+
+</header>
+
 <!-- ────── HOME SCREEN ────── -->
 <div class="screen" id="screenHome">
   <header class="home-header">
@@ -52,15 +70,6 @@
 
 <!-- ────── COMBAT SCREEN ────── -->
 <div class="screen" id="screenCombat" style="display:none;">
-  <header class="combat-header">
-    <div class="combat-title">⚔️ COMBAT ⚔️</div>
-    <div class="combat-round">Round <span id="combatRoundNum">1</span></div>
-    <div class="combat-controls">
-      <button class="btn btn-add-sm" onclick="openAddModal()">✦ Add</button>
-      <button class="btn btn-next-sm" id="nextBtnCombat" onclick="nextTurn()">▶ Start</button>
-    </div>
-  </header>
-
   <main class="combat-main">
     <div class="combatant-list" id="listCombat"></div>
   </main>
@@ -68,11 +77,6 @@
 
 <!-- ────── HISTORY SCREEN ────── -->
 <div class="screen" id="screenHistory" style="display:none;">
-  <header class="history-header">
-    <div class="history-title">📋 History</div>
-    <button class="btn btn-cancel" onclick="clearHistory()" title="Clear history">🗑 Clear</button>
-  </header>
-
   <main class="history-main">
     <div class="history-log" id="historyLog">
       <div class="empty-state">
@@ -239,7 +243,7 @@
 <!-- ────── DELETE CONFIRMATION MODAL ────── -->
 <div class="overlay" id="deleteConfirmModal" onclick="ovrClick(event,'deleteConfirmModal')">
   <div class="modal modal-confirm">
-    <div class="confirm-text">Do you want to remove <strong id="deleteConfirmName"></strong>?</div>
+    <div class="confirm-text">Do you want to remove<br><strong id="deleteConfirmName"></strong>?</div>
     <div class="modal-actions" style="margin-top:20px;">
       <button class="btn btn-ok" onclick="confirmDelete()">Yes</button>
       <button class="btn btn-cancel" onclick="closeModal('deleteConfirmModal')">No</button>
