@@ -125,6 +125,7 @@ header h1 {
   border-bottom: 1px solid var(--text);
   box-shadow: 0 3px 10px rgba(0,0,0,0.5);
   padding: 10px;
+  height: 60px;
 }
 
 #sharedHeaderCombat,
@@ -716,6 +717,9 @@ header h1 {
 
 /* ── HP NUMPAD MODAL ── */
 .modal-hp { max-width: 310px; }
+
+/* ── ROLL MODAL ── */
+.modal-roll { max-width: 310px; }
 
 .hp-display {
   background: var(--btn-bg);

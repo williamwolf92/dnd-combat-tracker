@@ -105,7 +105,7 @@ function switchScreen(screenId) {
   currentScreen = screenId;
   
   document.querySelectorAll('.footer-btn').forEach(btn => btn.classList.remove('active'));
-  const screens = ['screenHome', 'screenCombat', 'screenHistory', 'screenRoll'];
+  const screens = ['screenHome', 'screenCombat', 'screenHistory'];
   const idx = screens.indexOf(screenId);
   if (idx >= 0) document.querySelectorAll('.footer-btn')[idx].classList.add('active');
 
@@ -314,6 +314,12 @@ function addCombatant(type) {
   const c = { id: uid++, name, init, hp, maxHp: hp, ac, conds: [], isDead: false, type };
   combatants.push(c);
   insertInQueue(c.id);
+
+  // If combat is already running, add to roster so history filter picks them up
+  if (started && !combatStartRoster.some(r => r.name === c.name)) {
+    combatStartRoster.push({ name: c.name, type: c.type });
+    if (currentScreen === 'screenHistory') populateHistoryFilter();
+  }
 
   closeModal('addModal');
   saveState();
@@ -736,6 +742,15 @@ function applyHP(sign) {
 // ────────────────────────────────────────
 // ROLL SCREEN
 // ────────────────────────────────────────
+// ────────────────────────────────────────
+// ROLL MODAL
+// ────────────────────────────────────────
+function openRollModal() {
+  rollStr = '';
+  refreshRollDisp();
+  openModal('rollModal');
+}
+
 function rollPress(d) {
   if (rollStr.length >= 10) return;
 
@@ -1002,7 +1017,7 @@ function toast(msg) {
 // ────────────────────────────────────────
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
-    ['addModal','hpModal','statusModal','attackModal','deleteConfirmModal'].forEach(closeModal);
+    ['addModal','hpModal','statusModal','attackModal','deleteConfirmModal','rollModal'].forEach(closeModal);
   }
 });
 

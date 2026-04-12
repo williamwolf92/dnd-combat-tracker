@@ -88,41 +88,12 @@
   </main>
 </div>
 
-<!-- ────── ROLL SCREEN ────── -->
-<div class="screen" id="screenRoll" style="display:none;">
-  <header class="roll-header">
-    <div class="roll-title">🎲 Roll Dice</div>
-  </header>
-
-  <main class="roll-main">
-    <div class="roll-container">
-      <div class="roll-display" id="rollDisplay">_</div>
-      <div class="numpad">
-        <button class="np" onclick="rollPress('1')">1</button>
-        <button class="np" onclick="rollPress('2')">2</button>
-        <button class="np" onclick="rollPress('3')">3</button>
-        <button class="np" onclick="rollPress('4')">4</button>
-        <button class="np" onclick="rollPress('5')">5</button>
-        <button class="np" onclick="rollPress('6')">6</button>
-        <button class="np" onclick="rollPress('7')">7</button>
-        <button class="np" onclick="rollPress('8')">8</button>
-        <button class="np" onclick="rollPress('9')">9</button>
-        <button class="np np-dice" onclick="rollPress('d')">d</button>
-        <button class="np" onclick="rollPress('0')">0</button>
-        <button class="np np-toggle" onclick="rollPress('±')">±</button>
-        <button class="np np-roll" onclick="rollExecute()" style="grid-column: span 2;">🎲 ROLL</button>
-        <button class="np np-clr" onclick="rollBack()">⌫ Del</button>
-      </div>
-    </div>
-  </main>
-</div>
-
 <!-- ──────────────────── FOOTER NAVIGATION ──────────────────── -->
 <footer class="app-footer">
   <button class="footer-btn" onclick="switchScreen('screenHome')" id="btnHome">🏠 Home</button>
   <button class="footer-btn" onclick="switchScreen('screenCombat')" id="btnCombat">⚔️ Combat</button>
   <button class="footer-btn" onclick="switchScreen('screenHistory')" id="btnHistory">📋 History</button>
-  <button class="footer-btn" onclick="switchScreen('screenRoll')" id="btnRoll">🎲 Roll</button>
+  <button class="footer-btn" onclick="openRollModal()" id="btnRoll">🎲 Roll</button>
 </footer>
 
 <!-- ──────────────────── ADD COMBATANT MODAL ──────────────────── -->
@@ -236,6 +207,30 @@
     <div class="modal-actions" style="margin-top:20px;">
       <button class="btn btn-ok" onclick="executeAttack()">⚔️ Attack</button>
       <button class="btn btn-cancel" onclick="closeModal('attackModal')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ────── ROLL MODAL ────── -->
+<div class="overlay" id="rollModal" onclick="ovrClick(event,'rollModal')">
+  <div class="modal modal-roll">
+    <div class="modal-title">🎲 Roll Dice</div>
+    <div class="roll-display" id="rollDisplay">_</div>
+    <div class="numpad">
+      <button class="np" onclick="rollPress('1')">1</button>
+      <button class="np" onclick="rollPress('2')">2</button>
+      <button class="np" onclick="rollPress('3')">3</button>
+      <button class="np" onclick="rollPress('4')">4</button>
+      <button class="np" onclick="rollPress('5')">5</button>
+      <button class="np" onclick="rollPress('6')">6</button>
+      <button class="np" onclick="rollPress('7')">7</button>
+      <button class="np" onclick="rollPress('8')">8</button>
+      <button class="np" onclick="rollPress('9')">9</button>
+      <button class="np np-dice" onclick="rollPress('d')">d</button>
+      <button class="np" onclick="rollPress('0')">0</button>
+      <button class="np np-toggle" onclick="rollPress('±')">±</button>
+      <button class="np np-roll" onclick="rollExecute()" style="grid-column: span 2;">🎲 ROLL</button>
+      <button class="np np-clr" onclick="rollBack()">⌫ Del</button>
     </div>
   </div>
 </div>
