@@ -42,7 +42,11 @@ let pendingConds = [];
 let rollStr      = '';
 
 // Attack modal state
-let attackTarget = null;
+let attackTarget     = null;
+let selectedAttackType = 'normal';
+
+// HP mod toggle state
+let hpModSelected = null; // 'resist' | 'vuln' | null
 
 // Delete confirmation state
 let pendingDeleteId = null;
@@ -171,31 +175,27 @@ function openAddModal() {
 }
 
 // ── Initiative stepper buttons ──
-// Field can hold "+5"/"-2" (modifier: rolls 1d20+mod) or "14" (fixed value)
 function initStep(delta) {
   const inp = document.getElementById('a-init');
   const val = inp.value.trim();
 
   if (!val) {
-    // Start from 0 modifier or 1 fixed
     inp.value = delta > 0 ? '+1' : '-1';
     return;
   }
 
   if (val.startsWith('+') || val.startsWith('-')) {
-    // Modifier mode: keep sign, clamp to show correctly
     const n = parseInt(val, 10);
     if (!isNaN(n)) {
       const next = n + delta;
       inp.value = next >= 0 ? `+${next}` : `${next}`;
     }
   } else {
-    // Fixed value mode: min 1
     const n = parseInt(val, 10);
     if (!isNaN(n)) {
       inp.value = String(Math.max(1, n + delta));
     } else {
-      inp.value = delta > 0 ? '1' : '1';
+      inp.value = '1';
     }
   }
 }
@@ -204,13 +204,11 @@ function initStep(delta) {
 function parseInitiative(str) {
   if (!str) return null;
   str = str.trim();
-  // Modifier format: starts with + or -
   if (/^[+\-]\d+$/.test(str)) {
     const mod = parseInt(str, 10);
     const roll = Math.floor(Math.random() * 20) + 1;
     return roll + mod;
   }
-  // Plain integer
   const n = parseInt(str, 10);
   if (!isNaN(n) && n > 0) return n;
   return null;
@@ -221,7 +219,7 @@ function filterHpInput(el) {
   el.value = el.value.replace(/[^0-9d+\-]/g, '');
 }
 
-//── Init. input filter: only digits, 'd', '+', '-' ──
+// ── Init. input filter: only digits, '+', '-' ──
 function filterInitInput(el) {
   el.value = el.value.replace(/[^0-9+\-]/g, '');
 }
@@ -231,13 +229,11 @@ function parseDiceOrNumber(str) {
   if (!str) return null;
   str = str.trim();
 
-  // Plain integer
   if (!str.includes('d')) {
     const n = parseInt(str, 10);
     return isNaN(n) || n <= 0 ? null : n;
   }
 
-  // Dice notation: XdY or XdY+Z or XdY-Z
   const m = str.match(/^(\d+)d(\d+)(?:([\+\-])(\d+))?$/);
   if (!m) return null;
 
@@ -272,7 +268,7 @@ function addCombatant(type) {
   saveState();
   render();
 
-  addHistory(`${esc(name)} enter combat:<br>Init: ${init} | ❤️: ${hp} | 🛡: ${ac}`, 'event');
+  addHistory(`<b>${esc(name)}</b> enter combat:<br>Init: ${init} | ❤️: ${hp} | 🛡: ${ac}`, 'event');
   toast(`${esc(name)} enter combat - Init.: ${init}`);
 }
 
@@ -318,7 +314,7 @@ function confirmDelete() {
     }
 
     saveState();
-    addHistory(`${esc(name)} removed from combat`, 'event');
+    addHistory(`<b>${esc(name)}</b> removed from combat`, 'event');
 
     const remaining = listEl ? [...listEl.querySelectorAll('.card[data-id]')].filter(c => c !== el) : [];
     const snap = new Map();
@@ -362,9 +358,16 @@ function confirmDelete() {
 function openAttackModal(id) {
   attackTarget = id;
   document.getElementById('attackBonus').value = '0';
-  document.querySelector('input[name="attackType"][value="normal"]').checked = true;
+  setAttackType('normal');
   document.getElementById('attackResult').style.display = 'none';
   openModal('attackModal');
+}
+
+function setAttackType(type) {
+  selectedAttackType = type;
+  document.querySelectorAll('.attack-type-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.type === type);
+  });
 }
 
 function attackBonusChange(delta) {
@@ -377,7 +380,7 @@ function executeAttack() {
   if (!c) return;
 
   const bonus = parseInt(document.getElementById('attackBonus').value || '0');
-  const type  = document.querySelector('input[name="attackType"]:checked').value;
+  const type  = selectedAttackType;
 
   let roll1 = Math.floor(Math.random() * 20) + 1;
   let roll2 = null;
@@ -419,7 +422,7 @@ function executeAttack() {
   document.getElementById('resultFormula').textContent = formula;
   document.getElementById('attackResult').style.display = 'block';
 
-  addHistory(`Attack vs. ${esc(c.name)}:<br>${formula}  | ${crit ? 'CRITICAL!' : (hit ? 'HIT' : 'FAIL')}`, 'attack');
+  addHistory(`Attack vs. <b>${esc(c.name)}</b> | <b>${crit ? 'CRITICAL!' : (hit ? 'HIT' : 'FAIL')}</b><br>${formula}`, 'attack');
 }
 
 function acChange(id, delta) {
@@ -428,7 +431,7 @@ function acChange(id, delta) {
   c.ac = Math.max(1, (c.ac || 0) + delta);
   saveState();
   render();
-  addHistory(`${esc(c.name)}:<br>AC changed to ${c.ac}`, 'event');
+  addHistory(`<b>${esc(c.name)}</b> changed the AC to <b>${c.ac}</b>`, 'event');
 }
 
 // ────────────────────────────────────────
@@ -443,8 +446,8 @@ function nextTurn() {
     roundFirstId = queue[0];
     saveState();
     render();
-    addHistory('⚔️ COMBAT STARTED!', 'event');
-    toast('⚔️ COMBAT STARTED!');
+    addHistory('⚔️ <b>START COMBAT!</b>', 'event');
+    toast('⚔️ START COMBAT!');
     return;
   }
 
@@ -470,8 +473,8 @@ function nextTurn() {
     renderCombatScreen();
 
     if (roundChanged) {
-      addHistory(`Round ${round}`, 'round');
-      toast(`🔔 Round ${round}`);
+      addHistory(`🔄 ROUND ${round}`, 'round');
+      toast(`🔄 ROUND ${round}`);
     }
 
     if (listEl) {
@@ -535,7 +538,7 @@ function triggerCombatEnd() {
     }
   });
 
-  addHistory('Combat ended - Victory!', 'event');
+  addHistory('🏆 <b>COMBAT ENDED - VICTORY!</b>', 'event');
   saveState();
   render();
   setTimeout(() => openModal('combatEndModal'), 300);
@@ -559,10 +562,26 @@ function closeCombatEnd() {
 // HP NUMPAD
 // ────────────────────────────────────────
 function openHpModal(id) {
-  hpTarget = id;
-  hpStr    = '';
+  hpTarget      = id;
+  hpStr         = '';
+  hpModSelected = null;
+  document.getElementById('btnResist').classList.remove('active');
+  document.getElementById('btnVuln').classList.remove('active');
   refreshDisp();
   openModal('hpModal');
+}
+
+// Toggle Resist./Vuln. — tap again to deselect
+function hpModToggle(val) {
+  if (hpModSelected === val) {
+    hpModSelected = null;
+    document.getElementById('btnResist').classList.remove('active');
+    document.getElementById('btnVuln').classList.remove('active');
+  } else {
+    hpModSelected = val;
+    document.getElementById('btnResist').classList.toggle('active', val === 'resist');
+    document.getElementById('btnVuln').classList.toggle('active', val === 'vuln');
+  }
 }
 
 function npPress(d) {
@@ -598,13 +617,9 @@ function npBack() {
 }
 
 function refreshDisp() {
-  const el  = document.getElementById('hpDisp');
-  const len = hpStr.length;
+  const el = document.getElementById('hpDisp');
   el.textContent = hpStr || '_';
-  if      (len <= 3) el.style.fontSize = '42px';
-  else if (len <= 5) el.style.fontSize = '34px';
-  else if (len <= 7) el.style.fontSize = '28px';
-  else               el.style.fontSize = '22px';
+  el.style.fontSize = '40px';
 }
 
 function applyHP(sign) {
@@ -615,23 +630,44 @@ function applyHP(sign) {
   const parsed = parseDiceOrNumber(hpStr);
   if (parsed === null || parsed === 0) return;
 
-  const oldHp = c.hp;
-  const dmg   = sign < 0 ? parsed : 0;
-  const heal  = sign > 0 ? parsed : 0;
+  // Resistance/vulnerability only apply to damage (sign < 0)
+  const hpMod = hpModSelected || 'none';
 
-  c.hp = Math.max(0, c.hp + sign * parsed);
+  const oldHp  = c.hp;
+  let finalAmt = parsed;
+  let modType  = 'none';
+
+  if (sign < 0) {
+    if (hpMod === 'resist') {
+      finalAmt = Math.max(1, Math.floor(parsed / 2));
+      modType  = 'resist';
+    } else if (hpMod === 'vuln') {
+      finalAmt = parsed * 2;
+      modType  = 'vuln';
+    }
+  }
+
+  c.hp = Math.max(0, c.hp + sign * finalAmt);
 
   if (oldHp > 0 && c.hp === 0) {
     c.isDead = true;
-    addHistory(`${esc(c.name)}:<br>☠️ HP reduced to 0`, 'death');
+    addHistory(`<b>${esc(c.name)}</b> ☠️ HP reduced to 0`, 'death');
     toast(`☠️ ${esc(c.name)}'s HP reduced to 0`);
   } else {
-    if (dmg > 0) {
-      addHistory(`${esc(c.name)}:<br>🩸 Takes ${dmg} damage`, 'damage');
-      toast(`<span style="color:var(--red);">🩸 ${esc(c.name)} takes ${dmg} damage</span>`);
-    } else if (heal > 0) {
-      addHistory(`${esc(c.name)}:<br>💚 Receives ${heal} heal`, 'heal');
-      toast(`<span style="color:var(--green);">💚 ${esc(c.name)} heals ${heal}</span>`);
+    if (sign < 0) {
+      if (modType === 'resist') {
+        addHistory(`<b>${esc(c.name)}</b> 🛡 <b>resists</b> ${parsed} damage<br>Takes only 🩸<b>${finalAmt}</b> damage`, 'damage');
+        toast(`<span style="color:var(--red);">🛡 ${esc(c.name)} resists the damage</span>`);
+      } else if (modType === 'vuln') {
+        addHistory(`<b>${esc(c.name)}</b> is 💥 <b>vulnerable</b> to ${parsed} damage<br>Takes 🩸<b>${finalAmt}</b> damage`, 'damage');
+        toast(`<span style="color:var(--red);">💥 ${esc(c.name)} is vulnerable to damage</span>`);
+      } else {
+        addHistory(`<b>${esc(c.name)}</b> takes 🩸<b>${finalAmt}</b> damage`, 'damage');
+        toast(`<span style="color:var(--red);">🩸 ${esc(c.name)} takes ${finalAmt} damage</span>`);
+      }
+    } else {
+      addHistory(`<b>${esc(c.name)}</b> receives 💚 <b>${finalAmt}</b> heal`, 'heal');
+      toast(`<span style="color:var(--green);">💚 ${esc(c.name)} heals ${finalAmt}</span>`);
     }
   }
 
@@ -676,13 +712,9 @@ function rollBack() {
 }
 
 function refreshRollDisp() {
-  const el  = document.getElementById('rollDisplay');
-  const len = rollStr.length;
+  const el = document.getElementById('rollDisplay');
   el.textContent = rollStr || '_';
-  if      (len <= 3) el.style.fontSize = '42px';
-  else if (len <= 5) el.style.fontSize = '34px';
-  else if (len <= 7) el.style.fontSize = '28px';
-  else               el.style.fontSize = '22px';
+  el.style.fontSize = '42px';
 }
 
 function rollExecute() {
@@ -731,12 +763,27 @@ function toggleCond(id, el) {
 function applyStatuses() {
   const c = getC(statusTarget);
   if (c) {
+    const oldConds = [...c.conds];
+
     if (pendingConds.includes('dot')) {
       pendingConds = pendingConds.filter(c => c !== 'dot');
       c.conds = ['dot', ...pendingConds];
     } else {
       c.conds = [...pendingConds];
     }
+
+    // Log gained / lost conditions
+    const added   = c.conds.filter(id => !oldConds.includes(id));
+    const removed = oldConds.filter(id => !c.conds.includes(id));
+
+    added.forEach(id => {
+      const cd = getCond(id);
+      if (cd) addHistory(`<b>${esc(c.name)}</b> gains condition:<br>⚡<b>${cd.lbl}</b>`, 'condition');
+    });
+    removed.forEach(id => {
+      const cd = getCond(id);
+      if (cd) addHistory(`<b>${esc(c.name)}</b> loses condition:<br>⚡<b>${cd.lbl}</b>`, 'condition');
+    });
   }
   closeModal('statusModal');
   saveState();
@@ -745,7 +792,11 @@ function applyStatuses() {
 
 function removeCondition(cid, condId) {
   const c = getC(cid);
-  if (c) c.conds = c.conds.filter(id => id !== condId);
+  if (c) {
+    const cd = getCond(condId);
+    c.conds = c.conds.filter(id => id !== condId);
+    if (cd) addHistory(`<b>${esc(c.name)}</b> loses condition:<br>⚡<b>${cd.lbl}</b>`, 'condition');
+  }
   saveState();
   render();
 }
@@ -760,7 +811,7 @@ function buildCard(c, idx) {
   const isZero    = c.hp === 0;
   const typeClass = c.type === 'player' ? 'player' : 'monster';
 
- const chips = c.conds.map(condId => {
+  const chips = c.conds.map(condId => {
     const cd = getCond(condId);
     return cd
       ? `<span class="chip ${condId === 'dot' ? 'is-dot-chip' : ''}" onclick="removeCondition(${c.id},'${condId}')" title="Click to remove">${cd.lbl}</span>`
@@ -811,11 +862,9 @@ function render() {
     roundFirstId = null;
   }
 
-  // Always sync the round number display
   const roundEl = document.getElementById('combatRoundNum');
   if (roundEl) roundEl.textContent = round;
 
-  // Update Start/Next button label and enabled state
   const btn = document.getElementById('nextBtnCombat');
   if (btn) {
     if (!started) {
@@ -877,8 +926,6 @@ function render() {
 // ────────────────────────────────────────
 function renderCombatScreen() {
   document.getElementById('combatRoundNum').textContent = round;
-
-  // Re-use render() since both share the same listCombat element
   render();
 }
 

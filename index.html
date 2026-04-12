@@ -179,6 +179,10 @@
       <button class="np np-dice" onclick="npPress('d')">d</button>
       <button class="np" onclick="npPress('0')">0</button>
       <button class="np np-toggle" onclick="npPress('±')">±</button>
+      <div class="hp-mod-row">
+        <button class="hp-mod-btn hp-mod-resist" id="btnResist" onclick="hpModToggle('resist')">Resist.</button>
+        <button class="hp-mod-btn hp-mod-vuln"   id="btnVuln"   onclick="hpModToggle('vuln')">Vulner.</button>
+      </div>
       <button class="np np-minus" onclick="applyHP(-1)">Damage</button>
       <button class="np np-plus" onclick="applyHP(1)">Heal</button>
       <button class="np np-clr" onclick="npBack()">⌫ Del</button>
@@ -213,19 +217,10 @@
 
     <div class="field">
       <label>Roll Type</label>
-      <div class="radio-group">
-        <label class="radio-opt">
-          <input type="radio" name="attackType" value="normal" checked>
-          <span>Normal</span>
-        </label>
-        <label class="radio-opt">
-          <input type="radio" name="attackType" value="advantage">
-          <span>Advan.</span>
-        </label>
-        <label class="radio-opt">
-          <input type="radio" name="attackType" value="disadvantage">
-          <span>Disad.</span>
-        </label>
+      <div class="attack-type-group">
+        <button class="attack-type-btn active" data-type="normal"       onclick="setAttackType('normal')">Normal</button>
+        <button class="attack-type-btn"        data-type="advantage"    onclick="setAttackType('advantage')">Advan.</button>
+        <button class="attack-type-btn"        data-type="disadvantage" onclick="setAttackType('disadvantage')">Disad.</button>
       </div>
     </div>
 
