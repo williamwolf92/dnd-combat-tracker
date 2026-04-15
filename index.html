@@ -30,7 +30,7 @@
 <div class="screen" id="screenHome">
   <header class="home-header">
     <h1>Dungeons &amp; Dragons</h1>
-    <div class="tagline">Combat Tracker</div>
+    <div class="tagline">COMBAT TRACKER <span class="version">v2.1</span></div>
     <div class="sword-icon">⚔️ 🏹 🔮 🛡</div>
     <div class="ornament"></div>
   </header>
@@ -101,9 +101,10 @@
   <div class="modal">
     <div class="modal-title">✦ Add Combatant</div>
 
-    <div class="field">
+    <div class="field" style="position:relative;">
       <label>Name</label>
-      <input id="a-name" type="text">
+      <input id="a-name" type="text" oninput="onNameInput()" autocomplete="off">
+      <div id="monster-suggestions" class="monster-suggestions"></div>
     </div>
 
     <div class="row">
@@ -231,6 +232,42 @@
       <button class="np np-toggle" onclick="rollPress('±')">±</button>
       <button class="np np-roll" onclick="rollExecute()" style="grid-column: span 2;">🎲 ROLL</button>
       <button class="np np-clr" onclick="rollBack()">⌫ Del</button>
+    </div>
+  </div>
+</div>
+
+<!-- ────── D.O.T. MODAL (like Roll but with turns stepper + Apply) ────── -->
+<div class="overlay" id="dotModal" onclick="ovrClick(event,'dotModal')">
+  <div class="modal modal-roll">
+    <div class="modal-title">🩸 D.o.T. — Damage over Time</div>
+    <div class="roll-display" id="dotDisplay">_</div>
+
+    <div class="numpad" id="dotNumpad">
+      <button class="np" onclick="dotPress('1')">1</button>
+      <button class="np" onclick="dotPress('2')">2</button>
+      <button class="np" onclick="dotPress('3')">3</button>
+      <button class="np" onclick="dotPress('4')">4</button>
+      <button class="np" onclick="dotPress('5')">5</button>
+      <button class="np" onclick="dotPress('6')">6</button>
+      <button class="np" onclick="dotPress('7')">7</button>
+      <button class="np" onclick="dotPress('8')">8</button>
+      <button class="np" onclick="dotPress('9')">9</button>
+      <button class="np np-dice" onclick="dotPress('d')">d</button>
+      <button class="np" onclick="dotPress('0')">0</button>
+      <button class="np np-toggle" onclick="dotPress('±')">±</button>
+
+      <!-- Stepper + Del on same row (swapped) -->
+      <div style="grid-column: span 3; display:flex; gap:8px; margin-top:6px;">
+        <div style="display:flex; align-items:center; gap:6px;">
+          <button class="btn-stepper" onclick="dotTurnsChange(-1)">−</button>
+          <input type="number" id="dotTurns" value="1" style="width:64px; text-align:center; font-weight:700; font-size:16px;" min="1">
+          <button class="btn-stepper" onclick="dotTurnsChange(1)">+</button>
+        </div>
+        <button class="np np-clr" onclick="dotBack()" style="flex:1; border-color:var(--text); color:var(--text); background:var(--btn-bg);">⌫ Del</button>
+      </div>
+
+      <!-- Apply moved below, spanning full row -->
+      <button id="btnDotApply" class="btn" onclick="applyDot()" style="grid-column: span 3; margin-top:8px; border-color:var(--text); color:var(--text); background:var(--btn-bg);">Apply</button>
     </div>
   </div>
 </div>

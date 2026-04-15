@@ -1,24 +1,107 @@
+ // ────────────────────────────────────────
+ // CONDITION LIST
+ // ────────────────────────────────────────
+ const CONDITIONS = [
+   { id:'blinded',       lbl:'Blinded' },
+   { id:'charmed',       lbl:'Charmed' },
+   { id:'deafened',      lbl:'Deafened' },
+   { id:'exhaustion',    lbl:'Exhaustion' },
+   { id:'frightened',    lbl:'Frightened' },
+   { id:'grappled',      lbl:'Grappled' },
+   { id:'incapacitated', lbl:'Incapacitated' },
+   { id:'invisible',     lbl:'Invisible' },
+   { id:'paralyzed',     lbl:'Paralyzed' },
+   { id:'petrified',     lbl:'Petrified' },
+   { id:'poisoned',      lbl:'Poisoned' },
+   { id:'prone',         lbl:'Prone' },
+   { id:'restrained',    lbl:'Restrained' },
+   { id:'stunned',       lbl:'Stunned' },
+   { id:'unconscious',   lbl:'Unconscious' },
+   // Note: D.o.T. removed from selectable CONDITIONS; D.o.T. chip is now fixed on cards
+ ];
+
 // ────────────────────────────────────────
-// CONDITION LIST
+// MONSTER AUTOCOMPLETE DATA
 // ────────────────────────────────────────
-const CONDITIONS = [
-  { id:'blinded',       lbl:'Blinded' },
-  { id:'charmed',       lbl:'Charmed' },
-  { id:'deafened',      lbl:'Deafened' },
-  { id:'exhaustion',    lbl:'Exhaustion' },
-  { id:'frightened',    lbl:'Frightened' },
-  { id:'grappled',      lbl:'Grappled' },
-  { id:'incapacitated', lbl:'Incapacitated' },
-  { id:'invisible',     lbl:'Invisible' },
-  { id:'paralyzed',     lbl:'Paralyzed' },
-  { id:'petrified',     lbl:'Petrified' },
-  { id:'poisoned',      lbl:'Poisoned' },
-  { id:'prone',         lbl:'Prone' },
-  { id:'restrained',    lbl:'Restrained' },
-  { id:'stunned',       lbl:'Stunned' },
-  { id:'unconscious',   lbl:'Unconscious' },
-  { id:'dot',           lbl:'D.o.T.' },
-];
+let monstersData       = [];
+let currentSuggestions = [];
+
+const MONSTERS_CACHE_KEY = 'dnd_monsters_cache';
+
+function parseMonstersText(text) {
+  const results = [];
+  for (const line of text.split('\n')) {
+    const t = line.trim();
+    if (!t) continue;
+    const nM    = t.match(/n:([^/]+)/);
+    const initM = t.match(/init:([^/]+)/);
+    const hpM   = t.match(/hp:([^/]+)/);
+    const acM   = t.match(/ac:([^/]+)/);
+    if (nM && initM && hpM && acM) {
+      results.push({
+        name: nM[1].trim(),
+        init: initM[1].trim(),
+        hp:   hpM[1].trim(),
+        ac:   acM[1].trim()
+      });
+    }
+  }
+  return results;
+}
+
+async function loadMonstersData() {
+  // 1. Try fetch (works when served via HTTP/HTTPS)
+  try {
+    const res = await fetch('monsters.txt');
+    if (res.ok) {
+      const text = await res.text();
+      const parsed = parseMonstersText(text);
+      if (parsed.length > 0) {
+        monstersData = parsed;
+        // Save to localStorage so the app works offline on next load
+        try { localStorage.setItem(MONSTERS_CACHE_KEY, JSON.stringify(parsed)); } catch(e) {}
+        console.log(`Monsters loaded from file: ${parsed.length} entries`);
+        return;
+      }
+    }
+  } catch(e) { /* fetch unavailable (e.g. file:// protocol) — fall through to cache */ }
+
+  // 2. Fall back to localStorage cache (works offline / file:// after first online load)
+  try {
+    const cached = localStorage.getItem(MONSTERS_CACHE_KEY);
+    if (cached) {
+      monstersData = JSON.parse(cached);
+      console.log(`Monsters loaded from cache: ${monstersData.length} entries`);
+    }
+  } catch(e) { console.warn('Could not load monsters data:', e); }
+}
+
+function onNameInput() {
+  const query     = document.getElementById('a-name').value.trim().toLowerCase();
+  const container = document.getElementById('monster-suggestions');
+  if (!query) { container.innerHTML = ''; currentSuggestions = []; return; }
+
+  // Priority: startsWith first, then contains — max 3 total
+  const starts   = monstersData.filter(m => m.name.toLowerCase().startsWith(query));
+  const contains = monstersData.filter(m => !m.name.toLowerCase().startsWith(query) && m.name.toLowerCase().includes(query));
+  currentSuggestions = [...starts, ...contains].slice(0, 3);
+
+  if (currentSuggestions.length === 0) { container.innerHTML = ''; return; }
+  container.innerHTML = currentSuggestions
+    .map((m, i) => `<div class="monster-suggestion-item" onmousedown="event.preventDefault()" onclick="selectMonsterSuggestion(${i})">${esc(m.name)}</div>`)
+    .join('');
+}
+
+function selectMonsterSuggestion(idx) {
+  const m = currentSuggestions[idx];
+  if (!m) return;
+  document.getElementById('a-name').value = m.name;
+  document.getElementById('a-init').value = m.init;
+  document.getElementById('a-hp').value   = m.hp;
+  document.getElementById('a-ac').value   = m.ac;
+  document.getElementById('monster-suggestions').innerHTML = '';
+  currentSuggestions = [];
+}
 
 // ────────────────────────────────────────
 // STATE
@@ -221,6 +304,8 @@ function ovrClick(e, id) { if (e.target.id === id) closeModal(id); }
 // ────────────────────────────────────────
 function openAddModal() {
   ['a-name','a-init','a-hp','a-ac'].forEach(i => document.getElementById(i).value = '');
+  document.getElementById('monster-suggestions').innerHTML = '';
+  currentSuggestions = [];
   openModal('addModal');
   setTimeout(() => document.getElementById('a-name').focus(), 120);
 }
@@ -488,7 +573,7 @@ function acChange(id, delta) {
   c.ac = Math.max(1, (c.ac || 0) + delta);
   saveState();
   render();
-  addHistory(`<b>${esc(c.name)}</b> changed the AC to <b>${c.ac}</b>`, 'event');
+  addHistory(`<b>${esc(c.name)}</b> changed AC to <b>${c.ac}</b>`, 'event');
 }
 
 // ────────────────────────────────────────
@@ -530,13 +615,15 @@ function nextTurn() {
 
     const done = queue.shift();
     queue.push(done);
+    // Apply D.o.T. effects on turn change (applies damage and decrements turns)
+    applyDotForAll();
     const roundChanged = queue[0] === roundFirstId;
     if (roundChanged) round++;
     saveState();
     renderCombatScreen();
 
     if (roundChanged) {
-      addHistory(`🔄 ROUND ${round}`, 'round');
+      addHistory(`🔄 <b>ROUND ${round}</b>`, 'round');
       toast(`🔄 ROUND ${round}`);
     }
 
@@ -714,7 +801,7 @@ function applyHP(sign) {
 
   if (oldHp > 0 && c.hp === 0) {
     c.isDead = true;
-    addHistory(`<b>${esc(c.name)}</b> ☠️ HP reduced to 0`, 'death');
+    addHistory(`<b>${esc(c.name)}:</b></br>☠️ HP reduced to 0`, 'death');
     toast(`☠️ ${esc(c.name)}'s HP reduced to 0`);
   } else {
     if (sign < 0) {
@@ -798,131 +885,136 @@ function rollExecute() {
   refreshRollDisp();
 }
 
-// ────────────────────────────────────────
-// STATUS CONDITIONS
-// ────────────────────────────────────────
-function openStatusModal(id) {
-  statusTarget = id;
-  const c = getC(id);
-  pendingConds = c ? [...c.conds] : [];
-  buildStatusGrid();
-  openModal('statusModal');
-}
+ // ────────────────────────────────────────
+ // STATUS CONDITIONS
+ // ────────────────────────────────────────
+ function openStatusModal(id) {
+   statusTarget = id;
+   const c = getC(id);
+   pendingConds = c ? [...c.conds] : [];
+   buildStatusGrid();
+   openModal('statusModal');
+ }
 
-function buildStatusGrid() {
-  document.getElementById('statusGrid').innerHTML = CONDITIONS.map(cd => `
-    <div class="s-opt ${pendingConds.includes(cd.id) ? 'chosen' : ''} ${cd.id === 'dot' ? 'is-dot' : ''}"
-         onclick="toggleCond('${cd.id}', this)">
-      <span>${cd.lbl}</span>
-    </div>
-    `).join('');
-}
+ function buildStatusGrid() {
+   // D.o.T. removed from the selectable grid; build from CONDITIONS only
+   document.getElementById('statusGrid').innerHTML = CONDITIONS.map(cd => `
+     <div class="s-opt ${pendingConds.includes(cd.id) ? 'chosen' : ''}"
+          onclick="toggleCond('${cd.id}', this)">
+       <span>${cd.lbl}</span>
+     </div>
+     `).join('');
+ }
 
-function toggleCond(id, el) {
-  if (pendingConds.includes(id)) {
-    pendingConds = pendingConds.filter(c => c !== id);
-    el.classList.remove('chosen');
-  } else {
-    if (id === 'dot') {
-      pendingConds.unshift(id);
-    } else {
-      pendingConds.push(id);
-    }
-    el.classList.add('chosen');
-  }
-}
+ function toggleCond(id, el) {
+   if (pendingConds.includes(id)) {
+     pendingConds = pendingConds.filter(c => c !== id);
+     el.classList.remove('chosen');
+   } else {
+     pendingConds.push(id);
+     el.classList.add('chosen');
+   }
+ }
 
-function applyStatuses() {
-  const c = getC(statusTarget);
-  if (c) {
-    const oldConds = [...c.conds];
+ function applyStatuses() {
+   const c = getC(statusTarget);
+   if (c) {
+     const oldConds = [...c.conds];
+     c.conds = [...pendingConds];
 
-    if (pendingConds.includes('dot')) {
-      pendingConds = pendingConds.filter(c => c !== 'dot');
-      c.conds = ['dot', ...pendingConds];
-    } else {
-      c.conds = [...pendingConds];
-    }
+     // Log gained / lost conditions
+     const added   = c.conds.filter(id => !oldConds.includes(id));
+     const removed = oldConds.filter(id => !c.conds.includes(id));
 
-    // Log gained / lost conditions
-    const added   = c.conds.filter(id => !oldConds.includes(id));
-    const removed = oldConds.filter(id => !c.conds.includes(id));
+     added.forEach(id => {
+       const cd = getCond(id);
+       if (cd) addHistory(`<b>${esc(c.name)}</b> gains condition:<br>🟢 <b>${cd.lbl}</b>`, 'condition');
+     });
+     removed.forEach(id => {
+       const cd = getCond(id);
+       if (cd) addHistory(`<b>${esc(c.name)}</b> loses condition:<br>🔴 <b>${cd.lbl}</b>`, 'condition');
+     });
+   }
+   closeModal('statusModal');
+   saveState();
+   render();
+ }
 
-    added.forEach(id => {
-      const cd = getCond(id);
-      if (cd) addHistory(`<b>${esc(c.name)}</b> gains condition:<br>🟢 <b>${cd.lbl}</b>`, 'condition');
-    });
-    removed.forEach(id => {
-      const cd = getCond(id);
-      if (cd) addHistory(`<b>${esc(c.name)}</b> loses condition:<br>🔴 <b>${cd.lbl}</b>`, 'condition');
-    });
-  }
-  closeModal('statusModal');
-  saveState();
-  render();
-}
-
-function removeCondition(cid, condId) {
-  const c = getC(cid);
-  if (c) {
-    const cd = getCond(condId);
-    c.conds = c.conds.filter(id => id !== condId);
-    if (cd) addHistory(`<b>${esc(c.name)}</b> loses condition:<br>🔴 <b>${cd.lbl}</b>`, 'condition');
-  }
-  saveState();
-  render();
-}
+ function removeCondition(cid, condId) {
+   const c = getC(cid);
+   if (c) {
+     const cd = getCond(condId);
+     c.conds = c.conds.filter(id => id !== condId);
+     if (cd) addHistory(`<b>${esc(c.name)}</b> loses condition:<br>🔴 <b>${cd.lbl}</b>`, 'condition');
+   }
+   saveState();
+   render();
+ }
 
 // ────────────────────────────────────────
 // BUILD CARD HTML
 // ────────────────────────────────────────
-function buildCard(c, idx) {
-  const isActive  = started && idx === 0;
-  const hpPct     = c.maxHp > 0 ? c.hp / c.maxHp : 0;
-  const isLow     = hpPct > 0 && hpPct <= 0.2;
-  const isZero    = c.hp === 0;
-  const typeClass = c.type === 'player' ? 'player' : 'monster';
+ function buildCard(c, idx) {
+   const isActive  = started && idx === 0;
+   const hpPct     = c.maxHp > 0 ? c.hp / c.maxHp : 0;
+   const isLow     = hpPct > 0 && hpPct <= 0.2;
+   const isZero    = c.hp === 0;
+   const typeClass = c.type === 'player' ? 'player' : 'monster';
 
-  const chips = c.conds.map(condId => {
-    const cd = getCond(condId);
-    return cd
-      ? `<span class="chip ${condId === 'dot' ? 'is-dot-chip' : ''}" onclick="removeCondition(${c.id},'${condId}')" title="Click to remove">${cd.lbl}</span>`
-      : '';
-  }).join('');
+   // Build normal condition chips (D.o.T. and Focus are fixed and handled separately)
+   const chips = c.conds.map(condId => {
+     const cd = getCond(condId);
+     return cd
+       ? `<span class="chip" onclick="removeCondition(${c.id},'${condId}')" title="Click to remove">${cd.lbl}</span>`
+       : '';
+   }).join('');
 
-  const classes = `card ${typeClass}${isActive ? ' is-active' : ''}`;
+   // Fixed D.o.T. chip (always present) with its own colors and click to open dot modal
+   const dotTurns = c.dotTurns && c.dotTurns > 0 ? ` (${c.dotTurns})` : '';
+   const dotActiveClass = (c.dotTurns && c.dotTurns > 0) ? ' active' : '';
+   const dotChip = `<span class="chip dot-chip${dotActiveClass}" onclick="openDotModal(${c.id})" title="D.o.T. — click to set">${'D.o.T.'}${dotTurns}</span>`;
 
-  const innerHTML = `${isActive ? '<div class="active-badge">In turn</div>' : ''}
-<div class="card-head">
-  <div class="init-circle">${c.init}</div>
-  <div class="card-name ${isZero ? 'is-dead' : ''}">${esc(c.name)}</div>
-  <button class="btn-remove" onclick="removeCombatant(${c.id})" title="Remove combatant">❌️</button>
-</div>
-<div class="card-stats">
-  <div class="hp-disp ${isLow ? 'low' : ''} ${isZero ? 'zero' : ''}" onclick="openHpModal(${c.id})" style="cursor:pointer;">
-    <span class="stat-ico">❤️</span>
-    <span class="stat-lbl">:</span>
-    <span class="stat-val">${c.hp}/${c.maxHp}</span>
-  </div>
-  <div style="display:flex;align-items:center;gap:6px;">
-    <div class="ac-wrap" style="cursor:pointer;" onclick="openAttackModal(${c.id})">
-      <div class="ac-disp">
-        <span class="stat-ico">🛡</span>
-        <span class="stat-lbl">:</span>
-        <span class="stat-val">${c.ac}</span>
-      </div>
-    </div>
-    <div class="ac-adjust" title="Adjust AC">
-      <button class="ac-btn" onclick="acChange(${c.id},1)">+</button>
-      <button class="ac-btn" onclick="acChange(${c.id},-1)">−</button>
-    </div>
-  </div>
-  <button class="add-cond-btn" onclick="openStatusModal(${c.id})">Cond.</button>
-</div>
-${c.conds.length > 0 ? `<div class="cond-row">${chips}</div>` : ''}`;
+   // Fixed Focus chip (toggle)
+   const focusClass = c.focus ? 'focus-chip active' : 'focus-chip';
+   const focusChip = `<span class="chip ${focusClass}" onclick="toggleFocus(${c.id})" title="Toggle Focus">Focus</span>`;
 
-  return { classes, innerHTML };
-}
+   const classes = `card ${typeClass}${isActive ? ' is-active' : ''}`;
+
+   const innerHTML = `${isActive ? '<div class="active-badge">In turn</div>' : ''}
+ <div class="card-head">
+   <div class="init-circle">${c.init}</div>
+   <div class="card-name ${isZero ? 'is-dead' : ''}">${esc(c.name)}</div>
+   <button class="btn-remove" onclick="removeCombatant(${c.id})" title="Remove combatant">❌️</button>
+ </div>
+ <div class="card-stats">
+   <div class="hp-disp ${isLow ? 'low' : ''} ${isZero ? 'zero' : ''}" onclick="openHpModal(${c.id})" style="cursor:pointer;">
+     <span class="stat-ico">❤️</span>
+     <span class="stat-lbl">:</span>
+     <span class="stat-val">${c.hp}/${c.maxHp}</span>
+   </div>
+   <div style="display:flex;align-items:center;gap:6px;">
+     <div class="ac-wrap" style="cursor:pointer;" onclick="openAttackModal(${c.id})">
+       <div class="ac-disp">
+         <span class="stat-ico">🛡</span>
+         <span class="stat-lbl">:</span>
+         <span class="stat-val">${c.ac}</span>
+       </div>
+     </div>
+     <div class="ac-adjust" title="Adjust AC">
+       <button class="ac-btn" onclick="acChange(${c.id},1)">+</button>
+       <button class="ac-btn" onclick="acChange(${c.id},-1)">−</button>
+     </div>
+   </div>
+   <button class="add-cond-btn" onclick="openStatusModal(${c.id})">Cond.</button>
+ </div>
+ <div class="cond-row">
+   ${dotChip}
+   ${focusChip}
+   ${chips}
+ </div>`;
+
+   return { classes, innerHTML };
+ }
 
 // ────────────────────────────────────────
 // RENDER
@@ -993,13 +1085,128 @@ function render() {
   });
 }
 
-// ────────────────────────────────────────
-// RENDER COMBAT SCREEN
-// ────────────────────────────────────────
-function renderCombatScreen() {
-  document.getElementById('combatRoundNum').textContent = round;
-  render();
-}
+ // ────────────────────────────────────────
+ // D.O.T. & FOCUS - modal and logic
+ // ────────────────────────────────────────
+ let dotTarget = null;
+ let dotStr = '';
+ function openDotModal(id) {
+   dotTarget = id;
+   dotStr = '';
+   document.getElementById('dotTurns').value = 1;
+   refreshDotDisp();
+   openModal('dotModal');
+   setTimeout(() => {
+     const inp = document.getElementById('dotTurns');
+     if (inp) inp.select();
+   }, 80);
+ }
+ function dotPress(d) {
+   if (dotStr.length >= 10) return;
+   if (d === 'd') {
+     if (dotStr.length === 0) return;
+     if (dotStr.includes('d')) return;
+     if (dotStr.match(/[+\-]/)) return;
+   }
+   if (d === '±') {
+     if (!dotStr.includes('d')) return;
+     if (dotStr.includes('+')) {
+       dotStr = dotStr.replace('+', '-');
+     } else if (dotStr.includes('-')) {
+       dotStr = dotStr.replace('-', '+');
+     } else {
+       const afterD = dotStr.split('d')[1];
+       if (!afterD || afterD.length === 0) return;
+       dotStr += '+';
+     }
+   } else {
+     dotStr += d;
+   }
+   refreshDotDisp();
+ }
+ function dotBack() { dotStr = dotStr.slice(0,-1); refreshDotDisp(); }
+ function refreshDotDisp() {
+   const el = document.getElementById('dotDisplay');
+   el.textContent = dotStr || '_';
+   el.style.fontSize = '42px';
+ }
+ function dotTurnsChange(delta) {
+   const inp = document.getElementById('dotTurns');
+   const v = Math.max(1, parseInt(inp.value || '1') + delta);
+   inp.value = v;
+ }
+ function applyDot() {
+   const c = getC(dotTarget);
+   if (!c) return closeModal('dotModal');
+   const parsed = parseDiceOrNumber(dotStr);
+   if (parsed === null) { toast('Invalid D.o.T. formula'); return; }
+   const turns = Math.max(1, parseInt(document.getElementById('dotTurns').value || '1'));
+   c.dotFormula = dotStr;
+   c.dotTurns   = turns;
+   addHistory(`<b>${esc(c.name)}</b> gets D.o.T.: <br>${esc(dotStr)} for ${turns} turns`, 'condition');
+   toast(`D.o.T. set: ${c.name} — ${dotStr} x${turns}`);
+   closeModal('dotModal');
+   saveState();
+   render();
+ }
+
+ function toggleFocus(id) {
+   const c = getC(id);
+   if (!c) return;
+   c.focus = !c.focus;
+   if (c.focus) {
+     addHistory(`<b>${esc(c.name)}</b> gains Focus`, 'condition');
+     toast(`${c.name} focused`);
+   } else {
+     addHistory(`<b>${esc(c.name)}</b> loses Focus`, 'condition');
+     toast(`${c.name} unfocused`);
+   }
+   saveState();
+   render();
+ }
+
+ // apply direct damage (used by DOT) without opening hp modal
+ function applyDirectDamage(c, amt) {
+   if (!c) return;
+   const oldHp = c.hp;
+   c.hp = Math.max(0, c.hp - amt);
+   if (oldHp > 0 && c.hp === 0) {
+     c.isDead = true;
+     addHistory(`<b>${esc(c.name)}:</b></br>☠️ HP reduced to 0 (from D.o.T.)`, 'death');
+     toast(`☠️ ${esc(c.name)}'s HP reduced to 0`);
+   } else {
+     addHistory(`<b>${esc(c.name)}</b> takes 🩸<b>${amt}</b> D.o.T. damage`, 'damage');
+     toast(`<span style="color:var(--red);">🩸 ${esc(c.name)} takes ${amt} D.o.T.</span>`);
+   }
+   saveState();
+   render();
+   checkCombatEnd();
+ }
+
+ // Apply DOT damage for all combatants with dotTurns>0 (called on every turn change)
+ function applyDotForAll() {
+   combatants.forEach(c => {
+     if (c.dotTurns && c.dotTurns > 0 && c.dotFormula) {
+       const parsed = parseDiceOrNumber(c.dotFormula);
+       const dmg = (parsed === null) ? 0 : parsed;
+       if (dmg > 0) {
+         applyDirectDamage(c, dmg);
+       }
+       c.dotTurns = Math.max(0, c.dotTurns - 1);
+       if (c.dotTurns === 0) {
+         addHistory(`<b>${esc(c.name)}</b> D.o.T. ended`, 'event');
+       }
+     }
+   });
+ }
+
+ // ────────────────────────────────────────
+ // RENDER COMBAT SCREEN
+ // ────────────────────────────────────────
+ function renderCombatScreen() {
+   document.getElementById('combatRoundNum').textContent = round;
+   render();
+ }
 
 // ────────────────────────────────────────
 // TOAST
@@ -1019,6 +1226,14 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     ['addModal','hpModal','statusModal','attackModal','deleteConfirmModal','rollModal'].forEach(closeModal);
   }
+});
+
+// Hide suggestions if name input loses focus
+document.getElementById('a-name').addEventListener('blur', () => {
+  setTimeout(() => {
+    document.getElementById('monster-suggestions').innerHTML = '';
+    currentSuggestions = [];
+  }, 200);
 });
 
 // ────────────────────────────────────────
@@ -1049,6 +1264,7 @@ if (window.visualViewport) {
 // INIT
 // ────────────────────────────────────────
 loadState();
+loadMonstersData();
 render();
 switchScreen('screenHome');
 renderHistoryLog();

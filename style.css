@@ -67,9 +67,13 @@ header h1 {
   font-size: 20px;
   font-weight: 700;
   color: var(--red);
-  text-transform: uppercase;
   margin-top: 6px;
   text-shadow: 0 0 1px rgba(0,0,0,1);
+}
+
+.version {
+  font-size: 14px;
+  opacity: 0.7;
 }
 
 .ornament {
@@ -91,7 +95,7 @@ header h1 {
   left: 50%;
   transform: translate(-50%, -50%);
   color: var(--text);
-  font-size: 13px;
+  font-size: 20px;
   background: var(--bg);  
   padding: 0 12px;
   line-height: 1;
@@ -125,7 +129,7 @@ header h1 {
   border-bottom: 1px solid var(--text);
   box-shadow: 0 3px 10px rgba(0,0,0,0.5);
   padding: 10px;
-  height: 60px;
+  height: 60px;  
 }
 
 #sharedHeaderCombat,
@@ -156,7 +160,7 @@ header h1 {
   padding: 8px 10px;
   outline: none;
   cursor: default;
-  max-width: 200px;
+  max-width: 300px;
 }
 
 /* ── HISTORY LOG ── */
@@ -274,6 +278,7 @@ header h1 {
 .footer-btn.active {
   color: var(--green);
   background: var(--btn-bg);
+  border-top: 2px solid var(--green);
 }
 
 /* ── EMPTY STATE ── */
@@ -560,26 +565,48 @@ header h1 {
   margin-top: 11px;
 }
 
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: var(--bg);
-  border: 1px solid var(--red);
-  border-radius: 20px;
-  padding: 3px 10px;
-  font-size: 11px;
-  color: var(--red);
-  cursor: default;
-  transition: all 0.15s;
-}
+ .chip {
+   display: inline-flex;
+   align-items: center;
+   gap: 4px;
+   background: var(--bg);
+   border: 1px solid var(--red);
+   border-radius: 20px;
+   padding: 3px 10px;
+   font-size: 11px;
+   color: var(--red);
+   cursor: default;
+   transition: all 0.15s;
+ }
 
-.chip.is-dot-chip {
-  background: var(--red);
-  border-color: var(--red);
-  color: #ffaaaa;
-  font-weight: 700;
-}
+ /* Fixed D.o.T. chip style (greyed) */
+ .chip.dot-chip {
+   background: #cacaca;
+   border-color: #777777;
+   color: #777777;
+   font-weight: 700;
+ }
+ /* When D.o.T. is active show strong accent (only while active) */
+ .chip.dot-chip.active {
+   background: var(--red);
+   border-color: var(--text);
+   color: var(--bg);
+   font-weight: 700;
+ }
+
+ /* Fixed Focus chip style — default grey, toggles to blue when active */
+ .chip.focus-chip {
+   background: #cacaca;
+   border-color: #777777;
+   color: #777777;
+   font-weight: 700;
+ }
+ .chip.focus-chip.active {
+   border-color: var(--text);
+   background: #003a6b; /* dark blue */
+   color: #9fd3ff;      /* light blue */
+   font-weight: 700;
+ }
 
 /* ── MODALS ── */
 .overlay {
@@ -819,14 +846,14 @@ header h1 {
 
 .hp-mod-resist.active {
   background: var(--green);
-  border-color: var(--green);
+  border-color: var(--text);
   color: var(--bg);
   font-weight: 700;
 }
 
 .hp-mod-vuln.active {
   background: var(--red);
-  border-color: var(--red);
+  border-color: var(--text);
   color: var(--bg);
   font-weight: 700;
 }
@@ -977,6 +1004,39 @@ header h1 {
   margin: 8px 0 6px;
 }
 .modal-confirm .modal-actions { flex-direction: row; }
+
+/* ── MONSTER AUTOCOMPLETE ── */
+.monster-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg);
+  border: 1.5px solid var(--text);
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  z-index: 400;
+  overflow: hidden;
+}
+
+.monster-suggestion-item {
+  padding: 10px 13px;
+  font-size: 15px;
+  font-family: Georgia, serif;
+  color: var(--text);
+  cursor: default;
+  border-bottom: 1px solid rgba(64,0,0,0.2);
+  transition: background 0.1s;
+  user-select: none;
+}
+
+.monster-suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.monster-suggestion-item:active {
+  background: var(--btn-bg);
+}
 
 /* ── TOAST ── */
 #toast {
