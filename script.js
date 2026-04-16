@@ -1143,8 +1143,8 @@ function render() {
    const turns = Math.max(1, parseInt(document.getElementById('dotTurns').value || '1'));
    c.dotFormula = dotStr;
    c.dotTurns   = turns;
-   addHistory(`<b>${esc(c.name)}</b> gets D.o.T.: <br>${esc(dotStr)} for ${turns} turns`, 'condition');
-   toast(`D.o.T. set: ${c.name} — ${dotStr} x${turns}`);
+   addHistory(`<b>${esc(c.name)}</b> gets D.o.T.:<br>🩸${esc(dotStr)} for <b>${turns}</b> turns`, 'condition');
+   toast(`${c.name} gets D.o.T. for ${turns} turns`);
    closeModal('dotModal');
    saveState();
    render();
@@ -1175,7 +1175,7 @@ function render() {
      addHistory(`<b>${esc(c.name)}:</b></br>☠️ HP reduced to 0 (from D.o.T.)`, 'death');
      toast(`☠️ ${esc(c.name)}'s HP reduced to 0`);
    } else {
-     addHistory(`<b>${esc(c.name)}</b> takes 🩸<b>${amt}</b> D.o.T. damage`, 'damage');
+     addHistory(`<b>${esc(c.name)}</b></br>takes 🩸<b>${amt}</b> D.o.T. damage, <b>${c.dotTurns - 1}</b> turns remaining`, 'damage');
      toast(`<span style="color:var(--red);">🩸 ${esc(c.name)} takes ${amt} D.o.T.</span>`);
    }
    saveState();

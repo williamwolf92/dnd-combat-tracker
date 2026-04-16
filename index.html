@@ -41,9 +41,9 @@
 
       <div class="home-section">
         <div class="home-section-title"><b>⚔️ ADDING A COMBATANT</b></div>
-        <p>• Go to the <b>Combat</b> tab and tap <b>✦ Add</b> to add Players and Monsters. Enter Name, Initiative, HP and AC.</p>
+        <p>• Go to ⚔️ <b>Combat</b> tab and tap <b>✦ Add</b> to add Players and Monsters. Enter Name and select a suggestion if you're adding a monster, in this case, Initiative, HP and AC fill automatically.</p>
         <p>• <b>Initiative</b> accepts a fixed number (e.g. <em>14</em>) or a bonus modifier (e.g. <i>-2</i> / <i>+3</i>). A modifier will roll <b>1d20</b> and add it automatically.</p>
-        <p>• <b>HP</b> accepts a fixed number or a dice roll in the format <i><b>#d#</b></i> or <i><b>#d#±#</b></i> (e.g. <i>8d6+4</i>).</p>
+        <p>• <b>HP</b> accepts a fixed number, a roll (<b><i>#d#</i></b>) or a roll with bonus (<i><b>#d#±#</b></i>).</p>
         <p>• <b>AC</b> only accepts a fixed number.</p>
       </div>
 
@@ -55,14 +55,19 @@
 
       <div class="home-section">
         <div class="home-section-title"><b>🛡 ATTACK ROLLS</b></div>
-        <p>• Tap the 🛡<b>AC</b> value on a card to open the Attack Roll panel. The result will show <b>HIT</b>, <b>FAIL</b> or <b>CRITICAL!</b>.</p>
-        <p>• Use the <b>+/−</b> buttons to temporarily adjust AC.</p>
+        <p>• Tap the 🛡<b>AC</b> value on a card to open the Attack Roll panel. Set Bonus and Attack Type. The result will show <b>HIT</b>, <b>FAIL</b> or <b>CRITICAL!</b>.</p>
+        <p>• In the combatant card, use the <b>+/−</b> buttons to temporarily adjust AC.</p>
       </div>
 
       <div class="home-section">
         <div class="home-section-title"><b>⚡ CONDITIONS</b></div>
         <p>• Tap <b>Cond.</b> on a card to add conditions. Tap a condition chip to remove it.</p>
-        <p>• <b>D.o.T.</b> is a <b>Damage over Time</b> tag — it is not a real D&amp;D condition.</p>
+      </div>
+      
+      <div class="home-section">
+        <div class="home-section-title"><b>🩸 D.O.T. & FOCUS</b></div>
+        <p>• Tap <b>D.o.T.</b> chip on a card to add <b>Damage over Time</b> to a combatant. Use the numpad to enter a fixed number, a roll (<b><i>#d#</i></b>) or a roll with bonus (<b><i>#d#±#</i></b>), then select how many <b>turns</b> the D.o.T. will be active.</p>
+        <p>• Tap <b>Focus</b> chip on a card to turn On and Off <b>Concentration</b> tag to a combatant.</p>
       </div>
     </div>
   </main>
@@ -239,7 +244,7 @@
 <!-- ────── D.O.T. MODAL (like Roll but with turns stepper + Apply) ────── -->
 <div class="overlay" id="dotModal" onclick="ovrClick(event,'dotModal')">
   <div class="modal modal-roll">
-    <div class="modal-title">🩸 D.o.T. — Damage over Time</div>
+    <div class="modal-title">🩸Damage over Time</div>
     <div class="roll-display" id="dotDisplay">_</div>
 
     <div class="numpad" id="dotNumpad">
@@ -255,19 +260,16 @@
       <button class="np np-dice" onclick="dotPress('d')">d</button>
       <button class="np" onclick="dotPress('0')">0</button>
       <button class="np np-toggle" onclick="dotPress('±')">±</button>
-
-      <!-- Stepper + Del on same row (swapped) -->
       <div style="grid-column: span 3; display:flex; gap:8px; margin-top:6px;">
         <div style="display:flex; align-items:center; gap:6px;">
           <button class="btn-stepper" onclick="dotTurnsChange(-1)">−</button>
-          <input type="number" id="dotTurns" value="1" style="width:64px; text-align:center; font-weight:700; font-size:16px;" min="1">
+          <input type="number" id="dotTurns" value="1" style="width:64px; text-align:center; font-weight:700; font-size:16px; font-family: Georgia, 'Times New Roman', serif; color: var(--text); background: var(--btn-bg); border: 1.5px solid var(--text); border-radius: 6px; padding: 8px 12px;" min="1">
           <button class="btn-stepper" onclick="dotTurnsChange(1)">+</button>
         </div>
         <button class="np np-clr" onclick="dotBack()" style="flex:1; border-color:var(--text); color:var(--text); background:var(--btn-bg);">⌫ Del</button>
       </div>
 
-      <!-- Apply moved below, spanning full row -->
-      <button id="btnDotApply" class="btn" onclick="applyDot()" style="grid-column: span 3; margin-top:8px; border-color:var(--text); color:var(--text); background:var(--btn-bg);">Apply</button>
+      <button id="btnDotApply" class="btn" onclick="applyDot()" style="grid-column: span 3; margin-top:8px; border-color:var(--red); color:var(--red); background:var(--btn-bg);">Apply</button>
     </div>
   </div>
 </div>
