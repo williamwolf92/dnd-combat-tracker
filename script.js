@@ -544,7 +544,7 @@ function executeAttack() {
   if (crit) {
     resultMsg = '<span style="color:#ff0000; font-weight:bold;">💥 CRITICAL HIT!</span>';
   } else {
-    resultMsg = `<span style="color:${hit ? 'var(--green)' : 'var(--red)'}; font-weight:bold;">${hit ? 'HIT' : 'FAIL'}</span>`;
+    resultMsg = `<span style="color:${hit ? 'var(--green)' : 'var(--red)'}; font-weight:bold;">${hit ? 'HIT' : 'MISS'}</span>`;
   }
 
   const bonusStr = (bonus !== 0) ? ` (${bonus > 0 ? '+' : ''}${bonus})` : '';
@@ -564,7 +564,7 @@ function executeAttack() {
   document.getElementById('resultFormula').textContent = formula;
   document.getElementById('attackResult').style.display = 'block';
 
-  addHistory(`Attack vs. <b>${esc(c.name)}</b> | <b>${crit ? 'CRITICAL!' : (hit ? 'HIT' : 'FAIL')}</b><br>${formula}`, 'attack');
+  addHistory(`Attack vs. <b>${esc(c.name)}</b> | <b>${crit ? 'CRITICAL!' : (hit ? 'HIT' : 'MISS')}</b><br>${formula}`, 'attack');
 }
 
 function acChange(id, delta) {
