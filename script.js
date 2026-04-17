@@ -135,6 +135,14 @@ let hpModSelected = null; // 'resist' | 'vuln' | null
 // Delete confirmation state
 let pendingDeleteId = null;
 
+// D.o.T. modal state
+let dotTarget        = null;
+let dotStr           = '';
+let dotTimingSelected = 'start'; // 'start' | 'end' | 'round'
+
+// D.o.T. remove confirmation state
+let dotRemoveTarget  = null;
+
 // ────────────────────────────────────────
 // PERSISTENCIA (localStorage)
 // ────────────────────────────────────────
@@ -160,6 +168,22 @@ function loadState() {
     roundFirstId      = state.roundFirstId      ?? null;
     history           = state.history           || [];
     combatStartRoster = state.combatStartRoster || [];
+
+    // ── Migrate old dotTurns-based state to new dotTiming system ──
+    combatants.forEach(c => {
+      if (c.dotFormula && !c.dotTiming) {
+        // Old system: dotTurns > 0 means still active
+        if (c.dotTurns && c.dotTurns > 0) {
+          c.dotTiming = 'start';
+        } else {
+          // dotTurns was 0 — DoT had expired, clear it
+          c.dotFormula = null;
+          c.dotTiming  = null;
+        }
+      }
+      delete c.dotTurns; // clean up legacy field
+    });
+
   } catch(e) {
     console.warn('Error loading state:', e);
   }
@@ -596,6 +620,8 @@ function nextTurn() {
     render();
     addHistory('⚔️ <b>START COMBAT!</b>', 'event');
     toast('⚔️ START COMBAT!');
+    // Apply "start" D.o.T. for the first active combatant
+    applyDotOnStart(queue[0]);
     return;
   }
 
@@ -615,10 +641,20 @@ function nextTurn() {
 
     const done = queue.shift();
     queue.push(done);
-    // Apply D.o.T. effects on turn change (applies damage and decrements turns)
-    applyDotForAll();
+
+    // Apply "end" D.o.T. for the combatant whose turn just ended
+    applyDotOnEnd(done);
+
     const roundChanged = queue[0] === roundFirstId;
-    if (roundChanged) round++;
+    if (roundChanged) {
+      round++;
+      // Apply "round" D.o.T. for all combatants with that timing
+      applyDotOnRound();
+    }
+
+    // Apply "start" D.o.T. for the new active combatant
+    applyDotOnStart(queue[0]);
+
     saveState();
     renderCombatScreen();
 
@@ -682,9 +718,11 @@ function triggerCombatEnd() {
 
   combatants.forEach(c => {
     if (c.type === 'player') {
-      c.hp     = c.maxHp;
-      c.isDead = false;
-      c.conds  = [];
+      c.hp        = c.maxHp;
+      c.isDead    = false;
+      c.conds     = [];
+      c.dotFormula = null;
+      c.dotTiming  = null;
     }
   });
 
@@ -827,9 +865,6 @@ function applyHP(sign) {
 }
 
 // ────────────────────────────────────────
-// ROLL SCREEN
-// ────────────────────────────────────────
-// ────────────────────────────────────────
 // ROLL MODAL
 // ────────────────────────────────────────
 function openRollModal() {
@@ -969,10 +1004,15 @@ function rollExecute() {
        : '';
    }).join('');
 
-   // Fixed D.o.T. chip (always present) with its own colors and click to open dot modal
-   const dotTurns = c.dotTurns && c.dotTurns > 0 ? ` (${c.dotTurns})` : '';
-   const dotActiveClass = (c.dotTurns && c.dotTurns > 0) ? ' active' : '';
-   const dotChip = `<span class="chip dot-chip${dotActiveClass}" onclick="openDotModal(${c.id})" title="D.o.T. — click to set">${'D.o.T.'}${dotTurns}</span>`;
+   // Fixed D.o.T. chip — active state drives click behavior
+   const dotIsActive = !!c.dotFormula;
+   const dotActiveClass = dotIsActive ? ' active' : '';
+   // Show timing initial on chip when active: •S •E •R
+   const timingMap = { start: '·S', end: '·E', round: '·R' };
+   const timingMark = dotIsActive && c.dotTiming ? ` ${timingMap[c.dotTiming] || ''}` : '';
+   const dotClickFn = dotIsActive ? `openDotRemoveModal(${c.id})` : `openDotModal(${c.id})`;
+   const dotTitle   = dotIsActive ? 'D.o.T. active — tap to remove' : 'Tap to add D.o.T.';
+   const dotChip = `<span class="chip dot-chip${dotActiveClass}" onclick="${dotClickFn}" title="${dotTitle}">D.o.T.${esc(timingMark)}</span>`;
 
    // Fixed Focus chip (toggle)
    const focusClass = c.focus ? 'focus-chip active' : 'focus-chip';
@@ -1086,21 +1126,32 @@ function render() {
 }
 
  // ────────────────────────────────────────
- // D.O.T. & FOCUS - modal and logic
+ // D.O.T. & FOCUS — modal and logic
  // ────────────────────────────────────────
- let dotTarget = null;
- let dotStr = '';
+
+ // ── Open modal to configure D.o.T. (only when not already active) ──
  function openDotModal(id) {
    dotTarget = id;
    dotStr = '';
-   document.getElementById('dotTurns').value = 1;
+   dotTimingSelected = 'start';
+   // Reset timing buttons to default (Start)
+   ['start','end','round'].forEach(n => {
+     const btn = document.getElementById(`dotTiming-${n}`);
+     if (btn) btn.classList.toggle('active', n === 'start');
+   });
    refreshDotDisp();
    openModal('dotModal');
-   setTimeout(() => {
-     const inp = document.getElementById('dotTurns');
-     if (inp) inp.select();
-   }, 80);
  }
+
+ // ── Select timing toggle ──
+ function setDotTiming(t) {
+   dotTimingSelected = t;
+   ['start','end','round'].forEach(n => {
+     const btn = document.getElementById(`dotTiming-${n}`);
+     if (btn) btn.classList.toggle('active', n === t);
+   });
+ }
+
  function dotPress(d) {
    if (dotStr.length >= 10) return;
    if (d === 'd') {
@@ -1124,32 +1175,54 @@ function render() {
    }
    refreshDotDisp();
  }
+
  function dotBack() { dotStr = dotStr.slice(0,-1); refreshDotDisp(); }
+
  function refreshDotDisp() {
    const el = document.getElementById('dotDisplay');
    el.textContent = dotStr || '_';
    el.style.fontSize = '42px';
  }
- function dotTurnsChange(delta) {
-   const inp = document.getElementById('dotTurns');
-   const v = Math.max(1, parseInt(inp.value || '1') + delta);
-   inp.value = v;
- }
+
  function applyDot() {
    const c = getC(dotTarget);
    if (!c) return closeModal('dotModal');
    const parsed = parseDiceOrNumber(dotStr);
    if (parsed === null) { toast('Invalid D.o.T. formula'); return; }
-   const turns = Math.max(1, parseInt(document.getElementById('dotTurns').value || '1'));
    c.dotFormula = dotStr;
-   c.dotTurns   = turns;
-   addHistory(`<b>${esc(c.name)}</b> gets D.o.T.:<br>🩸${esc(dotStr)} for <b>${turns}</b> turns`, 'condition');
-   toast(`${c.name} gets D.o.T. for ${turns} turns`);
+   c.dotTiming  = dotTimingSelected;
+   const timingLabel = { start: 'Start of turn', end: 'End of turn', round: 'Each round' }[dotTimingSelected];
+   addHistory(`<b>${esc(c.name)}</b> gets D.o.T.:<br>🩸${esc(dotStr)} • ${timingLabel}`, 'condition');
+   toast(`${c.name} gets D.o.T. (${timingLabel})`);
    closeModal('dotModal');
    saveState();
    render();
  }
 
+ // ── Open removal confirmation modal when chip is tapped while active ──
+ function openDotRemoveModal(id) {
+   dotRemoveTarget = id;
+   const c = getC(id);
+   const nameEl = document.getElementById('dotRemoveName');
+   if (nameEl) nameEl.textContent = c ? c.name : '';
+   openModal('dotRemoveModal');
+ }
+
+ function confirmRemoveDot() {
+   const c = getC(dotRemoveTarget);
+   if (c) {
+     c.dotFormula = null;
+     c.dotTiming  = null;
+     addHistory(`<b>${esc(c.name)}</b> D.o.T. removed`, 'condition');
+     toast(`${c.name} — D.o.T. removed`);
+   }
+   closeModal('dotRemoveModal');
+   dotRemoveTarget = null;
+   saveState();
+   render();
+ }
+
+ // ── Focus toggle ──
  function toggleFocus(id) {
    const c = getC(id);
    if (!c) return;
@@ -1165,37 +1238,48 @@ function render() {
    render();
  }
 
- // apply direct damage (used by DOT) without opening hp modal
- function applyDirectDamage(c, amt) {
-   if (!c) return;
+ // ── Apply direct D.o.T. damage to a single combatant ──
+ function applyDirectDamage(c, timingLabel) {
+   if (!c || !c.dotFormula) return;
+   const parsed = parseDiceOrNumber(c.dotFormula);
+   const dmg = (parsed === null) ? 0 : parsed;
+   if (dmg <= 0) return;
    const oldHp = c.hp;
-   c.hp = Math.max(0, c.hp - amt);
+   c.hp = Math.max(0, c.hp - dmg);
    if (oldHp > 0 && c.hp === 0) {
      c.isDead = true;
-     addHistory(`<b>${esc(c.name)}:</b></br>☠️ HP reduced to 0 (from D.o.T.)`, 'death');
+     addHistory(`<b>${esc(c.name)}:</b><br>☠️ HP reduced to 0 (from D.o.T.)`, 'death');
      toast(`☠️ ${esc(c.name)}'s HP reduced to 0`);
    } else {
-     addHistory(`<b>${esc(c.name)}</b></br>takes 🩸<b>${amt}</b> D.o.T. damage, <b>${c.dotTurns - 1}</b> turns remaining`, 'damage');
-     toast(`<span style="color:var(--red);">🩸 ${esc(c.name)} takes ${amt} D.o.T.</span>`);
+     addHistory(`<b>${esc(c.name)}</b> takes <br>🩸<b>${dmg}</b> D.o.T. damage (${timingLabel})`, 'damage');
+     toast(`<span style="color:var(--red);">🩸 ${esc(c.name)} takes ${dmg} D.o.T.</span>`);
    }
    saveState();
    render();
    checkCombatEnd();
  }
 
- // Apply DOT damage for all combatants with dotTurns>0 (called on every turn change)
- function applyDotForAll() {
+ // ── Fire D.o.T. at the START of a combatant's turn ──
+ function applyDotOnStart(id) {
+   const c = getC(id);
+   if (c && c.dotFormula && c.dotTiming === 'start') {
+     applyDirectDamage(c, 'start of turn');
+   }
+ }
+
+ // ── Fire D.o.T. at the END of a combatant's turn ──
+ function applyDotOnEnd(id) {
+   const c = getC(id);
+   if (c && c.dotFormula && c.dotTiming === 'end') {
+     applyDirectDamage(c, 'end of turn');
+   }
+ }
+
+ // ── Fire D.o.T. for all combatants with "round" timing ──
+ function applyDotOnRound() {
    combatants.forEach(c => {
-     if (c.dotTurns && c.dotTurns > 0 && c.dotFormula) {
-       const parsed = parseDiceOrNumber(c.dotFormula);
-       const dmg = (parsed === null) ? 0 : parsed;
-       if (dmg > 0) {
-         applyDirectDamage(c, dmg);
-       }
-       c.dotTurns = Math.max(0, c.dotTurns - 1);
-       if (c.dotTurns === 0) {
-         addHistory(`<b>${esc(c.name)}</b> D.o.T. ended`, 'event');
-       }
+     if (c.dotFormula && c.dotTiming === 'round') {
+       applyDirectDamage(c, 'end of round');
      }
    });
  }
@@ -1224,7 +1308,7 @@ function toast(msg) {
 // ────────────────────────────────────────
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
-    ['addModal','hpModal','statusModal','attackModal','deleteConfirmModal','rollModal'].forEach(closeModal);
+    ['addModal','hpModal','statusModal','attackModal','deleteConfirmModal','rollModal','dotModal','dotRemoveModal'].forEach(closeModal);
   }
 });
 

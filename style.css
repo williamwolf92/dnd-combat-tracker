@@ -578,14 +578,14 @@ header h1 {
    transition: all 0.15s;
  }
 
- /* Fixed D.o.T. chip style (greyed) */
+ /* Fixed D.o.T. chip style (greyed = inactive) */
  .chip.dot-chip {
    background: #cacaca;
    border-color: #777777;
    color: #777777;
    font-weight: 700;
  }
- /* When D.o.T. is active show strong accent (only while active) */
+ /* When D.o.T. is active show strong accent */
  .chip.dot-chip.active {
    background: var(--red);
    border-color: var(--text);
@@ -851,6 +851,28 @@ header h1 {
 }
 
 .hp-mod-vuln.active {
+  background: var(--red);
+  border-color: var(--text);
+  color: var(--bg);
+  font-weight: 700;
+}
+
+/* ── D.O.T. TIMING TOGGLE BUTTONS (Start / End / Round) ── */
+.dot-timing-btn {
+  flex: 1;
+  padding: 9px 4px;
+  background: var(--btn-bg);
+  border: 1.5px solid var(--text);
+  border-radius: 8px;
+  cursor: default;
+  font-size: 13px;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--text);
+  text-align: center;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, font-weight 0.1s;
+}
+.dot-timing-btn:active { transform: scale(0.95); }
+.dot-timing-btn.active {
   background: var(--red);
   border-color: var(--text);
   color: var(--bg);
