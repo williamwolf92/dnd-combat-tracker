@@ -124,6 +124,7 @@ let pendingConds = [];
 
 // Roll modal state
 let rollStr      = '';
+let rollAdvType  = 'normal'; // 'normal' | 'advantage' | 'disadvantage'
 
 // Attack modal state
 let attackTarget     = null;
@@ -530,9 +531,13 @@ function openAttackModal(id) {
 }
 
 function setAttackType(type) {
-  selectedAttackType = type;
+  if (selectedAttackType === type) {
+    selectedAttackType = 'normal';
+  } else {
+    selectedAttackType = type;
+  }
   document.querySelectorAll('.attack-type-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.type === type);
+    btn.classList.toggle('active', btn.dataset.type === selectedAttackType);
   });
 }
 
@@ -618,7 +623,12 @@ function nextTurn() {
     });
     saveState();
     render();
-    addHistory('⚔️ <b>START COMBAT!</b>', 'event');
+    const sortedForLog = [...combatants].sort((a, b) => b.init - a.init);
+    const rosterLines  = sortedForLog.map(c => {
+      const color = c.type === 'player' ? 'var(--green)' : 'var(--red)';
+      return `<span style="color:${color};font-weight:700;">${esc(c.name)}</span> — Init:${c.init} ❤️:${c.hp} 🛡:${c.ac}`;
+    }).join('<br>');
+    addHistory(`⚔️ <b>START COMBAT!</b><br>${rosterLines}`, 'event');
     toast('⚔️ START COMBAT!');
     // Apply "start" D.o.T. for the first active combatant
     applyDotOnStart(queue[0]);
@@ -850,8 +860,8 @@ function applyHP(sign) {
         addHistory(`<b>${esc(c.name)}</b> is 💥 <b>vulnerable</b> to ${parsed} damage<br>Takes 🩸<b>${finalAmt}</b> damage`, 'damage');
         toast(`<span style="color:var(--red);">💥 ${esc(c.name)} is vulnerable to damage</span>`);
       } else {
-        addHistory(`<b>${esc(c.name)}</b> takes 🩸<b>${finalAmt}</b> damage`, 'damage');
-        toast(`<span style="color:var(--red);">🩸 ${esc(c.name)} takes ${finalAmt} damage</span>`);
+        addHistory(`<b>${esc(c.name)}</b> takes🩸<b>${finalAmt}</b> damage`, 'damage');
+        toast(`<span style="color:var(--red);">🩸${esc(c.name)} takes ${finalAmt} damage</span>`);
       }
     } else {
       addHistory(`<b>${esc(c.name)}</b> receives 💚 <b>${finalAmt}</b> heal`, 'heal');
@@ -869,8 +879,24 @@ function applyHP(sign) {
 // ────────────────────────────────────────
 function openRollModal() {
   rollStr = '';
+  rollAdvType = 'normal';
+  document.querySelectorAll('.roll-adv-btn').forEach(b => b.classList.remove('active'));
   refreshRollDisp();
   openModal('rollModal');
+}
+
+function setRollAdvType(type) {
+  if (rollAdvType === type) {
+    rollAdvType = 'normal';
+    rollStr = '';
+  } else {
+    rollAdvType = type;
+    rollStr = '2d20';
+  }
+  document.querySelectorAll('.roll-adv-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.id === `rollAdvBtn-${rollAdvType}`);
+  });
+  refreshRollDisp();
 }
 
 function rollPress(d) {
@@ -894,6 +920,8 @@ function rollPress(d) {
       rollStr += '+';
     }
   } else {
+    // In adv mode, digits are only allowed after the ± sign has been added
+    if (rollAdvType !== 'normal' && !rollStr.match(/^2d20[+-]/)) return;
     rollStr += d;
   }
 
@@ -901,6 +929,11 @@ function rollPress(d) {
 }
 
 function rollBack() {
+  if (rollAdvType !== 'normal') {
+    if (rollStr.length > 4) rollStr = rollStr.slice(0, -1); // never delete below '2d20'
+    refreshRollDisp();
+    return;
+  }
   rollStr = rollStr.slice(0, -1);
   refreshRollDisp();
 }
@@ -912,12 +945,40 @@ function refreshRollDisp() {
 }
 
 function rollExecute() {
+  if (rollAdvType !== 'normal') {
+    let bonus = 0;
+    let bonusStr = '';
+    const bonusMatch = rollStr.match(/^2d20([+-]\d+)$/);
+    if (bonusMatch) {
+      bonus    = parseInt(bonusMatch[1]);
+      bonusStr = bonus > 0 ? `+${bonus}` : `${bonus}`;
+    }
+
+    const roll1    = Math.floor(Math.random() * 20) + 1;
+    const roll2    = Math.floor(Math.random() * 20) + 1;
+    const usedRoll = rollAdvType === 'advantage' ? Math.max(roll1, roll2) : Math.min(roll1, roll2);
+    const total    = usedRoll + bonus;
+    const typeLabel = rollAdvType === 'advantage' ? 'Advantage' : 'Disadvantage';
+    const formula  = `🎲 2d20 (${roll1}/${roll2}): ${usedRoll}${bonusStr} = ${total}`;
+
+    addHistory(`🎲 Roll [${typeLabel}]<br>${formula}`, 'roll');
+    toast(`🎲 [${typeLabel}] ${usedRoll}${bonusStr} = ${total}`);
+
+    rollStr     = '';
+    rollAdvType = 'normal';
+    document.querySelectorAll('.roll-adv-btn').forEach(b => b.classList.remove('active'));
+    refreshRollDisp();
+    closeModal('rollModal');
+    return;
+  }
+
   const parsed = parseDiceOrNumber(rollStr);
   if (parsed === null) return;
   addHistory(`🎲 Rolled ${rollStr} = ${parsed}`, 'roll');
   toast(`🎲 ${rollStr} = ${parsed}`);
   rollStr = '';
   refreshRollDisp();
+  closeModal('rollModal');
 }
 
  // ────────────────────────────────────────
@@ -1008,7 +1069,7 @@ function rollExecute() {
    const dotIsActive = !!c.dotFormula;
    const dotActiveClass = dotIsActive ? ' active' : '';
    // Show timing initial on chip when active: •S •E •R
-   const timingMap = { start: '·S', end: '·E', round: '·R' };
+   const timingMap = { start: '(S)', end: '(E)', round: '(R)' };
    const timingMark = dotIsActive && c.dotTiming ? ` ${timingMap[c.dotTiming] || ''}` : '';
    const dotClickFn = dotIsActive ? `openDotRemoveModal(${c.id})` : `openDotModal(${c.id})`;
    const dotTitle   = dotIsActive ? 'D.o.T. active — tap to remove' : 'Tap to add D.o.T.';
@@ -1079,6 +1140,9 @@ function render() {
       btn.disabled    = queue.length === 0;
     }
   }
+
+  const clearBtn = document.getElementById('btnClearHistory');
+  if (clearBtn) clearBtn.disabled = started;
 
   const listEl = document.getElementById('listCombat');
   if (!listEl) return;

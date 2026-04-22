@@ -21,7 +21,7 @@
     <select id="historyFilter" class="history-filter-select" onchange="applyHistoryFilter()">
       <option value="all">All</option>
     </select>
-    <button class="btn btn-cancel" onclick="clearHistory()" title="Clear history">🗑 Clear</button>
+    <button class="btn btn-cancel" id="btnClearHistory" onclick="clearHistory()" title="Clear history">🗑 Clear</button>
   </div>
 
 </header>
@@ -30,7 +30,7 @@
 <div class="screen" id="screenHome">
   <header class="home-header">
     <h1>Dungeons &amp; Dragons</h1>
-    <div class="tagline">COMBAT TRACKER <span class="version">v2.1</span></div>
+    <div class="tagline">COMBAT TRACKER <span class="version">v2.7</span></div>
     <div class="sword-icon">⚔️ 🏹 🔮 🛡</div>
     <div class="ornament"></div>
   </header>
@@ -113,8 +113,8 @@
     </div>
 
     <div class="row">
-      <!-- Initiative: text supports "+5"/"-2" (modifier) or "14" (fixed) -->
-      <div class="field">
+      <!-- Initiative -->
+      <div class="field field-init">
         <label>Initiative</label>
         <div class="init-wrap">
           <input id="a-init" type="text" oninput="filterInitInput(this)">
@@ -124,12 +124,15 @@
           </div>
         </div>
       </div>
-      <!-- HP: digits, d, +, - only. Formats: #  |  #d#  |  #d#±# -->
-      <div class="field">
+
+      <!-- HP -->
+      <div class="field field-hp">
         <label>HP</label>
         <input id="a-hp" type="text" oninput="filterHpInput(this)">
       </div>
-      <div class="field">
+
+      <!-- AC -->
+      <div class="field field-ac">
         <label>AC</label>
         <input id="a-ac" type="number" min="1">
       </div>
@@ -161,8 +164,8 @@
       <button class="np" onclick="npPress('0')">0</button>
       <button class="np np-toggle" onclick="npPress('±')">±</button>
       <div class="hp-mod-row">
-        <button class="hp-mod-btn hp-mod-resist" id="btnResist" onclick="hpModToggle('resist')">Resist.</button>
-        <button class="hp-mod-btn hp-mod-vuln"   id="btnVuln"   onclick="hpModToggle('vuln')">Vulner.</button>
+        <button class="hp-mod-btn hp-mod-resist" id="btnResist" onclick="hpModToggle('resist')">Resistant</button>
+        <button class="hp-mod-btn hp-mod-vuln"   id="btnVuln"   onclick="hpModToggle('vuln')">Vulnerable</button>
       </div>
       <button class="np np-minus" onclick="applyHP(-1)">Damage</button>
       <button class="np np-plus" onclick="applyHP(1)">Heal</button>
@@ -188,20 +191,22 @@
     <div class="modal-title">⚔️ Attack Roll</div>
     
     <div class="field">
-      <label>Attack Bonus</label>
-      <div class="bonus-stepper">
-        <button class="btn-stepper" onclick="attackBonusChange(-1)">−</button>
-        <input type="number" id="attackBonus" value="0">
-        <button class="btn-stepper" onclick="attackBonusChange(1)">+</button>
-      </div>
-    </div>
-
-    <div class="field">
-      <label>Roll Type</label>
-      <div class="attack-type-group">
-        <button class="attack-type-btn active" data-type="normal"       onclick="setAttackType('normal')">Normal</button>
-        <button class="attack-type-btn"        data-type="advantage"    onclick="setAttackType('advantage')">Advan.</button>
-        <button class="attack-type-btn"        data-type="disadvantage" onclick="setAttackType('disadvantage')">Disad.</button>
+      <div class="attack-bonus-row">
+        <div class="bonus-stepper-wrapper">
+          <label class="field-label">Attack Bonus</label>
+          <div class="bonus-stepper">
+            <button class="btn-stepper" onclick="attackBonusChange(-1)">−</button>
+            <input type="number" id="attackBonus" value="0">
+            <button class="btn-stepper" onclick="attackBonusChange(1)">+</button>
+          </div>
+        </div>
+        <div class="attack-type-wrapper">
+          <label class="field-label">Roll Type</label>
+          <div class="attack-type-group">
+            <button class="attack-type-btn" data-type="advantage"    onclick="setAttackType('advantage')">Advan.</button>
+            <button class="attack-type-btn" data-type="disadvantage" onclick="setAttackType('disadvantage')">Disadv.</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -235,7 +240,11 @@
       <button class="np np-dice" onclick="rollPress('d')">d</button>
       <button class="np" onclick="rollPress('0')">0</button>
       <button class="np np-toggle" onclick="rollPress('±')">±</button>
-      <button class="np np-roll" onclick="rollExecute()" style="grid-column: span 2;">🎲 ROLL</button>
+      <div class="roll-adv-row">
+        <button class="roll-adv-btn" id="rollAdvBtn-advantage"    onclick="setRollAdvType('advantage')">Advantage</button>
+        <button class="roll-adv-btn" id="rollAdvBtn-disadvantage" onclick="setRollAdvType('disadvantage')">Disadvantage</button>
+      </div>
+      <button class="np np-roll" onclick="rollExecute()" style="grid-column: span 2;">🎲 Roll</button>
       <button class="np np-clr" onclick="rollBack()">⌫ Del</button>
     </div>
   </div>
@@ -244,7 +253,7 @@
 <!-- ────── D.O.T. MODAL ────── -->
 <div class="overlay" id="dotModal" onclick="ovrClick(event,'dotModal')">
   <div class="modal modal-roll">
-    <div class="modal-title">🩸 Damage over Time</div>
+    <div class="modal-title">🩸Damage over Time</div>
     <div class="roll-display" id="dotDisplay">_</div>
 
     <div class="numpad" id="dotNumpad">
