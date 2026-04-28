@@ -3,12 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DnD Combat Tracker</title>
+<meta name="description" content="Free D&D 5e combat tracker to manage initiative, hit points, conditions and dice rolls. No login required.">
+<meta name="keywords" content="dnd combat tracker, dnd 5e tracker, initiative tracker, dungeons and dragons tool">
+<title>D&D 5e Combat Tracker</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ────── SHARED COMBAT / HISTORY HEADER ────── -->
+<!-- ────── SHARRD COMBAT / HISTORY HEADER ────── -->
 <header class="shared-header" id="sharedHeader" style="display:none;">
 
   <div id="sharedHeaderCombat" style="display:none;">
@@ -50,6 +52,7 @@
       <div class="home-section">
         <div class="home-section-title"><b>❤️ MODIFYING HP</b></div>
         <p>• Tap the ❤️<b>HP</b> value on a card. Use the numpad to enter a fixed number, a roll (<i><b>#d#</b></i>) or a roll with bonus (<i><b>#d#±#</b></i>), then tap <b>Damage</b> or <b>Heal</b>.</p>
+        <p>• Use <b>Resistant</b> or <b>Vulnerable</b> options to halve or duplicate damage respectively. In addition, you can use <b>Resistant</b> in order to halve damage on a successful saving throw.</p>
         <p>• A combatant's HP pulses red when it drops to 20% or below.</p>
       </div>
 
@@ -65,9 +68,9 @@
       </div>
       
       <div class="home-section">
-        <div class="home-section-title"><b>🩸 D.O.T. & FOCUS</b></div>
-        <p>• Tap the <b>D.o.T.</b> chip on a card to add <b>Damage over Time</b>. Enter a fixed number, a roll (<b><i>#d#</i></b>) or a roll with bonus (<b><i>#d#±#</i></b>), then choose <i>when</i> the damage fires: <b>Start</b> (beginning of that combatant's turn), <b>End</b> (end of turn), or <b>Round</b> (every round change). D.o.T. stays active until removed — tap the active chip again to remove it.</p>
-        <p>• Tap <b>Focus</b> chip on a card to turn On and Off <b>Concentration</b> tag to a combatant.</p>
+        <div class="home-section-title"><b>🪬 FOCUS (Concentration)</b></div>
+        <p>• Tap <b>Focus</b> chip on a card to toggle <b>Concentration</b> on a combatant.</p>
+        <p>• When a focused combatant takes damage, a <b>CON Save</b> panel opens automatically: set <b>CON Mod</b>, choose Advantage or Disadvantage if needed, then tap <b>Roll Save</b>. On failure, Focus is lost.</p>
       </div>
     </div>
   </main>
@@ -106,10 +109,16 @@
   <div class="modal">
     <div class="modal-title">✦ Add Combatant</div>
 
-    <div class="field" style="position:relative;">
-      <label>Name</label>
-      <input id="a-name" type="text" oninput="onNameInput()" autocomplete="off">
-      <div id="monster-suggestions" class="monster-suggestions"></div>
+    <div class="name-qty-row">
+      <div class="field" style="position:relative;flex:1;">
+        <label>Name</label>
+        <input id="a-name" type="text" oninput="onNameInput()" autocomplete="off">
+        <div id="monster-suggestions" class="monster-suggestions"></div>
+      </div>
+      <div class="field field-qty">
+        <label>Qty</label>
+        <input id="a-qty" type="number" value="1" min="1" max="20">
+      </div>
     </div>
 
     <div class="row">
@@ -210,8 +219,8 @@
       </div>
     </div>
 
-    <div class="attack-result" id="attackResult" style="display:none;">
-      <div class="result-message" id="resultMessage"></div>
+    <div class="attack-result" id="attackResult">
+      <div class="result-message" id="resultMessage"><span class="attack-ready-msg">Ready to Attack</span></div>
       <div class="result-formula" id="resultFormula"></div>
     </div>
 
@@ -250,47 +259,33 @@
   </div>
 </div>
 
-<!-- ────── D.O.T. MODAL ────── -->
-<div class="overlay" id="dotModal" onclick="ovrClick(event,'dotModal')">
-  <div class="modal modal-roll">
-    <div class="modal-title">🩸Damage over Time</div>
-    <div class="roll-display" id="dotDisplay">_</div>
 
-    <div class="numpad" id="dotNumpad">
-      <button class="np" onclick="dotPress('1')">1</button>
-      <button class="np" onclick="dotPress('2')">2</button>
-      <button class="np" onclick="dotPress('3')">3</button>
-      <button class="np" onclick="dotPress('4')">4</button>
-      <button class="np" onclick="dotPress('5')">5</button>
-      <button class="np" onclick="dotPress('6')">6</button>
-      <button class="np" onclick="dotPress('7')">7</button>
-      <button class="np" onclick="dotPress('8')">8</button>
-      <button class="np" onclick="dotPress('9')">9</button>
-      <button class="np np-dice" onclick="dotPress('d')">d</button>
-      <button class="np" onclick="dotPress('0')">0</button>
-      <button class="np np-toggle" onclick="dotPress('±')">±</button>
-
-      <!-- Timing toggle buttons -->
-      <div style="grid-column: span 3; display:flex; gap:7px; margin-top:4px;">
-        <button id="dotTiming-start" class="dot-timing-btn active" onclick="setDotTiming('start')">Start</button>
-        <button id="dotTiming-end"   class="dot-timing-btn"        onclick="setDotTiming('end')">End</button>
-        <button id="dotTiming-round" class="dot-timing-btn"        onclick="setDotTiming('round')">Round</button>
+<!-- ────── CON SAVE MODAL ────── -->
+<div class="overlay" id="conSaveModal">
+  <div class="modal modal-consave">
+    <div class="modal-title">🎯 Save Focus</div>
+    <div class="consave-dc" id="conSaveDCLabel">DC 10</div>
+    <div class="consave-row">
+      <div class="consave-col">
+        <label class="field-label">CON Mod</label>
+        <div class="init-wrap">
+          <input id="cs-con" type="number" value="0" min="-10" max="10">
+          <div class="init-steppers">
+            <button class="btn-init-step" onclick="conSaveStep(1)">+</button>
+            <button class="btn-init-step" onclick="conSaveStep(-1)">−</button>
+          </div>
+        </div>
       </div>
-
-      <!-- Apply + Del -->
-      <button class="np np-minus" onclick="applyDot()" style="grid-column: span 2; font-size:14px;">Apply</button>
-      <button class="np np-clr" onclick="dotBack()">⌫ Del</button>
+      <div class="consave-col">
+        <label class="field-label">Roll Type</label>
+        <div class="consave-adv-group">
+          <button class="consave-adv-btn" id="csAdvBtn-advantage"    onclick="setConSaveAdv('advantage')">Advan.</button>
+          <button class="consave-adv-btn" id="csAdvBtn-disadvantage" onclick="setConSaveAdv('disadvantage')">Disadv.</button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-<!-- ────── D.O.T. REMOVE CONFIRMATION MODAL ────── -->
-<div class="overlay" id="dotRemoveModal" onclick="ovrClick(event,'dotRemoveModal')">
-  <div class="modal modal-confirm">
-    <div class="confirm-text">Remove <strong>D.o.T.</strong> from<br><strong id="dotRemoveName"></strong>?</div>
     <div class="modal-actions" style="margin-top:20px;">
-      <button class="btn btn-ok" onclick="confirmRemoveDot()">Yes</button>
-      <button class="btn btn-cancel" onclick="closeModal('dotRemoveModal')">No</button>
+      <button class="btn btn-ok" onclick="executeConSave()">🎲 Roll Save</button>
     </div>
   </div>
 </div>

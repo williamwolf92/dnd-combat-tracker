@@ -17,7 +17,6 @@
    { id:'restrained',    lbl:'Restrained' },
    { id:'stunned',       lbl:'Stunned' },
    { id:'unconscious',   lbl:'Unconscious' },
-   // Note: D.o.T. removed from selectable CONDITIONS; D.o.T. chip is now fixed on cards
  ];
 
 // ────────────────────────────────────────
@@ -133,16 +132,9 @@ let selectedAttackType = 'normal';
 // HP mod toggle state
 let hpModSelected = null; // 'resist' | 'vuln' | null
 
+
 // Delete confirmation state
 let pendingDeleteId = null;
-
-// D.o.T. modal state
-let dotTarget        = null;
-let dotStr           = '';
-let dotTimingSelected = 'start'; // 'start' | 'end' | 'round'
-
-// D.o.T. remove confirmation state
-let dotRemoveTarget  = null;
 
 // ────────────────────────────────────────
 // PERSISTENCIA (localStorage)
@@ -170,20 +162,6 @@ function loadState() {
     history           = state.history           || [];
     combatStartRoster = state.combatStartRoster || [];
 
-    // ── Migrate old dotTurns-based state to new dotTiming system ──
-    combatants.forEach(c => {
-      if (c.dotFormula && !c.dotTiming) {
-        // Old system: dotTurns > 0 means still active
-        if (c.dotTurns && c.dotTurns > 0) {
-          c.dotTiming = 'start';
-        } else {
-          // dotTurns was 0 — DoT had expired, clear it
-          c.dotFormula = null;
-          c.dotTiming  = null;
-        }
-      }
-      delete c.dotTurns; // clean up legacy field
-    });
 
   } catch(e) {
     console.warn('Error loading state:', e);
@@ -329,6 +307,7 @@ function ovrClick(e, id) { if (e.target.id === id) closeModal(id); }
 // ────────────────────────────────────────
 function openAddModal() {
   ['a-name','a-init','a-hp','a-ac'].forEach(i => document.getElementById(i).value = '');
+  document.getElementById('a-qty').value = '1';
   document.getElementById('monster-suggestions').innerHTML = '';
   currentSuggestions = [];
   openModal('addModal');
@@ -359,6 +338,20 @@ function initStep(delta) {
       inp.value = '1';
     }
   }
+}
+
+// ── CON Mod stepper (used in conSave modal) ──
+function conSaveStep(delta) {
+  const inp = document.getElementById('cs-con');
+  const n   = parseInt(inp.value || '0', 10);
+  inp.value = String(Math.max(-10, Math.min(10, (isNaN(n) ? 0 : n) + delta)));
+}
+
+// ── Qty stepper ──
+function qtyStep(delta) {
+  const inp = document.getElementById('a-qty');
+  const n   = parseInt(inp.value || '1', 10);
+  inp.value = String(Math.max(1, Math.min(20, (isNaN(n) ? 1 : n) + delta)));
 }
 
 // ── Parse initiative: "+X"/"-X" → 1d20+mod, plain "N" → N ──
@@ -417,26 +410,38 @@ function addCombatant(type) {
   const initStr = document.getElementById('a-init').value.trim();
   const hpStr   = document.getElementById('a-hp').value.trim();
   const ac      = Math.max(1, parseInt(document.getElementById('a-ac').value) || 10);
-
-  const init = parseInitiative(initStr) ?? 10;
-  const hp   = Math.max(1, parseDiceOrNumber(hpStr) ?? 10);
-
-  const c = { id: uid++, name, init, hp, maxHp: hp, ac, conds: [], isDead: false, type };
-  combatants.push(c);
-  insertInQueue(c.id);
-
-  // If combat is already running, add to roster so history filter picks them up
-  if (started && !combatStartRoster.some(r => r.name === c.name)) {
-    combatStartRoster.push({ name: c.name, type: c.type });
-    if (currentScreen === 'screenHistory') populateHistoryFilter();
-  }
+  const qty     = Math.max(1, Math.min(20, parseInt(document.getElementById('a-qty').value) || 1));
 
   closeModal('addModal');
+
+  let lastInit = 10;
+  for (let i = 0; i < qty; i++) {
+    const combatantName = qty > 1 ? `${name} ${i + 1}` : name;
+    const init = parseInitiative(initStr) ?? 10;
+    const hp   = Math.max(1, parseDiceOrNumber(hpStr) ?? 10);
+    lastInit   = init;
+
+    const c = { id: uid++, name: combatantName, init, hp, maxHp: hp, ac, conMod: 0, conds: [], isDead: false, type };
+    combatants.push(c);
+    insertInQueue(c.id);
+
+    if (started && !combatStartRoster.some(r => r.name === combatantName)) {
+      combatStartRoster.push({ name: combatantName, type: c.type });
+      if (currentScreen === 'screenHistory') populateHistoryFilter();
+    }
+
+    const enterColor = type === 'player' ? 'var(--green)' : 'var(--red)';
+    addHistory(`<span style="color:${enterColor};font-weight:700;">${esc(combatantName)}</span> enter combat:<br>Init: ${init} | ❤️: ${hp} | 🛡: ${ac}`, 'event');
+  }
+
   saveState();
   render();
 
-  addHistory(`<b>${esc(name)}</b> enter combat:<br>Init: ${init} | ❤️: ${hp} | 🛡: ${ac}`, 'event');
-  toast(`${esc(name)} enter combat - Init.: ${init}`);
+  if (qty === 1) {
+    toast(`${esc(name)} enter combat - Init.: ${lastInit}`);
+  } else {
+    toast(`${qty}× ${esc(name)} enter combat`);
+  }
 }
 
 function insertInQueue(newId) {
@@ -481,7 +486,7 @@ function confirmDelete() {
     }
 
     saveState();
-    addHistory(`<b>${esc(name)}</b> removed from combat`, 'event');
+    addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(name)}</span> removed from combat`, 'event');
 
     const remaining = listEl ? [...listEl.querySelectorAll('.card[data-id]')].filter(c => c !== el) : [];
     const snap = new Map();
@@ -526,7 +531,8 @@ function openAttackModal(id) {
   attackTarget = id;
   document.getElementById('attackBonus').value = '0';
   setAttackType('normal');
-  document.getElementById('attackResult').style.display = 'none';
+  document.getElementById('resultMessage').innerHTML = '<span class="attack-ready-msg">Ready to Attack</span>';
+  document.getElementById('resultFormula').textContent = '';
   openModal('attackModal');
 }
 
@@ -591,7 +597,6 @@ function executeAttack() {
 
   document.getElementById('resultMessage').innerHTML = resultMsg;
   document.getElementById('resultFormula').textContent = formula;
-  document.getElementById('attackResult').style.display = 'block';
 
   addHistory(`Attack vs. <b>${esc(c.name)}</b> | <b>${crit ? 'CRITICAL!' : (hit ? 'HIT' : 'MISS')}</b><br>${formula}`, 'attack');
 }
@@ -626,12 +631,15 @@ function nextTurn() {
     const sortedForLog = [...combatants].sort((a, b) => b.init - a.init);
     const rosterLines  = sortedForLog.map(c => {
       const color = c.type === 'player' ? 'var(--green)' : 'var(--red)';
-      return `<span style="color:${color};font-weight:700;">${esc(c.name)}</span> — Init:${c.init} ❤️:${c.hp} 🛡:${c.ac}`;
+      return `<span style="color:${color};font-weight:700;">${esc(c.name)}</span> - Init: ${c.init} | ❤️: ${c.hp} | 🛡: ${c.ac}`;
     }).join('<br>');
     addHistory(`⚔️ <b>START COMBAT!</b><br>${rosterLines}`, 'event');
+    const firstC = getC(queue[0]);
+    if (firstC) {
+      const turnColor = firstC.type === 'player' ? 'var(--green)' : 'var(--red)';
+      addHistory(`<span style="color:${turnColor};font-weight:700;">${esc(firstC.name)}</span>'s turn`, 'turn');
+    }
     toast('⚔️ START COMBAT!');
-    // Apply "start" D.o.T. for the first active combatant
-    applyDotOnStart(queue[0]);
     return;
   }
 
@@ -652,21 +660,19 @@ function nextTurn() {
     const done = queue.shift();
     queue.push(done);
 
-    // Apply "end" D.o.T. for the combatant whose turn just ended
-    applyDotOnEnd(done);
-
     const roundChanged = queue[0] === roundFirstId;
     if (roundChanged) {
       round++;
-      // Apply "round" D.o.T. for all combatants with that timing
-      applyDotOnRound();
     }
-
-    // Apply "start" D.o.T. for the new active combatant
-    applyDotOnStart(queue[0]);
 
     saveState();
     renderCombatScreen();
+
+    const activeC = getC(queue[0]);
+    if (activeC) {
+      const turnColor = activeC.type === 'player' ? 'var(--green)' : 'var(--red)';
+      addHistory(`<span style="color:${turnColor};font-weight:700;">${esc(activeC.name)}</span>'s turn`, 'turn');
+    }
 
     if (roundChanged) {
       addHistory(`🔄 <b>ROUND ${round}</b>`, 'round');
@@ -731,8 +737,6 @@ function triggerCombatEnd() {
       c.hp        = c.maxHp;
       c.isDead    = false;
       c.conds     = [];
-      c.dotFormula = null;
-      c.dotTiming  = null;
     }
   });
 
@@ -849,6 +853,10 @@ function applyHP(sign) {
 
   if (oldHp > 0 && c.hp === 0) {
     c.isDead = true;
+    if (c.focus) {
+      c.focus = false;
+      addHistory(`<b>${esc(c.name)}</b> loses Focus (incapacitated)`, 'condition');
+    }
     addHistory(`<b>${esc(c.name)}:</b></br>☠️ HP reduced to 0`, 'death');
     toast(`☠️ ${esc(c.name)}'s HP reduced to 0`);
   } else {
@@ -863,6 +871,8 @@ function applyHP(sign) {
         addHistory(`<b>${esc(c.name)}</b> takes🩸<b>${finalAmt}</b> damage`, 'damage');
         toast(`<span style="color:var(--red);">🩸${esc(c.name)} takes ${finalAmt} damage</span>`);
       }
+      // ── Concentration check: open save modal ──
+      if (c.focus) openConSaveModal(c, finalAmt);
     } else {
       addHistory(`<b>${esc(c.name)}</b> receives 💚 <b>${finalAmt}</b> heal`, 'heal');
       toast(`<span style="color:var(--green);">💚 ${esc(c.name)} heals ${finalAmt}</span>`);
@@ -959,10 +969,10 @@ function rollExecute() {
     const usedRoll = rollAdvType === 'advantage' ? Math.max(roll1, roll2) : Math.min(roll1, roll2);
     const total    = usedRoll + bonus;
     const typeLabel = rollAdvType === 'advantage' ? 'Advantage' : 'Disadvantage';
-    const formula  = `🎲 2d20 (${roll1}/${roll2}): ${usedRoll}${bonusStr} = ${total}`;
+    const formula  = `2d20 (${roll1}/${roll2}): ${usedRoll}${bonusStr} = <b>${total}</b>`;
 
-    addHistory(`🎲 Roll [${typeLabel}]<br>${formula}`, 'roll');
-    toast(`🎲 [${typeLabel}] ${usedRoll}${bonusStr} = ${total}`);
+    addHistory(`🎲 Roll with <b>${typeLabel}</b><br>${formula}`, 'roll');
+    toast(`🎲 Roll with ${typeLabel} ${usedRoll}${bonusStr} = ${total}`);
 
     rollStr     = '';
     rollAdvType = 'normal';
@@ -993,7 +1003,6 @@ function rollExecute() {
  }
 
  function buildStatusGrid() {
-   // D.o.T. removed from the selectable grid; build from CONDITIONS only
    document.getElementById('statusGrid').innerHTML = CONDITIONS.map(cd => `
      <div class="s-opt ${pendingConds.includes(cd.id) ? 'chosen' : ''}"
           onclick="toggleCond('${cd.id}', this)">
@@ -1057,23 +1066,13 @@ function rollExecute() {
    const isZero    = c.hp === 0;
    const typeClass = c.type === 'player' ? 'player' : 'monster';
 
-   // Build normal condition chips (D.o.T. and Focus are fixed and handled separately)
+   // Build normal condition chips
    const chips = c.conds.map(condId => {
      const cd = getCond(condId);
      return cd
        ? `<span class="chip" onclick="removeCondition(${c.id},'${condId}')" title="Click to remove">${cd.lbl}</span>`
        : '';
    }).join('');
-
-   // Fixed D.o.T. chip — active state drives click behavior
-   const dotIsActive = !!c.dotFormula;
-   const dotActiveClass = dotIsActive ? ' active' : '';
-   // Show timing initial on chip when active: •S •E •R
-   const timingMap = { start: '(S)', end: '(E)', round: '(R)' };
-   const timingMark = dotIsActive && c.dotTiming ? ` ${timingMap[c.dotTiming] || ''}` : '';
-   const dotClickFn = dotIsActive ? `openDotRemoveModal(${c.id})` : `openDotModal(${c.id})`;
-   const dotTitle   = dotIsActive ? 'D.o.T. active — tap to remove' : 'Tap to add D.o.T.';
-   const dotChip = `<span class="chip dot-chip${dotActiveClass}" onclick="${dotClickFn}" title="${dotTitle}">D.o.T.${esc(timingMark)}</span>`;
 
    // Fixed Focus chip (toggle)
    const focusClass = c.focus ? 'focus-chip active' : 'focus-chip';
@@ -1109,7 +1108,6 @@ function rollExecute() {
    <button class="add-cond-btn" onclick="openStatusModal(${c.id})">Cond.</button>
  </div>
  <div class="cond-row">
-   ${dotChip}
    ${focusChip}
    ${chips}
  </div>`;
@@ -1190,101 +1188,88 @@ function render() {
 }
 
  // ────────────────────────────────────────
- // D.O.T. & FOCUS — modal and logic
+ // CONCENTRATION SAVE MODAL
  // ────────────────────────────────────────
+ let conSaveTarget  = null;
+ let conSaveDamage  = 0;
+ let conSaveAdvType = 'normal';
 
- // ── Open modal to configure D.o.T. (only when not already active) ──
- function openDotModal(id) {
-   dotTarget = id;
-   dotStr = '';
-   dotTimingSelected = 'start';
-   // Reset timing buttons to default (Start)
-   ['start','end','round'].forEach(n => {
-     const btn = document.getElementById(`dotTiming-${n}`);
-     if (btn) btn.classList.toggle('active', n === 'start');
-   });
-   refreshDotDisp();
-   openModal('dotModal');
+ function openConSaveModal(c, damageTaken) {
+   conSaveTarget  = c;
+   conSaveDamage  = damageTaken;
+   conSaveAdvType = 'normal';
+   const dc = Math.max(10, Math.floor(damageTaken / 2));
+   document.getElementById('conSaveDCLabel').textContent = `DC ${dc} · ${c.name}`;
+   document.getElementById('cs-con').value = c.conMod || 0;
+   document.querySelectorAll('.consave-adv-btn').forEach(b => b.classList.remove('active'));
+   openModal('conSaveModal');
  }
 
- // ── Select timing toggle ──
- function setDotTiming(t) {
-   dotTimingSelected = t;
-   ['start','end','round'].forEach(n => {
-     const btn = document.getElementById(`dotTiming-${n}`);
-     if (btn) btn.classList.toggle('active', n === t);
+ function setConSaveAdv(type) {
+   conSaveAdvType = conSaveAdvType === type ? 'normal' : type;
+   document.querySelectorAll('.consave-adv-btn').forEach(btn => {
+     btn.classList.toggle('active', btn.id === `csAdvBtn-${conSaveAdvType}`);
    });
  }
 
- function dotPress(d) {
-   if (dotStr.length >= 10) return;
-   if (d === 'd') {
-     if (dotStr.length === 0) return;
-     if (dotStr.includes('d')) return;
-     if (dotStr.match(/[+\-]/)) return;
+ function executeConSave() {
+   const c = conSaveTarget;
+   if (!c) return;
+   closeModal('conSaveModal');
+
+   const conMod = Math.max(-10, Math.min(10, parseInt(document.getElementById('cs-con').value) || 0));
+   const dc     = Math.max(10, Math.floor(conSaveDamage / 2));
+
+   let roll1    = Math.floor(Math.random() * 20) + 1;
+   let roll2    = null;
+   let usedRoll = roll1;
+
+   if (conSaveAdvType === 'advantage') {
+     roll2    = Math.floor(Math.random() * 20) + 1;
+     usedRoll = Math.max(roll1, roll2);
+   } else if (conSaveAdvType === 'disadvantage') {
+     roll2    = Math.floor(Math.random() * 20) + 1;
+     usedRoll = Math.min(roll1, roll2);
    }
-   if (d === '±') {
-     if (!dotStr.includes('d')) return;
-     if (dotStr.includes('+')) {
-       dotStr = dotStr.replace('+', '-');
-     } else if (dotStr.includes('-')) {
-       dotStr = dotStr.replace('-', '+');
-     } else {
-       const afterD = dotStr.split('d')[1];
-       if (!afterD || afterD.length === 0) return;
-       dotStr += '+';
-     }
+
+   const total   = usedRoll + conMod;
+   const success = total >= dc;
+   const modStr  = conMod !== 0 ? ` (${conMod > 0 ? '+' : ''}${conMod})` : '';
+
+   let formula;
+   if (conSaveAdvType === 'normal') {
+     formula = `🎲 1d20: ${usedRoll}${modStr} = <b>${total}</b>`;
    } else {
-     dotStr += d;
+     const lbl = conSaveAdvType === 'advantage' ? 'Adv.' : 'Disadv.';
+     formula   = `🎲 2d20 ${lbl} (${roll1}/${roll2}): ${usedRoll}${modStr} = <b>${total}</b>`;
    }
-   refreshDotDisp();
- }
 
- function dotBack() { dotStr = dotStr.slice(0,-1); refreshDotDisp(); }
+   addHistory(
+     `<b>${esc(c.name)}</b> CON Save (DC ${dc})<br>${formula}<br>${
+       success
+         ? '✅ <b>SUCCESS</b> - Focus maintained'
+         : '❌ <b>FAILED</b> - Focus lost'
+     }`,
+     'condition'
+   );
 
- function refreshDotDisp() {
-   const el = document.getElementById('dotDisplay');
-   el.textContent = dotStr || '_';
-   el.style.fontSize = '42px';
- }
+   if (success) {
+     toast(`🎯 ${esc(c.name)} keeps concentration (${total} ≥ DC ${dc})`);
+   } else {
+     c.focus = false;
+     toast(`💨 ${esc(c.name)} loses concentration! (${total} < DC ${dc})`);
+   }
 
- function applyDot() {
-   const c = getC(dotTarget);
-   if (!c) return closeModal('dotModal');
-   const parsed = parseDiceOrNumber(dotStr);
-   if (parsed === null) { toast('Invalid D.o.T. formula'); return; }
-   c.dotFormula = dotStr;
-   c.dotTiming  = dotTimingSelected;
-   const timingLabel = { start: 'Start of turn', end: 'End of turn', round: 'Each round' }[dotTimingSelected];
-   addHistory(`<b>${esc(c.name)}</b> gets D.o.T.:<br>🩸${esc(dotStr)} • ${timingLabel}`, 'condition');
-   toast(`${c.name} gets D.o.T. (${timingLabel})`);
-   closeModal('dotModal');
+   // Remember conMod for next save
+   c.conMod = conMod;
+
    saveState();
    render();
  }
 
- // ── Open removal confirmation modal when chip is tapped while active ──
- function openDotRemoveModal(id) {
-   dotRemoveTarget = id;
-   const c = getC(id);
-   const nameEl = document.getElementById('dotRemoveName');
-   if (nameEl) nameEl.textContent = c ? c.name : '';
-   openModal('dotRemoveModal');
- }
-
- function confirmRemoveDot() {
-   const c = getC(dotRemoveTarget);
-   if (c) {
-     c.dotFormula = null;
-     c.dotTiming  = null;
-     addHistory(`<b>${esc(c.name)}</b> D.o.T. removed`, 'condition');
-     toast(`${c.name} — D.o.T. removed`);
-   }
-   closeModal('dotRemoveModal');
-   dotRemoveTarget = null;
-   saveState();
-   render();
- }
+ // ────────────────────────────────────────
+ // FOCUS — toggle
+ // ────────────────────────────────────────
 
  // ── Focus toggle ──
  function toggleFocus(id) {
@@ -1302,51 +1287,6 @@ function render() {
    render();
  }
 
- // ── Apply direct D.o.T. damage to a single combatant ──
- function applyDirectDamage(c, timingLabel) {
-   if (!c || !c.dotFormula) return;
-   const parsed = parseDiceOrNumber(c.dotFormula);
-   const dmg = (parsed === null) ? 0 : parsed;
-   if (dmg <= 0) return;
-   const oldHp = c.hp;
-   c.hp = Math.max(0, c.hp - dmg);
-   if (oldHp > 0 && c.hp === 0) {
-     c.isDead = true;
-     addHistory(`<b>${esc(c.name)}:</b><br>☠️ HP reduced to 0 (from D.o.T.)`, 'death');
-     toast(`☠️ ${esc(c.name)}'s HP reduced to 0`);
-   } else {
-     addHistory(`<b>${esc(c.name)}</b> takes <br>🩸<b>${dmg}</b> D.o.T. damage (${timingLabel})`, 'damage');
-     toast(`<span style="color:var(--red);">🩸 ${esc(c.name)} takes ${dmg} D.o.T.</span>`);
-   }
-   saveState();
-   render();
-   checkCombatEnd();
- }
-
- // ── Fire D.o.T. at the START of a combatant's turn ──
- function applyDotOnStart(id) {
-   const c = getC(id);
-   if (c && c.dotFormula && c.dotTiming === 'start') {
-     applyDirectDamage(c, 'start of turn');
-   }
- }
-
- // ── Fire D.o.T. at the END of a combatant's turn ──
- function applyDotOnEnd(id) {
-   const c = getC(id);
-   if (c && c.dotFormula && c.dotTiming === 'end') {
-     applyDirectDamage(c, 'end of turn');
-   }
- }
-
- // ── Fire D.o.T. for all combatants with "round" timing ──
- function applyDotOnRound() {
-   combatants.forEach(c => {
-     if (c.dotFormula && c.dotTiming === 'round') {
-       applyDirectDamage(c, 'end of round');
-     }
-   });
- }
 
  // ────────────────────────────────────────
  // RENDER COMBAT SCREEN
@@ -1372,7 +1312,7 @@ function toast(msg) {
 // ────────────────────────────────────────
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
-    ['addModal','hpModal','statusModal','attackModal','deleteConfirmModal','rollModal','dotModal','dotRemoveModal'].forEach(closeModal);
+    ['addModal','hpModal','statusModal','attackModal','deleteConfirmModal','rollModal','conSaveModal'].forEach(closeModal);
   }
 });
 
