@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://williamwolf92.github.io/dnd-combat-tracker/sitemap.xml
