@@ -794,7 +794,7 @@ header h1 {
 /* CON Mod — compact */
 .field-qty {
     flex-shrink: 0;
-    width: 90px;
+    width: 50px;
 }
 
 /* Name + Qty wrapper */
