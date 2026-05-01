@@ -5,12 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Free D&D 5e combat tracker to manage initiative, hit points, conditions and dice rolls. No login required.">
 <meta name="keywords" content="dnd combat tracker, dnd 5e tracker, initiative tracker, dungeons and dragons tool">
+<meta name="mobile-web-app-capable" content="yes">
 <title>D&D 5e Combat Tracker</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ────── SHARRD COMBAT / HISTORY HEADER ────── -->
+<!-- ────── SHARED COMBAT / HISTORY HEADER ────── -->
 <header class="shared-header" id="sharedHeader" style="display:none;">
 
   <div id="sharedHeaderCombat" style="display:none;">
@@ -44,7 +45,7 @@
       <div class="home-section">
         <div class="home-section-title"><b>⚔️ ADDING A COMBATANT</b></div>
         <p>• Go to ⚔️ <b>Combat</b> tab and tap <b>✦ Add</b> to add Players and Monsters. Enter Name and select a suggestion if you're adding a monster, in this case, Initiative, HP and AC fill automatically.</p>
-        <p>• <b>Initiative</b> accepts a fixed number (e.g. <em>14</em>) or a bonus modifier (e.g. <i>-2</i> / <i>+3</i>). A modifier will roll <b>1d20</b> and add it automatically.</p>
+        <p>• <b>Initiative</b> accepts a fixed number (e.g. <em>14</em>) or a bonus modifier (e.g. <i>-2</i>/<i>+3</i>). A modifier will apply the selected <b>Initiative Rule</b> and add it automatically along with <b>Advan./Disav.</b> if applied.</p>
         <p>• <b>HP</b> accepts a fixed number, a roll (<b><i>#d#</i></b>) or a roll with bonus (<i><b>#d#±#</b></i>).</p>
         <p>• <b>AC</b> only accepts a fixed number.</p>
       </div>
@@ -58,7 +59,7 @@
 
       <div class="home-section">
         <div class="home-section-title"><b>🛡 ATTACK ROLLS</b></div>
-        <p>• Tap the 🛡<b>AC</b> value on a card to open the Attack Roll panel. Set Bonus and Attack Type. The result will show <b>HIT</b>, <b>FAIL</b> or <b>CRITICAL!</b>.</p>
+        <p>• Tap the 🛡<b>AC</b> value on a card to open the Attack Roll panel. Set Bonus and Attack Type. The result will show <b>HIT</b>, <b>MISS</b> or <b>CRITICAL!</b>.</p>
         <p>• In the combatant card, use the <b>+/−</b> buttons to temporarily adjust AC.</p>
       </div>
 
@@ -123,16 +124,30 @@
 </div>
     </div>
 
+    <!-- Initiative Rule row -->
+    <div class="init-rule-row">
+      <div class="init-rule-group">
+        <div class="init-rule-label">Initiative Rule</div>
+        <div class="init-rule-btns">
+          <button class="init-rule-btn active" id="initRuleRoll" onclick="setInitRule('roll')">Roll+DEX mod</button>
+          <button class="init-rule-btn" id="initRule10" onclick="setInitRule('ten')">10+DEX mod</button>
+        </div>
+      </div>
+      <div class="init-adv-group">
+        <div class="init-rule-label">Advan./Disad.</div>
+        <div class="init-rule-btns">
+          <button class="init-adv-btn" id="initAdvPlus" onclick="setInitAdv('plus')">+5</button>
+          <button class="init-adv-btn" id="initAdvMinus" onclick="setInitAdv('minus')">−5</button>
+        </div>
+      </div>
+    </div>
+
     <div class="row">
-      <!-- Initiative -->
+      <!-- DEX mod -->
       <div class="field field-init">
-        <label>Initiative</label>
+        <label>DEX mod</label>
         <div class="init-wrap">
           <input id="a-init" type="text" oninput="filterInitInput(this)">
-          <div class="init-steppers">
-            <button class="btn-init-step" onclick="initStep(1)">+</button>
-            <button class="btn-init-step" onclick="initStep(-1)">−</button>
-          </div>
         </div>
       </div>
 
@@ -145,7 +160,7 @@
       <!-- AC -->
       <div class="field field-ac">
         <label>AC</label>
-        <input id="a-ac" type="number" min="1">
+        <input id="a-ac" type="text" min="1">
       </div>
     </div>
 
@@ -266,25 +281,28 @@
 <div class="overlay" id="conSaveModal">
   <div class="modal modal-consave">
     <div class="modal-title">🎯 Save Focus</div>
-    <div class="consave-dc" id="conSaveDCLabel">DC 10</div>
+    <div class="consave-name-label" id="conSaveNameLabel"></div>
     <div class="consave-row">
       <div class="consave-col">
-        <label class="field-label">CON Mod</label>
-        <div class="init-wrap">
-          <input id="cs-con" type="number" value="0" min="-10" max="10">
-          <div class="init-steppers">
-            <button class="btn-init-step" onclick="conSaveStep(1)">+</button>
-            <button class="btn-init-step" onclick="conSaveStep(-1)">−</button>
-          </div>
+        <label class="field-label">DC</label>
+        <div class="bonus-stepper">
+          <button class="btn-stepper" onclick="conSaveDCStep(-1)">−</button>
+          <input type="number" id="cs-dc" value="10" min="1" max="30">
+          <button class="btn-stepper" onclick="conSaveDCStep(1)">+</button>
         </div>
       </div>
       <div class="consave-col">
-        <label class="field-label">Roll Type</label>
-        <div class="consave-adv-group">
-          <button class="consave-adv-btn" id="csAdvBtn-advantage"    onclick="setConSaveAdv('advantage')">Advan.</button>
-          <button class="consave-adv-btn" id="csAdvBtn-disadvantage" onclick="setConSaveAdv('disadvantage')">Disadv.</button>
+        <label class="field-label">Ability Mod</label>
+        <div class="bonus-stepper">
+          <button class="btn-stepper" onclick="conSaveStep(-1)">−</button>
+          <input type="number" id="cs-con" value="0" min="-10" max="10">
+          <button class="btn-stepper" onclick="conSaveStep(1)">+</button>
         </div>
       </div>
+    </div>
+    <div class="consave-adv-group" style="margin-top:12px;">
+      <button class="consave-adv-btn" id="csAdvBtn-advantage"    onclick="setConSaveAdv('advantage')">Advantage</button>
+      <button class="consave-adv-btn" id="csAdvBtn-disadvantage" onclick="setConSaveAdv('disadvantage')">Disadvantage</button>
     </div>
     <div class="modal-actions" style="margin-top:20px;">
       <button class="btn btn-ok" onclick="executeConSave()">🎲 Roll Save</button>
@@ -292,13 +310,28 @@
   </div>
 </div>
 
+<!-- ────── NOTES MODAL ────── -->
+<div class="overlay" id="notesModal" onclick="ovrClick(event,'notesModal')">
+  <div class="modal modal-notes">
+    <div class="modal-title">📝 Notes</div>
+    <div class="notes-name-label" id="notesNameLabel"></div>
+    <textarea id="notes-textarea" class="notes-textarea" placeholder="Write a note for this combatant..."></textarea>
+    <div class="modal-actions" style="margin-top:16px;">
+      <button class="btn btn-ok" onclick="saveNota()">Save</button>
+      <button class="btn btn-cancel" onclick="closeModal('notesModal')">Cancel</button>
+    </div>
+  </div>
+</div>
+
 <!-- ────── DELETE CONFIRMATION MODAL ────── -->
 <div class="overlay" id="deleteConfirmModal" onclick="ovrClick(event,'deleteConfirmModal')">
   <div class="modal modal-confirm">
-    <div class="confirm-text">Do you want to remove<br><strong id="deleteConfirmName"></strong>?</div>
-    <div class="modal-actions" style="margin-top:20px;">
-      <button class="btn btn-ok" onclick="confirmDelete()">Yes</button>
-      <button class="btn btn-cancel" onclick="closeModal('deleteConfirmModal')">No</button>
+    <div class="confirm-text">Remove combatant(s)?</div>
+    <div class="delete-btn-grid">
+      <button class="btn del-btn del-btn-this" onclick="confirmDelete('this')">This</button>
+      <button class="btn del-btn del-btn-all" onclick="confirmDelete('all')">All</button>
+      <button class="btn del-btn del-btn-players" onclick="confirmDelete('players')">Players</button>
+      <button class="btn del-btn del-btn-monsters" onclick="confirmDelete('monsters')">Monsters</button>
     </div>
   </div>
 </div>

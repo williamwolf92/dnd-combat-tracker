@@ -83,7 +83,7 @@ function onNameInput() {
   // Priority: startsWith first, then contains — max 3 total
   const starts   = monstersData.filter(m => m.name.toLowerCase().startsWith(query));
   const contains = monstersData.filter(m => !m.name.toLowerCase().startsWith(query) && m.name.toLowerCase().includes(query));
-  currentSuggestions = [...starts, ...contains].slice(0, 3);
+  currentSuggestions = [...starts, ...contains].slice(0, 5);
 
   if (currentSuggestions.length === 0) { container.innerHTML = ''; return; }
   container.innerHTML = currentSuggestions
@@ -305,11 +305,39 @@ function ovrClick(e, id) { if (e.target.id === id) closeModal(id); }
 // ────────────────────────────────────────
 // ADD COMBATANT
 // ────────────────────────────────────────
+// Initiative rule state: 'roll' | 'ten'
+let initRule = 'roll';
+// Initiative advantage state: 'plus' | 'minus' | null
+let initAdv = null;
+
+function setInitRule(rule) {
+  initRule = rule;
+  document.getElementById('initRuleRoll').classList.toggle('active', rule === 'roll');
+  document.getElementById('initRule10').classList.toggle('active', rule === 'ten');
+}
+
+function setInitAdv(adv) {
+  if (initAdv === adv) {
+    initAdv = null;
+  } else {
+    initAdv = adv;
+  }
+  document.getElementById('initAdvPlus').classList.toggle('active', initAdv === 'plus');
+  document.getElementById('initAdvMinus').classList.toggle('active', initAdv === 'minus');
+}
+
 function openAddModal() {
   ['a-name','a-init','a-hp','a-ac'].forEach(i => document.getElementById(i).value = '');
   document.getElementById('a-qty').value = '1';
   document.getElementById('monster-suggestions').innerHTML = '';
   currentSuggestions = [];
+  // Reset initiative toggles
+  initRule = 'roll';
+  initAdv = null;
+  document.getElementById('initRuleRoll').classList.add('active');
+  document.getElementById('initRule10').classList.remove('active');
+  document.getElementById('initAdvPlus').classList.remove('active');
+  document.getElementById('initAdvMinus').classList.remove('active');
   openModal('addModal');
   setTimeout(() => document.getElementById('a-name').focus(), 120);
 }
@@ -354,17 +382,29 @@ function qtyStep(delta) {
   inp.value = String(Math.max(1, Math.min(20, (isNaN(n) ? 1 : n) + delta)));
 }
 
-// ── Parse initiative: "+X"/"-X" → 1d20+mod, plain "N" → N ──
+// ── Parse initiative: uses initRule and initAdv toggles ──
+// If str is "+X"/"-X" (modifier): apply initRule (roll or 10) + mod + adv bonus
+// If str is plain "N" (fixed): use N + adv bonus
 function parseInitiative(str) {
   if (!str) return null;
   str = str.trim();
+
+  let advBonus = 0;
+  if (initAdv === 'plus')  advBonus = 5;
+  if (initAdv === 'minus') advBonus = -5;
+
   if (/^[+\-]\d+$/.test(str)) {
     const mod = parseInt(str, 10);
-    const roll = Math.floor(Math.random() * 20) + 1;
-    return roll + mod;
+    let base;
+    if (initRule === 'ten') {
+      base = 10;
+    } else {
+      base = Math.floor(Math.random() * 20) + 1;
+    }
+    return base + mod + advBonus;
   }
   const n = parseInt(str, 10);
-  if (!isNaN(n) && n > 0) return n;
+  if (!isNaN(n) && n > 0) return n + advBonus;
   return null;
 }
 
@@ -457,71 +497,67 @@ function removeCombatant(id) {
   const c = getC(id);
   if (!c) return;
   pendingDeleteId = id;
-  document.getElementById('deleteConfirmName').textContent = c.name;
   openModal('deleteConfirmModal');
 }
 
-function confirmDelete() {
-  if (!pendingDeleteId) return;
-
-  const id = pendingDeleteId;
-  const c  = getC(id);
-  const name = c ? c.name : 'Unknown';
-
+function confirmDelete(mode) {
   closeModal('deleteConfirmModal');
+
+  if (mode === 'this') {
+    if (!pendingDeleteId) return;
+    _doRemoveSingle(pendingDeleteId);
+  } else if (mode === 'all') {
+    const ids = [...combatants.map(c => c.id)];
+    ids.forEach(id => _doRemoveSingle(id, true));
+    _postBatchRemove('All combatants removed');
+  } else if (mode === 'players') {
+    const ids = combatants.filter(c => c.type === 'player').map(c => c.id);
+    if (ids.length === 0) { toast('No players to remove'); return; }
+    ids.forEach(id => _doRemoveSingle(id, true));
+    _postBatchRemove('All players removed');
+  } else if (mode === 'monsters') {
+    const ids = combatants.filter(c => c.type === 'monster').map(c => c.id);
+    if (ids.length === 0) { toast('No monsters to remove'); return; }
+    ids.forEach(id => _doRemoveSingle(id, true));
+    _postBatchRemove('All monsters removed');
+  }
+
   pendingDeleteId = null;
+}
+
+// Removes a single combatant by id synchronously (no animation for batch)
+function _doRemoveSingle(id, batch = false) {
+  const c = getC(id);
+  if (!c) return;
+  const name = c.name;
 
   const listEl = document.getElementById('listCombat');
-  const el     = listEl ? listEl.querySelector(`.card[data-id="${id}"]`) : null;
+  const el = listEl ? listEl.querySelector(`.card[data-id="${id}"]`) : null;
 
-  const doRemove = () => {
-    combatants = combatants.filter(c => c.id !== id);
-    queue      = queue.filter(q => q !== id);
-    if (roundFirstId === id) roundFirstId = queue[0] || null;
+  combatants = combatants.filter(c => c.id !== id);
+  queue      = queue.filter(q => q !== id);
+  if (roundFirstId === id) roundFirstId = queue[0] || null;
 
-    if (combatants.length === 0) {
-      started      = false;
-      round        = 1;
-      roundFirstId = null;
-    }
-
-    saveState();
-    addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(name)}</span> removed from combat`, 'event');
-
-    const remaining = listEl ? [...listEl.querySelectorAll('.card[data-id]')].filter(c => c !== el) : [];
-    const snap = new Map();
-    remaining.forEach(c => snap.set(c.dataset.id, c.getBoundingClientRect()));
-
-    if (el) el.remove();
-    render();
-
-    if (listEl) {
-      listEl.querySelectorAll('.card[data-id]').forEach(card => {
-        const old = snap.get(card.dataset.id);
-        if (!old) return;
-        const now = card.getBoundingClientRect();
-        const dy  = old.top - now.top;
-        if (Math.abs(dy) < 1) return;
-        card.style.transition = 'none';
-        card.style.transform  = `translateY(${dy}px)`;
-        void card.offsetHeight;
-        card.style.transition = 'transform 0.35s cubic-bezier(0.34, 1.1, 0.64, 1)';
-        card.style.transform  = '';
-        card.addEventListener('transitionend', () => { card.style.transition = ''; }, { once: true });
-      });
-    }
-  };
-
-  if (el) {
-    el.style.transition    = 'transform 0.24s ease-in, opacity 0.24s ease-in';
-    el.style.pointerEvents = 'none';
-    void el.offsetHeight;
-    el.style.transform = 'translateX(64px) scale(0.92)';
-    el.style.opacity   = '0';
-    setTimeout(doRemove, 260);
-  } else {
-    doRemove();
+  if (combatants.length === 0) {
+    started = false;
+    round = 1;
+    roundFirstId = null;
   }
+
+  addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(name)}</span> removed from combat`, 'event');
+
+  if (el) el.remove();
+
+  if (!batch) {
+    saveState();
+    render();
+  }
+}
+
+function _postBatchRemove(msg) {
+  saveState();
+  render();
+  toast(msg);
 }
 
 // ────────────────────────────────────────
@@ -598,7 +634,7 @@ function executeAttack() {
   document.getElementById('resultMessage').innerHTML = resultMsg;
   document.getElementById('resultFormula').textContent = formula;
 
-  addHistory(`Attack vs. <b>${esc(c.name)}</b> | <b>${crit ? 'CRITICAL!' : (hit ? 'HIT' : 'MISS')}</b><br>${formula}`, 'attack');
+  addHistory(`Attack vs. <span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> | <b>${crit ? 'CRITICAL!' : (hit ? 'HIT' : 'MISS')}</b><br>${formula}`, 'attack');
 }
 
 function acChange(id, delta) {
@@ -607,7 +643,7 @@ function acChange(id, delta) {
   c.ac = Math.max(1, (c.ac || 0) + delta);
   saveState();
   render();
-  addHistory(`<b>${esc(c.name)}</b> changed AC to <b>${c.ac}</b>`, 'event');
+  addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> changed AC to <b>${c.ac}</b>`, 'event');
 }
 
 // ────────────────────────────────────────
@@ -862,20 +898,20 @@ function applyHP(sign) {
   } else {
     if (sign < 0) {
       if (modType === 'resist') {
-        addHistory(`<b>${esc(c.name)}</b> 🛡 <b>resists</b> ${parsed} damage<br>Takes only 🩸<b>${finalAmt}</b> damage`, 'damage');
+        addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> 🛡 <b>resists</b> ${parsed} damage<br>Takes only 🩸<b>${finalAmt}</b> damage`, 'damage');
         toast(`<span style="color:var(--red);">🛡 ${esc(c.name)} resists the damage</span>`);
       } else if (modType === 'vuln') {
-        addHistory(`<b>${esc(c.name)}</b> is 💥 <b>vulnerable</b> to ${parsed} damage<br>Takes 🩸<b>${finalAmt}</b> damage`, 'damage');
+        addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> is 💥 <b>vulnerable</b> to ${parsed} damage<br>Takes 🩸<b>${finalAmt}</b> damage`, 'damage');
         toast(`<span style="color:var(--red);">💥 ${esc(c.name)} is vulnerable to damage</span>`);
       } else {
-        addHistory(`<b>${esc(c.name)}</b> takes🩸<b>${finalAmt}</b> damage`, 'damage');
-        toast(`<span style="color:var(--red);">🩸${esc(c.name)} takes ${finalAmt} damage</span>`);
+        addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> takes🩸<b>${finalAmt}</b> damage`, 'damage');
+        toast(`🩸${esc(c.name)} takes ${finalAmt} damage`);
       }
       // ── Concentration check: open save modal ──
       if (c.focus) openConSaveModal(c, finalAmt);
     } else {
-      addHistory(`<b>${esc(c.name)}</b> receives 💚 <b>${finalAmt}</b> heal`, 'heal');
-      toast(`<span style="color:var(--green);">💚 ${esc(c.name)} heals ${finalAmt}</span>`);
+      addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> receives 💚 <b>${finalAmt}</b> heal`, 'heal');
+      toast(`💚 ${esc(c.name)} heals ${finalAmt}`);
     }
   }
 
@@ -969,7 +1005,7 @@ function rollExecute() {
     const usedRoll = rollAdvType === 'advantage' ? Math.max(roll1, roll2) : Math.min(roll1, roll2);
     const total    = usedRoll + bonus;
     const typeLabel = rollAdvType === 'advantage' ? 'Advantage' : 'Disadvantage';
-    const formula  = `2d20 (${roll1}/${roll2}): ${usedRoll}${bonusStr} = <b>${total}</b>`;
+    const formula  = `2d20 (${roll1}/${roll2}): ${usedRoll} ${bonusStr} = <b>${total}</b>`;
 
     addHistory(`🎲 Roll with <b>${typeLabel}</b><br>${formula}`, 'roll');
     toast(`🎲 Roll with ${typeLabel} ${usedRoll}${bonusStr} = ${total}`);
@@ -984,7 +1020,7 @@ function rollExecute() {
 
   const parsed = parseDiceOrNumber(rollStr);
   if (parsed === null) return;
-  addHistory(`🎲 Rolled ${rollStr} = ${parsed}`, 'roll');
+  addHistory(`🎲 Rolled ${rollStr} = <b>${parsed}</b>`, 'roll');
   toast(`🎲 ${rollStr} = ${parsed}`);
   rollStr = '';
   refreshRollDisp();
@@ -1033,11 +1069,11 @@ function rollExecute() {
 
      added.forEach(id => {
        const cd = getCond(id);
-       if (cd) addHistory(`<b>${esc(c.name)}</b> gains condition:<br>🟢 <b>${cd.lbl}</b>`, 'condition');
+       if (cd) addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> gains condition:<br>🔹️<b>${cd.lbl}</b>`, 'condition');
      });
      removed.forEach(id => {
        const cd = getCond(id);
-       if (cd) addHistory(`<b>${esc(c.name)}</b> loses condition:<br>🔴 <b>${cd.lbl}</b>`, 'condition');
+       if (cd) addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> loses condition:<br>🔸️<b><s>${cd.lbl}</s></b>`, 'condition');
      });
    }
    closeModal('statusModal');
@@ -1050,7 +1086,7 @@ function rollExecute() {
    if (c) {
      const cd = getCond(condId);
      c.conds = c.conds.filter(id => id !== condId);
-     if (cd) addHistory(`<b>${esc(c.name)}</b> loses condition:<br>🔴 <b>${cd.lbl}</b>`, 'condition');
+     if (cd) addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> loses condition:<br>🔸️<b><s>${cd.lbl}</s></b>`, 'condition');
    }
    saveState();
    render();
@@ -1077,6 +1113,10 @@ function rollExecute() {
    // Fixed Focus chip (toggle)
    const focusClass = c.focus ? 'focus-chip active' : 'focus-chip';
    const focusChip = `<span class="chip ${focusClass}" onclick="toggleFocus(${c.id})" title="Toggle Focus">Focus</span>`;
+
+   // Notes chip
+   const noteClass = (c.note && c.note.trim()) ? 'note-chip active' : 'note-chip';
+   const noteChip  = `<span class="chip ${noteClass}" onclick="openNotesModal(${c.id})" title="${(c.note && c.note.trim()) ? 'View/Edit note' : 'Add note'}">Notes</span>`;
 
    const classes = `card ${typeClass}${isActive ? ' is-active' : ''}`;
 
@@ -1108,6 +1148,7 @@ function rollExecute() {
    <button class="add-cond-btn" onclick="openStatusModal(${c.id})">Cond.</button>
  </div>
  <div class="cond-row">
+   ${noteChip}
    ${focusChip}
    ${chips}
  </div>`;
@@ -1199,10 +1240,17 @@ function render() {
    conSaveDamage  = damageTaken;
    conSaveAdvType = 'normal';
    const dc = Math.max(10, Math.floor(damageTaken / 2));
-   document.getElementById('conSaveDCLabel').textContent = `DC ${dc} · ${c.name}`;
+   document.getElementById('conSaveNameLabel').textContent = c.name;
+   document.getElementById('cs-dc').value  = dc;
    document.getElementById('cs-con').value = c.conMod || 0;
    document.querySelectorAll('.consave-adv-btn').forEach(b => b.classList.remove('active'));
    openModal('conSaveModal');
+ }
+
+ function conSaveDCStep(delta) {
+   const inp = document.getElementById('cs-dc');
+   const n   = parseInt(inp.value || '10', 10);
+   inp.value = String(Math.max(1, Math.min(30, (isNaN(n) ? 10 : n) + delta)));
  }
 
  function setConSaveAdv(type) {
@@ -1218,7 +1266,7 @@ function render() {
    closeModal('conSaveModal');
 
    const conMod = Math.max(-10, Math.min(10, parseInt(document.getElementById('cs-con').value) || 0));
-   const dc     = Math.max(10, Math.floor(conSaveDamage / 2));
+   const dc     = Math.max(1, Math.min(30, parseInt(document.getElementById('cs-dc').value) || 10));
 
    let roll1    = Math.floor(Math.random() * 20) + 1;
    let roll2    = null;
@@ -1245,7 +1293,7 @@ function render() {
    }
 
    addHistory(
-     `<b>${esc(c.name)}</b> CON Save (DC ${dc})<br>${formula}<br>${
+     `<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> Save Focus (DC <b>${dc}</b>)<br>${formula}<br>${
        success
          ? '✅ <b>SUCCESS</b> - Focus maintained'
          : '❌ <b>FAILED</b> - Focus lost'
@@ -1268,6 +1316,30 @@ function render() {
  }
 
  // ────────────────────────────────────────
+ // NOTES MODAL
+ // ────────────────────────────────────────
+ let notesTarget = null;
+
+ function openNotesModal(id) {
+   const c = getC(id);
+   if (!c) return;
+   notesTarget = id;
+   document.getElementById('notesNameLabel').textContent = c.name;
+   document.getElementById('notes-textarea').value = c.note || '';
+   openModal('notesModal');
+   setTimeout(() => document.getElementById('notes-textarea').focus(), 120);
+ }
+
+ function saveNota() {
+   const c = getC(notesTarget);
+   if (!c) return;
+   c.note = document.getElementById('notes-textarea').value.trim();
+   closeModal('notesModal');
+   saveState();
+   render();
+ }
+
+ // ────────────────────────────────────────
  // FOCUS — toggle
  // ────────────────────────────────────────
 
@@ -1277,10 +1349,10 @@ function render() {
    if (!c) return;
    c.focus = !c.focus;
    if (c.focus) {
-     addHistory(`<b>${esc(c.name)}</b> gains Focus`, 'condition');
+     addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}</span> gains Focus`, 'condition');
      toast(`${c.name} focused`);
    } else {
-     addHistory(`<b>${esc(c.name)}</b> loses Focus`, 'condition');
+     addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}</span> loses Focus`, 'condition');
      toast(`${c.name} unfocused`);
    }
    saveState();
@@ -1312,7 +1384,7 @@ function toast(msg) {
 // ────────────────────────────────────────
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
-    ['addModal','hpModal','statusModal','attackModal','deleteConfirmModal','rollModal','conSaveModal'].forEach(closeModal);
+    ['addModal','hpModal','statusModal','attackModal','deleteConfirmModal','rollModal','conSaveModal','notesModal'].forEach(closeModal);
   }
 });
 
