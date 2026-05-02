@@ -317,11 +317,7 @@ function setInitRule(rule) {
 }
 
 function setInitAdv(adv) {
-  if (initAdv === adv) {
-    initAdv = null;
-  } else {
-    initAdv = adv;
-  }
+  initAdv = initAdv === adv ? null : adv;
   document.getElementById('initAdvPlus').classList.toggle('active', initAdv === 'plus');
   document.getElementById('initAdvMinus').classList.toggle('active', initAdv === 'minus');
 }
@@ -624,11 +620,9 @@ function executeAttack() {
   if (type === 'normal') {
     formula = `🎲 1d20: ${usedRoll}${bonusStr} = ${total} ${total >= c.ac ? '≥' : '<'} 🛡${c.ac}`;
   } else if (type === 'advantage') {
-    const higher = Math.max(roll1, roll2);
-    formula = `🎲 2d20 (${roll1}/${roll2}): ${higher}${bonusStr} = ${higher + bonus} ${higher + bonus >= c.ac ? '≥' : '<'} 🛡${c.ac}`;
+    formula = `🎲 2d20 (${roll1}/${roll2}): ${usedRoll}${bonusStr} = ${total} ${total >= c.ac ? '≥' : '<'} 🛡${c.ac}`;
   } else if (type === 'disadvantage') {
-    const lower = Math.min(roll1, roll2);
-    formula = `🎲 2d20 (${roll1}/${roll2}): ${lower}${bonusStr} = ${lower + bonus} ${lower + bonus >= c.ac ? '≥' : '<'} 🛡${c.ac}`;
+    formula = `🎲 2d20 (${roll1}/${roll2}): ${usedRoll}${bonusStr} = ${total} ${total >= c.ac ? '≥' : '<'} 🛡${c.ac}`;
   }
 
   document.getElementById('resultMessage').innerHTML = resultMsg;
@@ -641,9 +635,9 @@ function acChange(id, delta) {
   const c = getC(id);
   if (!c) return;
   c.ac = Math.max(1, (c.ac || 0) + delta);
+  addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> changed AC to <b>${c.ac}</b>`, 'event');
   saveState();
   render();
-  addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> changed AC to <b>${c.ac}</b>`, 'event');
 }
 
 // ────────────────────────────────────────
