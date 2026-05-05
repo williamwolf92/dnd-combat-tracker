@@ -118,30 +118,32 @@ function sbGetMod(v) { return Math.floor((parseInt(v) - 10) / 2); }
 function sbFmtMod(mod) { return mod >= 0 ? '+' + mod : '' + mod; }
 
 function sbAttrBox(name, val) {
-  if (val == null || val === '') return '';
-  const mod = sbGetMod(val);
+  const hasVal = val != null && val !== '';
+  const score  = hasVal ? val : '—';
+  const modStr = hasVal ? sbFmtMod(sbGetMod(val)) : '—';
   return `<div class="sb-attr-box">
     <span class="sb-attr-name">${name}</span>
-    <span class="sb-attr-score">${val}</span>
-    <span class="sb-attr-mod">${sbFmtMod(mod)}</span>
+    <span class="sb-attr-score">${score}</span>
+    <span class="sb-attr-mod">${modStr}</span>
   </div>`;
 }
 
-function sbInfoRow(label, val) {
-  if (!val) return '';
-  return `<div class="sb-info-row"><span class="sb-info-label">${esc(label)}:</span> ${esc(String(val))}</div>`;
+function sbInfoRow(label, val, required = false) {
+  if (!required && !val) return '';
+  const display = (val != null && val !== '') ? esc(String(val)) : '—';
+  return `<div class="sb-info-row"><span class="sb-info-label">${esc(label)}:</span> ${display}</div>`;
 }
 
 function renderStatblock(m) {
   const subtitle = [m.size, m.type, m.alignment].filter(Boolean).join(' · ');
   const extraFields = [
     ['init',       'Initiative'],
-    ['saves',      'Saving Throws'],
+    ['saves',      'Saving Thr'],
     ['skills',     'Skills'],
-    ['dmg_vuln',   'Damage Vulner.'],
-    ['dmg_resist', 'Damage Resist.'],
-    ['dmg_immun',  'Damage Immun.'],
-    ['cond_immun', 'Condition Immun.'],
+    ['dmg_vuln',   'Dmg Vulner'],
+    ['dmg_resist', 'Dmg Resist'],
+    ['dmg_immun',  'Dmg Immun'],
+    ['cond_immun', 'Cond Immun'],
     ['senses',     'Senses'],
     ['languages',  'Languages'],
     ['environment','Environment'],
@@ -151,15 +153,14 @@ function renderStatblock(m) {
   document.getElementById('statblockContent').innerHTML = `
     <div class="sb-header">
       <button class="sb-close" onclick="closeModal('statblockModal')">✕</button>
-      <div class="sb-title">${esc(m.name || '')}${m.source ? ` <span class="sb-source">${esc(m.source)}</span>` : ''}</div>
+      <div class="sb-title">${esc(m.name)}</div>
       ${subtitle ? `<div class="sb-subtitle">${esc(subtitle)}</div>` : ''}
     </div>
     <div class="sb-body">
       <div class="sb-info-section">
-        ${sbInfoRow('🛡 AC', m.AC)}
-        ${sbInfoRow('❤️ HP', m.HP)}
-        ${sbInfoRow('⭐ CR', m.CR)}
-        ${sbInfoRow('💨 Speed', m.speed)}
+        ${sbInfoRow('🛡 AC', m.AC, true)}
+        ${sbInfoRow('❤️ HP', m.HP, true)}
+        ${sbInfoRow('⭐ CR', m.CR, true)}
       </div>
       <div class="sb-divider"></div>
       <div class="sb-attr-grid">
@@ -169,6 +170,10 @@ function renderStatblock(m) {
         ${sbAttrBox('INT', m.INT)}
         ${sbAttrBox('WIS', m.WIS)}
         ${sbAttrBox('CHA', m.CHA)}
+      </div>
+      <div class="sb-divider"></div>
+      <div class="sb-info-section">
+        ${sbInfoRow('Speed', m.speed, true)}
       </div>
       ${extraFields ? `<div class="sb-divider"></div><div class="sb-info-section">${extraFields}</div>` : ''}
       ${m.link ? `<div class="sb-divider"></div><a class="sb-full-link" href="${m.link}" target="_blank" rel="noopener noreferrer">Full View ↗</a>` : ''}
