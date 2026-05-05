@@ -71,7 +71,7 @@
       <div class="home-section">
         <div class="home-section-title"><b>🪬 FOCUS (Concentration)</b></div>
         <p>• Tap <b>Focus</b> chip on a card to toggle <b>Concentration</b> on a combatant.</p>
-        <p>• When a focused combatant takes damage, a <b>CON Save</b> panel opens automatically: set <b>CON Mod</b>, choose Advantage or Disadvantage if needed, then tap <b>Roll Save</b>. On failure, Focus is lost.</p>
+        <p>• When a focused combatant takes damage, a panel opens automatically: set the <b>DC</b>, the <b>Ability Mod</b>, choose Advantage or Disadvantage if needed and then, tap <b>Roll Save</b>. On failure, Focus is lost.</p>
       </div>
     </div>
   </main>
@@ -345,6 +345,13 @@
     <div class="modal-actions" style="margin-top:24px;">
       <button class="btn btn-ok" onclick="closeCombatEnd()">Continue</button>
     </div>
+  </div>
+</div>
+
+<!-- ────── STAT BLOCK MODAL ────── -->
+<div class="overlay" id="statblockModal" onclick="ovrClick(event,'statblockModal')">
+  <div class="modal modal-statblock">
+    <div id="statblockContent"></div>
   </div>
 </div>
 

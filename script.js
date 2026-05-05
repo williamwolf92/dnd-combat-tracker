@@ -24,6 +24,7 @@
 // ────────────────────────────────────────
 let monstersData       = [];
 let currentSuggestions = [];
+let bestiaryIndex      = new Set();
 
 const MONSTERS_CACHE_KEY = 'dnd_monsters_cache';
 
@@ -51,7 +52,7 @@ function parseMonstersText(text) {
 async function loadMonstersData() {
   // 1. Try fetch (works when served via HTTP/HTTPS)
   try {
-    const res = await fetch('monsters.txt');
+    const res = await fetch('monsters-add.txt');
     if (res.ok) {
       const text = await res.text();
       const parsed = parseMonstersText(text);
@@ -74,6 +75,131 @@ async function loadMonstersData() {
     }
   } catch(e) { console.warn('Could not load monsters data:', e); }
 }
+
+async function loadBestiaryIndex() {
+  try {
+    const res = await fetch('bestiary-stats.txt');
+    if (!res.ok) return;
+    const text = await res.text();
+    for (const line of text.split('\n')) {
+      const t = line.trim().replace(/\r/g, '');
+      if (t.endsWith('.json')) {
+        bestiaryIndex.add(t.slice(0, -5));
+      }
+    }
+    console.log(`Bestiary index loaded: ${bestiaryIndex.size} entries`);
+  } catch(e) {
+    console.warn('Could not load bestiary index:', e);
+  }
+}
+
+function monsterNameToFilename(name) {
+  return name
+    .toLowerCase()
+    .replace(/[(),]/g, '')
+    .replace(/'/g, '_')
+    .replace(/\s+/g, '_');
+}
+
+function findBestStatFile(name) {
+  let filename = monsterNameToFilename(name);
+  if (bestiaryIndex.has(filename)) return filename;
+  // Strip trailing number suffix (e.g. "Goblin 1" → "Goblin")
+  const stripped = name.replace(/\s+\d+$/, '');
+  if (stripped !== name) {
+    filename = monsterNameToFilename(stripped);
+    if (bestiaryIndex.has(filename)) return filename;
+  }
+  return null;
+}
+
+// ── Stat block modal helpers ──
+function sbGetMod(v) { return Math.floor((parseInt(v) - 10) / 2); }
+function sbFmtMod(mod) { return mod >= 0 ? '+' + mod : '' + mod; }
+
+function sbAttrBox(name, val) {
+  if (val == null || val === '') return '';
+  const mod = sbGetMod(val);
+  return `<div class="sb-attr-box">
+    <span class="sb-attr-name">${name}</span>
+    <span class="sb-attr-score">${val}</span>
+    <span class="sb-attr-mod">${sbFmtMod(mod)}</span>
+  </div>`;
+}
+
+function sbInfoRow(label, val) {
+  if (!val) return '';
+  return `<div class="sb-info-row"><span class="sb-info-label">${esc(label)}:</span> ${esc(String(val))}</div>`;
+}
+
+function renderStatblock(m) {
+  const subtitle = [m.size, m.type, m.alignment].filter(Boolean).join(' · ');
+  const extraFields = [
+    ['init',       'Initiative'],
+    ['saves',      'Saving Throws'],
+    ['skills',     'Skills'],
+    ['dmg_vuln',   'Damage Vulner.'],
+    ['dmg_resist', 'Damage Resist.'],
+    ['dmg_immun',  'Damage Immun.'],
+    ['cond_immun', 'Condition Immun.'],
+    ['senses',     'Senses'],
+    ['languages',  'Languages'],
+    ['environment','Environment'],
+    ['treasure',   'Treasure'],
+  ].map(([k, label]) => sbInfoRow(label, m[k])).join('');
+
+  document.getElementById('statblockContent').innerHTML = `
+    <div class="sb-header">
+      <button class="sb-close" onclick="closeModal('statblockModal')">✕</button>
+      <div class="sb-title">${esc(m.name || '')}${m.source ? ` <span class="sb-source">${esc(m.source)}</span>` : ''}</div>
+      ${subtitle ? `<div class="sb-subtitle">${esc(subtitle)}</div>` : ''}
+    </div>
+    <div class="sb-body">
+      <div class="sb-info-section">
+        ${sbInfoRow('🛡 AC', m.AC)}
+        ${sbInfoRow('❤️ HP', m.HP)}
+        ${sbInfoRow('⭐ CR', m.CR)}
+        ${sbInfoRow('💨 Speed', m.speed)}
+      </div>
+      <div class="sb-divider"></div>
+      <div class="sb-attr-grid">
+        ${sbAttrBox('STR', m.STR)}
+        ${sbAttrBox('DEX', m.DEX)}
+        ${sbAttrBox('CON', m.CON)}
+        ${sbAttrBox('INT', m.INT)}
+        ${sbAttrBox('WIS', m.WIS)}
+        ${sbAttrBox('CHA', m.CHA)}
+      </div>
+      ${extraFields ? `<div class="sb-divider"></div><div class="sb-info-section">${extraFields}</div>` : ''}
+      ${m.link ? `<div class="sb-divider"></div><a class="sb-full-link" href="${m.link}" target="_blank" rel="noopener noreferrer">Full View ↗</a>` : ''}
+    </div>`;
+}
+
+async function openStatblockModal(combatantId) {
+  const c = getC(combatantId);
+  if (!c || c.type !== 'monster') return;
+
+  const filename = findBestStatFile(c.name);
+  if (!filename) {
+    toast('No stat block found for ' + esc(c.name));
+    return;
+  }
+
+  document.getElementById('statblockContent').innerHTML =
+    '<div class="sb-loading">Loading…</div>';
+  openModal('statblockModal');
+
+  try {
+    const res = await fetch(`bestiary_stats/${filename}.json`);
+    if (!res.ok) throw new Error('Not found');
+    const m = await res.json();
+    renderStatblock(m);
+  } catch(e) {
+    document.getElementById('statblockContent').innerHTML =
+      '<div class="sb-loading">Could not load stat block.</div>';
+  }
+}
+
 
 function onNameInput() {
   const query     = document.getElementById('a-name').value.trim().toLowerCase();
@@ -667,7 +793,7 @@ function nextTurn() {
     const firstC = getC(queue[0]);
     if (firstC) {
       const turnColor = firstC.type === 'player' ? 'var(--green)' : 'var(--red)';
-      addHistory(`<span style="color:${turnColor};font-weight:700;">${esc(firstC.name)}</span>'s turn`, 'turn');
+      addHistory(`<span style="color:${turnColor};font-weight:700;">${esc(firstC.name)}</span> turn`, 'turn');
     }
     toast('⚔️ START COMBAT!');
     return;
@@ -701,7 +827,7 @@ function nextTurn() {
     const activeC = getC(queue[0]);
     if (activeC) {
       const turnColor = activeC.type === 'player' ? 'var(--green)' : 'var(--red)';
-      addHistory(`<span style="color:${turnColor};font-weight:700;">${esc(activeC.name)}</span>'s turn`, 'turn');
+      addHistory(`<span style="color:${turnColor};font-weight:700;">${esc(activeC.name)}</span> turn`, 'turn');
     }
 
     if (roundChanged) {
@@ -1112,12 +1238,16 @@ function rollExecute() {
    const noteClass = (c.note && c.note.trim()) ? 'note-chip active' : 'note-chip';
    const noteChip  = `<span class="chip ${noteClass}" onclick="openNotesModal(${c.id})" title="${(c.note && c.note.trim()) ? 'View/Edit note' : 'Add note'}">Notes</span>`;
 
+   const nameEl = c.type === 'monster'
+     ? `<div class="card-name ${isZero ? 'is-dead' : ''} monster-name-link" onclick="openStatblockModal(${c.id})" title="View stat block">${esc(c.name)}</div>`
+     : `<div class="card-name ${isZero ? 'is-dead' : ''}">${esc(c.name)}</div>`;
+
    const classes = `card ${typeClass}${isActive ? ' is-active' : ''}`;
 
    const innerHTML = `${isActive ? '<div class="active-badge">In turn</div>' : ''}
  <div class="card-head">
    <div class="init-circle">${c.init}</div>
-   <div class="card-name ${isZero ? 'is-dead' : ''}">${esc(c.name)}</div>
+   ${nameEl}
    <button class="btn-remove" onclick="removeCombatant(${c.id})" title="Remove combatant">❌️</button>
  </div>
  <div class="card-stats">
@@ -1289,8 +1419,8 @@ function render() {
    addHistory(
      `<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> Save Focus (DC <b>${dc}</b>)<br>${formula}<br>${
        success
-         ? '✅ <b>SUCCESS</b> - Focus maintained'
-         : '❌ <b>FAILED</b> - Focus lost'
+         ? '✅ <b>SUCCESS</b> - 🪬Focus maintained'
+         : '❌ <b>FAILED</b> - 🪬Focus lost'
      }`,
      'condition'
    );
@@ -1343,10 +1473,10 @@ function render() {
    if (!c) return;
    c.focus = !c.focus;
    if (c.focus) {
-     addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}</span> gains Focus`, 'condition');
+     addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}</span> gains 🪬Focus`, 'condition');
      toast(`${c.name} focused`);
    } else {
-     addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}</span> loses Focus`, 'condition');
+     addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}</span> loses 🪬Focus`, 'condition');
      toast(`${c.name} unfocused`);
    }
    saveState();
@@ -1378,7 +1508,7 @@ function toast(msg) {
 // ────────────────────────────────────────
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
-    ['addModal','hpModal','statusModal','attackModal','deleteConfirmModal','rollModal','conSaveModal','notesModal'].forEach(closeModal);
+    ['addModal','hpModal','statusModal','attackModal','deleteConfirmModal','rollModal','conSaveModal','notesModal','statblockModal'].forEach(closeModal);
   }
 });
 
@@ -1419,6 +1549,7 @@ if (window.visualViewport) {
 // ────────────────────────────────────────
 loadState();
 loadMonstersData();
+loadBestiaryIndex();
 render();
 switchScreen('screenHome');
 renderHistoryLog();
