@@ -277,6 +277,22 @@
 </div>
 
 
+<!-- ────── DEATH SAVE MODAL ────── -->
+<div class="overlay" id="deathSaveModal" onclick="ovrClick(event,'deathSaveModal')">
+  <div class="modal modal-deathsave">
+    <div class="modal-title">☠️ DEATH SAVE</div>
+    <div class="deathsave-text">Do you want to make a Death Saving Throw?</div>
+    <div class="deathsave-adv-group">
+      <button class="deathsave-adv-btn" id="dsAdvBtn-advantage"    onclick="setDeathSaveAdv('advantage')">Advantage</button>
+      <button class="deathsave-adv-btn" id="dsAdvBtn-disadvantage" onclick="setDeathSaveAdv('disadvantage')">Disadvantage</button>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ok" onclick="rollDeathSave()">ROLL</button>
+      <button class="btn btn-cancel" onclick="closeModal('deathSaveModal')">Cancel</button>
+    </div>
+  </div>
+</div>
+
 <!-- ────── CON SAVE MODAL ────── -->
 <div class="overlay" id="conSaveModal">
   <div class="modal modal-consave">

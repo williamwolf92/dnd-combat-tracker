@@ -678,20 +678,20 @@ header h1 {
     background: var(--bg);
     border: 1px solid var(--red);
     border-radius: 20px;
-    padding: 3px 10px;
+    padding: 3px 5px;
     font-size: 11px;
     color: var(--red);
     cursor: pointer;
     transition: all 0.15s;
 }
 
-/* Fixed Focus chip style — default grey, toggles to blue when active */
 .chip.focus-chip {
     background: #cacaca;
     border-color: #777777;
     color: #777777;
     font-weight: 700;
 }
+
 .chip.focus-chip.active {
     border-color: var(--text);
     background: #004bb0;
@@ -1672,10 +1672,75 @@ header h1 {
 }
 
 #statblockModal {
-    align-items: flex-start;
+    align-items: center;
     overflow-y: auto;
 }
 
 /* ── Monster name tap to open stat block ── */
 
 .monster-name-link:active { opacity: 0.65; }
+
+/* ── DEATH SAVE MODAL ── */
+.modal-deathsave {
+    max-width: 340px;
+}
+
+.deathsave-text {
+    text-align: center;
+    font-size: 15px;
+    color: var(--text);
+    opacity: 0.85;
+    margin-bottom: 18px;
+    line-height: 1.4;
+}
+
+.deathsave-adv-group {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+.deathsave-adv-btn {
+    flex: 1;
+    padding: 11px 6px;
+    background: var(--btn-bg);
+    border: 1.5px solid var(--text);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: Convergence;
+    color: var(--text);
+    text-align: center;
+    transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s;
+}
+.deathsave-adv-btn:active {
+    transform: scale(0.95);
+}
+.deathsave-adv-btn.active {
+    background: var(--red);
+    border-color: var(--text);
+    color: var(--bg);
+    font-weight: 700;
+}
+
+/* ── DEATH SAVE CHIPS ── */
+.chip.ds-chip {
+    font-weight: 700;
+    font-size: 12px;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: transform 0.1s, background 0.15s;
+}
+.chip.ds-chip:active {
+    transform: scale(0.9);
+}
+.chip.ds-success {
+    border-color: var(--green);
+    color: var(--green);
+    background: var(--bg);
+}
+.chip.ds-failure {
+    border-color: #555;
+    color: #444;
+    background: #e0e0e0;
+}

@@ -267,6 +267,10 @@ let hpModSelected = null; // 'resist' | 'vuln' | null
 // Delete confirmation state
 let pendingDeleteId = null;
 
+// Death Save modal state
+let deathSaveTarget  = null;
+let deathSaveAdvType = 'normal'; // 'normal' | 'advantage' | 'disadvantage'
+
 // ────────────────────────────────────────
 // PERSISTENCIA (localStorage)
 // ────────────────────────────────────────
@@ -588,7 +592,7 @@ function addCombatant(type) {
     const hp   = Math.max(1, parseDiceOrNumber(hpStr) ?? 10);
     lastInit   = init;
 
-    const c = { id: uid++, name: combatantName, init, hp, maxHp: hp, ac, conMod: 0, conds: [], isDead: false, type };
+    const c = { id: uid++, name: combatantName, init, hp, maxHp: hp, ac, conMod: 0, conds: [], isDead: false, type, successes: 0, failures: 0, permaDead: false };
     combatants.push(c);
     insertInQueue(c.id);
 
@@ -898,6 +902,9 @@ function triggerCombatEnd() {
       c.hp        = c.maxHp;
       c.isDead    = false;
       c.conds     = [];
+      c.successes = 0;
+      c.failures  = 0;
+      c.permaDead = false;
     }
   });
 
@@ -925,6 +932,12 @@ function closeCombatEnd() {
 // HP NUMPAD
 // ────────────────────────────────────────
 function openHpModal(id) {
+  const c = getC(id);
+  // If combatant is in turn AND at 0 HP (and not permaDead) → Death Save modal
+  if (c && c.hp === 0 && !c.permaDead && started && queue[0] === id) {
+    openDeathSaveModal(id);
+    return;
+  }
   hpTarget      = id;
   hpStr         = '';
   hpModSelected = null;
@@ -1013,13 +1026,18 @@ function applyHP(sign) {
   c.hp = Math.max(0, c.hp + sign * finalAmt);
 
   if (oldHp > 0 && c.hp === 0) {
-    c.isDead = true;
+    c.isDead    = true;
+    c.successes = 0;
+    c.failures  = 0;
+    c.permaDead = false;
+    // Auto-apply Unconscious
+    if (!c.conds.includes('unconscious')) c.conds.push('unconscious');
     if (c.focus) {
       c.focus = false;
-      addHistory(`<b>${esc(c.name)}</b> loses Focus (incapacitated)`, 'condition');
+      addHistory(`<b>${esc(c.name)}</b> loses 🧿Focus`, 'condition');
     }
-    addHistory(`<b>${esc(c.name)}:</b></br>☠️ HP reduced to 0`, 'death');
-    toast(`☠️ ${esc(c.name)}'s HP reduced to 0`);
+    addHistory(`<b>${esc(c.name)}:</b></br>🖤 HP reduced to 0 — Death Saves begin`, 'death');
+    toast(`🖤 ${esc(c.name)}'s HP reduced to 0`);
   } else {
     if (sign < 0) {
       if (modType === 'resist') {
@@ -1035,6 +1053,14 @@ function applyHP(sign) {
       // ── Concentration check: open save modal ──
       if (c.focus) openConSaveModal(c, finalAmt);
     } else {
+      // Heal — check if reviving from 0 HP
+      if (oldHp === 0 && c.hp > 0) {
+        c.isDead    = false;
+        c.successes = 0;
+        c.failures  = 0;
+        c.permaDead = false;
+        c.conds     = c.conds.filter(id => id !== 'unconscious');
+      }
       addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> receives 💚 <b>${finalAmt}</b> heal`, 'heal');
       toast(`💚 ${esc(c.name)} heals ${finalAmt}`);
     }
@@ -1227,6 +1253,9 @@ function rollExecute() {
    const isZero    = c.hp === 0;
    const typeClass = c.type === 'player' ? 'player' : 'monster';
 
+   // Dynamic HP icon based on death save state
+   const hpIco = c.permaDead ? '☠️' : (isZero ? '🖤' : '❤️');
+
    // Build normal condition chips
    const chips = c.conds.map(condId => {
      const cd = getCond(condId);
@@ -1235,13 +1264,19 @@ function rollExecute() {
        : '';
    }).join('');
 
+   // Death Save chips (only when hp=0 and not permaDead)
+   let deathChips = '';
+   if (isZero && !c.permaDead) {
+     deathChips = `<span class="chip ds-chip ds-success" onclick="incrementSuccesses(${c.id})" title="Tap to add success">❤️ ${c.successes || 0}</span><span class="chip ds-chip ds-failure" onclick="incrementFailures(${c.id})" title="Tap to add failure">🖤 ${c.failures || 0}</span>`;
+   }
+
    // Fixed Focus chip (toggle)
    const focusClass = c.focus ? 'focus-chip active' : 'focus-chip';
-   const focusChip = `<span class="chip ${focusClass}" onclick="toggleFocus(${c.id})" title="Toggle Focus">Focus</span>`;
+   const focusChip = `<span class="chip ${focusClass}" onclick="toggleFocus(${c.id})" title="Toggle Focus">🧿 Focus</span>`;
 
    // Notes chip
    const noteClass = (c.note && c.note.trim()) ? 'note-chip active' : 'note-chip';
-   const noteChip  = `<span class="chip ${noteClass}" onclick="openNotesModal(${c.id})" title="${(c.note && c.note.trim()) ? 'View/Edit note' : 'Add note'}">Notes</span>`;
+   const noteChip  = `<span class="chip ${noteClass}" onclick="openNotesModal(${c.id})" title="${(c.note && c.note.trim()) ? 'View/Edit note' : 'Add note'}">📝 Notes</span>`;
 
    const nameEl = c.type === 'monster'
      ? `<div class="card-name ${isZero ? 'is-dead' : ''} monster-name-link" onclick="openStatblockModal(${c.id})" title="View stat block">${esc(c.name)}</div>`
@@ -1257,7 +1292,7 @@ function rollExecute() {
  </div>
  <div class="card-stats">
    <div class="hp-disp ${isLow ? 'low' : ''} ${isZero ? 'zero' : ''}" onclick="openHpModal(${c.id})" style="cursor:pointer;">
-     <span class="stat-ico">❤️</span>
+     <span class="stat-ico">${hpIco}</span>
      <span class="stat-lbl">:</span>
      <span class="stat-val">${c.hp}/${c.maxHp}</span>
    </div>
@@ -1279,6 +1314,7 @@ function rollExecute() {
  <div class="cond-row">
    ${noteChip}
    ${focusChip}
+   ${deathChips}
    ${chips}
  </div>`;
 
@@ -1424,22 +1460,143 @@ function render() {
    addHistory(
      `<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> Save Focus (DC <b>${dc}</b>)<br>${formula}<br>${
        success
-         ? '✅ <b>SUCCESS</b> - 🪬Focus maintained'
-         : '❌ <b>FAILED</b> - 🪬Focus lost'
+         ? '✅ <b>SUCCESS</b> - 🧿Focus maintained'
+         : '❌ <b>FAILED</b> - 🧿Focus lost'
      }`,
      'condition'
    );
 
    if (success) {
-     toast(`🎯 ${esc(c.name)} keeps concentration (${total} ≥ DC ${dc})`);
+     toast(`🧿 ${esc(c.name)} keeps concentration (${total} ≥ DC ${dc})`);
    } else {
      c.focus = false;
-     toast(`💨 ${esc(c.name)} loses concentration! (${total} < DC ${dc})`);
+     toast(`🧿 ${esc(c.name)} loses concentration! (${total} < DC ${dc})`);
    }
 
    // Remember conMod for next save
    c.conMod = conMod;
 
+   saveState();
+   render();
+ }
+
+ // ────────────────────────────────────────
+ // DEATH SAVE MODAL
+ // ────────────────────────────────────────
+ function openDeathSaveModal(id) {
+   deathSaveTarget  = id;
+   deathSaveAdvType = 'normal';
+   document.querySelectorAll('.deathsave-adv-btn').forEach(b => b.classList.remove('active'));
+   openModal('deathSaveModal');
+ }
+
+ function setDeathSaveAdv(type) {
+   deathSaveAdvType = deathSaveAdvType === type ? 'normal' : type;
+   document.querySelectorAll('.deathsave-adv-btn').forEach(btn => {
+     btn.classList.toggle('active', btn.id === `dsAdvBtn-${deathSaveAdvType}`);
+   });
+ }
+
+ function rollDeathSave() {
+   const c = getC(deathSaveTarget);
+   if (!c) return;
+   closeModal('deathSaveModal');
+
+   let roll1    = Math.floor(Math.random() * 20) + 1;
+   let roll2    = null;
+   let usedRoll = roll1;
+
+   if (deathSaveAdvType === 'advantage') {
+     roll2    = Math.floor(Math.random() * 20) + 1;
+     usedRoll = Math.max(roll1, roll2);
+   } else if (deathSaveAdvType === 'disadvantage') {
+     roll2    = Math.floor(Math.random() * 20) + 1;
+     usedRoll = Math.min(roll1, roll2);
+   }
+
+   let formula;
+   if (deathSaveAdvType === 'normal') {
+     formula = `🎲 1d20: <b>${usedRoll}</b>`;
+   } else {
+     const lbl = deathSaveAdvType === 'advantage' ? 'Adv.' : 'Disadv.';
+     formula   = `🎲 2d20 ${lbl} (${roll1}/${roll2}): <b>${usedRoll}</b>`;
+   }
+
+   const color    = c.type === 'player' ? 'var(--green)' : 'var(--red)';
+   const nameSpan = `<span style="color:${color};font-weight:700;">${esc(c.name)}</span>`;
+
+   if (usedRoll === 20) {
+     addHistory(`${nameSpan} ☠️ Death Save<br>${formula}<br>⚡ <b>NATURAL 20!</b> Revives with 1 HP`, 'heal');
+     _dsRevive(c);
+   } else if (usedRoll >= 10) {
+     c.successes = Math.min(3, (c.successes || 0) + 1);
+     addHistory(`${nameSpan} ☠️ Death Save<br>${formula}<br>❤️ <b>SUCCESS</b> (${c.successes}/3)`, 'death');
+     toast(`❤️ ${esc(c.name)} success! (${c.successes}/3)`);
+     _dsCheck(c);
+   } else if (usedRoll === 1) {
+     c.failures = Math.min(3, (c.failures || 0) + 2);
+     addHistory(`${nameSpan} ☠️ Death Save<br>${formula}<br>🖤 <b>NATURAL 1!</b> +2 failures (${c.failures}/3)`, 'death');
+     toast(`🖤 ${esc(c.name)} natural 1! +2 failures (${c.failures}/3)`);
+     _dsCheck(c);
+   } else {
+     c.failures = Math.min(3, (c.failures || 0) + 1);
+     addHistory(`${nameSpan} ☠️ Death Save<br>${formula}<br>🖤 <b>FAILURE</b> (${c.failures}/3)`, 'death');
+     toast(`🖤 ${esc(c.name)} failure! (${c.failures}/3)`);
+     _dsCheck(c);
+   }
+
+   saveState();
+   render();
+ }
+
+ function _dsRevive(c) {
+   c.hp        = 1;
+   c.isDead    = false;
+   c.successes = 0;
+   c.failures  = 0;
+   c.permaDead = false;
+   c.conds     = c.conds.filter(id => id !== 'unconscious');
+   toast(`⚡ ${esc(c.name)} revives with 1 HP!`);
+ }
+
+ function _dsDie(c) {
+   const color    = c.type === 'player' ? 'var(--green)' : 'var(--red)';
+   const nameSpan = `<span style="color:${color};font-weight:700;">${esc(c.name)}</span>`;
+   c.permaDead = true;
+   c.successes = 0;
+   c.failures  = 0;
+   c.conds     = c.conds.filter(id => id !== 'unconscious');
+   addHistory(`${nameSpan} ☠️ <b>3 FAILURES — DEAD!</b>`, 'death');
+   toast(`☠️ ${esc(c.name)} is dead!`);
+ }
+
+ function _dsCheck(c) {
+   if ((c.successes || 0) >= 3) {
+     const color    = c.type === 'player' ? 'var(--green)' : 'var(--red)';
+     const nameSpan = `<span style="color:${color};font-weight:700;">${esc(c.name)}</span>`;
+     addHistory(`${nameSpan} ☠️ <b>3 SUCCESSES — Stabilized!</b> Revives with 1 HP`, 'heal');
+     _dsRevive(c);
+   } else if ((c.failures || 0) >= 3) {
+     _dsDie(c);
+   }
+ }
+
+ function incrementSuccesses(id) {
+   const c = getC(id);
+   if (!c || c.hp !== 0 || c.permaDead) return;
+   c.successes = Math.min(3, (c.successes || 0) + 1);
+   toast(`❤️ ${esc(c.name)} success! (${c.successes}/3)`);
+   _dsCheck(c);
+   saveState();
+   render();
+ }
+
+ function incrementFailures(id) {
+   const c = getC(id);
+   if (!c || c.hp !== 0 || c.permaDead) return;
+   c.failures = Math.min(3, (c.failures || 0) + 1);
+   toast(`🖤 ${esc(c.name)} failure! (${c.failures}/3)`);
+   _dsCheck(c);
    saveState();
    render();
  }
@@ -1478,10 +1635,10 @@ function render() {
    if (!c) return;
    c.focus = !c.focus;
    if (c.focus) {
-     addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}</span> gains 🪬Focus`, 'condition');
+     addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}</span> gains 🧿Focus`, 'condition');
      toast(`${c.name} focused`);
    } else {
-     addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}</span> loses 🪬Focus`, 'condition');
+     addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}</span> loses 🧿Focus`, 'condition');
      toast(`${c.name} unfocused`);
    }
    saveState();
@@ -1513,7 +1670,7 @@ function toast(msg) {
 // ────────────────────────────────────────
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
-    ['addModal','hpModal','statusModal','attackModal','deleteConfirmModal','rollModal','conSaveModal','notesModal','statblockModal'].forEach(closeModal);
+    ['addModal','hpModal','statusModal','attackModal','deleteConfirmModal','rollModal','conSaveModal','notesModal','statblockModal','deathSaveModal'].forEach(closeModal);
   }
 });
 
