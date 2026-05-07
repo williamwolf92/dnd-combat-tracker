@@ -1510,6 +1510,42 @@ header h1 {
     font-weight: 700;
 }
 
+/* ── COMBAT HEADER LEFT GROUP ── */
+.combat-left-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-tool {
+  background: var(--btn-bg);
+  border: 1.5px solid var(--text);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 15px;
+  padding: 6px 8px;
+  cursor: pointer;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-tool:active { transform: scale(0.95); }
+
+/* ── EXPORT MODAL ── */
+.modal-export {
+  max-width: 360px;
+}
+
+.export-hint {
+  font-size: 12px;
+  color: var(--text);
+  opacity: 0.6;
+  font-style: italic;
+  margin-top: -6px;
+  margin-bottom: 2px;
+}
+
 /* ── TOAST ── */
 #toast {
     position: fixed;
@@ -1576,6 +1612,13 @@ header h1 {
     line-height: 1.2;
 }
 
+.sb-title-source {
+  font-size: 13px;
+  font-style: italic;
+  opacity: 0.7;
+  font-weight: 400;
+}
+
 .sb-subtitle {
     font-size: 13px;
     color: var(--bg);
@@ -1585,7 +1628,7 @@ header h1 {
 }
 
 .sb-body {
-    padding: 0px 18px 16px;
+    padding: 0px 18px 5px;
 }
 
 .sb-body::-webkit-scrollbar { width: 5px; }
@@ -1735,12 +1778,12 @@ header h1 {
     transform: scale(0.9);
 }
 .chip.ds-success {
-    border-color: var(--green);
-    color: var(--green);
+    border-color: var(--text);
+    color: var(--text);
     background: var(--bg);
 }
 .chip.ds-failure {
-    border-color: #555;
-    color: #444;
-    background: #e0e0e0;
+    border-color: var(--text);
+    color: var(--text);
+    background: var(--bg);
 }

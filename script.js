@@ -134,6 +134,14 @@ function sbInfoRow(label, val, required = false) {
   return `<div class="sb-info-row"><span class="sb-info-label">${esc(label)}:</span> ${display}</div>`;
 }
 
+function formatMonsterName(raw) {
+  const match = raw.match(/^(.*?)(\s*\([^)]*\))$/);
+  if (match) {
+    return esc(match[1]) + `<span class="sb-title-source">${esc(match[2])}</span>`;
+  }
+  return esc(raw);
+}
+
 function renderStatblock(m) {
   const subtitle = [m.size, m.type, m.alignment].filter(Boolean).join(' · ');
   const extraFields = [
@@ -153,7 +161,7 @@ function renderStatblock(m) {
   document.getElementById('statblockContent').innerHTML = `
     <div class="sb-header">
       <button class="sb-close" onclick="closeModal('statblockModal')">✕</button>
-      <div class="sb-title">${esc(m.name)}</div>
+      <div class="sb-title">${formatMonsterName(m.name)}</div>
       ${subtitle ? `<div class="sb-subtitle">${esc(subtitle)}</div>` : ''}
     </div>
     <div class="sb-body">
@@ -785,6 +793,9 @@ function nextTurn() {
     if (!canStartCombat()) return;
     started      = true;
     roundFirstId = queue[0];
+    // Clear history for a fresh combat log — START COMBAT will be the first entry
+    history           = [];
+    combatStartRoster = [];
     // Record combatants in roster for history filtering (avoid name duplicates)
     combatants.forEach(c => {
       if (!combatStartRoster.some(r => r.name === c.name)) {
@@ -802,7 +813,7 @@ function nextTurn() {
     const firstC = getC(queue[0]);
     if (firstC) {
       const turnColor = firstC.type === 'player' ? 'var(--green)' : 'var(--red)';
-      addHistory(`<span style="color:${turnColor};font-weight:700;">${esc(firstC.name)}</span> turn`, 'turn');
+      addHistory(`<span style="color:${turnColor};font-weight:700;">${esc(firstC.name)}</span> turn (❤️ HP: ${firstC.hp}/${firstC.maxHp})`, 'turn');
     }
     toast('⚔️ START COMBAT!');
     return;
@@ -836,7 +847,7 @@ function nextTurn() {
     const activeC = getC(queue[0]);
     if (activeC) {
       const turnColor = activeC.type === 'player' ? 'var(--green)' : 'var(--red)';
-      addHistory(`<span style="color:${turnColor};font-weight:700;">${esc(activeC.name)}</span> turn`, 'turn');
+      addHistory(`<span style="color:${turnColor};font-weight:700;">${esc(activeC.name)}</span> turn (❤️ HP: ${activeC.hp}/${activeC.maxHp})`, 'turn');
     }
 
     if (roundChanged) {
@@ -887,7 +898,7 @@ function nextTurn() {
 function checkCombatEnd() {
   if (!started) return;
   const monsters = combatants.filter(c => c.type === 'monster');
-  if (monsters.length > 0 && monsters.every(m => m.hp === 0)) {
+  if (monsters.length > 0 && monsters.every(m => m.permaDead)) {
     triggerCombatEnd();
   }
 }
@@ -916,6 +927,33 @@ function triggerCombatEnd() {
 
 function closeCombatEnd() {
   closeModal('combatEndModal');
+  started      = false;
+  round        = 1;
+  roundFirstId = null;
+  saveState();
+  render();
+}
+
+function checkCombatDefeat() {
+  if (!started) return;
+  const players = combatants.filter(c => c.type === 'player');
+  if (players.length > 0 && players.every(p => p.permaDead)) {
+    triggerCombatDefeat();
+  }
+}
+
+function triggerCombatDefeat() {
+  started      = false;
+  round        = 1;
+  roundFirstId = null;
+  addHistory('💀 <b>COMBAT ENDED - DEFEAT!</b>', 'event');
+  saveState();
+  render();
+  setTimeout(() => openModal('combatDefeatModal'), 300);
+}
+
+function closeCombatDefeat() {
+  closeModal('combatDefeatModal');
   combatants = combatants.filter(c => c.type === 'player');
   queue = queue.filter(id => {
     const c = getC(id);
@@ -1036,7 +1074,7 @@ function applyHP(sign) {
       c.focus = false;
       addHistory(`<b>${esc(c.name)}</b> loses 🧿Focus`, 'condition');
     }
-    addHistory(`<b>${esc(c.name)}:</b></br>🖤 HP reduced to 0 — Death Saves begin`, 'death');
+    addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}:</span></br>🖤 HP reduced to 0 - Death Saves begin`, 'death');
     toast(`🖤 ${esc(c.name)}'s HP reduced to 0`);
   } else {
     if (sign < 0) {
@@ -1069,6 +1107,7 @@ function applyHP(sign) {
   saveState();
   render();
   checkCombatEnd();
+  checkCombatDefeat();
 }
 
 // ────────────────────────────────────────
@@ -1547,6 +1586,8 @@ function render() {
 
    saveState();
    render();
+   checkCombatEnd();
+   checkCombatDefeat();
  }
 
  function _dsRevive(c) {
@@ -1556,7 +1597,7 @@ function render() {
    c.failures  = 0;
    c.permaDead = false;
    c.conds     = c.conds.filter(id => id !== 'unconscious');
-   toast(`⚡ ${esc(c.name)} revives with 1 HP!`);
+   toast(`⚡<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> revives with 1 HP!`);
  }
 
  function _dsDie(c) {
@@ -1566,7 +1607,7 @@ function render() {
    c.successes = 0;
    c.failures  = 0;
    c.conds     = c.conds.filter(id => id !== 'unconscious');
-   addHistory(`${nameSpan} ☠️ <b>3 FAILURES — DEAD!</b>`, 'death');
+   addHistory(`${nameSpan} ☠️ <b>3 FAILURES - DEAD!</b>`, 'death');
    toast(`☠️ ${esc(c.name)} is dead!`);
  }
 
@@ -1574,7 +1615,7 @@ function render() {
    if ((c.successes || 0) >= 3) {
      const color    = c.type === 'player' ? 'var(--green)' : 'var(--red)';
      const nameSpan = `<span style="color:${color};font-weight:700;">${esc(c.name)}</span>`;
-     addHistory(`${nameSpan} ☠️ <b>3 SUCCESSES — Stabilized!</b> Revives with 1 HP`, 'heal');
+     addHistory(`${nameSpan} ☠️ <b>3 SUCCESSES - Stabilized!</b> Revives with 1 HP`, 'heal');
      _dsRevive(c);
    } else if ((c.failures || 0) >= 3) {
      _dsDie(c);
@@ -1589,6 +1630,8 @@ function render() {
    _dsCheck(c);
    saveState();
    render();
+   checkCombatEnd();
+   checkCombatDefeat();
  }
 
  function incrementFailures(id) {
@@ -1599,6 +1642,8 @@ function render() {
    _dsCheck(c);
    saveState();
    render();
+   checkCombatEnd();
+   checkCombatDefeat();
  }
 
  // ────────────────────────────────────────
@@ -1666,11 +1711,86 @@ function toast(msg) {
 }
 
 // ────────────────────────────────────────
+// EXPORT / IMPORT
+// ────────────────────────────────────────
+function exportCombatState() {
+  document.getElementById('export-filename').value = '';
+  openModal('exportModal');
+  setTimeout(() => document.getElementById('export-filename').focus(), 120);
+}
+
+function doExport() {
+  const raw  = document.getElementById('export-filename').value.trim();
+  const name = raw || 'combat';
+  const now  = new Date();
+  const dd   = String(now.getDate()).padStart(2, '0');
+  const mm   = String(now.getMonth() + 1).padStart(2, '0');
+  const yy   = String(now.getFullYear()).slice(-2);
+  const hh   = String(now.getHours()).padStart(2, '0');
+  const min  = String(now.getMinutes()).padStart(2, '0');
+  const ss   = String(now.getSeconds()).padStart(2, '0');
+  const filename = `${name}_${dd}${mm}${yy}_${hh}${min}${ss}.json`;
+
+  const state = { combatants, queue, uid, round, started, roundFirstId, history, combatStartRoster };
+  const blob  = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+  const url   = URL.createObjectURL(blob);
+  const a     = document.createElement('a');
+  a.href      = url;
+  a.download  = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  closeModal('exportModal');
+  toast(`💾 Exported: ${filename}`);
+}
+
+function importCombatState() {
+  openModal('importConfirmModal');
+}
+
+function doImport() {
+  closeModal('importConfirmModal');
+  const input  = document.createElement('input');
+  input.type   = 'file';
+  input.accept = '.json';
+  input.onchange = e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      try {
+        const state       = JSON.parse(ev.target.result);
+        combatants        = state.combatants        || [];
+        queue             = state.queue             || [];
+        uid               = state.uid               ?? 1;
+        round             = state.round             ?? 1;
+        started           = state.started           ?? false;
+        roundFirstId      = state.roundFirstId      ?? null;
+        history           = state.history           || [];
+        combatStartRoster = state.combatStartRoster || [];
+        saveState();
+        render();
+        populateHistoryFilter();
+        renderHistoryLog();
+        toast('📂 Combat state imported');
+      } catch(err) {
+        toast('❌ Error: invalid file');
+      }
+    };
+    reader.readAsText(file);
+  };
+  document.body.appendChild(input);
+  input.click();
+  document.body.removeChild(input);
+}
+
+// ────────────────────────────────────────
 // KEYBOARD
 // ────────────────────────────────────────
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
-    ['addModal','hpModal','statusModal','attackModal','deleteConfirmModal','rollModal','conSaveModal','notesModal','statblockModal','deathSaveModal'].forEach(closeModal);
+    ['addModal','hpModal','statusModal','attackModal','deleteConfirmModal','rollModal','conSaveModal','notesModal','statblockModal','deathSaveModal','combatDefeatModal','exportModal','importConfirmModal'].forEach(closeModal);
   }
 });
 

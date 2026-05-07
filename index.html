@@ -15,7 +15,11 @@
 <header class="shared-header" id="sharedHeader" style="display:none;">
 
   <div id="sharedHeaderCombat" style="display:none;">
-    <button class="btn btn-add" onclick="openAddModal()">✦ Add</button>
+    <div class="combat-left-group">
+      <button class="btn btn-add" onclick="openAddModal()">✦ Add</button>
+      <button class="btn btn-tool" onclick="exportCombatState()" title="Export state">💾</button>
+      <button class="btn btn-tool" onclick="importCombatState()" title="Import state">📂</button>
+    </div>
     <div class="combat-round">Round <span id="combatRoundNum">1</span></div>
     <button class="btn btn-next" id="nextBtnCombat" onclick="nextTurn()">▶ Start</button>
   </div>
@@ -33,7 +37,7 @@
 <div class="screen" id="screenHome">
   <header class="home-header">
     <h1>Dungeons &amp; Dragons</h1>
-    <div class="tagline">COMBAT TRACKER <span class="version">v2.7</span></div>
+    <div class="tagline">COMBAT TRACKER <span class="version">v2.8</span></div>
     <div class="sword-icon">⚔️ 🏹 🔮 🛡</div>
     <div class="ornament"></div>
   </header>
@@ -69,9 +73,24 @@
       </div>
       
       <div class="home-section">
-        <div class="home-section-title"><b>🪬 FOCUS (Concentration)</b></div>
+        <div class="home-section-title"><b>🧿 FOCUS (Concentration)</b></div>
         <p>• Tap <b>Focus</b> chip on a card to toggle <b>Concentration</b> on a combatant.</p>
         <p>• When a focused combatant takes damage, a panel opens automatically: set the <b>DC</b>, the <b>Ability Mod</b>, choose Advantage or Disadvantage if needed and then, tap <b>Roll Save</b>. On failure, Focus is lost.</p>
+      </div>
+      
+      <div class="home-section">
+        <div class="home-section-title"><b>☠️ DEATH SAVING THROWS</b></div>
+        <p>• When a combatant's HP reaches 0, they fall <b>Unconscious</b> and must make Death Saving Throws each turn.</p>
+        <p>• Tap the ❤️ <b>HP</b> on an active (in-turn) combatant at 0 HP to open the Death Save panel. Choose <b>Advan./Disadv.</b> if applicable, then tap <b>ROLL</b>.</p>
+        <p>• A roll of <b>10 or higher</b> counts as a <b>Success</b>; a roll of <b>9 or lower</b> counts as a <b>Failure</b>. A <b>Natural 1</b> adds 2 failures. A <b>Natural 20</b> immediately revives the combatant with 1 HP.</p>
+        <p>• With <b>3 Successes</b>, the combatant stabilizes and revives with 1 HP. With <b>3 Failures</b>, the combatant dies permanently (☠️).</p>
+        <p>• You can also track saves manually by tapping the ❤️ and 🖤 chips on the combatant card.</p>
+      </div>
+      
+      <div class="home-section">
+        <div class="home-section-title"><b>💾 IMPORT/EXPORT</b></div>
+        <p>• On the Combat screen, use the 💾 / 📁 buttons to <b>export/import</b> the current combat state.</p>
+        <p>• ⚠️<b>WARNING!</b> Importing combat data will replace <b>ALL</b> the current session as well as the events history.</p>
       </div>
     </div>
   </main>
@@ -364,10 +383,50 @@
   </div>
 </div>
 
+<!-- ────── COMBAT DEFEAT MODAL ────── -->
+<div class="overlay" id="combatDefeatModal">
+  <div class="modal modal-confirm">
+    <span class="cup-icon">💀</span>
+    <span class="fallen-name">Defeat!</span>
+    <p style="font-size:17px;margin-top:6px;">All players have fallen</p>
+    <div class="modal-actions" style="margin-top:24px;">
+      <button class="btn btn-cancel" onclick="closeCombatDefeat()">Continue</button>
+    </div>
+  </div>
+</div>
+
 <!-- ────── STAT BLOCK MODAL ────── -->
 <div class="overlay" id="statblockModal" onclick="ovrClick(event,'statblockModal')">
   <div class="modal modal-statblock">
     <div id="statblockContent"></div>
+  </div>
+</div>
+
+<!-- ────── EXPORT MODAL ────── -->
+<div class="overlay" id="exportModal" onclick="ovrClick(event,'exportModal')">
+  <div class="modal modal-export">
+    <div class="modal-title">💾 Export Combat</div>
+    <div class="field">
+      <label>File Name</label>
+      <input id="export-filename" type="text" placeholder="combat" autocomplete="off"
+             onkeydown="if(event.key==='Enter')doExport()">
+    </div>
+    <p class="export-hint">The current date and time will be appended automatically. This file will be saved in your Download directory.</p>
+    <div class="modal-actions">
+      <button class="btn btn-ok" onclick="doExport()">💾 Export</button>
+      <button class="btn btn-cancel" onclick="closeModal('exportModal')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ────── IMPORT CONFIRMATION MODAL ────── -->
+<div class="overlay" id="importConfirmModal" onclick="ovrClick(event,'importConfirmModal')">
+  <div class="modal modal-confirm">
+    <div class="confirm-text">⚠️ Importing a file will <b>replace ALL current data</b>: combatants, history, HP, conditions, notes and everything else. This cannot be undone.<br><br>Do you wish to continue?</div>
+    <div class="modal-actions">
+      <button class="btn btn-ok" onclick="doImport()">Yes, Import</button>
+      <button class="btn btn-cancel" onclick="closeModal('importConfirmModal')">Cancel</button>
+    </div>
   </div>
 </div>
 
