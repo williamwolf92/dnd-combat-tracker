@@ -52,7 +52,7 @@ function parseMonstersText(text) {
 async function loadMonstersData() {
   // 1. Try fetch (works when served via HTTP/HTTPS)
   try {
-    const res = await fetch('monsters-add.txt');
+    const res = await fetch('add_monsters_index.txt');
     if (res.ok) {
       const text = await res.text();
       const parsed = parseMonstersText(text);
@@ -78,7 +78,7 @@ async function loadMonstersData() {
 
 async function loadBestiaryIndex() {
   try {
-    const res = await fetch('bestiary-stats.txt');
+    const res = await fetch('bestiary_stats_index.txt');
     if (!res.ok) return;
     const text = await res.text();
     for (const line of text.split('\n')) {
