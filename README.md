@@ -9,7 +9,7 @@ A free, mobile-friendly web app to manage D&D 5e combat encounters — no login,
 ## ✨ Features
 
 - **Initiative tracking** — add players and monsters, sort by initiative automatically
-- **Bestiary autocomplete** — type a monster name and HP, AC and DEX mod fill in automatically
+- **Bestiary autocomplete** — type a monster name and HP, AC and Initiative fill in automatically
 - **HP management** — numpad with damage/heal, resistant/vulnerable modifiers, and low-HP pulse warning at ≤20%
 - **Attack rolls** — roll against a target's AC with advantage/disadvantage; shows HIT, MISS or CRITICAL
 - **Conditions** — apply and remove D&D 5e conditions (Stunned, Poisoned, etc.) per combatant
