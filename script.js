@@ -2,21 +2,21 @@
  // CONDITION LIST
  // ────────────────────────────────────────
  const CONDITIONS = [
-   { id:'blinded',       lbl:'Blinded' },
-   { id:'charmed',       lbl:'Charmed' },
-   { id:'deafened',      lbl:'Deafened' },
-   { id:'exhaustion',    lbl:'Exhaustion' },
-   { id:'frightened',    lbl:'Frightened' },
-   { id:'grappled',      lbl:'Grappled' },
-   { id:'incapacitated', lbl:'Incapacitated' },
+   { id:'blinded',       lbl:'Cegado' },
+   { id:'charmed',       lbl:'Encantado' },
+   { id:'deafened',      lbl:'Sordo' },
+   { id:'exhaustion',    lbl:'Agotado' },
+   { id:'frightened',    lbl:'Asustado' },
+   { id:'grappled',      lbl:'Amarrado' },
+   { id:'incapacitated', lbl:'Incapacitado' },
    { id:'invisible',     lbl:'Invisible' },
-   { id:'paralyzed',     lbl:'Paralyzed' },
-   { id:'petrified',     lbl:'Petrified' },
-   { id:'poisoned',      lbl:'Poisoned' },
-   { id:'prone',         lbl:'Prone' },
-   { id:'restrained',    lbl:'Restrained' },
-   { id:'stunned',       lbl:'Stunned' },
-   { id:'unconscious',   lbl:'Unconscious' },
+   { id:'paralyzed',     lbl:'Paralizado' },
+   { id:'petrified',     lbl:'Petrificado' },
+   { id:'poisoned',      lbl:'Envenenado' },
+   { id:'prone',         lbl:'Tumbado' },
+   { id:'restrained',    lbl:'Restringido' },
+   { id:'stunned',       lbl:'Aturdido' },
+   { id:'unconscious',   lbl:'Inconsciente' },
  ];
 
 // ────────────────────────────────────────
@@ -50,23 +50,48 @@ function parseMonstersText(text) {
 }
 
 async function loadMonstersData() {
-  // 1. Try fetch (works when served via HTTP/HTTPS)
+  // Helper: XHR loader — handles file:// (status 0) and http:// (status 200)
+  function xhrLoad(url) {
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.timeout = 5000;
+      xhr.onload = () => {
+        if ((xhr.status === 200 || xhr.status === 0) && xhr.responseText) {
+          resolve(xhr.responseText);
+        } else {
+          reject(new Error(`XHR ${xhr.status}`));
+        }
+      };
+      xhr.onerror   = () => reject(new Error('XHR error'));
+      xhr.ontimeout = () => reject(new Error('XHR timeout'));
+      xhr.send();
+    });
+  }
+
+  // 1. Try fetch (HTTP/HTTPS)
+  let text = null;
   try {
     const res = await fetch('add_monsters_index.txt');
-    if (res.ok) {
-      const text = await res.text();
-      const parsed = parseMonstersText(text);
-      if (parsed.length > 0) {
-        monstersData = parsed;
-        // Save to localStorage so the app works offline on next load
-        try { localStorage.setItem(MONSTERS_CACHE_KEY, JSON.stringify(parsed)); } catch(e) {}
-        console.log(`Monsters loaded from file: ${parsed.length} entries`);
-        return;
-      }
-    }
-  } catch(e) { /* fetch unavailable (e.g. file:// protocol) — fall through to cache */ }
+    if (res.ok) text = await res.text();
+  } catch(e) { /* fetch blocked on file:// — try XHR */ }
 
-  // 2. Fall back to localStorage cache (works offline / file:// after first online load)
+  // 2. Try XHR (works on file:// in Firefox and some Chromium builds)
+  if (!text) {
+    try { text = await xhrLoad('add_monsters_index.txt'); } catch(e) {}
+  }
+
+  if (text) {
+    const parsed = parseMonstersText(text);
+    if (parsed.length > 0) {
+      monstersData = parsed;
+      try { localStorage.setItem(MONSTERS_CACHE_KEY, JSON.stringify(parsed)); } catch(e) {}
+      console.log(`Monsters loaded: ${parsed.length} entries`);
+      return;
+    }
+  }
+
+  // 3. Fall back to localStorage cache (works after any prior online load)
   try {
     const cached = localStorage.getItem(MONSTERS_CACHE_KEY);
     if (cached) {
@@ -77,20 +102,41 @@ async function loadMonstersData() {
 }
 
 async function loadBestiaryIndex() {
+  function xhrLoad(url) {
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.timeout = 5000;
+      xhr.onload = () => {
+        if ((xhr.status === 200 || xhr.status === 0) && xhr.responseText) {
+          resolve(xhr.responseText);
+        } else {
+          reject(new Error(`XHR ${xhr.status}`));
+        }
+      };
+      xhr.onerror   = () => reject(new Error('XHR error'));
+      xhr.ontimeout = () => reject(new Error('XHR timeout'));
+      xhr.send();
+    });
+  }
+
+  let text = null;
   try {
     const res = await fetch('bestiary_stats_index.txt');
-    if (!res.ok) return;
-    const text = await res.text();
-    for (const line of text.split('\n')) {
-      const t = line.trim().replace(/\r/g, '');
-      if (t.endsWith('.json')) {
-        bestiaryIndex.add(t.slice(0, -5));
-      }
-    }
-    console.log(`Bestiary index loaded: ${bestiaryIndex.size} entries`);
-  } catch(e) {
-    console.warn('Could not load bestiary index:', e);
+    if (res.ok) text = await res.text();
+  } catch(e) {}
+  if (!text) {
+    try { text = await xhrLoad('bestiary_stats_index.txt'); } catch(e) {}
   }
+  if (!text) { console.warn('Could not load bestiary index'); return; }
+
+  for (const line of text.split('\n')) {
+    const t = line.trim().replace(/\r/g, '');
+    if (t.endsWith('.json')) {
+      bestiaryIndex.add(t.slice(0, -5));
+    }
+  }
+  console.log(`Bestiary index loaded: ${bestiaryIndex.size} entries`);
 }
 
 function monsterNameToFilename(name) {
@@ -123,8 +169,8 @@ function sbAttrBox(name, val) {
   const modStr = hasVal ? sbFmtMod(sbGetMod(val)) : '—';
   return `<div class="sb-attr-box">
     <span class="sb-attr-name">${name}</span>
-    <span class="sb-attr-score">${score}</span>
     <span class="sb-attr-mod">${modStr}</span>
+    <span class="sb-attr-score">${score}</span>
   </div>`;
 }
 
@@ -145,17 +191,17 @@ function formatMonsterName(raw) {
 function renderStatblock(m) {
   const subtitle = [m.size, m.type, m.alignment].filter(Boolean).join(' · ');
   const extraFields = [
-    ['init',       'Initiative'],
-    ['saves',      'Saving Thr'],
-    ['skills',     'Skills'],
-    ['dmg_vuln',   'Dmg Vulner'],
-    ['dmg_resist', 'Dmg Resist'],
-    ['dmg_immun',  'Dmg Immun'],
-    ['cond_immun', 'Cond Immun'],
-    ['senses',     'Senses'],
-    ['languages',  'Languages'],
-    ['environment','Environment'],
-    ['treasure',   'Treasure'],
+    ['init',       'Iniciativa'],
+    ['saves',      'Salvación'],
+    ['skills',     'Habilidades'],
+    ['dmg_vuln',   'Vuln. a daño'],
+    ['dmg_resist', 'Resist. a daño'],
+    ['dmg_immun',  'Inmune a daño'],
+    ['cond_immun', 'Inmune a estados'],
+    ['senses',     'Sentidos'],
+    ['languages',  'Idiomas'],
+    ['environment','Hábitat'],
+    ['treasure',   'Tesoro'],
   ].map(([k, label]) => sbInfoRow(label, m[k])).join('');
 
   document.getElementById('statblockContent').innerHTML = `
@@ -181,10 +227,10 @@ function renderStatblock(m) {
       </div>
       <div class="sb-divider"></div>
       <div class="sb-info-section">
-        ${sbInfoRow('Speed', m.speed, true)}
+        ${sbInfoRow('Velocidad', m.speed, true)}
       </div>
       ${extraFields ? `<div class="sb-divider"></div><div class="sb-info-section">${extraFields}</div>` : ''}
-      ${m.link ? `<div class="sb-divider"></div><a class="sb-full-link" href="${m.link}" target="_blank" rel="noopener noreferrer">Full View ↗</a>` : ''}
+      ${m.link ? `<div class="sb-divider"></div><a class="sb-full-link" href="${m.link}" target="_blank" rel="noopener noreferrer">Ver todo ↗</a>` : ''}
     </div>`;
 }
 
@@ -194,12 +240,12 @@ async function openStatblockModal(combatantId) {
 
   const filename = findBestStatFile(c.name);
   if (!filename) {
-    toast('No stat block found for ' + esc(c.name));
+    toast('No se encontraron las estadísticas de ' + esc(c.name));
     return;
   }
 
   document.getElementById('statblockContent').innerHTML =
-    '<div class="sb-loading">Loading…</div>';
+    '<div class="sb-loading">Cargando...</div>';
   openModal('statblockModal');
 
   try {
@@ -209,7 +255,7 @@ async function openStatblockModal(combatantId) {
     renderStatblock(m);
   } catch(e) {
     document.getElementById('statblockContent').innerHTML =
-      '<div class="sb-loading">Could not load stat block.</div>';
+      '<div class="sb-loading">No se pudieron cargar las estadísticas.</div>';
   }
 }
 
@@ -373,9 +419,9 @@ function addHistory(msg, type = 'event') {
 function populateHistoryFilter() {
   const sel = document.getElementById('historyFilter');
   const currentVal = sel.value;
-  sel.innerHTML = '<option value="all">All</option>';
+  sel.innerHTML = '<option value="all">Todos</option>';
   combatStartRoster.forEach(c => {
-    const prefix = c.type === 'player' ? '(P)' : '(M)';
+    const prefix = c.type === 'player' ? '(J)' : '(M)';
     const opt = document.createElement('option');
     opt.value = c.name;
     opt.textContent = `${prefix} ${c.name}`;
@@ -407,8 +453,8 @@ function renderHistoryLog() {
   if (entries.length === 0) {
     log.innerHTML = `<div class="empty-state">
       <span class="empty-dragon">📜</span>
-      <h3>No events yet</h3>
-      <p>History will appear here</p>
+      <h3>✦ Sin eventos ✦</h3>
+      <p>El historial se mostrará aquí</p>
     </div>`;
     return;
   }
@@ -425,7 +471,7 @@ function clearHistory() {
   saveState();
   populateHistoryFilter();
   renderHistoryLog();
-  toast('History cleared');
+  toast('Historial borrado');
 }
 
 // ────────────────────────────────────────
@@ -584,7 +630,7 @@ function parseDiceOrNumber(str) {
 
 function addCombatant(type) {
   const name = document.getElementById('a-name').value.trim();
-  if (!name) { toast('✦ Please, enter name'); return; }
+  if (!name) { toast('✦ Por favor, ingresa un nombre'); return; }
 
   const initStr = document.getElementById('a-init').value.trim();
   const hpStr   = document.getElementById('a-hp').value.trim();
@@ -610,16 +656,16 @@ function addCombatant(type) {
     }
 
     const enterColor = type === 'player' ? 'var(--green)' : 'var(--red)';
-    addHistory(`<span style="color:${enterColor};font-weight:700;">${esc(combatantName)}</span> enter combat:<br>Init: ${init} | ❤️: ${hp} | 🛡: ${ac}`, 'event');
+    addHistory(`<span style="color:${enterColor};font-weight:700;">${esc(combatantName)}</span> entra al combate:<br>Ini: ${init} | ❤️: ${hp} | 🛡: ${ac}`, 'event');
   }
 
   saveState();
   render();
 
   if (qty === 1) {
-    toast(`${esc(name)} enter combat - Init.: ${lastInit}`);
+    toast(`${esc(name)} entra al combate - Ini.: ${lastInit}`);
   } else {
-    toast(`${qty}× ${esc(name)} enter combat`);
+    toast(`${qty}× ${esc(name)} entran al combate`);
   }
 }
 
@@ -648,17 +694,17 @@ function confirmDelete(mode) {
   } else if (mode === 'all') {
     const ids = [...combatants.map(c => c.id)];
     ids.forEach(id => _doRemoveSingle(id, true));
-    _postBatchRemove('All combatants removed');
+    _postBatchRemove('Todos los combatientes removidos');
   } else if (mode === 'players') {
     const ids = combatants.filter(c => c.type === 'player').map(c => c.id);
-    if (ids.length === 0) { toast('No players to remove'); return; }
+    if (ids.length === 0) { toast('No hay jugadores'); return; }
     ids.forEach(id => _doRemoveSingle(id, true));
-    _postBatchRemove('All players removed');
+    _postBatchRemove('Todos los jugadores removidos');
   } else if (mode === 'monsters') {
     const ids = combatants.filter(c => c.type === 'monster').map(c => c.id);
-    if (ids.length === 0) { toast('No monsters to remove'); return; }
+    if (ids.length === 0) { toast('No hay monstruos'); return; }
     ids.forEach(id => _doRemoveSingle(id, true));
-    _postBatchRemove('All monsters removed');
+    _postBatchRemove('Todos los monstruos removidos');
   }
 
   pendingDeleteId = null;
@@ -683,7 +729,7 @@ function _doRemoveSingle(id, batch = false) {
     roundFirstId = null;
   }
 
-  addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(name)}</span> removed from combat`, 'event');
+  addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(name)}</span> removido del combate`, 'event');
 
   if (el) el.remove();
 
@@ -706,7 +752,7 @@ function openAttackModal(id) {
   attackTarget = id;
   document.getElementById('attackBonus').value = '0';
   setAttackType('normal');
-  document.getElementById('resultMessage').innerHTML = '<span class="attack-ready-msg">Ready to Attack</span>';
+  document.getElementById('resultMessage').innerHTML = '<span class="attack-ready-msg">Listo para Atacar</span>';
   document.getElementById('resultFormula').textContent = '';
   openModal('attackModal');
 }
@@ -752,9 +798,9 @@ function executeAttack() {
 
   let resultMsg = '';
   if (crit) {
-    resultMsg = '<span style="color:#ff0000; font-weight:bold;">💥 CRITICAL HIT!</span>';
+    resultMsg = '<span style="color:#ff0000; font-weight:bold;">💥 ¡IMPACTO CRÍTICO!</span>';
   } else {
-    resultMsg = `<span style="color:${hit ? 'var(--green)' : 'var(--red)'}; font-weight:bold;">${hit ? 'HIT' : 'MISS'}</span>`;
+    resultMsg = `<span style="color:${hit ? 'var(--green)' : 'var(--red)'}; font-weight:bold;">${hit ? 'IMPACTO' : 'FALLO'}</span>`;
   }
 
   const bonusStr = (bonus !== 0) ? ` (${bonus > 0 ? '+' : ''}${bonus})` : '';
@@ -771,14 +817,14 @@ function executeAttack() {
   document.getElementById('resultMessage').innerHTML = resultMsg;
   document.getElementById('resultFormula').textContent = formula;
 
-  addHistory(`Attack vs. <span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> | <b>${crit ? 'CRITICAL!' : (hit ? 'HIT' : 'MISS')}</b><br>${formula}`, 'attack');
+  addHistory(`Ataque vs. <span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> | <b>${crit ? '¡CRÍTICO!' : (hit ? 'IMPACTA' : 'FALLA')}</b><br>${formula}`, 'attack');
 }
 
 function acChange(id, delta) {
   const c = getC(id);
   if (!c) return;
   c.ac = Math.max(1, (c.ac || 0) + delta);
-  addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> changed AC to <b>${c.ac}</b>`, 'event');
+  addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span><br>Cambia su AC a <b>${c.ac}</b>`, 'event');
   saveState();
   render();
 }
@@ -807,15 +853,15 @@ function nextTurn() {
     const sortedForLog = [...combatants].sort((a, b) => b.init - a.init);
     const rosterLines  = sortedForLog.map(c => {
       const color = c.type === 'player' ? 'var(--green)' : 'var(--red)';
-      return `<span style="color:${color};font-weight:700;">${esc(c.name)}</span> - Init: ${c.init} | ❤️: ${c.hp} | 🛡: ${c.ac}`;
+      return `<span style="color:${color};font-weight:700;">${esc(c.name)}</span><br>Ini: ${c.init} | ❤️: ${c.hp} | 🛡: ${c.ac}<br>`;
     }).join('<br>');
-    addHistory(`⚔️ <b>START COMBAT!</b><br>${rosterLines}`, 'event');
+    addHistory(`⚔️<b> COMBATE INICIADO </b>⚔️<br><br>${rosterLines}`, 'event');
     const firstC = getC(queue[0]);
     if (firstC) {
       const turnColor = firstC.type === 'player' ? 'var(--green)' : 'var(--red)';
-      addHistory(`<span style="color:${turnColor};font-weight:700;">${esc(firstC.name)}</span> turn (❤️ HP: ${firstC.hp}/${firstC.maxHp})`, 'turn');
+      addHistory(`Turno de <span style="color:${turnColor};font-weight:700;">${esc(firstC.name)}</span><br>❤️ HP: ${firstC.hp}/${firstC.maxHp}`, 'turn');
     }
-    toast('⚔️ START COMBAT!');
+    toast('⚔️ COMBATE INICIADO ⚔️');
     return;
   }
 
@@ -847,12 +893,12 @@ function nextTurn() {
     const activeC = getC(queue[0]);
     if (activeC) {
       const turnColor = activeC.type === 'player' ? 'var(--green)' : 'var(--red)';
-      addHistory(`<span style="color:${turnColor};font-weight:700;">${esc(activeC.name)}</span> turn (❤️ HP: ${activeC.hp}/${activeC.maxHp})`, 'turn');
+      addHistory(`Turno de <span style="color:${turnColor};font-weight:700;">${esc(activeC.name)}</span><br>❤️ HP: ${activeC.hp}/${activeC.maxHp}`, 'turn');
     }
 
     if (roundChanged) {
-      addHistory(`🔄 <b>ROUND ${round}</b>`, 'round');
-      toast(`🔄 ROUND ${round}`);
+      addHistory(`🔄 <b>RONDA ${round}</b>`, 'round');
+      toast(`🔄 RONDA ${round}`);
     }
 
     if (listEl) {
@@ -919,7 +965,7 @@ function triggerCombatEnd() {
     }
   });
 
-  addHistory('🏆 <b>COMBAT ENDED - VICTORY!</b>', 'event');
+  addHistory('⚔️<b> COMBATE TERMINADO </b>⚔️<br>Todos los monstruos han sido derrotados<br><br><b>🏆 ¡VICTORIA! 🏆</b>', 'event');
   saveState();
   render();
   setTimeout(() => openModal('combatEndModal'), 300);
@@ -946,7 +992,7 @@ function triggerCombatDefeat() {
   started      = false;
   round        = 1;
   roundFirstId = null;
-  addHistory('💀 <b>COMBAT ENDED - DEFEAT!</b>', 'event');
+  addHistory('⚔️<b> COMBATE TERMINADO </b>⚔️<br>Todos los jugadores han sido derrotados<br><br>️<b>☠️ ¡DERROTA! ☠️</b>', 'event');
   saveState();
   render();
   setTimeout(() => openModal('combatDefeatModal'), 300);
@@ -1072,21 +1118,21 @@ function applyHP(sign) {
     if (!c.conds.includes('unconscious')) c.conds.push('unconscious');
     if (c.focus) {
       c.focus = false;
-      addHistory(`<b>${esc(c.name)}</b> loses 🧿Focus`, 'condition');
+      addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span><br>🧿 Pierde Concentración`, 'condition');
     }
-    addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}:</span></br>🖤 HP reduced to 0 - Death Saves begin`, 'death');
-    toast(`🖤 ${esc(c.name)}'s HP reduced to 0`);
+    addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span></br>🖤 HP reducidos a 0<br>Empieza Salvaciones de Muerte`, 'death');
+    toast(`🖤 ${esc(c.name)} HP reducidos a 0`);
   } else {
     if (sign < 0) {
       if (modType === 'resist') {
-        addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> 🛡 <b>resists</b> ${parsed} damage<br>Takes only 🩸<b>${finalAmt}</b> damage`, 'damage');
-        toast(`<span style="color:var(--red);">🛡 ${esc(c.name)} resists the damage</span>`);
+        addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span><br>🛡 <b>Resiste</b> ${parsed} de daño<br>Solo recibe🩸<b>${finalAmt}</b> de daño`, 'damage');
+        toast(`<span style="color:var(--red);">🛡 ${esc(c.name)} resiste el daño</span>`);
       } else if (modType === 'vuln') {
-        addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> is 💥 <b>vulnerable</b> to ${parsed} damage<br>Takes 🩸<b>${finalAmt}</b> damage`, 'damage');
-        toast(`<span style="color:var(--red);">💥 ${esc(c.name)} is vulnerable to damage</span>`);
+        addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span><br>💥 Es <b>vulnerable</b> a ${parsed} de daño<br>Recibe🩸<b>${finalAmt}</b> de daño`, 'damage');
+        toast(`<span style="color:var(--red);">💥 ${esc(c.name)} es vulnerable al daño</span>`);
       } else {
-        addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> takes🩸<b>${finalAmt}</b> damage`, 'damage');
-        toast(`🩸${esc(c.name)} takes ${finalAmt} damage`);
+        addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span><br>🩸Recibe <b>${finalAmt}</b> de daño`, 'damage');
+        toast(`🩸${esc(c.name)} recibe ${finalAmt} de daño`);
       }
       // ── Concentration check: open save modal ──
       if (c.focus) openConSaveModal(c, finalAmt);
@@ -1099,8 +1145,8 @@ function applyHP(sign) {
         c.permaDead = false;
         c.conds     = c.conds.filter(id => id !== 'unconscious');
       }
-      addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> receives 💚 <b>${finalAmt}</b> heal`, 'heal');
-      toast(`💚 ${esc(c.name)} heals ${finalAmt}`);
+      addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span><br>💚 Recibe <b>${finalAmt}</b> de sanación`, 'heal');
+      toast(`💚 ${esc(c.name)} recibe ${finalAmt} de sanación`);
     }
   }
 
@@ -1113,6 +1159,15 @@ function applyHP(sign) {
 // ────────────────────────────────────────
 // ROLL MODAL
 // ────────────────────────────────────────
+
+// Format "1d8+5" → "1d8 (+5)", "1d8-3" → "1d8 (-3)", "1d8" → "1d8", "20" → "20"
+function formatRollExpr(str) {
+  if (!str) return str;
+  const m = str.match(/^(\d+d\d+)([+-]\d+)?$/);
+  if (!m) return str;
+  return m[2] ? `${m[1]} (${m[2]})` : m[1];
+}
+
 function openRollModal() {
   rollStr = '';
   rollAdvType = 'normal';
@@ -1194,11 +1249,12 @@ function rollExecute() {
     const roll2    = Math.floor(Math.random() * 20) + 1;
     const usedRoll = rollAdvType === 'advantage' ? Math.max(roll1, roll2) : Math.min(roll1, roll2);
     const total    = usedRoll + bonus;
-    const typeLabel = rollAdvType === 'advantage' ? 'Advantage' : 'Disadvantage';
-    const formula  = `2d20 (${roll1}/${roll2}): ${usedRoll} ${bonusStr} = <b>${total}</b>`;
+    const typeLabel = rollAdvType === 'advantage' ? 'Ventaja' : 'Desventaja';
+    const bonusPart  = bonus !== 0 ? ` (${bonusStr})` : '';
+    const formula  = `2d20 (${roll1}/${roll2}): ${usedRoll}${bonusPart} = <b>${total}</b>`;
 
-    addHistory(`🎲 Roll with <b>${typeLabel}</b><br>${formula}`, 'roll');
-    toast(`🎲 Roll with ${typeLabel} ${usedRoll}${bonusStr} = ${total}`);
+    addHistory(`🎲 Tirada con <b>${typeLabel}</b><br>${formula}`, 'roll');
+    toast(`🎲 Tirada con ${typeLabel} ${usedRoll}${bonusPart} = ${total}`);
 
     rollStr     = '';
     rollAdvType = 'normal';
@@ -1210,9 +1266,55 @@ function rollExecute() {
 
   const parsed = parseDiceOrNumber(rollStr);
   if (parsed === null) return;
-  addHistory(`🎲 Rolled ${rollStr} = <b>${parsed}</b>`, 'roll');
-  toast(`🎲 ${rollStr} = ${parsed}`);
+  const label = formatRollExpr(rollStr);
+  addHistory(`🎲 Tirada ${label} = <b>${parsed}</b>`, 'roll');
+  toast(`🎲 Tirada ${label} = ${parsed}`);
   rollStr = '';
+  refreshRollDisp();
+  closeModal('rollModal');
+}
+
+function rollExecuteMulti(count) {
+  if (count === 1) { rollExecute(); return; }
+
+  if (rollAdvType !== 'normal') {
+    let bonus = 0, bonusStr = '';
+    const bonusMatch = rollStr.match(/^2d20([+-]\d+)$/);
+    if (bonusMatch) {
+      bonus    = parseInt(bonusMatch[1]);
+      bonusStr = bonus > 0 ? `+${bonus}` : `${bonus}`;
+    }
+    const typeLabel = rollAdvType === 'advantage' ? 'Ventaja' : 'Desventaja';
+    const bonusPart = bonus !== 0 ? ` (${bonusStr})` : '';
+    const results = [];
+    for (let i = 0; i < count; i++) {
+      const r1   = Math.floor(Math.random() * 20) + 1;
+      const r2   = Math.floor(Math.random() * 20) + 1;
+      const used = rollAdvType === 'advantage' ? Math.max(r1, r2) : Math.min(r1, r2);
+      results.push({ r1, r2, used, total: used + bonus });
+    }
+    const lines = results.map((r, i) =>
+      `T${i+1}: (${r.r1}/${r.r2}): ${r.used}${bonusPart} = <b>${r.total}</b>`
+    ).join('<br>');
+    addHistory(`🎲 ${count} tiradas con <b>${typeLabel}</b><br>${lines}`, 'roll');
+    toast(`🎲 ${count} tiradas con ${typeLabel}: ${results.map(r => r.total).join(', ')}`);
+  } else {
+    if (!rollStr) return;
+    const results = [];
+    for (let i = 0; i < count; i++) {
+      const val = parseDiceOrNumber(rollStr);
+      if (val === null) return;
+      results.push(val);
+    }
+    const label = formatRollExpr(rollStr);
+    const lines = results.map((v, i) => `T${i+1}: <b>${v}</b>`).join('<br>');
+    addHistory(`🎲 ${count} tiradas ${label}<br>${lines}`, 'roll');
+    toast(`🎲 ${count} tiradas ${label}: ${results.join(', ')}`);
+  }
+
+  rollStr     = '';
+  rollAdvType = 'normal';
+  document.querySelectorAll('.roll-adv-btn').forEach(b => b.classList.remove('active'));
   refreshRollDisp();
   closeModal('rollModal');
 }
@@ -1311,11 +1413,11 @@ function rollExecute() {
 
    // Fixed Focus chip (toggle)
    const focusClass = c.focus ? 'focus-chip active' : 'focus-chip';
-   const focusChip = `<span class="chip ${focusClass}" onclick="toggleFocus(${c.id})" title="Toggle Focus">🧿 Focus</span>`;
+   const focusChip = `<span class="chip ${focusClass}" onclick="toggleFocus(${c.id})" title="Toggle Focus">🧿 Concentrado</span>`;
 
    // Notes chip
    const noteClass = (c.note && c.note.trim()) ? 'note-chip active' : 'note-chip';
-   const noteChip  = `<span class="chip ${noteClass}" onclick="openNotesModal(${c.id})" title="${(c.note && c.note.trim()) ? 'View/Edit note' : 'Add note'}">📝 Notes</span>`;
+   const noteChip  = `<span class="chip ${noteClass}" onclick="openNotesModal(${c.id})" title="${(c.note && c.note.trim()) ? 'View/Edit note' : 'Add note'}">📝 Notas</span>`;
 
    const nameEl = c.type === 'monster'
      ? `<div class="card-name ${isZero ? 'is-dead' : ''} monster-name-link" onclick="openStatblockModal(${c.id})" title="View stat block">${esc(c.name)}</div>`
@@ -1323,7 +1425,7 @@ function rollExecute() {
 
    const classes = `card ${typeClass}${isActive ? ' is-active' : ''}`;
 
-   const innerHTML = `${isActive ? '<div class="active-badge">In turn</div>' : ''}
+   const innerHTML = `${isActive ? '<div class="active-badge">En turno</div>' : ''}
  <div class="card-head">
    <div class="init-circle">${c.init}</div>
    ${nameEl}
@@ -1376,10 +1478,10 @@ function render() {
   const btn = document.getElementById('nextBtnCombat');
   if (btn) {
     if (!started) {
-      btn.textContent = '▶ Start';
+      btn.textContent = '▶ Iniciar';
       btn.disabled    = !canStartCombat();
     } else {
-      btn.textContent = '▶ Next';
+      btn.textContent = '▶ Sigte.';
       btn.disabled    = queue.length === 0;
     }
   }
@@ -1394,8 +1496,8 @@ function render() {
     listEl.innerHTML = `
       <div class="empty-state">
         <span class="empty-dragon">🐲</span>
-        <h3>✦ The battlefield is empty ✦</h3>
-        <p>Add players and monsters to start the combat</p>
+        <h3>✦ Campo de batalla vacío ✦</h3>
+        <p>Agrega jugadores y monstruos para comenzar</p>
       </div>`;
     return;
   }
@@ -1492,24 +1594,24 @@ function render() {
    if (conSaveAdvType === 'normal') {
      formula = `🎲 1d20: ${usedRoll}${modStr} = <b>${total}</b>`;
    } else {
-     const lbl = conSaveAdvType === 'advantage' ? 'Adv.' : 'Disadv.';
+     const lbl = conSaveAdvType === 'advantage' ? '<b>Ventaja</b>' : '<b>Desventaja</b>';
      formula   = `🎲 2d20 ${lbl} (${roll1}/${roll2}): ${usedRoll}${modStr} = <b>${total}</b>`;
    }
 
    addHistory(
-     `<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> Save Focus (DC <b>${dc}</b>)<br>${formula}<br>${
+     `<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> Concentración (DC <b>${dc}</b>)<br>${formula}<br>${
        success
-         ? '✅ <b>SUCCESS</b> - 🧿Focus maintained'
-         : '❌ <b>FAILED</b> - 🧿Focus lost'
+         ? '✅ <b>ÉXITO</b> - 🧿 Mantiene Concentración'
+         : '❌ <b>FALLO</b> - 🧿 Pierde Concentración'
      }`,
      'condition'
    );
 
    if (success) {
-     toast(`🧿 ${esc(c.name)} keeps concentration (${total} ≥ DC ${dc})`);
+     toast(`🧿 ${esc(c.name)} mantiene concentración (${total} ≥ DC ${dc})`);
    } else {
      c.focus = false;
-     toast(`🧿 ${esc(c.name)} loses concentration! (${total} < DC ${dc})`);
+     toast(`🧿 ${esc(c.name)} pierde concentración (${total} < DC ${dc})`);
    }
 
    // Remember conMod for next save
@@ -1557,7 +1659,7 @@ function render() {
    if (deathSaveAdvType === 'normal') {
      formula = `🎲 1d20: <b>${usedRoll}</b>`;
    } else {
-     const lbl = deathSaveAdvType === 'advantage' ? 'Adv.' : 'Disadv.';
+     const lbl = deathSaveAdvType === 'advantage' ? 'Ventaja' : 'Desventaja';
      formula   = `🎲 2d20 ${lbl} (${roll1}/${roll2}): <b>${usedRoll}</b>`;
    }
 
@@ -1565,22 +1667,22 @@ function render() {
    const nameSpan = `<span style="color:${color};font-weight:700;">${esc(c.name)}</span>`;
 
    if (usedRoll === 20) {
-     addHistory(`${nameSpan} ☠️ Death Save<br>${formula}<br>⚡ <b>NATURAL 20!</b> Revives with 1 HP`, 'heal');
+     addHistory(`${nameSpan} ☠️ Salvación de Muerte<br>${formula}<br>⚡<b>20 NATURAL</b> - Revive con 1 HP`, 'heal');
      _dsRevive(c);
    } else if (usedRoll >= 10) {
      c.successes = Math.min(3, (c.successes || 0) + 1);
-     addHistory(`${nameSpan} ☠️ Death Save<br>${formula}<br>❤️ <b>SUCCESS</b> (${c.successes}/3)`, 'death');
-     toast(`❤️ ${esc(c.name)} success! (${c.successes}/3)`);
+     addHistory(`${nameSpan} ☠️ Salvación de Muerte<br>${formula}<br>❤️ <b>ÉXITO</b> (${c.successes}/3)`, 'death');
+     toast(`❤️ ${esc(c.name)} éxito (${c.successes}/3)`);
      _dsCheck(c);
    } else if (usedRoll === 1) {
      c.failures = Math.min(3, (c.failures || 0) + 2);
-     addHistory(`${nameSpan} ☠️ Death Save<br>${formula}<br>🖤 <b>NATURAL 1!</b> +2 failures (${c.failures}/3)`, 'death');
-     toast(`🖤 ${esc(c.name)} natural 1! +2 failures (${c.failures}/3)`);
+     addHistory(`${nameSpan} ☠️ Salvación de Muerte<br>${formula}<br>🖤 <b>1 NATURAL</b> +2 fallas (${c.failures}/3)`, 'death');
+     toast(`🖤 ${esc(c.name)} 1 natural (+2 fallos) (${c.failures}/3)`);
      _dsCheck(c);
    } else {
      c.failures = Math.min(3, (c.failures || 0) + 1);
-     addHistory(`${nameSpan} ☠️ Death Save<br>${formula}<br>🖤 <b>FAILURE</b> (${c.failures}/3)`, 'death');
-     toast(`🖤 ${esc(c.name)} failure! (${c.failures}/3)`);
+     addHistory(`${nameSpan} ☠️ Salvación de Muerte<br>${formula}<br>🖤 <b>FALLO</b> (${c.failures}/3)`, 'death');
+     toast(`🖤 ${esc(c.name)} fallo (${c.failures}/3)`);
      _dsCheck(c);
    }
 
@@ -1597,7 +1699,7 @@ function render() {
    c.failures  = 0;
    c.permaDead = false;
    c.conds     = c.conds.filter(id => id !== 'unconscious');
-   toast(`⚡<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> revives with 1 HP!`);
+   toast(`⚡<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> revive con 1 HP!`);
  }
 
  function _dsDie(c) {
@@ -1607,15 +1709,15 @@ function render() {
    c.successes = 0;
    c.failures  = 0;
    c.conds     = c.conds.filter(id => id !== 'unconscious');
-   addHistory(`${nameSpan} ☠️ <b>3 FAILURES - DEAD!</b>`, 'death');
-   toast(`☠️ ${esc(c.name)} is dead!`);
+   addHistory(`${nameSpan}<br>🖤🖤🖤 <b>3 FALLOS - ☠️ MUERTO ☠️</b>`, 'death');
+   toast(`☠️ ${esc(c.name)} está muerto`);
  }
 
  function _dsCheck(c) {
    if ((c.successes || 0) >= 3) {
      const color    = c.type === 'player' ? 'var(--green)' : 'var(--red)';
      const nameSpan = `<span style="color:${color};font-weight:700;">${esc(c.name)}</span>`;
-     addHistory(`${nameSpan} ☠️ <b>3 SUCCESSES - Stabilized!</b> Revives with 1 HP`, 'heal');
+     addHistory(`${nameSpan}<br>❤️❤️❤️️ <b>3 ÉXITOS - Estabilizado</b><br>Revive con 1 HP`, 'heal');
      _dsRevive(c);
    } else if ((c.failures || 0) >= 3) {
      _dsDie(c);
@@ -1626,7 +1728,7 @@ function render() {
    const c = getC(id);
    if (!c || c.hp !== 0 || c.permaDead) return;
    c.successes = Math.min(3, (c.successes || 0) + 1);
-   toast(`❤️ ${esc(c.name)} success! (${c.successes}/3)`);
+   toast(`❤️ <span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> éxito (${c.successes}/3)`);
    _dsCheck(c);
    saveState();
    render();
@@ -1638,7 +1740,7 @@ function render() {
    const c = getC(id);
    if (!c || c.hp !== 0 || c.permaDead) return;
    c.failures = Math.min(3, (c.failures || 0) + 1);
-   toast(`🖤 ${esc(c.name)} failure! (${c.failures}/3)`);
+   toast(`🖤 <span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> fallo (${c.failures}/3)`);
    _dsCheck(c);
    saveState();
    render();
@@ -1661,7 +1763,7 @@ function render() {
    setTimeout(() => document.getElementById('notes-textarea').focus(), 120);
  }
 
- function saveNota() {
+ function saveNote() {
    const c = getC(notesTarget);
    if (!c) return;
    c.note = document.getElementById('notes-textarea').value.trim();
@@ -1680,11 +1782,11 @@ function render() {
    if (!c) return;
    c.focus = !c.focus;
    if (c.focus) {
-     addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}</span> gains 🧿Focus`, 'condition');
-     toast(`${c.name} focused`);
+     addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}</span><br>🧿 Concentración activada`, 'condition');
+     toast(`🧿 <span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}:</span> Concentración activada`);
    } else {
-     addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}</span> loses 🧿Focus`, 'condition');
-     toast(`${c.name} unfocused`);
+     addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}</span><br>🧿 Concentración desactivada`, 'condition');
+     toast(`🧿 <span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}:</span> Concentración desactivada`);
    }
    saveState();
    render();
@@ -1695,7 +1797,6 @@ function render() {
  // RENDER COMBAT SCREEN
  // ────────────────────────────────────────
  function renderCombatScreen() {
-   document.getElementById('combatRoundNum').textContent = round;
    render();
  }
 
