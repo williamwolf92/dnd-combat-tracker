@@ -68,12 +68,12 @@ Use the 💾 and 📂 buttons in the Combat header to save or load a full combat
 
 ```
 dnd-combat-tracker/
-├── index.html          # App structure and all modals
-├── script.js           # All game logic
-├── style.css           # Styles and layout
-├── bestiary_stats/     # Monster stat data files
-├── bestiary-stats.txt  # Bestiary source data
-└── monsters-add.txt    # Additional monster entries
+├── index.html                # App structure and all modals
+├── script.js                 # All game logic
+├── style.css                 # Styles and layout
+├── bestiary_stats/           # Monster stat data files
+├── bestiary-stats_index.txt  # Bestiary source data
+└── add_monsters_index.txt    # Additional monster entries
 ```
 
 ---
