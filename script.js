@@ -1118,7 +1118,7 @@ function applyHP(sign) {
     if (!c.conds.includes('unconscious')) c.conds.push('unconscious');
     if (c.focus) {
       c.focus = false;
-      addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span><br>🧿 Pierde Concentración`, 'condition');
+      addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span><br>🧿 Pierde <s>Concentración</s> por 🖤 HP 0`, 'condition');
     }
     addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span></br>🖤 HP reducidos a 0<br>Empieza Salvaciones de Muerte`, 'death');
     toast(`🖤 ${esc(c.name)} HP reducidos a 0`);
@@ -1308,8 +1308,8 @@ function rollExecuteMulti(count) {
     }
     const label = formatRollExpr(rollStr);
     const lines = results.map((v, i) => `T${i+1}: <b>${v}</b>`).join('<br>');
-    addHistory(`🎲 ${count} tiradas ${label}<br>${lines}`, 'roll');
-    toast(`🎲 ${count} tiradas ${label}: ${results.join(', ')}`);
+    addHistory(`🎲 ${count} tiradas de ${label}<br>${lines}`, 'roll');
+    toast(`🎲 ${count} tiradas de ${label}: ${results.join(', ')}`);
   }
 
   rollStr     = '';
@@ -1361,11 +1361,11 @@ function rollExecuteMulti(count) {
 
      added.forEach(id => {
        const cd = getCond(id);
-       if (cd) addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> gains condition:<br>🔹️<b>${cd.lbl}</b>`, 'condition');
+       if (cd) addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> adquiere condición:<br>🔹️<b>${cd.lbl}</b>`, 'condition');
      });
      removed.forEach(id => {
        const cd = getCond(id);
-       if (cd) addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> loses condition:<br>🔸️<b><s>${cd.lbl}</s></b>`, 'condition');
+       if (cd) addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> pierde condición:<br>🔸️<b><s>${cd.lbl}</s></b>`, 'condition');
      });
    }
    closeModal('statusModal');
@@ -1378,7 +1378,7 @@ function rollExecuteMulti(count) {
    if (c) {
      const cd = getCond(condId);
      c.conds = c.conds.filter(id => id !== condId);
-     if (cd) addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> loses condition:<br>🔸️<b><s>${cd.lbl}</s></b>`, 'condition');
+     if (cd) addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> pierde condición:<br>🔸️<b><s>${cd.lbl}</s></b>`, 'condition');
    }
    saveState();
    render();
@@ -1425,6 +1425,9 @@ function rollExecuteMulti(count) {
 
    const classes = `card ${typeClass}${isActive ? ' is-active' : ''}`;
 
+   // compute fill percent (clamped 0-100)
+   const pct = c.maxHp > 0 ? Math.max(0, Math.min(100, Math.round((c.hp / c.maxHp) * 100))) : 0;
+
    const innerHTML = `${isActive ? '<div class="active-badge">En turno</div>' : ''}
  <div class="card-head">
    <div class="init-circle">${c.init}</div>
@@ -1451,6 +1454,10 @@ function rollExecuteMulti(count) {
      </div>
    </div>
    <button class="add-cond-btn" onclick="openStatusModal(${c.id})">Cond.</button>
+   <!-- HP bar (inside card) -->
+   <div class="hp-bar" aria-hidden="true">
+     <div class="hp-fill" style="width:${pct}%;"></div>
+   </div>
  </div>
  <div class="cond-row">
    ${noteChip}
@@ -1531,6 +1538,18 @@ function render() {
   orderedEls.forEach((el, idx) => {
     const currentAtIdx = listEl.children[idx];
     if (currentAtIdx !== el) listEl.insertBefore(el, currentAtIdx || null);
+
+    // Update HP fill width with animation when card exists in DOM
+    try {
+      const id = Number(el.dataset.id);
+      const c = getC(id);
+      const fill = el.querySelector('.hp-fill');
+      if (fill && c && c.maxHp > 0) {
+        const pct = Math.max(0, Math.min(100, Math.round((c.hp / c.maxHp) * 100)));
+        // apply width (CSS transition on .hp-fill will animate)
+        fill.style.width = pct + '%';
+      }
+    } catch (e) { /* ignore if anything fails */ }
   });
 }
 
@@ -1602,7 +1621,7 @@ function render() {
      `<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> Concentración (DC <b>${dc}</b>)<br>${formula}<br>${
        success
          ? '✅ <b>ÉXITO</b> - 🧿 Mantiene Concentración'
-         : '❌ <b>FALLO</b> - 🧿 Pierde Concentración'
+         : '❌ <b>FALLO</b> - 🧿 Pierde <s>Concentración</s>'
      }`,
      'condition'
    );
@@ -1785,7 +1804,7 @@ function render() {
      addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}</span><br>🧿 Concentración activada`, 'condition');
      toast(`🧿 <span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}:</span> Concentración activada`);
    } else {
-     addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}</span><br>🧿 Concentración desactivada`, 'condition');
+     addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}</span><br>🧿 <s>Concentración</s> desactivada`, 'condition');
      toast(`🧿 <span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${c.name}:</span> Concentración desactivada`);
    }
    saveState();
