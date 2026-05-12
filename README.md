@@ -72,7 +72,7 @@ dnd-combat-tracker/
 ├── script.js                 # All game logic
 ├── style.css                 # Styles and layout
 ├── bestiary_stats/           # Monster stat data files
-├── bestiary-stats_index.txt  # Bestiary source data
+├── bestiary_stats_index.txt  # Bestiary source data
 └── add_monsters_index.txt    # Additional monster entries
 ```
 
