@@ -1572,8 +1572,11 @@ header h1 {
 /* ── STAT BLOCK MODAL ── */
 .modal-statblock {
     max-width: 500px;
+    max-height: 90vh;
     padding: 0;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    
 }
 
 .sb-header {
@@ -1789,7 +1792,7 @@ header h1 {
 .card-hp-bar {
     margin: 7px 0 0;
     height: 10px;
-    background: rgba(64, 0, 0, 0.13);
+    background: rgba(0, 0, 0, 0.15);
     border-radius: 10px;
     overflow: hidden;
 }
@@ -1798,10 +1801,10 @@ header h1 {
     height: 100%;
     width: 0%;
     border-radius: 0;
-    transition: width 1.3s cubic-bezier(0,1,0.5,1);
+    transition: width 1.3s cubic-bezier(0,1,0.5,1)
 }
 
-.card-hp-bar-fill.hp-high { background: var(--green); }
-.card-hp-bar-fill.hp-mid  { background: #c46a00; }
-.card-hp-bar-fill.hp-low  { background: var(--red); }
+.card-hp-bar-fill.hp-high { background: #008c00; }
+.card-hp-bar-fill.hp-mid  { background: #f08200; }
+.card-hp-bar-fill.hp-low  { background: #dc0000; }
 .card-hp-bar-fill.hp-dead { background: #999; }

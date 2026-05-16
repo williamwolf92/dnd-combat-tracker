@@ -203,6 +203,16 @@ function renderStatblock(m) {
     ['environment','Hábitat'],
     ['treasure',   'Tesoro'],
   ].map(([k, label]) => sbInfoRow(label, m[k])).join('');
+  const actionFields = [
+    ['traits',         'Rasgos'],
+    ['actions',        'Acciones'],
+    ['bonus_actions',  'Acciones Bono'],
+    ['reactions',      'Reacciones'],
+    ['legend_actions', 'Acciones Legendarias'],
+    ['myth_actions',   'Acciones Míticas'],
+    ['lair_actions',   'Acciones de Guarida'],
+    ['region_effects', 'Efectos de Región'],
+  ].map(([k, label]) => sbInfoRow(label, m[k])).join('');
 
   document.getElementById('statblockContent').innerHTML = `
     <div class="sb-header">
@@ -230,6 +240,7 @@ function renderStatblock(m) {
         ${sbInfoRow('Velocidad', m.speed, true)}
       </div>
       ${extraFields ? `<div class="sb-divider"></div><div class="sb-info-section">${extraFields}</div>` : ''}
+      ${actionFields ? `<div class="sb-divider"></div><div class="sb-info-section">${actionFields}</div>` : ''}
       ${m.link ? `<div class="sb-divider"></div><a class="sb-full-link" href="${m.link}" target="_blank" rel="noopener noreferrer">Ver todo ↗</a>` : ''}
     </div>`;
 }
@@ -265,7 +276,7 @@ function onNameInput() {
   const container = document.getElementById('monster-suggestions');
   if (!query) { container.innerHTML = ''; currentSuggestions = []; return; }
 
-  // Priority: startsWith first, then contains — max 3 total
+  // Priority: startsWith first, then contains — max 5 total
   const starts   = monstersData.filter(m => m.name.toLowerCase().startsWith(query));
   const contains = monstersData.filter(m => !m.name.toLowerCase().startsWith(query) && m.name.toLowerCase().includes(query));
   currentSuggestions = [...starts, ...contains].slice(0, 5);
@@ -1000,11 +1011,6 @@ function triggerCombatDefeat() {
 
 function closeCombatDefeat() {
   closeModal('combatDefeatModal');
-  combatants = combatants.filter(c => c.type === 'player');
-  queue = queue.filter(id => {
-    const c = getC(id);
-    return c && c.type === 'player';
-  });
   started      = false;
   round        = 1;
   roundFirstId = null;
@@ -1120,7 +1126,7 @@ function applyHP(sign) {
       c.focus = false;
       addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span><br>🧿 Pierde Concentración`, 'condition');
     }
-    addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span></br>🖤 HP reducidos a 0<br>Empieza Salvaciones de Muerte`, 'death');
+    addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span></br>🖤 HP reducidos a 0<br>Empieza <b>Salvaciones de Muerte</b>`, 'death');
     toast(`🖤 ${esc(c.name)} HP reducidos a 0`);
   } else {
     if (sign < 0) {
@@ -1913,9 +1919,9 @@ function doImport() {
         render();
         populateHistoryFilter();
         renderHistoryLog();
-        toast('📂 Combat state imported');
+        toast('📂 Combate importado');
       } catch(err) {
-        toast('❌ Error: invalid file');
+        toast('❌ Error: archivo inválido');
       }
     };
     reader.readAsText(file);
