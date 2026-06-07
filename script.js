@@ -2,21 +2,21 @@
  // CONDITION LIST
  // ────────────────────────────────────────
  const CONDITIONS = [
+   { id:'exhaustion',    lbl:'Agotado' },
+   { id:'grappled',      lbl:'Amarrado' },
+   { id:'frightened',    lbl:'Asustado' },
+   { id:'stunned',       lbl:'Aturdido' },
    { id:'blinded',       lbl:'Cegado' },
    { id:'charmed',       lbl:'Encantado' },
-   { id:'deafened',      lbl:'Sordo' },
-   { id:'exhaustion',    lbl:'Agotado' },
-   { id:'frightened',    lbl:'Asustado' },
-   { id:'grappled',      lbl:'Amarrado' },
+   { id:'poisoned',      lbl:'Envenenado' },
    { id:'incapacitated', lbl:'Incapacitado' },
+   { id:'unconscious',   lbl:'Inconsciente' },
    { id:'invisible',     lbl:'Invisible' },
    { id:'paralyzed',     lbl:'Paralizado' },
    { id:'petrified',     lbl:'Petrificado' },
-   { id:'poisoned',      lbl:'Envenenado' },
-   { id:'prone',         lbl:'Tumbado' },
    { id:'restrained',    lbl:'Restringido' },
-   { id:'stunned',       lbl:'Aturdido' },
-   { id:'unconscious',   lbl:'Inconsciente' },
+   { id:'deafened',      lbl:'Sordo' },
+   { id:'prone',         lbl:'Tumbado' },
  ];
 
 // ────────────────────────────────────────
@@ -176,7 +176,7 @@ function sbAttrBox(name, val) {
 
 function sbInfoRow(label, val, required = false) {
   if (!required && !val) return '';
-  const display = (val != null && val !== '') ? esc(String(val)) : '—';
+  const display = (val != null && val !== '') ? esc(String(val)).replace(/\n/g, '<br>').replace(/&lt;(\/?(?:b|i|s|u))&gt;/g, '<$1>') : '—';
   return `<div class="sb-info-row"><span class="sb-info-label">${esc(label)}:</span> ${display}</div>`;
 }
 
@@ -204,14 +204,14 @@ function renderStatblock(m) {
     ['treasure',   'Tesoro'],
   ].map(([k, label]) => sbInfoRow(label, m[k])).join('');
   const actionFields = [
-    ['traits',         'Rasgos'],
-    ['actions',        'Acciones'],
-    ['bonus_actions',  'Acciones Bono'],
-    ['reactions',      'Reacciones'],
-    ['legend_actions', 'Acciones Legendarias'],
-    ['myth_actions',   'Acciones Míticas'],
-    ['lair_actions',   'Acciones de Guarida'],
-    ['region_effects', 'Efectos de Región'],
+    ['traits',         'RASGOS'],
+    ['actions',        'ACCIONES'],
+    ['bonus_actions',  'ACCIONES BONO'],
+    ['reactions',      'REACCIONES'],
+    ['legend_actions', 'ACCIONES LEGENDARIAS'],
+    ['myth_actions',   'ACCIONES MÍTICAS'],
+    ['lair_actions',   'ACCIONES DE GUARIDA'],
+    ['region_effects', 'EFECTOS DE REGIÓN'],
   ].map(([k, label]) => sbInfoRow(label, m[k])).join('');
 
   document.getElementById('statblockContent').innerHTML = `
@@ -320,6 +320,7 @@ let pendingConds = [];
 // Roll modal state
 let rollStr      = '';
 let rollAdvType  = 'normal'; // 'normal' | 'advantage' | 'disadvantage'
+let pendingRollEntries = []; // accumulates roll results before flushing to history on close
 
 // Attack modal state
 let attackTarget     = null;
@@ -327,6 +328,7 @@ let selectedAttackType = 'normal';
 
 // HP mod toggle state
 let hpModSelected = null; // 'resist' | 'vuln' | null
+let pendingHpEntries = []; // accumulates HP actions before flushing to history on close
 
 
 // Delete confirmation state
@@ -614,29 +616,40 @@ function filterInitInput(el) {
   el.value = el.value.replace(/[^0-9+\-]/g, '');
 }
 
-// ── HP dice roller: supports #  |  #d#  |  #d#±# ──
+// ── HP dice roller: supports #  |  #d#  |  #d#±#  |  multi-term e.g. 1d8+4+2d10+5 ──
 function parseDiceOrNumber(str) {
   if (!str) return null;
   str = str.trim();
 
-  if (!str.includes('d')) {
-    const n = parseInt(str, 10);
-    return isNaN(n) || n <= 0 ? null : n;
+  // Tokenize: split on + or - keeping the sign with each token
+  // e.g. "1d8+4+2d10-5" → ["1d8", "+4", "+2d10", "-5"]
+  const tokenRe = /[+\-]?(?:\d+d\d+|\d+)/g;
+  const tokens  = str.match(tokenRe);
+  if (!tokens || tokens.join('').replace(/[+\-]/g,'') !== str.replace(/[+\-]/g,'')) return null;
+
+  let total = 0;
+
+  for (const token of tokens) {
+    const sign = token[0] === '-' ? -1 : 1;
+    const part = (token[0] === '+' || token[0] === '-') ? token.slice(1) : token;
+
+    if (part.includes('d')) {
+      const m = part.match(/^(\d+)d(\d+)$/);
+      if (!m) return null;
+      const count = parseInt(m[1], 10);
+      const sides = parseInt(m[2], 10);
+      if (count < 1 || sides < 1) return null;
+      let rolled = 0;
+      for (let i = 0; i < count; i++) rolled += Math.floor(Math.random() * sides) + 1;
+      total += sign * rolled;
+    } else {
+      const n = parseInt(part, 10);
+      if (isNaN(n)) return null;
+      total += sign * n;
+    }
   }
 
-  const m = str.match(/^(\d+)d(\d+)(?:([\+\-])(\d+))?$/);
-  if (!m) return null;
-
-  const count = parseInt(m[1], 10);
-  const sides = parseInt(m[2], 10);
-  const op    = m[3] || '+';
-  const mod   = m[4] ? parseInt(m[4], 10) : 0;
-
-  if (count < 1 || sides < 1) return null;
-
-  let rolled = 0;
-  for (let i = 0; i < count; i++) rolled += Math.floor(Math.random() * sides) + 1;
-  return op === '+' ? rolled + mod : rolled - mod;
+  return total > 0 ? total : null;
 }
 
 function addCombatant(type) {
@@ -650,7 +663,10 @@ function addCombatant(type) {
 
   closeModal('addModal');
 
+  const toastColor = type === 'player' ? 'var(--green)' : 'var(--red)'; // ← color por tipo
   let lastInit = 10;
+  let lastCombatant = null; // ← referencia fuera del loop
+
   for (let i = 0; i < qty; i++) {
     const combatantName = qty > 1 ? `${name} ${i + 1}` : name;
     const init = parseInitiative(initStr) ?? 10;
@@ -660,6 +676,7 @@ function addCombatant(type) {
     const c = { id: uid++, name: combatantName, init, hp, maxHp: hp, ac, conMod: 0, conds: [], isDead: false, type, successes: 0, failures: 0, permaDead: false };
     combatants.push(c);
     insertInQueue(c.id);
+    lastCombatant = c; // ← guardar referencia
 
     if (started && !combatStartRoster.some(r => r.name === combatantName)) {
       combatStartRoster.push({ name: combatantName, type: c.type });
@@ -673,10 +690,11 @@ function addCombatant(type) {
   saveState();
   render();
 
+  // ↓ Ahora usa lastCombatant y aplica color
   if (qty === 1) {
-    toast(`${esc(name)} entra al combate - Ini.: ${lastInit}`);
+    toast(`<span style="color:${toastColor};font-weight:700;">${esc(lastCombatant.name)}</span> entra al combate - Ini.: ${lastInit}`);
   } else {
-    toast(`${qty}× ${esc(name)} entran al combate`);
+    toast(`<span style="color:${toastColor};font-weight:700;">${qty}× ${esc(name)}</span> entran al combate`);
   }
 }
 
@@ -818,15 +836,15 @@ function executeAttack() {
   let formula = '';
 
   if (type === 'normal') {
-    formula = `🎲 1d20: ${usedRoll}${bonusStr} = ${total} ${total >= c.ac ? '≥' : '<'} 🛡${c.ac}`;
+    formula = `🎲 1d20: ${usedRoll}${bonusStr} = <b>${total}</b> ${total >= c.ac ? '≥' : '<'} 🛡${c.ac}`;
   } else if (type === 'advantage') {
-    formula = `🎲 2d20 (${roll1}/${roll2}): ${usedRoll}${bonusStr} = ${total} ${total >= c.ac ? '≥' : '<'} 🛡${c.ac}`;
+    formula = `🎲 2d20 (${roll1}/${roll2}): ${usedRoll}${bonusStr} = <b>${total}</b> ${total >= c.ac ? '≥' : '<'} 🛡${c.ac}`;
   } else if (type === 'disadvantage') {
-    formula = `🎲 2d20 (${roll1}/${roll2}): ${usedRoll}${bonusStr} = ${total} ${total >= c.ac ? '≥' : '<'} 🛡${c.ac}`;
+    formula = `🎲 2d20 (${roll1}/${roll2}): ${usedRoll}${bonusStr} = <b>${total}</b> ${total >= c.ac ? '≥' : '<'} 🛡${c.ac}`;
   }
 
   document.getElementById('resultMessage').innerHTML = resultMsg;
-  document.getElementById('resultFormula').textContent = formula;
+  document.getElementById('resultFormula').innerHTML = formula;
 
   addHistory(`Ataque vs. <span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> | <b>${crit ? '¡CRÍTICO!' : (hit ? 'IMPACTA' : 'FALLA')}</b><br>${formula}`, 'attack');
 }
@@ -1028,12 +1046,15 @@ function openHpModal(id) {
     openDeathSaveModal(id);
     return;
   }
+  pendingHpEntries = [];
   hpTarget      = id;
   hpStr         = '';
   hpModSelected = null;
   document.getElementById('btnResist').classList.remove('active');
   document.getElementById('btnVuln').classList.remove('active');
   refreshDisp();
+  const list = document.getElementById('hpResultsList');
+  if (list) list.innerHTML = '';
   openModal('hpModal');
 }
 
@@ -1051,26 +1072,32 @@ function hpModToggle(val) {
 }
 
 function npPress(d) {
-  if (hpStr.length >= 10) return;
-
   if (d === 'd') {
+    if (hpStr.length >= 16) return;
+    // Debe haber al menos un dígito antes
     if (hpStr.length === 0) return;
-    if (hpStr.includes('d')) return;
-    if (hpStr.match(/[+\-]/)) return;
-  }
+    const lastChar = hpStr[hpStr.length - 1];
+    if (!/\d/.test(lastChar)) return;
+    // El último token (tras el último +/-) no puede tener ya una 'd'
+    const lastSignIdx = Math.max(hpStr.lastIndexOf('+'), hpStr.lastIndexOf('-'));
+    const lastToken   = lastSignIdx >= 0 ? hpStr.slice(lastSignIdx + 1) : hpStr;
+    if (lastToken.includes('d')) return;
+    hpStr += d;
 
-  if (d === '±') {
-    if (!hpStr.includes('d')) return;
-    if (hpStr.includes('+')) {
-      hpStr = hpStr.replace('+', '-');
-    } else if (hpStr.includes('-')) {
-      hpStr = hpStr.replace('-', '+');
-    } else {
-      const afterD = hpStr.split('d')[1];
-      if (!afterD || afterD.length === 0) return;
+  } else if (d === '±') {
+    if (hpStr.length === 0) return;
+    const lastChar = hpStr[hpStr.length - 1];
+    if (lastChar === '+' || lastChar === '-') {
+      // Toggle el último símbolo ± (que es el último carácter)
+      hpStr = hpStr.slice(0, -1) + (lastChar === '+' ? '-' : '+');
+    } else if (/\d/.test(lastChar) && hpStr.length < 16) {
+      // Añade '+' como separador de nuevo término
       hpStr += '+';
     }
+
   } else {
+    // Dígito
+    if (hpStr.length >= 16) return;
     hpStr += d;
   }
 
@@ -1085,12 +1112,10 @@ function npBack() {
 function refreshDisp() {
   const el = document.getElementById('hpDisp');
   el.textContent = hpStr || '_';
-  el.style.fontSize = '40px';
 }
 
 function applyHP(sign) {
   const c = getC(hpTarget);
-  closeModal('hpModal');
   if (!c) return;
 
   const parsed = parseDiceOrNumber(hpStr);
@@ -1115,35 +1140,52 @@ function applyHP(sign) {
 
   c.hp = Math.max(0, c.hp + sign * finalAmt);
 
+  const color    = c.type === 'player' ? 'var(--green)' : 'var(--red)';
+  const nameSpan = `<span style="color:${color};font-weight:700;">${esc(c.name)}</span>`;
+
   if (oldHp > 0 && c.hp === 0) {
+    // ── HP reached 0: flush pending + close, then log death ──
     c.isDead    = true;
     c.successes = 0;
     c.failures  = 0;
     c.permaDead = false;
-    // Auto-apply Unconscious
     if (!c.conds.includes('unconscious')) c.conds.push('unconscious');
+    _flushAndCloseHp();
     if (c.focus) {
       c.focus = false;
-      addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span><br>🧿 Pierde Concentración`, 'condition');
+      addHistory(`${nameSpan}<br>🧿 Pierde Concentración`, 'condition');
     }
-    addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span></br>🖤 HP reducidos a 0<br>Empieza <b>Salvaciones de Muerte</b>`, 'death');
+    addHistory(`${nameSpan}</br>🖤 HP reducidos a 0<br>Empieza <b>Salvaciones de Muerte</b>`, 'death');
     toast(`🖤 ${esc(c.name)} HP reducidos a 0`);
+
   } else {
     if (sign < 0) {
+      // ── Damage ──
+      const now = new Date();
+      const t = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
+      let histMsg;
       if (modType === 'resist') {
-        addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span><br>🛡 <b>Resiste</b> ${parsed} de daño<br>Solo recibe🩸<b>${finalAmt}</b> de daño`, 'damage');
-        toast(`<span style="color:var(--red);">🛡 ${esc(c.name)} resiste el daño</span>`);
+        histMsg = `${nameSpan}<br>🛡 <b>Resiste</b> ${parsed} de daño<br>Solo recibe🩸<b>${finalAmt}</b> de daño`;
+        toast(`<span style="color:${color};font-weight:700;">🛡 ${esc(c.name)}</span> resiste el daño`);
       } else if (modType === 'vuln') {
-        addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span><br>💥 Es <b>vulnerable</b> a ${parsed} de daño<br>Recibe🩸<b>${finalAmt}</b> de daño`, 'damage');
-        toast(`<span style="color:var(--red);">💥 ${esc(c.name)} es vulnerable al daño</span>`);
+        histMsg = `${nameSpan}<br>💥 Es <b>vulnerable</b> a ${parsed} de daño<br>Recibe🩸<b>${finalAmt}</b> de daño`;
+        toast(`<span style="color:${color};font-weight:700;">💥 ${esc(c.name)}</span> es vulnerable al daño`);
       } else {
-        addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span><br>🩸Recibe <b>${finalAmt}</b> de daño`, 'damage');
-        toast(`🩸${esc(c.name)} recibe ${finalAmt} de daño`);
+        histMsg = `${nameSpan}<br>🩸Recibe <b>${finalAmt}</b> de daño`;
+        toast(`<span style="color:${color};font-weight:700;">🩸${esc(c.name)}</span> recibe ${finalAmt} de daño`);
       }
-      // ── Concentration check: open save modal ──
-      if (c.focus) openConSaveModal(c, finalAmt);
+      pendingHpEntries.push({ time: t, msg: histMsg, type: 'damage' });
+
+      if (c.focus) {
+        // Concentration check: flush + close HP modal, then open conSave
+        _flushAndCloseHp();
+        openConSaveModal(c, finalAmt);
+      } else {
+        _addHpResultToDisplay('-', finalAmt, modType);
+      }
+
     } else {
-      // Heal — check if reviving from 0 HP
+      // ── Heal ──
       if (oldHp === 0 && c.hp > 0) {
         c.isDead    = false;
         c.successes = 0;
@@ -1151,8 +1193,12 @@ function applyHP(sign) {
         c.permaDead = false;
         c.conds     = c.conds.filter(id => id !== 'unconscious');
       }
-      addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span><br>💚 Recibe <b>${finalAmt}</b> de sanación`, 'heal');
+      const now = new Date();
+      const t = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
+      const histMsg = `${nameSpan}<br>💚 Recibe <b>${finalAmt}</b> de sanación`;
+      pendingHpEntries.push({ time: t, msg: histMsg, type: 'heal' });
       toast(`💚 ${esc(c.name)} recibe ${finalAmt} de sanación`);
+      _addHpResultToDisplay('+', finalAmt, 'none');
     }
   }
 
@@ -1160,6 +1206,43 @@ function applyHP(sign) {
   render();
   checkCombatEnd();
   checkCombatDefeat();
+}
+
+// ── Flush pending HP history entries and close the modal ──
+function _flushAndCloseHp() {
+  pendingHpEntries.forEach(e => history.push(e));
+  if (pendingHpEntries.length > 0) saveState();
+  pendingHpEntries = [];
+  hpStr = '';
+  hpModSelected = null;
+  document.getElementById('btnResist').classList.remove('active');
+  document.getElementById('btnVuln').classList.remove('active');
+  refreshDisp();
+  const list = document.getElementById('hpResultsList');
+  if (list) list.innerHTML = '';
+  closeModal('hpModal');
+}
+
+function closeHpModal() { _flushAndCloseHp(); }
+function ovrHpClick(e)  { if (e.target.id === 'hpModal') closeHpModal(); }
+
+function _addHpResultToDisplay(sign, amount, modType) {
+  const list = document.getElementById('hpResultsList');
+  if (!list) return;
+  const item = document.createElement('div');
+  const isDamage = sign === '-';
+  item.className = 'hp-result-item ' + (isDamage ? 'damage' : 'heal');
+  let text;
+  if (isDamage) {
+    if (modType === 'resist')     text = `🛡 Resiste: −${amount}`;
+    else if (modType === 'vuln')  text = `💥 Vulnerable: −${amount}`;
+    else                          text = `🩸 Daño: −${amount}`;
+  } else {
+    text = `💚 Sanación: +${amount}`;
+  }
+  item.textContent = text;
+  list.appendChild(item);
+  list.scrollTop = list.scrollHeight;
 }
 
 // ────────────────────────────────────────
@@ -1175,10 +1258,13 @@ function formatRollExpr(str) {
 }
 
 function openRollModal() {
+  pendingRollEntries = [];
   rollStr = '';
   rollAdvType = 'normal';
   document.querySelectorAll('.roll-adv-btn').forEach(b => b.classList.remove('active'));
   refreshRollDisp();
+  const list = document.getElementById('rollResultsList');
+  if (list) list.innerHTML = '';
   openModal('rollModal');
 }
 
@@ -1251,78 +1337,60 @@ function rollExecute() {
       bonusStr = bonus > 0 ? `+${bonus}` : `${bonus}`;
     }
 
-    const roll1    = Math.floor(Math.random() * 20) + 1;
-    const roll2    = Math.floor(Math.random() * 20) + 1;
-    const usedRoll = rollAdvType === 'advantage' ? Math.max(roll1, roll2) : Math.min(roll1, roll2);
-    const total    = usedRoll + bonus;
+    const roll1     = Math.floor(Math.random() * 20) + 1;
+    const roll2     = Math.floor(Math.random() * 20) + 1;
+    const usedRoll  = rollAdvType === 'advantage' ? Math.max(roll1, roll2) : Math.min(roll1, roll2);
+    const total     = usedRoll + bonus;
     const typeLabel = rollAdvType === 'advantage' ? 'Ventaja' : 'Desventaja';
-    const bonusPart  = bonus !== 0 ? ` (${bonusStr})` : '';
-    const formula  = `2d20 (${roll1}/${roll2}): ${usedRoll}${bonusPart} = <b>${total}</b>`;
+    const bonusPart = bonus !== 0 ? ` (${bonusStr})` : '';
+    const formula   = `2d20 (${roll1}/${roll2}): ${usedRoll}${bonusPart} = <b>${total}</b>`;
+    const msg       = `🎲 Tirada con <b>${typeLabel}</b><br>${formula}`;
 
-    addHistory(`🎲 Tirada con <b>${typeLabel}</b><br>${formula}`, 'roll');
-    toast(`🎲 Tirada con ${typeLabel} ${usedRoll}${bonusPart} = ${total}`);
-
-    rollStr     = '';
-    rollAdvType = 'normal';
-    document.querySelectorAll('.roll-adv-btn').forEach(b => b.classList.remove('active'));
-    refreshRollDisp();
-    closeModal('rollModal');
+    const now = new Date();
+    const t = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
+    pendingRollEntries.push({ time: t, msg, type: 'roll' });
+    toast(`🎲 ${typeLabel}: ${usedRoll}${bonusPart} = ${total}`);
+    _addRollResultToDisplay(`${typeLabel}: ${usedRoll}${bonusPart} = ${total}`);
     return;
   }
 
   const parsed = parseDiceOrNumber(rollStr);
   if (parsed === null) return;
   const label = formatRollExpr(rollStr);
-  addHistory(`🎲 Tirada ${label} = <b>${parsed}</b>`, 'roll');
-  toast(`🎲 Tirada ${label} = ${parsed}`);
-  rollStr = '';
-  refreshRollDisp();
-  closeModal('rollModal');
+  const msg   = `🎲 Tirada ${label} = <b>${parsed}</b>`;
+
+  const now = new Date();
+  const t = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
+  pendingRollEntries.push({ time: t, msg, type: 'roll' });
+  toast(`🎲 ${label} = ${parsed}`);
+  _addRollResultToDisplay(`${label} = ${parsed}`);
 }
 
-function rollExecuteMulti(count) {
-  if (count === 1) { rollExecute(); return; }
-
-  if (rollAdvType !== 'normal') {
-    let bonus = 0, bonusStr = '';
-    const bonusMatch = rollStr.match(/^2d20([+-]\d+)$/);
-    if (bonusMatch) {
-      bonus    = parseInt(bonusMatch[1]);
-      bonusStr = bonus > 0 ? `+${bonus}` : `${bonus}`;
-    }
-    const typeLabel = rollAdvType === 'advantage' ? 'Ventaja' : 'Desventaja';
-    const bonusPart = bonus !== 0 ? ` (${bonusStr})` : '';
-    const results = [];
-    for (let i = 0; i < count; i++) {
-      const r1   = Math.floor(Math.random() * 20) + 1;
-      const r2   = Math.floor(Math.random() * 20) + 1;
-      const used = rollAdvType === 'advantage' ? Math.max(r1, r2) : Math.min(r1, r2);
-      results.push({ r1, r2, used, total: used + bonus });
-    }
-    const lines = results.map((r, i) =>
-      `T${i+1}: (${r.r1}/${r.r2}): ${r.used}${bonusPart} = <b>${r.total}</b>`
-    ).join('<br>');
-    addHistory(`🎲 ${count} tiradas con <b>${typeLabel}</b><br>${lines}`, 'roll');
-    toast(`🎲 ${count} tiradas con ${typeLabel}: ${results.map(r => r.total).join(', ')}`);
-  } else {
-    if (!rollStr) return;
-    const results = [];
-    for (let i = 0; i < count; i++) {
-      const val = parseDiceOrNumber(rollStr);
-      if (val === null) return;
-      results.push(val);
-    }
-    const label = formatRollExpr(rollStr);
-    const lines = results.map((v, i) => `T${i+1}: <b>${v}</b>`).join('<br>');
-    addHistory(`🎲 ${count} tiradas de ${label}<br>${lines}`, 'roll');
-    toast(`🎲 ${count} tiradas de ${label}: ${results.join(', ')}`);
-  }
-
-  rollStr     = '';
+// ── Flush pending roll history entries and close the modal ──
+function _flushAndCloseRoll() {
+  pendingRollEntries.forEach(e => history.push(e));
+  if (pendingRollEntries.length > 0) saveState();
+  pendingRollEntries = [];
+  rollStr = '';
   rollAdvType = 'normal';
   document.querySelectorAll('.roll-adv-btn').forEach(b => b.classList.remove('active'));
   refreshRollDisp();
+  const list = document.getElementById('rollResultsList');
+  if (list) list.innerHTML = '';
   closeModal('rollModal');
+}
+
+function closeRollModal() { _flushAndCloseRoll(); }
+function ovrRollClick(e)  { if (e.target.id === 'rollModal') closeRollModal(); }
+
+function _addRollResultToDisplay(resultStr) {
+  const list = document.getElementById('rollResultsList');
+  if (!list) return;
+  const item = document.createElement('div');
+  item.className = 'roll-result-item';
+  item.textContent = '🎲 ' + resultStr;
+  list.appendChild(item);
+  list.scrollTop = list.scrollHeight;
 }
 
  // ────────────────────────────────────────
@@ -1367,11 +1435,11 @@ function rollExecuteMulti(count) {
 
      added.forEach(id => {
        const cd = getCond(id);
-       if (cd) addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> gains condition:<br>🔹️<b>${cd.lbl}</b>`, 'condition');
+       if (cd) addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> gana condición:<br>🔹️<b>${cd.lbl}</b>`, 'condition');
      });
      removed.forEach(id => {
        const cd = getCond(id);
-       if (cd) addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> loses condition:<br>🔸️<b><s>${cd.lbl}</s></b>`, 'condition');
+       if (cd) addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> pierde condición:<br>🔸️<b><s>${cd.lbl}</s></b>`, 'condition');
      });
    }
    closeModal('statusModal');
@@ -1384,7 +1452,7 @@ function rollExecuteMulti(count) {
    if (c) {
      const cd = getCond(condId);
      c.conds = c.conds.filter(id => id !== condId);
-     if (cd) addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> loses condition:<br>🔸️<b><s>${cd.lbl}</s></b>`, 'condition');
+     if (cd) addHistory(`<span style="color:${c.type === 'player' ? 'var(--green)' : 'var(--red)'};font-weight:700;">${esc(c.name)}</span> pierde condición:<br>🔸️<b><s>${cd.lbl}</s></b>`, 'condition');
    }
    saveState();
    render();
@@ -1936,7 +2004,13 @@ function doImport() {
 // ────────────────────────────────────────
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
-    ['addModal','hpModal','statusModal','attackModal','deleteConfirmModal','rollModal','conSaveModal','notesModal','statblockModal','deathSaveModal','combatDefeatModal','exportModal','importConfirmModal'].forEach(closeModal);
+    if (document.getElementById('rollModal').classList.contains('open')) {
+      closeRollModal(); return;
+    }
+    if (document.getElementById('hpModal').classList.contains('open')) {
+      closeHpModal(); return;
+    }
+    ['addModal','statusModal','attackModal','deleteConfirmModal','conSaveModal','notesModal','statblockModal','deathSaveModal','combatDefeatModal','exportModal','importConfirmModal'].forEach(closeModal);
   }
 });
 

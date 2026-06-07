@@ -21,7 +21,7 @@ html, body {
 body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Convergence';
+    font-family: Convergence, system-ui, sans-serif;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -194,7 +194,6 @@ header h1 {
     color: var(--green);
     font-size: 14px;
     font-weight: 700;
-    letter-spacing: -2px;
     align-content: center;
     flex-shrink: 0;
 }
@@ -226,8 +225,8 @@ header h1 {
     align-items: center;
     justify-content: center;
     font-size: 42px;
-    font-weight: 700;
     letter-spacing: -5px;
+    font-weight: 700;
     color: var(--text);
     margin-bottom: 14px;
     padding-top: 4px;
@@ -979,14 +978,13 @@ header h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 42px;
-    font-weight: 700;
+    font-size: 32px;
     letter-spacing: -5px;
+    font-weight: 700;
     color: var(--text);
     margin-bottom: 14px;
     padding-top: 4px;
     font-family: 'Courier New', monospace;
-    transition: font-size 0.1s;
     overflow: hidden;
 }
 
@@ -1417,8 +1415,7 @@ header h1 {
     display: block;
     margin: 8px 0 6px;
 }
-.modal-confirm .modal-actions {
-}
+
 
 /* ── MONSTER AUTOCOMPLETE ── */
 .monster-suggestions {
@@ -1451,32 +1448,6 @@ header h1 {
 
 .monster-suggestion-item:active {
     background: var(--btn-bg);
-}
-
-/* ── ROLL MODAL — MULTI-ROLL ROW ── */
-.roll-multi-section {
-    margin-top: 8px;
-}
-
-.roll-multi-label {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--text);
-    opacity: 0.7;
-    text-align: center;
-    margin-bottom: 5px;
-}
-
-.roll-multi-btns {
-    display: flex;
-    gap: 7px;
-}
-
-.np-multi {
-    flex: 1;
-    font-size: 18px;
-    padding: 6px 4px;
 }
 
 /* ── ROLL MODAL — ADV/DISADV TOGGLE ROW ── */
@@ -1559,11 +1530,16 @@ header h1 {
     font-size: 14px;
     opacity: 0;
     pointer-events: none;
+    white-space: normal;
+    word-break: break-word;
+    max-width: min(90%, 400px);
+    width: max-content;
+    text-align: center;
     transition: all 0.3s;
     z-index: 500;
-    white-space: nowrap;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
+
 #toast.vis {
     opacity: 1;
     transform: translateX(-50%) translateY(-30px) scale(1);
@@ -1572,7 +1548,7 @@ header h1 {
 /* ── STAT BLOCK MODAL ── */
 .modal-statblock {
     max-width: 500px;
-    max-height: 90vh;
+    max-height: 85vh;
     padding: 0;
     overflow-x: hidden;
     overflow-y: auto;
@@ -1721,7 +1697,6 @@ header h1 {
 }
 
 /* ── Monster name tap to open stat block ── */
-
 .monster-name-link:active { opacity: 0.65; }
 
 /* ── DEATH SAVE MODAL ── */
@@ -1808,3 +1783,72 @@ header h1 {
 .card-hp-bar-fill.hp-mid  { background: #f08200; }
 .card-hp-bar-fill.hp-low  { background: #dc0000; }
 .card-hp-bar-fill.hp-dead { background: #999; }
+/* ── HOME SECTION TITLE ── */
+.home-section-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 8px;
+}
+
+/* ── NUMPAD CLOSE BUTTON ── */
+.np-close {
+    grid-column: span 3;
+    font-size: 14px;
+    color: var(--text);
+    opacity: 0.6;
+    border-color: var(--text);
+    margin-top: 2px;
+}
+.np-close:active {
+    transform: scale(0.95);
+}
+
+/* ── HP RESULTS LIST ── */
+.hp-results-list {
+    max-height: 68px;
+    overflow-y: auto;
+    margin-bottom: 8px;
+    background: var(--btn-bg);
+    border: 1px solid rgba(64,0,0,0.35);
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+.hp-results-list:empty {
+    display: none;
+}
+.hp-result-item {
+    font-size: 13px;
+    font-weight: 700;
+    padding: 3px 0;
+    border-bottom: 1px solid rgba(64,0,0,0.12);
+}
+.hp-result-item:last-child {
+    border-bottom: none;
+}
+.hp-result-item.damage { color: var(--red); }
+.hp-result-item.heal   { color: var(--green); }
+
+/* ── ROLL RESULTS LIST ── */
+.roll-results-list {
+    max-height: 68px;
+    overflow-y: auto;
+    margin-bottom: 8px;
+    background: var(--btn-bg);
+    border: 1px solid rgba(64,0,0,0.35);
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+.roll-results-list:empty {
+    display: none;
+}
+.roll-result-item {
+    font-size: 13px;
+    color: var(--text);
+    padding: 3px 0;
+    border-bottom: 1px solid rgba(64,0,0,0.12);
+    font-family: 'Convergence';
+}
+.roll-result-item:last-child {
+    border-bottom: none;
+}

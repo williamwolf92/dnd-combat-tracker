@@ -49,7 +49,7 @@
 <div class="screen" id="screenHome">
   <header class="home-header">
     <h1>Dungeons &amp; Dragons</h1>
-    <div class="tagline">COMBAT TRACKER <span class="version">v3.1</span></div>
+    <div class="tagline">COMBAT TRACKER <span class="version">v3.2</span></div>
     <div class="sword-icon">⚔️ 🏹 🔮 🛡</div>
     <div class="ornament"></div>
   </header>
@@ -213,10 +213,11 @@
 </div>
 
 <!-- ────── HP NUMPAD MODAL ────── -->
-<div class="overlay" id="hpModal" onclick="ovrClick(event,'hpModal')">
+<div class="overlay" id="hpModal" onclick="ovrHpClick(event)">
   <div class="modal modal-hp">
     <div class="modal-title">❤️ Modificar HP</div>
     <div class="hp-display" id="hpDisp">_</div>
+    <div class="hp-results-list" id="hpResultsList"></div>
     <div class="numpad">
       <button class="np" onclick="npPress('1')">1</button>
       <button class="np" onclick="npPress('2')">2</button>
@@ -237,6 +238,7 @@
       <button class="np np-minus" onclick="applyHP(-1)">Dañar</button>
       <button class="np np-plus" onclick="applyHP(1)">Curar</button>
       <button class="np np-clr" onclick="npBack()">Borrar</button>
+      <button class="np np-close" onclick="closeHpModal()">Cerrar</button>
     </div>
   </div>
 </div>
@@ -290,10 +292,11 @@
 </div>
 
 <!-- ────── ROLL MODAL ────── -->
-<div class="overlay" id="rollModal" onclick="ovrClick(event,'rollModal')">
+<div class="overlay" id="rollModal" onclick="ovrRollClick(event)">
   <div class="modal modal-roll">
     <div class="modal-title">🎲 Lanzar Dados</div>
     <div class="roll-display" id="rollDisplay">_</div>
+    <div class="roll-results-list" id="rollResultsList"></div>
     <div class="numpad">
       <button class="np" onclick="rollPress('1')">1</button>
       <button class="np" onclick="rollPress('2')">2</button>
@@ -313,16 +316,7 @@
       </div>
       <button class="np np-roll" onclick="rollExecute()" style="grid-column: span 2;">🎲 Lanzar</button>
       <button class="np np-clr" onclick="rollBack()">Borrar</button>
-    </div>
-    <div class="roll-multi-section">
-      <div class="roll-multi-label">¿Cuántas tiradas?</div>
-      <div class="roll-multi-btns">
-        <button class="np np-multi" onclick="rollExecuteMulti(2)">2</button>
-        <button class="np np-multi" onclick="rollExecuteMulti(3)">3</button>
-        <button class="np np-multi" onclick="rollExecuteMulti(4)">4</button>
-        <button class="np np-multi" onclick="rollExecuteMulti(5)">5</button>
-        <button class="np np-multi" onclick="rollExecuteMulti(6)">6</button>
-      </div>
+      <button class="np np-close" onclick="closeRollModal()">Cerrar</button>
     </div>
   </div>
 </div>
