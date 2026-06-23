@@ -162,6 +162,7 @@ animated_object_tiny_phb_14.json
 animated_rug_of_smothering_mm_25.json
 animated_staff_wdmm.json
 animated_statue_of_lolth_wdmm.json
+animated_statue_wdmm.json
 animated_stove_wdmm.json
 animated_table_tftyp.json
 animated_tile_chimera_rot.json
@@ -205,6 +206,7 @@ arclight_phoenix_ggr.json
 armanite_mpmm.json
 armanite_mtf.json
 armored_saber-toothed_tiger_cos.json
+armored_troglodyte_wdmm.json
 art_elemental_mascot_scc.json
 ashen_animated_armor_kftgv.json
 ashen_flying_sword_kftgv.json
@@ -1155,6 +1157,7 @@ giant_fly_dmg_24.json
 giant_four-armed_gargoyle_toa.json
 giant_frog_mm_14.json
 giant_frog_mm_25.json
+giant_gelatinous_cube_wdmm.json
 giant_goat_mm_14.json
 giant_goat_mm_25.json
 giant_goose_bgg.json
@@ -1471,6 +1474,7 @@ hulking_crab_skt.json
 hulking_shadow_dsotdq.json
 humanoid_mutate_pabtso.json
 hundred-handed_one_mot.json
+hungry_ghast_cos.json
 hungry_sorrowsworn_mpmm.json
 hunter_shark_mm_14.json
 hunter_shark_mm_25.json
@@ -1684,8 +1688,8 @@ locathah_gos.json
 locathah_hunter_gos.json
 lonelywood_banshee_idrotf.json
 lonely_sorrowsworn_mpmm.json
-lords_alliance_guard_oota.json
-lords_alliance_spy_oota.json
+lords__alliance_guard_oota.json
+lords__alliance_spy_oota.json
 lorehold_apprentice_scc.json
 lorehold_pledgemage_scc.json
 lorehold_professor_of_chaos_scc.json
@@ -2092,7 +2096,6 @@ quandrix_professor_of_theory_scc.json
 quasit_mm_14.json
 quasit_mm_25.json
 quavilithku_spyder-fiend_veor.json
-queen_forfallen_fraif.json
 questing_knight_mm_25.json
 quetzalcoatlus_mpmm.json
 quetzalcoatlus_vgm.json

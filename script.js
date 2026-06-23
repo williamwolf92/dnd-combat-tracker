@@ -28,21 +28,65 @@ let bestiaryIndex      = new Set();
 
 const MONSTERS_CACHE_KEY = 'dnd_monsters_cache';
 
+// Parsea una línea CSV respetando campos entre comillas (soporta comas y comillas dobles escapadas)
+function parseCSVLine(line) {
+  const fields = [];
+  let cur = '';
+  let inQuotes = false;
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (inQuotes) {
+      if (ch === '"') {
+        if (line[i + 1] === '"') { cur += '"'; i++; }
+        else { inQuotes = false; }
+      } else {
+        cur += ch;
+      }
+    } else {
+      if (ch === '"') {
+        inQuotes = true;
+      } else if (ch === ',') {
+        fields.push(cur);
+        cur = '';
+      } else {
+        cur += ch;
+      }
+    }
+  }
+  fields.push(cur);
+  return fields.map(f => f.trim());
+}
+
 function parseMonstersText(text) {
   const results = [];
-  for (const line of text.split('\n')) {
-    const t = line.trim();
+  const lines = text.split('\n').filter(l => l.trim() !== '');
+  if (lines.length === 0) return results;
+
+  // Leer encabezado para mapear columnas: name,init,hp,ac
+  const header = parseCSVLine(lines[0]).map(h => h.toLowerCase());
+  const idxName = header.indexOf('name');
+  const idxInit = header.indexOf('init');
+  const idxHp   = header.indexOf('hp');
+  const idxAc   = header.indexOf('ac');
+
+  if (idxName === -1 || idxInit === -1 || idxHp === -1 || idxAc === -1) {
+    return results;
+  }
+
+  for (let i = 1; i < lines.length; i++) {
+    const t = lines[i].trim();
     if (!t) continue;
-    const nM    = t.match(/n:([^/]+)/);
-    const initM = t.match(/init:([^/]+)/);
-    const hpM   = t.match(/hp:([^/]+)/);
-    const acM   = t.match(/ac:([^/]+)/);
-    if (nM && initM && hpM && acM) {
+    const cols = parseCSVLine(t);
+    const name = cols[idxName];
+    const init = cols[idxInit];
+    const hp   = cols[idxHp];
+    const ac   = cols[idxAc];
+    if (name && init !== undefined && hp !== undefined && ac !== undefined) {
       results.push({
-        name: nM[1].trim(),
-        init: initM[1].trim(),
-        hp:   hpM[1].trim(),
-        ac:   acM[1].trim()
+        name: name.trim(),
+        init: init.trim(),
+        hp:   hp.trim(),
+        ac:   ac.trim()
       });
     }
   }
@@ -72,13 +116,13 @@ async function loadMonstersData() {
   // 1. Try fetch (HTTP/HTTPS)
   let text = null;
   try {
-    const res = await fetch('add_monsters_index.txt');
+    const res = await fetch('add_monsters_index.csv');
     if (res.ok) text = await res.text();
   } catch(e) { /* fetch blocked on file:// — try XHR */ }
 
   // 2. Try XHR (works on file:// in Firefox and some Chromium builds)
   if (!text) {
-    try { text = await xhrLoad('add_monsters_index.txt'); } catch(e) {}
+    try { text = await xhrLoad('add_monsters_index.csv'); } catch(e) {}
   }
 
   if (text) {
