@@ -64,10 +64,11 @@ function parseMonstersText(text) {
 
   // Leer encabezado para mapear columnas: name,init,hp,ac
   const header = parseCSVLine(lines[0]).map(h => h.toLowerCase());
-  const idxName = header.indexOf('name');
-  const idxInit = header.indexOf('init');
-  const idxHp   = header.indexOf('hp');
-  const idxAc   = header.indexOf('ac');
+  const idxName   = header.indexOf('name');
+  const idxInit   = header.indexOf('init');
+  const idxHp     = header.indexOf('hp');
+  const idxAc     = header.indexOf('ac');
+  const idxSource = header.indexOf('source');
 
   if (idxName === -1 || idxInit === -1 || idxHp === -1 || idxAc === -1) {
     return results;
@@ -76,17 +77,19 @@ function parseMonstersText(text) {
   for (let i = 1; i < lines.length; i++) {
     const t = lines[i].trim();
     if (!t) continue;
-    const cols = parseCSVLine(t);
-    const name = cols[idxName];
-    const init = cols[idxInit];
-    const hp   = cols[idxHp];
-    const ac   = cols[idxAc];
+    const cols   = parseCSVLine(t);
+    const name   = cols[idxName];
+    const init   = cols[idxInit];
+    const hp     = cols[idxHp];
+    const ac     = cols[idxAc];
+    const source = idxSource !== -1 ? (cols[idxSource] || '') : '';
     if (name && init !== undefined && hp !== undefined && ac !== undefined) {
       results.push({
-        name: name.trim(),
-        init: init.trim(),
-        hp:   hp.trim(),
-        ac:   ac.trim()
+        name:   name.trim(),
+        init:   init.trim(),
+        hp:     hp.trim(),
+        ac:     ac.trim(),
+        source: source.trim()
       });
     }
   }
@@ -233,7 +236,7 @@ function formatMonsterName(raw) {
 }
 
 function renderStatblock(m) {
-  const subtitle = [m.size, m.type, m.alignment].filter(Boolean).join(' · ');
+  const subtitle = [m.size, m.type, m.alignment].filter(Boolean).join(' • ');
   const extraFields = [
     ['init',       'Iniciativa'],
     ['saves',      'Salvación'],
@@ -261,7 +264,7 @@ function renderStatblock(m) {
   document.getElementById('statblockContent').innerHTML = `
     <div class="sb-header">
       <button class="sb-close" onclick="closeModal('statblockModal')">✕</button>
-      <div class="sb-title">${formatMonsterName(m.name)}</div>
+      <div class="sb-title">${formatMonsterName(m.name)}${m.source ? ` <span class="sb-title-source">(${esc(m.source)})</span>` : ''}</div>
       ${subtitle ? `<div class="sb-subtitle">${esc(subtitle)}</div>` : ''}
     </div>
     <div class="sb-body">
@@ -293,7 +296,16 @@ async function openStatblockModal(combatantId) {
   const c = getC(combatantId);
   if (!c || c.type !== 'monster') return;
 
-  const filename = findBestStatFile(c.name);
+  // El nombre puede llevar un sufijo de cantidad (ej. "Goblin 1"); se quita
+  // antes de combinarlo con el source para armar el nombre de archivo
+  // esperado: monstruo_source.json
+  const baseName   = c.name.replace(/\s+\d+$/, '');
+  const lookupName = c.source ? `${baseName} (${c.source})` : baseName;
+
+  let filename = findBestStatFile(lookupName);
+  // Respaldo: si no hay coincidencia con el source, probar solo con el nombre
+  if (!filename && c.source) filename = findBestStatFile(baseName);
+
   if (!filename) {
     toast('No se encontraron las estadísticas de ' + esc(c.name));
     return;
@@ -316,8 +328,10 @@ async function openStatblockModal(combatantId) {
 
 
 function onNameInput() {
-  const query     = document.getElementById('a-name').value.trim().toLowerCase();
+  const nameInput = document.getElementById('a-name');
+  const query     = nameInput.value.trim().toLowerCase();
   const container = document.getElementById('monster-suggestions');
+
   if (!query) { container.innerHTML = ''; currentSuggestions = []; return; }
 
   // Priority: startsWith first, then contains — max 5 total
@@ -327,14 +341,29 @@ function onNameInput() {
 
   if (currentSuggestions.length === 0) { container.innerHTML = ''; return; }
   container.innerHTML = currentSuggestions
-    .map((m, i) => `<div class="monster-suggestion-item" onmousedown="event.preventDefault()" onclick="selectMonsterSuggestion(${i})">${esc(m.name)}</div>`)
+    .map((m, i) => `<div class="monster-suggestion-item" onmousedown="event.preventDefault()" onclick="selectMonsterSuggestion(${i})">${esc(m.name)}${m.source ? ` <span class="suggestion-source">(${esc(m.source)})</span>` : ''}</div>`)
     .join('');
+}
+
+// Combina nombre + source en un solo texto "Nombre (Source)", que es el
+// formato que usa el resto de la app (ficha de estadísticas, listado, etc.)
+function combineNameSource(name, source) {
+  return source ? `${name} (${source})` : name;
+}
+
+// Separa un texto "Nombre (Source)" en sus dos partes. Si no hay paréntesis
+// al final, source queda vacío.
+function splitNameSource(raw) {
+  const match = raw.match(/^(.*?)\s*\(([^)]*)\)\s*$/);
+  if (match) return { name: match[1].trim(), source: match[2].trim() };
+  return { name: raw.trim(), source: '' };
 }
 
 function selectMonsterSuggestion(idx) {
   const m = currentSuggestions[idx];
   if (!m) return;
-  document.getElementById('a-name').value = m.name;
+  const nameInput = document.getElementById('a-name');
+  nameInput.value = combineNameSource(m.name, m.source);
   document.getElementById('a-init').value = m.init;
   document.getElementById('a-hp').value   = m.hp;
   document.getElementById('a-ac').value   = m.ac;
@@ -697,9 +726,10 @@ function parseDiceOrNumber(str) {
 }
 
 function addCombatant(type) {
-  const name = document.getElementById('a-name').value.trim();
-  if (!name) { toast('✦ Por favor, ingresa un nombre'); return; }
+  const rawName = document.getElementById('a-name').value.trim();
+  if (!rawName) { toast('✦ Por favor, ingresa un nombre'); return; }
 
+  const { name, source } = splitNameSource(rawName);
   const initStr = document.getElementById('a-init').value.trim();
   const hpStr   = document.getElementById('a-hp').value.trim();
   const ac      = Math.max(1, parseInt(document.getElementById('a-ac').value) || 10);
@@ -717,7 +747,7 @@ function addCombatant(type) {
     const hp   = Math.max(1, parseDiceOrNumber(hpStr) ?? 10);
     lastInit   = init;
 
-    const c = { id: uid++, name: combatantName, init, hp, maxHp: hp, ac, conMod: 0, conds: [], isDead: false, type, successes: 0, failures: 0, permaDead: false };
+    const c = { id: uid++, name: combatantName, source, init, hp, maxHp: hp, ac, conMod: 0, conds: [], isDead: false, type, successes: 0, failures: 0, permaDead: false };
     combatants.push(c);
     insertInQueue(c.id);
     lastCombatant = c; // ← guardar referencia
@@ -1537,9 +1567,10 @@ function _addRollResultToDisplay(resultStr) {
    const noteClass = (c.note && c.note.trim()) ? 'note-chip active' : 'note-chip';
    const noteChip  = `<span class="chip ${noteClass}" onclick="openNotesModal(${c.id})" title="${(c.note && c.note.trim()) ? 'View/Edit note' : 'Add note'}">📝 Notas</span>`;
 
+   const sourceSpan = c.source ? ` <span class="card-name-source">(${esc(c.source)})</span>` : '';
    const nameEl = c.type === 'monster'
-     ? `<div class="card-name ${isZero ? 'is-dead' : ''} monster-name-link" onclick="openStatblockModal(${c.id})" title="View stat block">${esc(c.name)}</div>`
-     : `<div class="card-name ${isZero ? 'is-dead' : ''}">${esc(c.name)}</div>`;
+     ? `<div class="card-name ${isZero ? 'is-dead' : ''} monster-name-link" onclick="openStatblockModal(${c.id})" title="View stat block">${esc(c.name)}${sourceSpan}</div>`
+     : `<div class="card-name ${isZero ? 'is-dead' : ''}">${esc(c.name)}${sourceSpan}</div>`;
 
    const classes = `card ${typeClass}${isActive ? ' is-active' : ''}`;
 

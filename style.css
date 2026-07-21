@@ -497,6 +497,12 @@ header h1 {
     text-decoration: line-through;
 }
 
+.card-name-source {
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
 .btn-remove {
     background: none;
     border: 1.5px solid var(--red);
@@ -1450,6 +1456,11 @@ header h1 {
     background: var(--btn-bg);
 }
 
+.suggestion-source {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
 /* ── ROLL MODAL — ADV/DISADV TOGGLE ROW ── */
 .roll-adv-row {
     grid-column: span 3;
@@ -1587,12 +1598,11 @@ header h1 {
     font-size: 22px;
     color: var(--bg);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1;
 }
 
 .sb-title-source {
-  font-size: 13px;
-  font-style: italic;
+  font-size: 15px;
   opacity: 0.7;
   font-weight: 400;
 }
