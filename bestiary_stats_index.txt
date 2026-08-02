@@ -1,2993 +1,3460 @@
-aarakocra_aeromancer_mm_25.json
-aarakocra_mm_14.json
-aarakocra_simulacrum_skt.json
-aarakocra_skirmisher_mm_25.json
-aarakocra_spelljammer_lox.json
-aartuk_elder_bam.json
-aartuk_starhorror_bam.json
-aartuk_weedling_bam.json
-aberrant_cultist_mm_25.json
-aberrant_spirit_phb_24.json
-aberrant_spirit_tce.json
-aberrant_zealot_pabtso.json
-aberrant_zealot_tentacled_pabtso.json
-abhorrent_overlord_mot.json
-abjurer_vgm.json
-abjurer_wizard_mpmm.json
-aboleth_mm_14.json
-aboleth_mm_25.json
-aboleth_spawn_crcotn.json
-abominable_yeti_mm_14.json
-abominable_yeti_mm_25.json
-abyssal_chicken_bgdia.json
-abyssal_wretch_mtf.json
-acolyte_mm_14.json
-adult_amethyst_dragon_ftd.json
-adult_black_dragon_mm_14.json
-adult_black_dragon_mm_25.json
-adult_blue_dracolich_mm_14.json
-adult_blue_dragon_mm_14.json
-adult_blue_dragon_mm_25.json
-adult_brass_dragon_mm_14.json
-adult_brass_dragon_mm_25.json
-adult_bronze_dragon_mm_14.json
-adult_bronze_dragon_mm_25.json
-adult_copper_dragon_mm_14.json
-adult_copper_dragon_mm_25.json
-adult_crystal_dragon_ftd.json
-adult_deep_dragon_fraif.json
-adult_deep_dragon_ftd.json
-adult_emerald_dragon_ftd.json
-adult_gold_dragon_mm_14.json
-adult_gold_dragon_mm_25.json
-adult_green_dragon_mm_14.json
-adult_green_dragon_mm_25.json
-adult_kruthik_mpmm.json
-adult_kruthik_mtf.json
-adult_lunar_dragon_bam.json
-adult_moonstone_dragon_ftd.json
-adult_oblex_mpmm.json
-adult_oblex_mtf.json
-adult_red_dracolich_tce.json
-adult_red_dragon_mm_14.json
-adult_red_dragon_mm_25.json
-adult_sapphire_dragon_ftd.json
-adult_silver_dragon_mm_14.json
-adult_silver_dragon_mm_25.json
-adult_solar_dragon_bam.json
-adult_spirit_dragon_fraif.json
-adult_time_dragon_mpp.json
-adult_topaz_dragon_ftd.json
-adult_white_dragon_mm_14.json
-adult_white_dragon_mm_25.json
-advanced_detention_drone_bmt.json
-aeorian_absorber_egw.json
-aeorian_nullifier_egw.json
-aeorian_reverser_egw.json
-aerosaur_bgg.json
-air_elemental_mm_14.json
-air_elemental_mm_25.json
-air_elemental_myrmidon_mpmm.json
-air_elemental_myrmidon_mtf.json
-akroan_hoplite_mot.json
-albino_dwarf_spirit_warrior_toa.json
-albino_dwarf_warrior_toa.json
-aldani_lobsterfolk_toa.json
-alhoon_mpmm.json
-alhoon_vgm.json
-alkilith_mpmm.json
-alkilith_mtf.json
-allip_mpmm.json
-allip_mtf.json
-allosaurus_mm_14.json
-allosaurus_mm_25.json
-allowak_abominable_yeti_egw.json
-allowak_yeti_egw.json
-almiraj_toa.json
-alseid_mot.json
-altisaur_bgg.json
-alyxian_aboleth_crcotn.json
-alyxian_the_hunter_crcotn.json
-amber_golem_cos.json
-ambitious_assassin_bmt.json
-ambush_drake_hotdq.json
-amethyst_dragon_wyrmling_ftd.json
-amethyst_greatwyrm_ftd.json
-amnizu_mpmm.json
-amnizu_mtf.json
-amphisbaena_gos.json
-amphisbaena_tftyp.json
-anarch_ggr.json
-anchorite_of_talos_dip.json
-ancient_amethyst_dragon_ftd.json
-ancient_black_dragon_mm_14.json
-ancient_black_dragon_mm_25.json
-ancient_blue_dragon_mm_14.json
-ancient_blue_dragon_mm_25.json
-ancient_brass_dragon_mm_14.json
-ancient_brass_dragon_mm_25.json
-ancient_bronze_dragon_mm_14.json
-ancient_bronze_dragon_mm_25.json
-ancient_copper_dragon_mm_14.json
-ancient_copper_dragon_mm_25.json
-ancient_crystal_dragon_ftd.json
-ancient_deep_crow_ai.json
-ancient_deep_dragon_fraif.json
-ancient_deep_dragon_ftd.json
-ancient_dragon_turtle_ftd.json
-ancient_emerald_dragon_ftd.json
-ancient_gold_dragon_mm_14.json
-ancient_gold_dragon_mm_25.json
-ancient_green_dragon_mm_14.json
-ancient_green_dragon_mm_25.json
-ancient_lunar_dragon_bam.json
-ancient_moonstone_dragon_ftd.json
-ancient_red_dragon_mm_14.json
-ancient_red_dragon_mm_25.json
-ancient_sapphire_dragon_ftd.json
-ancient_sea_serpent_ftd.json
-ancient_silver_dragon_mm_14.json
-ancient_silver_dragon_mm_25.json
-ancient_solar_dragon_bam.json
-ancient_spirit_dragon_fraif.json
-ancient_time_dragon_mpp.json
-ancient_topaz_dragon_ftd.json
-ancient_white_dragon_mm_14.json
-ancient_white_dragon_mm_25.json
-android_qftis.json
-androsphinx_mm_14.json
-angry_sorrowsworn_mpmm.json
-anhkolox_dsotdq.json
-animal_lord_mm_25.json
-animated_armor_detention_drone_bmt.json
-animated_armor_mm_14.json
-animated_armor_mm_25.json
-animated_ballista_wdmm.json
-animated_breath_ftd.json
-animated_broom_cm.json
-animated_broom_mm_25.json
-animated_chained_library_cm.json
-animated_drow_statue_oota.json
-animated_flying_sword_mm_25.json
-animated_glass_statue_crcotn.json
-animated_halberd_cos.json
-animated_jade_serpent_wdmm.json
-animated_knife_egw.json
-animated_object_huge_phb_14.json
-animated_object_large_phb_14.json
-animated_object_medium_phb_14.json
-animated_object_phb_24.json
-animated_object_small_phb_14.json
-animated_object_tiny_phb_14.json
-animated_rug_of_smothering_mm_25.json
-animated_staff_wdmm.json
-animated_statue_of_lolth_wdmm.json
-animated_statue_wdmm.json
-animated_stove_wdmm.json
-animated_table_tftyp.json
-animated_tile_chimera_rot.json
-animated_tree_egw.json
-animated_wand_wdmm.json
-animatronic_allosaurus_kftgv.json
-ankheg_mm_14.json
-ankheg_mm_25.json
-ankheg_wtthc.json
-ankylosaurus_mm_14.json
-ankylosaurus_mm_25.json
-ankylosaurus_zombie_toa.json
-annis_hag_mpmm.json
-annis_hag_vgm.json
-anvilwrought_raptor_mot.json
-ape_mm_14.json
-ape_mm_25.json
-aphemia_mot.json
-apprentice_hol.json
-apprentice_wizard_mpmm.json
-apprentice_wizard_vgm.json
-aquatic_ghoul_pota.json
-aquatic_troll_rot.json
-aranea_fraif.json
-arasta_mot.json
-arcanaloth_mm_14.json
-arcanaloth_mm_25.json
-arch-hag_mm_25.json
-archaic_scc.json
-archdruid_mpmm.json
-archdruid_vgm.json
-archelon_mm_25.json
-archer_mpmm.json
-archer_vgm.json
-archmage_mm_14.json
-archmage_mm_25.json
-archon_of_falling_stars_mot.json
-archon_of_the_triumvirate_ggr.json
-archpriest_mm_25.json
-arclight_phoenix_ggr.json
-armanite_mpmm.json
-armanite_mtf.json
-armored_saber-toothed_tiger_cos.json
-armored_troglodyte_wdmm.json
-art_elemental_mascot_scc.json
-ashen_animated_armor_kftgv.json
-ashen_flying_sword_kftgv.json
-ashen_heir_anarchist_jttrc.json
-ashen_heir_assassin_jttrc.json
-ashen_heir_mage_jttrc.json
-ashen_heir_veteran_jttrc.json
-ashen_knight_kftgv.json
-ashen_rider_mot.json
-ashen_shambling_mound_kftgv.json
-ashen_veteran_kftgv.json
-ashen_warhorse_kftgv.json
-ash_zombie_lmop.json
-ash_zombie_pabtso.json
-aspect_of_bahamut_ftd.json
-aspect_of_tiamat_ftd.json
-aspirant_of_the_comet_bmt.json
-assassin_mm_14.json
-assassin_mm_25.json
-assassin_vine_toa.json
-asteria_bmt.json
-astral_blight_lox.json
-astral_dreadnought_mpmm.json
-astral_dreadnought_mtf.json
-astral_elf_aristocrat_bam.json
-astral_elf_commander_bam.json
-astral_elf_honor_guard_bam.json
-astral_elf_star_priest_bam.json
-astral_elf_warrior_bam.json
-athar_null_mpp.json
-atropal_toa.json
-aurak_draconian_dsotdq.json
-aurelia_ggr.json
-aurnozci_bmt.json
-aurochs_mpmm.json
-aurochs_vgm.json
-aurumach_rilmani_mpp.json
-aurumvorax_den_leader_jttrc.json
-aurumvorax_jttrc.json
-autognome_bam.json
-autumn_eladrin_mpmm.json
-autumn_eladrin_mtf.json
-avatar_of_death_dmg_14.json
-avatar_of_death_dmg_24.json
-avoral_guardinal_mpp.json
-awakened_brown_bear_wdmm.json
-awakened_elk_wdmm.json
-awakened_giant_wasp_wdmm.json
-awakened_rat_wdh.json
-awakened_shrub_mm_14.json
-awakened_shrub_mm_25.json
-awakened_tree_mm_14.json
-awakened_tree_mm_25.json
-awakened_white_moose_idrotf.json
-awakened_zurkhwood_oota.json
-axe_beak_mm_14.json
-axe_beak_mm_25.json
-axe_of_mirabar_soldier_skt.json
-azer_mm_14.json
-azer_pyromancer_mm_25.json
-azer_sentinel_mm_25.json
-baaz_draconian_dsotdq.json
-babau_mpmm.json
-babau_vgm.json
-baboon_mm_14.json
-baboon_mm_25.json
-badger_mm_14.json
-badger_mm_25.json
-bael_mpmm.json
-bael_mtf.json
-baernaloth_mpp.json
-bag_jelly_bgg.json
-bakunawa_jttrc.json
-balhannoth_mpmm.json
-balhannoth_mtf.json
-balor_mm_14.json
-balor_mm_25.json
-banderhobb_mpmm.json
-banderhobb_vgm.json
-bandit_captain_mm_14.json
-bandit_captain_mm_25.json
-bandit_crime_lord_mm_25.json
-bandit_deceiver_mm_25.json
-bandit_mm_14.json
-bandit_mm_25.json
-banshee_mm_14.json
-banshee_mm_25.json
-baphomet_mpmm.json
-baphomet_mtf.json
-barbed_devil_mm_14.json
-barbed_devil_mm_25.json
-barbed_devil_wtthc.json
-bard_mpmm.json
-bard_vgm.json
-barghest_mpmm.json
-barghest_vgm.json
-bariaur_wanderer_mpp.json
-barkburr_qftis.json
-barlgura_mm_14.json
-barlgura_mm_25.json
-barovian_commoner_cos.json
-barovian_scout_cos.json
-barovian_witch_cos.json
-barrowghast_bgg.json
-basilisk_mm_14.json
-basilisk_mm_25.json
-battleforce_angel_ggr.json
-battlehammer_dwarf_idrotf.json
-bat_mm_14.json
-bat_mm_25.json
-bearded_devil_mm_14.json
-bearded_devil_mm_25.json
-bearded_devil_wtthc.json
-beast_of_malar_fraif.json
-beast_of_the_land_phb_24.json
-beast_of_the_land_tce.json
-beast_of_the_sea_phb_24.json
-beast_of_the_sea_tce.json
-beast_of_the_sky_phb_24.json
-beast_of_the_sky_tce.json
-behir_mm_14.json
-behir_mm_25.json
-beholder_mm_14.json
-beholder_mm_25.json
-beholder_zombie_mm_14.json
-beholder_zombie_mm_25.json
-belashyrra_erlw.json
-beledros_witherbloom_scc.json
-berbalang_mpmm.json
-berbalang_mtf.json
-berserker_commander_mm_25.json
-berserker_mm_14.json
-berserker_mm_25.json
-bestial_spirit_phb_24.json
-bestial_spirit_tce.json
-bheur_hag_mpmm.json
-bheur_hag_vgm.json
-big_xorn_wdmm.json
-biomancer_ggr.json
-blackguard_mpmm.json
-blackguard_vgm.json
-blacktongue_bullywug_wdmm.json
-black_abishai_mpmm.json
-black_abishai_mtf.json
-black_bear_mm_14.json
-black_bear_mm_25.json
-black_dragon_wyrmling_mm_14.json
-black_dragon_wyrmling_mm_25.json
-black_earth_guard_pota.json
-black_earth_priest_pota.json
-black_gauntlet_of_bane_bgdia.json
-black_greatwyrm_ftd.json
-black_guard_drake_vgm.json
-black_pudding_mm_14.json
-black_pudding_mm_25.json
-black_rose_bearer_veor.json
-blade_lieutenant_veor.json
-blade_scout_veor.json
-blazebear_veor.json
-bleak_cabal_void_soother_mpp.json
-blink_dog_mm_14.json
-blink_dog_mm_25.json
-blistercoil_weird_ggr.json
-blob_of_annihilation_mm_25.json
-blood-toll_harpy_mot.json
-bloodfray_giant_ggr.json
-blood_drinker_vampire_ggr.json
-blood_hawk_mm_14.json
-blood_hawk_mm_25.json
-blood_hunter_egw.json
-blood_witch_ggr.json
-blue_abishai_mpmm.json
-blue_abishai_mtf.json
-blue_dragon_wyrmling_mm_14.json
-blue_dragon_wyrmling_mm_25.json
-blue_greatwyrm_ftd.json
-blue_guard_drake_vgm.json
-blue_slaad_mm_14.json
-blue_slaad_mm_25.json
-boar_mm_14.json
-boar_mm_25.json
-bodak_mpmm.json
-bodak_vgm.json
-bodytaker_plant_vrgr.json
-boggle_mpmm.json
-boggle_vgm.json
-boneclaw_mpmm.json
-boneclaw_mtf.json
-boneless_vrgr.json
-bone_devil_mm_14.json
-bone_devil_mm_25.json
-bone_knight_erlw.json
-bone_naga_guardian_mm_14.json
-bone_naga_mm_25.json
-bone_naga_spirit_mm_14.json
-bone_roc_veor.json
-bone_whelk_bgdia.json
-booyahg_booyahg_booyahg_vgm.json
-booyahg_caster_vgm.json
-booyahg_slave_of_the_archfey_vgm.json
-booyahg_slave_of_the_fiend_vgm.json
-booyahg_slave_of_the_great_old_one_vgm.json
-booyahg_whip_vgm.json
-booyahg_wielder_vgm.json
-borborygmos_ggr.json
-bore_worm_wdmm.json
-boromar_smuggler_efa.json
-boromar_underboss_efa.json
-borthak_veor.json
-boss_augustus_bmt.json
-boss_delour_bmt.json
-bozak_draconian_dsotdq.json
-brackish_trudge_scc.json
-brain_breaker_pabtso.json
-brain_in_a_jar_vrgr.json
-brass_dragon_wyrmling_mm_14.json
-brass_dragon_wyrmling_mm_25.json
-brass_greatwyrm_ftd.json
-braxat_bam.json
-brazen_gorgon_mm_25.json
-breath_drinker_bmt.json
-bridesmaid_of_zuggtmoy_oota.json
-brigganock_wbtw.json
-bristled_moorbounder_egw.json
-broken_king_antigonos_mot.json
-brontosaurus_mpmm.json
-brontosaurus_vgm.json
-bronze_dragon_wyrmling_mm_14.json
-bronze_dragon_wyrmling_mm_25.json
-bronze_greatwyrm_ftd.json
-bronze_sable_mot.json
-bronze_scout_mtf.json
-broom_of_animated_attack_cos.json
-brown_bear_mm_14.json
-brown_bear_mm_25.json
-brown_scavver_bam.json
-brusipha_bmt.json
-bugbear_chief_mm_14.json
-bugbear_gardener_tftyp.json
-bugbear_lieutenant_tftyp.json
-bugbear_mm_14.json
-bugbear_stalker_mm_25.json
-bugbear_warrior_mm_25.json
-bulette_mm_14.json
-bulette_mm_25.json
-bulette_pup_mm_25.json
-bulezau_mpmm.json
-bulezau_mtf.json
-bullywug_bog_sage_mm_25.json
-bullywug_croaker_gos.json
-bullywug_knight_wbtw.json
-bullywug_mm_14.json
-bullywug_royal_gos.json
-bullywug_warrior_mm_25.json
-burnished_hart_mot.json
-burrowshark_pota.json
-b_rohg_bam.json
-cackler_ggr.json
-cadaver_collector_mpmm.json
-cadaver_collector_mtf.json
-cairnwight_bgg.json
-caldron_magen_nf.json
-cambion_mm_14.json
-cambion_mm_25.json
-camel_mm_14.json
-camel_mm_25.json
-campestri_wbtw.json
-cannith_artificer_efa.json
-canoloth_mpmm.json
-canoloth_mtf.json
-canopic_golem_cm.json
-carnivorous_flower_rot.json
-carrionette_vrgr.json
-carrion_crawler_mm_14.json
-carrion_crawler_mm_25.json
-carrion_ogre_wdmm.json
-carrion_stalker_vrgr.json
-category_1_krasis_ggr.json
-category_2_krasis_ggr.json
-category_3_krasis_ggr.json
-catoblepas_mpmm.json
-catoblepas_vgm.json
-cat_mm_14.json
-cat_mm_25.json
-cat_skeleton_cos.json
-cave_badger_oota.json
-cave_bear_mm_14.json
-cave_fisher_mpmm.json
-cave_fisher_vgm.json
-celestial_spirit_phb_24.json
-celestial_spirit_tce.json
-centaur_mm_14.json
-centaur_mummy_tftyp.json
-centaur_trooper_mm_25.json
-centaur_warden_mm_25.json
-ceratops_bgg.json
-chain_devil_mm_14.json
-chain_devil_mm_25.json
-chamberlain_of_zuggtmoy_oota.json
-champion_mpmm.json
-champion_of_gorm_qftis.json
-champion_of_madarua_qftis.json
-champion_of_usamigaras_qftis.json
-champion_vgm.json
-changeling_erlw.json
-chaos_quadrapod_ai.json
-chardalyn_berserker_idrotf.json
-chardalyn_dragon_idrotf.json
-chasme_mm_14.json
-chasme_mm_25.json
-chimera_mm_14.json
-chimera_mm_25.json
-chimeric_baboon_idrotf.json
-chimeric_cat_idrotf.json
-chimeric_fox_idrotf.json
-chimeric_hare_idrotf.json
-chimeric_rat_idrotf.json
-chimeric_weasel_idrotf.json
-chitine_mpmm.json
-chitine_vgm.json
-choker_mpmm.json
-choker_mtf.json
-choldrith_mpmm.json
-choldrith_vgm.json
-chuul_mm_14.json
-chuul_mm_25.json
-chuul_spore_servant_oota.json
-chwinga_astronaut_bam.json
-chwinga_cm.json
-chwinga_idrotf.json
-chwinga_toa.json
-cinder_hulk_bgg.json
-citadel_spider_veor.json
-clawfoot_erlw.json
-clay_gladiator_toa.json
-clay_golem_mm_14.json
-clay_golem_mm_25.json
-cloaker_mm_14.json
-cloaker_mm_25.json
-cloaker_mutate_pabtso.json
-clockwork_behir_oow.json
-clockwork_bronze_scout_mpmm.json
-clockwork_defender_kftgv.json
-clockwork_dragon_ai.json
-clockwork_iron_cobra_mpmm.json
-clockwork_mule_skt.json
-clockwork_oaken_bolter_mpmm.json
-clockwork_observer_kftgv.json
-clockwork_stone_defender_mpmm.json
-cloud_giant_destiny_gambler_bgg.json
-cloud_giant_ghost_cm.json
-cloud_giant_mm_14.json
-cloud_giant_mm_25.json
-cloud_giant_noble_tftyp.json
-cloud_giant_of_evil_air_bgg.json
-cloud_giant_smiling_one_mpmm.json
-cloud_giant_smiling_one_vgm.json
-cockatrice_mm_14.json
-cockatrice_mm_25.json
-cockatrice_regent_mm_25.json
-cogwork_archivist_scc.json
-coldlight_walker_idrotf.json
-colossus_mm_25.json
-colossus_of_akros_mot.json
-combat_robot_qftis.json
-commoner_mm_14.json
-commoner_mm_25.json
-commoner_wtthc.json
-conclave_dryad_ggr.json
-conjurer_vgm.json
-conjurer_wizard_mpmm.json
-conservatory_student_kftgv.json
-constrictor_snake_mm_14.json
-constrictor_snake_mm_25.json
-constructed_commoner_cm.json
-construct_spirit_phb_24.json
-construct_spirit_tce.json
-copper_dragon_wyrmling_mm_14.json
-copper_dragon_wyrmling_mm_25.json
-copper_greatwyrm_ftd.json
-core_spawn_crawler_egw.json
-core_spawn_emissary_egw.json
-core_spawn_seer_egw.json
-core_spawn_worm_egw.json
-corpse_flower_mpmm.json
-corpse_flower_mtf.json
-corrupted_avatar_of_lurue_cm.json
-corrupted_giant_shark_crcotn.json
-corrupted_rat_wtthc.json
-cosmic_horror_bam.json
-cosmotronic_blastseeker_ggr.json
-couatl_mm_14.json
-couatl_mm_25.json
-counterflux_blastseeker_ggr.json
-cow_vgm.json
-crab_mm_14.json
-crab_mm_25.json
-cradle_of_the_cloud_scion_bgg.json
-cradle_of_the_fire_scion_bgg.json
-cradle_of_the_frost_scion_bgg.json
-cradle_of_the_hill_scion_bgg.json
-cradle_of_the_stone_scion_bgg.json
-cradle_of_the_storm_scion_bgg.json
-crag_cat_skt.json
-cranium_rat_mpmm.json
-cranium_rat_squeaker_mpp.json
-cranium_rat_squeaker_swarm_mpp.json
-cranium_rat_vgm.json
-crawling_claw_mm_14.json
-crawling_claw_mm_25.json
-crimson_helmed_horror_kftgv.json
-crocodile_mm_14.json
-crocodile_mm_25.json
-crow_wdmm.json
-crushing_wave_priest_pota.json
-crushing_wave_reaver_pota.json
-crystal_battleaxe_wdmm.json
-crystal_dragon_wyrmling_ftd.json
-crystal_golem_wdmm.json
-crystal_greatwyrm_ftd.json
-cultist_fanatic_mm_25.json
-cultist_hierophant_mm_25.json
-cultist_mm_14.json
-cultist_mm_25.json
-cultist_of_bane_fraif.json
-cultist_of_bhaal_fraif.json
-cultist_of_demogorgon_wtthc.json
-cultist_of_myrkul_fraif.json
-cult_fanatic_mm_14.json
-cuprilach_rilmani_mpp.json
-curate_hotb.json
-cyclops_mm_14.json
-cyclops_oracle_mm_25.json
-cyclops_sentry_mm_25.json
-daask_bruiser_efa.json
-daask_raider_efa.json
-dabus_mpp.json
-daemogoth_scc.json
-daemogoth_titan_scc.json
-damaged_flesh_golem_egw.json
-dancing_flame_crcotn.json
-dancing_item_tce.json
-dao_mm_14.json
-dao_mm_25.json
-darkling_elder_mpmm.json
-darkling_elder_vgm.json
-darkling_mpmm.json
-darkling_vgm.json
-darkmantle_mm_14.json
-darkmantle_mm_25.json
-darkweaver_mpp.json
-dark_tide_knight_pota.json
-deadbark_dryad_veor.json
-deadstone_cleft_stone_giant_skt.json
-dead_three_scion_fraif.json
-deathlock_mastermind_mpmm.json
-deathlock_mastermind_mtf.json
-deathlock_mpmm.json
-deathlock_mtf.json
-deathlock_wight_mpmm.json
-deathlock_wight_mtf.json
-deathpact_angel_ggr.json
-deathwolf_veor.json
-death_cultist_mm_25.json
-death_dog_mm_14.json
-death_dog_mm_25.json
-death_embrace_crcotn.json
-death_giant_reaper_bgg.json
-death_giant_shrouded_one_bgg.json
-death_kiss_mpmm.json
-death_kiss_vgm.json
-death_knight_aspirant_mm_25.json
-death_knight_mm_14.json
-death_knight_mm_25.json
-death_slaad_mm_14.json
-death_slaad_mm_25.json
-death_s_head_of_bhaal_bgdia.json
-death_s_head_vrgr.json
-death_tyrant_mm_14.json
-death_tyrant_mm_25.json
-decaton_modron_mpp.json
-deck_defender_bmt.json
-deep_crow_ai.json
-deep_dragon_wyrmling_fraif.json
-deep_dragon_wyrmling_ftd.json
-deep_gnome_svirfneblin_mm_14.json
-deep_roth_mpmm.json
-deep_roth_vgm.json
-deep_scion_mpmm.json
-deep_scion_vgm.json
-deer_mm_14.json
-deer_mm_25.json
-degloth_veor.json
-deinonychus_mpmm.json
-deinonychus_vgm.json
-demilich_mm_14.json
-demilich_mm_25.json
-demobat_wtthc.json
-demodog_wtthc.json
-demodragon_wtthc.json
-demogorgon_hftt.json
-demogorgon_mpmm.json
-demogorgon_mtf.json
-demogorgon_spawn_wtthc.json
-demos_magen_idrotf.json
-derro_apprentice_qftis.json
-derro_mpmm.json
-derro_mtf.json
-derro_oota.json
-derro_raider_qftis.json
-derro_savant_mpmm.json
-derro_savant_mtf.json
-derro_savant_oota.json
-detached_shadow_wbtw.json
-deva_mm_14.json
-deva_mm_25.json
-devkarin_lich_ggr.json
-devourer_mpmm.json
-devourer_vgm.json
-dhergoloth_mpmm.json
-dhergoloth_mtf.json
-diatryma_wdh.json
-dimetrodon_mpmm.json
-dimetrodon_vgm.json
-dining_table_mimic_wdh.json
-dinosaur_skeleton_jttrc.json
-dire_troll_mpmm.json
-dire_troll_mtf.json
-dire_wolf_mm_14.json
-dire_wolf_mm_25.json
-dire_worg_mm_25.json
-disciple_hol.json
-displacer_beast_kitten_wbtw.json
-displacer_beast_mm_14.json
-displacer_beast_mm_25.json
-distended_corpse_cos.json
-diva_jttrc.json
-diviner_vgm.json
-diviner_wizard_mpmm.json
-djinni_mm_14.json
-djinni_mm_25.json
-dohwar_bam.json
-dolgaunt_erlw.json
-dolgrim_erlw.json
-dolphin_delighter_mpmm.json
-dolphin_mpmm.json
-dolphin_vgm.json
-domestic_wonder_fraif.json
-doomguard_doom_lord_mpp.json
-doomguard_rot_blade_mpp.json
-doomwake_giant_mot.json
-doppelganger_mm_14.json
-doppelganger_mm_25.json
-dracohydra_ftd.json
-dracolich_mm_25.json
-draconian_dreadnought_ftd.json
-draconian_foot_soldier_ftd.json
-draconian_infiltrator_ftd.json
-draconian_mage_ftd.json
-draconian_mastermind_ftd.json
-draconic_shard_ftd.json
-draconic_spirit_ftd.json
-draconic_spirit_phb_24.json
-dracophage_subject_dsotdq.json
-draegloth_mpmm.json
-draegloth_vgm.json
-draft_horse_mm_14.json
-draft_horse_mm_25.json
-dragonblood_ooze_ftd.json
-dragonbone_golem_ftd.json
-dragonborn_of_bahamut_ftd.json
-dragonborn_of_sardior_ftd.json
-dragonborn_of_tiamat_ftd.json
-dragonclaw_hotdq.json
-dragonfang_rot.json
-dragonflesh_abomination_ftd.json
-dragonflesh_grafter_ftd.json
-dragonnel_ftd.json
-dragonsoul_rot.json
-dragonwing_hotdq.json
-dragon_army_dragonnel_dsotdq.json
-dragon_army_officer_dsotdq.json
-dragon_army_soldier_dsotdq.json
-dragon_blessed_ftd.json
-dragon_chosen_ftd.json
-dragon_hunter_jttrc.json
-dragon_speaker_ftd.json
-dragon_tortoise_cm.json
-dragon_turtle_mm_14.json
-dragon_turtle_mm_25.json
-dragon_turtle_wyrmling_ftd.json
-drake_companion_ftd.json
-dread_warrior_tftyp.json
-dreaming_dark_infiltrator_efa.json
-dreaming_dark_mindkiller_efa.json
-dretch_mm_14.json
-dretch_mm_25.json
-dretch_wtthc.json
-drider_mm_14.json
-drider_mm_25.json
-drowned_ascetic_gos.json
-drowned_assassin_gos.json
-drowned_blade_gos.json
-drowned_master_gos.json
-drow_acolyte_oota.json
-drow_arachnomancer_mpmm.json
-drow_arachnomancer_mtf.json
-drow_assassin_oota.json
-drow_bandit_oota.json
-drow_commander_tftyp.json
-drow_commoner_oota.json
-drow_cultist_oota.json
-drow_elite_warrior_mm_14.json
-drow_elite_warrior_of_lolth_fraif.json
-drow_favored_consort_mpmm.json
-drow_favored_consort_mtf.json
-drow_guard_oota.json
-drow_gunslinger_wdh.json
-drow_house_captain_mpmm.json
-drow_house_captain_mtf.json
-drow_inquisitor_mpmm.json
-drow_inquisitor_mtf.json
-drow_mage_mm_14.json
-drow_mage_of_lolth_fraif.json
-drow_matron_mother_mpmm.json
-drow_matron_mother_mtf.json
-drow_mm_14.json
-drow_noble_oota.json
-drow_of_lolth_fraif.json
-drow_priestess_of_lolth_fraif.json
-drow_priestess_of_lolth_mm_14.json
-drow_scout_oota.json
-drow_shadowblade_mpmm.json
-drow_shadowblade_mtf.json
-drow_spore_servant_oota.json
-drow_spy_oota.json
-druid_mm_14.json
-druid_mm_25.json
-druid_of_the_old_ways_ggr.json
-dryad_mm_14.json
-dryad_mm_25.json
-dryad_spirit_bgdia.json
-duergar_alchemist_oota.json
-duergar_darkhaft_oota.json
-duergar_despot_mpmm.json
-duergar_despot_mtf.json
-duergar_hammerer_mpmm.json
-duergar_hammerer_mtf.json
-duergar_kavalrachni_mpmm.json
-duergar_kavalrachni_mtf.json
-duergar_keeper_of_the_flame_oota.json
-duergar_mind_master_mpmm.json
-duergar_mind_master_mtf.json
-duergar_mm_14.json
-duergar_screamer_mpmm.json
-duergar_screamer_mtf.json
-duergar_soulblade_mpmm.json
-duergar_soulblade_mtf.json
-duergar_spore_servant_oota.json
-duergar_spy_tftyp.json
-duergar_stone_guard_mpmm.json
-duergar_stone_guard_mtf.json
-duergar_warlord_mpmm.json
-duergar_warlord_mtf.json
-duergar_xarrorn_mpmm.json
-duergar_xarrorn_mtf.json
-dullahan_vrgr.json
-duodrone_mm_14.json
-dusk_hag_erlw.json
-dust_hulk_bgg.json
-dust_mephit_mm_14.json
-dust_mephit_mm_25.json
-dwarf_skeleton_pabtso.json
-dybbuk_mpmm.json
-dybbuk_mtf.json
-dyrrn_erlw.json
-eagle_mm_14.json
-eagle_mm_25.json
-earth_elemental_mm_14.json
-earth_elemental_mm_25.json
-earth_elemental_myrmidon_mpmm.json
-earth_elemental_myrmidon_mtf.json
-eater_of_hope_mot.json
-eater_of_knowledge_mpp.json
-eblis_toa.json
-echo_of_demogorgon_bgg.json
-efreeti_mm_14.json
-efreeti_mm_25.json
-egg_hunter_adult_ftd.json
-egg_hunter_hatchling_ftd.json
-eidolon_mpmm.json
-eidolon_mtf.json
-elder_black_pudding_tftyp.json
-elder_brain_dragon_ftd.json
-elder_brain_mpmm.json
-elder_brain_vgm.json
-elder_giant_lizard_tftyp.json
-elder_oblex_mpmm.json
-elder_oblex_mtf.json
-elder_tempest_mpmm.json
-elder_tempest_mtf.json
-eldritch_eddy_nf.json
-eldritch_horror_hatchling_kftgv.json
-elemental_cataclysm_mm_25.json
-elemental_cultist_mm_25.json
-elemental_spirit_phb_24.json
-elemental_spirit_tce.json
-elephant_mm_14.json
-elephant_mm_25.json
-elk_mm_14.json
-elk_mm_25.json
-emberhorn_minotaur_pota.json
-emerald_claw_commander_efa.json
-emerald_claw_knight_efa.json
-emerald_dragon_wyrmling_ftd.json
-emerald_enclave_scout_oota.json
-emerald_greatwyrm_ftd.json
-empyrean_iota_mm_25.json
-empyrean_mm_14.json
-empyrean_mm_25.json
-encephalon_cluster_pabtso.json
-encephalon_gemmule_pabtso.json
-enchanter_vgm.json
-enchanter_wizard_mpmm.json
-enchanting_infiltrator_bmt.json
-engineer_wdh.json
-enormous_tentacle_oow.json
-equinal_guardinal_mpp.json
-erinyes_mm_14.json
-erinyes_mm_25.json
-esthetic_bam.json
-eternal_flame_guardian_pota.json
-eternal_flame_priest_pota.json
-ettercap_mm_14.json
-ettercap_mm_25.json
-ettin_ceremorph_bgg.json
-ettin_mm_14.json
-ettin_mm_25.json
-euryale_bmt.json
-evil_mage_hftt.json
-evil_mage_lmop.json
-evoker_vgm.json
-evoker_wizard_mpmm.json
-expeditious_messenger_erlw.json
-expert_dc.json
-expert_esk.json
-expert_sdw.json
-expert_slw.json
-eyedrake_ftd.json
-eyestalk_of_gzemnid_tofw.json
-eye_monger_bam.json
-faerie_dragon_adult_mm_25.json
-faerie_dragon_blue_mm_14.json
-faerie_dragon_green_mm_14.json
-faerie_dragon_indigo_mm_14.json
-faerie_dragon_orange_mm_14.json
-faerie_dragon_red_mm_14.json
-faerie_dragon_violet_mm_14.json
-faerie_dragon_yellow_mm_14.json
-faerie_dragon_youth_mm_25.json
-falcon_wdh.json
-false_lich_veor.json
-farastu_demodand_mpp.json
-fastieth_erlw.json
-fated_shaker_mpp.json
-fate_hag_bmt.json
-fathomer_pota.json
-feathergale_knight_pota.json
-felbarren_dwarf_skt.json
-felidar_ggr.json
-female_steeder_mpmm.json
-female_steeder_mtf.json
-female_steeder_oota.json
-fensir_devourer_bgg.json
-fensir_skirmisher_bgg.json
-feral_ashenwight_pabtso.json
-ferrumach_rilmani_mpp.json
-feyr_bam.json
-fey_spirit_phb_24.json
-fey_spirit_tce.json
-fiendish_auger_pabtso.json
-fiendish_flesh_golem_bgdia.json
-fiendish_giant_spider_oota.json
-fiendish_icon_abh.json
-fiendish_orc_crcotn.json
-fiendish_spirit_phb_24.json
-fiendish_spirit_tce.json
-fiend_cultist_mm_25.json
-firbolg_primeval_warden_bgg.json
-firbolg_wanderer_bgg.json
-firefist_ggr.json
-firegaunt_bgg.json
-firemane_angel_ggr.json
-firenewt_warlock_of_imix_mpmm.json
-firenewt_warlock_of_imix_vgm.json
-firenewt_warrior_mpmm.json
-firenewt_warrior_vgm.json
-fire_elemental_mm_14.json
-fire_elemental_mm_25.json
-fire_elemental_myrmidon_mpmm.json
-fire_elemental_myrmidon_mtf.json
-fire_giant_dreadnought_mpmm.json
-fire_giant_dreadnought_vgm.json
-fire_giant_forgecaller_bgg.json
-fire_giant_mm_14.json
-fire_giant_mm_25.json
-fire_giant_of_evil_fire_bgg.json
-fire_giant_royal_headsman_tftyp.json
-fire_giant_servant_tftyp.json
-fire_hellion_bgg.json
-fire_snake_mm_14.json
-first-year_student_scc.json
-fish_gos.json
-fist_of_bane_bgdia.json
-five-armed_troll_wdmm.json
-flail_snail_mpmm.json
-flail_snail_vgm.json
-flameskull_mm_14.json
-flameskull_mm_25.json
-flamewrath_pota.json
-flaming_skeleton_mm_25.json
-fleecemane_lion_mot.json
-flesh_colossus_bgg.json
-flesh_golem_mm_14.json
-flesh_golem_mm_25.json
-flesh_meld_pabtso.json
-flind_mpmm.json
-flind_vgm.json
-flitterstep_eidolon_mot.json
-flumph_mm_14.json
-flumph_mm_25.json
-fluxcharger_ggr.json
-flux_blastseeker_ggr.json
-flying_dagger_bgdia.json
-flying_horror_ggr.json
-flying_monkey_toa.json
-flying_rocking_horse_wbtw.json
-flying_shield_tftyp.json
-flying_snake_mm_14.json
-flying_snake_mm_25.json
-flying_staff_wdh.json
-flying_sword_mm_14.json
-flying_trident_wdmm.json
-flying_wand_wdmm.json
-flying_wonder_fraif.json
-fomorian_deep_crawler_bgg.json
-fomorian_mm_14.json
-fomorian_mm_25.json
-fomorian_noble_bgg.json
-fomorian_warlock_of_the_dark_bgg.json
-four-armed_gargoyle_tftyp.json
-four-armed_statue_oota.json
-four-armed_troll_hotdq.json
-fox_idrotf.json
-fractal_mascot_scc.json
-fraternity_of_order_law_bender_mpp.json
-fraz-urb_luu_mpmm.json
-fraz-urb_luu_mtf.json
-froghemoth_elder_qftis.json
-froghemoth_mpmm.json
-froghemoth_vgm.json
-frog_mm_14.json
-frog_mm_25.json
-frontline_medic_ggr.json
-frostmourn_bgg.json
-frost_druid_idrotf.json
-frost_giant_everlasting_one_mpmm.json
-frost_giant_everlasting_one_vgm.json
-frost_giant_ice_shaper_bgg.json
-frost_giant_mm_14.json
-frost_giant_mm_25.json
-frost_giant_of_evil_water_bgg.json
-frost_giant_servant_tftyp.json
-frost_giant_skeleton_idrotf.json
-frost_giant_zombie_egw.json
-frost_salamander_mpmm.json
-frost_salamander_mtf.json
-frost_worm_egw.json
-fume_drake_dosi.json
-fungal_servant_cm.json
-fury_of_kostchtchie_bgg.json
-gaj_bam.json
-galazeth_prismari_scc.json
-galeb_duhr_mm_14.json
-galeb_duhr_mm_25.json
-gallows_speaker_vrgr.json
-galvanice_weird_ggr.json
-galvanic_blastseeker_ggr.json
-galvan_magen_idrotf.json
-gargantuan_rug_of_smothering_tftyp.json
-gargantua_bgg.json
-gargoyle_mm_14.json
-gargoyle_mm_25.json
-gas_spore_fungus_mm_25.json
-gas_spore_mm_14.json
-gauth_mpmm.json
-gauth_vgm.json
-gazer_mpmm.json
-gazer_vgm.json
-gearkeeper_construct_egw.json
-gelatinous_cube_mm_14.json
-gelatinous_cube_mm_25.json
-gem_stalker_ftd.json
-geryon_mpmm.json
-geryon_mtf.json
-ghallanda_troubleshooter_efa.json
-ghast_gravecaller_mm_25.json
-ghast_mm_14.json
-ghast_mm_25.json
-ghostblade_eidolon_mot.json
-ghost_dragon_ftd.json
-ghost_mm_14.json
-ghost_mm_25.json
-ghoul_mm_14.json
-ghoul_mm_25.json
-giant_ape_mm_14.json
-giant_ape_mm_25.json
-giant_axe_beak_mm_25.json
-giant_badger_mm_14.json
-giant_badger_mm_25.json
-giant_bat_mm_14.json
-giant_bat_mm_25.json
-giant_boar_mm_14.json
-giant_boar_mm_25.json
-giant_canary_ftd.json
-giant_centipede_mm_14.json
-giant_centipede_mm_25.json
-giant_child_bgg.json
-giant_constrictor_snake_mm_14.json
-giant_constrictor_snake_mm_25.json
-giant_coral_snake_gos.json
-giant_corrupted_rat_wtthc.json
-giant_crab_mm_14.json
-giant_crab_mm_25.json
-giant_crayfish_tftyp.json
-giant_crocodile_mm_14.json
-giant_crocodile_mm_25.json
-giant_dragonfly_wbtw.json
-giant_eagle_mm_14.json
-giant_eagle_mm_25.json
-giant_elk_mm_14.json
-giant_elk_mm_25.json
-giant_fire_beetle_mm_14.json
-giant_fire_beetle_mm_25.json
-giant_flying_spider_wdmm.json
-giant_fly_dmg_14.json
-giant_fly_dmg_24.json
-giant_four-armed_gargoyle_toa.json
-giant_frog_mm_14.json
-giant_frog_mm_25.json
-giant_gelatinous_cube_wdmm.json
-giant_goat_mm_14.json
-giant_goat_mm_25.json
-giant_goose_bgg.json
-giant_hyena_mm_14.json
-giant_hyena_mm_25.json
-giant_ice_toad_tftyp.json
-giant_insect_phb_24.json
-giant_lightning_eel_tftyp.json
-giant_lizard_mm_14.json
-giant_lizard_mm_25.json
-giant_lynx_bgg.json
-giant_octopus_mm_14.json
-giant_octopus_mm_25.json
-giant_owl_mm_14.json
-giant_owl_mm_25.json
-giant_ox_bgg.json
-giant_poisonous_snake_mm_14.json
-giant_ram_bgg.json
-giant_rat_mm_14.json
-giant_rat_mm_25.json
-giant_raven_skt.json
-giant_riding_lizard_oota.json
-giant_rocktopus_oota.json
-giant_scorpion_mm_14.json
-giant_scorpion_mm_25.json
-giant_seahorse_mm_25.json
-giant_sea_eel_gos.json
-giant_sea_horse_mm_14.json
-giant_shark_mm_14.json
-giant_shark_mm_25.json
-giant_shark_skeleton_sdw.json
-giant_skeleton_tftyp.json
-giant_snail_wbtw.json
-giant_snapping_turtle_toa.json
-giant_space_hamster_bam.json
-giant_spider_mm_14.json
-giant_spider_mm_25.json
-giant_spider_wtthc.json
-giant_squid_mm_25.json
-giant_strider_mpmm.json
-giant_strider_vgm.json
-giant_subterranean_lizard_tftyp.json
-giant_swan_wbtw.json
-giant_tick_bgg.json
-giant_toad_mm_14.json
-giant_toad_mm_25.json
-giant_venomous_snake_mm_25.json
-giant_vulture_mm_14.json
-giant_vulture_mm_25.json
-giant_walrus_idrotf.json
-giant_wasp_mm_14.json
-giant_wasp_mm_25.json
-giant_weasel_mm_14.json
-giant_weasel_mm_25.json
-giant_whirlwyrm_tofw.json
-giant_white_moray_eel_gos.json
-giant_wolf_spider_mm_14.json
-giant_wolf_spider_mm_25.json
-gibbering_mouther_mm_14.json
-gibbering_mouther_mm_25.json
-gibberling_qftis.json
-giff_mpmm.json
-giff_mtf.json
-giff_shipmate_bam.json
-giff_shock_trooper_bam.json
-giff_warlord_bam.json
-gigant_bgg.json
-gingwatzim_cm.json
-girallon_mpmm.json
-girallon_vgm.json
-girallon_zombie_toa.json
-githyanki_buccaneer_bam.json
-githyanki_dracomancer_mm_25.json
-githyanki_gish_mpmm.json
-githyanki_gish_mtf.json
-githyanki_kith_rak_mpmm.json
-githyanki_kith_rak_mtf.json
-githyanki_knight_mm_14.json
-githyanki_knight_mm_25.json
-githyanki_star_seer_bam.json
-githyanki_supreme_commander_mpmm.json
-githyanki_supreme_commander_mtf.json
-githyanki_warrior_mm_14.json
-githyanki_warrior_mm_25.json
-githyanki_xenomancer_bam.json
-githzerai_anarch_mpmm.json
-githzerai_anarch_mtf.json
-githzerai_enlightened_mpmm.json
-githzerai_enlightened_mtf.json
-githzerai_futurist_mpp.json
-githzerai_monk_mm_14.json
-githzerai_monk_mm_25.json
-githzerai_psion_mm_25.json
-githzerai_traveler_mpp.json
-githzerai_uniter_mpp.json
-githzerai_zerth_mm_14.json
-githzerai_zerth_mm_25.json
-glabrezu_mm_14.json
-glabrezu_mm_25.json
-gladiator_mm_14.json
-gladiator_mm_25.json
-glasswork_golem_wbtw.json
-glass_pegasus_wbtw.json
-gloamwing_ggr.json
-gloomstalker_egw.json
-gloom_weaver_mtf.json
-gnoll_demoniac_mm_25.json
-gnoll_fang_of_yeenoghu_mm_14.json
-gnoll_fang_of_yeenoghu_mm_25.json
-gnoll_flesh_gnawer_mpmm.json
-gnoll_flesh_gnawer_vgm.json
-gnoll_hunter_mpmm.json
-gnoll_hunter_vgm.json
-gnoll_mm_14.json
-gnoll_pack_lord_mm_14.json
-gnoll_pack_lord_mm_25.json
-gnoll_vampire_idrotf.json
-gnoll_warrior_mm_25.json
-gnoll_warrior_wtthc.json
-gnoll_witherling_mpmm.json
-gnoll_witherling_vgm.json
-gnome_ceremorph_idrotf.json
-gnome_squidling_idrotf.json
-goat_mm_14.json
-goat_mm_25.json
-goblin_boss_archer_pabtso.json
-goblin_boss_mm_14.json
-goblin_boss_mm_25.json
-goblin_commoner_tftyp.json
-goblin_gang_member_kkw.json
-goblin_hexer_mm_25.json
-goblin_minion_mm_25.json
-goblin_mm_14.json
-goblin_psi_brawler_pabtso.json
-goblin_psi_commander_pabtso.json
-goblin_warrior_mm_25.json
-goblin_warrior_wtthc.json
-gold-forged_sentinel_mot.json
-golden_stag_hotdq.json
-gold_dragon_wyrmling_mm_14.json
-gold_dragon_wyrmling_mm_25.json
-gold_greatwyrm_ftd.json
-golgari_shaman_ggr.json
-goliath_giant-kin_bgg.json
-goliath_warrior_idrotf.json
-goliath_werebear_idrotf.json
-gorgon_mm_14.json
-gorgon_mm_25.json
-goristro_mm_14.json
-goristro_mm_25.json
-gorzil_s_gang_troglodyte_wdmm.json
-granite_juggernaut_veor.json
-graveyard_revenant_mm_25.json
-gray_ooze_glob_hotb.json
-gray_ooze_mm_14.json
-gray_ooze_mm_25.json
-gray_render_mpmm.json
-gray_render_mtf.json
-gray_scavver_bam.json
-gray_slaad_mm_14.json
-gray_slaad_mm_25.json
-graz_zt_mpmm.json
-graz_zt_mtf.json
-greater_death_dragon_dsotdq.json
-greater_star_spawn_emissary_vrgr.json
-greater_zombie_tftyp.json
-green_abishai_mpmm.json
-green_abishai_mtf.json
-green_dragon_wyrmling_mm_14.json
-green_dragon_wyrmling_mm_25.json
-green_greatwyrm_ftd.json
-green_guard_drake_vgm.json
-green_hag_mm_14.json
-green_hag_mm_25.json
-green_slaad_mm_14.json
-green_slaad_mm_25.json
-grell_mm_14.json
-grell_mm_25.json
-grell_psychic_pabtso.json
-gremishka_vrgr.json
-gremorly_s_ghost_bmt.json
-grick_alpha_mm_14.json
-grick_ancient_mm_25.json
-grick_mm_14.json
-grick_mm_25.json
-griffon_cavalry_rider_wdh.json
-griffon_mm_14.json
-griffon_mm_25.json
-grimlock_mm_14.json
-grimlock_mm_25.json
-grim_champion_of_bloodshed_bmt.json
-grim_champion_of_desolation_bmt.json
-grim_champion_of_pestilence_bmt.json
-grinning_cat_bgg.json
-grippli_warrior_cm.json
-groff_scc.json
-grung_elite_warrior_mpmm.json
-grung_elite_warrior_vgm.json
-grung_mpmm.json
-grung_vgm.json
-grung_wildling_mpmm.json
-grung_wildling_vgm.json
-guardian_giant_ggr.json
-guardian_naga_mm_14.json
-guardian_naga_mm_25.json
-guardian_of_gorm_qftis.json
-guardian_portrait_cos.json
-guardian_wolf_egw.json
-guard_captain_mm_25.json
-guard_drake_hotdq.json
-guard_drake_mpmm.json
-guard_mm_14.json
-guard_mm_25.json
-guard_wtthc.json
-gulthias_blight_mm_25.json
-gynosphinx_mm_14.json
-hadozee_explorer_bam.json
-hadozee_shipmate_bam.json
-hadozee_warrior_bam.json
-hadrosaurus_mpmm.json
-hadrosaurus_vgm.json
-haint_jttrc.json
-halaster_horror_wdmm.json
-half-blue_dragon_gladiator_rot.json
-half-dragon_mm_25.json
-half-green_dragon_assassin_rot.json
-half-ogre_ogrillon_mm_14.json
-half-red_dragon_gladiator_rot.json
-half-red_dragon_veteran_mm_14.json
-hands_of_havoc_fire_starter_mpp.json
-harengon_brigand_wbtw.json
-harengon_sniper_wbtw.json
-hare_idrotf.json
-harmonium_captain_mpp.json
-harmonium_peacekeeper_mpp.json
-harpy_matriarch_gos.json
-harpy_mm_14.json
-harpy_mm_25.json
-harrow_hawk_bmt.json
-harrow_hound_bmt.json
-harvester_devil_abh.json
-hashalaq_quori_erlw.json
-haunting_revenant_mm_25.json
-hawk_mm_14.json
-hawk_mm_25.json
-hazvongel_veor.json
-headless_iron_golem_idrotf.json
-hellfire_engine_mpmm.json
-hellfire_engine_mtf.json
-hellwasp_bgdia.json
-hellwasp_grub_bgdia.json
-hell_hound_mm_14.json
-hell_hound_mm_25.json
-hell_hound_wtthc.json
-helmed_horror_detention_drone_bmt.json
-helmed_horror_mm_14.json
-helmed_horror_mm_25.json
-heralds_of_dust_remnant_mpp.json
-hertilod_veor.json
-hexton_modron_mpp.json
-hezrou_mm_14.json
-hezrou_mm_25.json
-hierophant_medusa_bmt.json
-hierophant_of_the_comet_bmt.json
-hill_giant_avalancher_bgg.json
-hill_giant_mm_14.json
-hill_giant_mm_25.json
-hill_giant_sergeant_tftyp.json
-hill_giant_servant_tftyp.json
-hill_giant_subchief_tftyp.json
-hippocamp_mot.json
-hippogriff_mm_14.json
-hippogriff_mm_25.json
-hippopotamus_mm_25.json
-hoard_mimic_ftd.json
-hoard_scarab_ftd.json
-hobgoblin_captain_mm_14.json
-hobgoblin_captain_mm_25.json
-hobgoblin_devastator_mpmm.json
-hobgoblin_devastator_vgm.json
-hobgoblin_iron_shadow_mpmm.json
-hobgoblin_iron_shadow_vgm.json
-hobgoblin_mm_14.json
-hobgoblin_warlord_mm_14.json
-hobgoblin_warlord_mm_25.json
-hobgoblin_warrior_mm_25.json
-hollow_dragon_ftd.json
-hollyphant_bgdia.json
-homunculus_mm_14.json
-homunculus_mm_25.json
-homunculus_servant_efa.json
-homunculus_servant_tce.json
-hook_horror_mm_14.json
-hook_horror_mm_25.json
-hook_horror_spore_servant_oota.json
-horizonback_tortoise_egw.json
-horncaller_ggr.json
-horned_devil_mm_14.json
-horned_devil_mm_25.json
-horrid_plant_qftis.json
-hound_archon_mpp.json
-hound_of_ill_omen_xge.json
-howler_mpmm.json
-howler_mtf.json
-howling_hatred_initiate_pota.json
-howling_hatred_priest_pota.json
-huge_giant_crab_tftyp.json
-huge_gray_ooze_wdmm.json
-huge_ochre_jelly_tftyp.json
-huge_polar_bear_tftyp.json
-huge_stone_golem_skt.json
-hulgaz_bmt.json
-hulking_crab_skt.json
-hulking_shadow_dsotdq.json
-humanoid_mutate_pabtso.json
-hundred-handed_one_mot.json
-hungry_ghast_cos.json
-hungry_sorrowsworn_mpmm.json
-hunter_shark_mm_14.json
-hunter_shark_mm_25.json
-hurricane_pota.json
-husk_zombie_egw.json
-hutijin_mpmm.json
-hutijin_mtf.json
-hybrid_brute_ggr.json
-hybrid_flier_ggr.json
-hybrid_poisoner_ggr.json
-hybrid_shocker_ggr.json
-hybrid_spy_ggr.json
-hydra_mm_14.json
-hydra_mm_25.json
-hydroloth_mpmm.json
-hydroloth_mtf.json
-hyena_mm_14.json
-hyena_mm_25.json
-hypnos_magen_idrotf.json
-hythonia_mot.json
-icewind_kobold_idrotf.json
-icewind_kobold_zombie_idrotf.json
-ice_devil_mm_14.json
-ice_devil_mm_25.json
-ice_mephit_mm_14.json
-ice_mephit_mm_25.json
-ice_piercer_idrotf.json
-ice_spider_queen_skt.json
-ice_spider_skt.json
-ice_toad_rot.json
-ice_troll_idrotf.json
-ice_troll_rot.json
-illithilich_vgm.json
-illusionist_vgm.json
-illusionist_wizard_mpmm.json
-immortal_lotus_monk_cm.json
-imp_mm_14.json
-imp_mm_25.json
-imp_trickster_wtthc.json
-incarnation_of_transience_lfl.json
-incarnation_of_vibrance_lfl.json
-incomplete_dragon_skeleton_dsotdq.json
-incubus_mm_14.json
-incubus_mm_25.json
-indentured_spirit_ggr.json
-infant_basilisk_oota.json
-infant_hook_horror_oota.json
-infected_elder_brain_pabtso.json
-infected_townsperson_pabtso.json
-initiate_of_the_comet_bmt.json
-inkling_mascot_scc.json
-inquisitor_of_the_mind_fire_vrgr.json
-inquisitor_of_the_sword_vrgr.json
-inquisitor_of_the_tome_vrgr.json
-inspired_erlw.json
-intellect_devourer_mm_14.json
-intellect_devourer_mm_25.json
-intellect_snare_pabtso.json
-intelligent_black_pudding_wdmm.json
-invisible_stalker_mm_14.json
-invisible_stalker_mm_25.json
-ironscale_hydra_mot.json
-iron_cobra_mtf.json
-iron_consul_bgdia.json
-iron_defender_erlw.json
-iron_golem_mm_14.json
-iron_golem_mm_25.json
-isperia_ggr.json
-istarian_drone_dsotdq.json
-ixitxachitl_cleric_oota.json
-ixitxachitl_oota.json
-jabberwock_wbtw.json
-jackalwere_mm_14.json
-jackalwere_mm_25.json
-jackal_mm_14.json
-jackal_mm_25.json
-jaculi_toa.json
-jade_giant_spider_oota.json
-jammer_leech_bam.json
-jarad_vod_savo_ggr.json
-jiangshi_vrgr.json
-jorasco_medic_efa.json
-juiblex_mpmm.json
-juiblex_mtf.json
-junior_drow_priestess_of_lolth_wdmm.json
-juvenile_eldritch_horror_kftgv.json
-juvenile_hook_horror_oota.json
-juvenile_kraken_gos.json
-juvenile_mimic_tce.json
-juvenile_shadow_dragon_mm_25.json
-kakkuu_spyder-fiend_veor.json
-kalaman_soldier_dsotdq.json
-kalaraq_quori_erlw.json
-kalashtar_erlw.json
-kamadan_toa.json
-kapak_draconian_dsotdq.json
-karrnathi_undead_soldier_erlw.json
-keg_robot_ai.json
-kelpie_tftyp.json
-kelubar_demodand_mpp.json
-kender_skirmisher_dsotdq.json
-kenku_mm_14.json
-kenku_mm_25.json
-ki-rin_mpmm.json
-ki-rin_vgm.json
-kiddywidget_cm.json
-killer_whale_mm_14.json
-killer_whale_mm_25.json
-kindori_bam.json
-knight_mm_14.json
-knight_mm_25.json
-knight_of_the_black_sword_idrotf.json
-knight_of_the_mithral_shield_skt.json
-knight_of_the_order_cos.json
-knucklehead_trout_idrotf.json
-koalinth_gos.json
-koalinth_sergeant_gos.json
-kobold_commoner_tftyp.json
-kobold_dragonshield_mpmm.json
-kobold_dragonshield_vgm.json
-kobold_elite_tftyp.json
-kobold_inventor_mpmm.json
-kobold_inventor_vgm.json
-kobold_mm_14.json
-kobold_scale_sorcerer_mpmm.json
-kobold_scale_sorcerer_vgm.json
-kobold_tinkerer_dosi.json
-kobold_underling_egw.json
-kobold_vampire_spawn_idrotf.json
-kobold_warrior_mm_25.json
-koi_prawn_jttrc.json
-kolyarut_mpp.json
-korred_mpmm.json
-korred_vgm.json
-kraken_mm_14.json
-kraken_mm_25.json
-kraken_priest_mpmm.json
-kraken_priest_vgm.json
-kraul_death_priest_ggr.json
-kraul_warrior_ggr.json
-kruthik_hive_lord_mpmm.json
-kruthik_hive_lord_mtf.json
-kundarak_warden_efa.json
-kuo-toa_archpriest_mm_14.json
-kuo-toa_archpriest_mm_25.json
-kuo-toa_marauder_hotb.json
-kuo-toa_mm_14.json
-kuo-toa_mm_25.json
-kuo-toa_monitor_mm_14.json
-kuo-toa_monitor_mm_25.json
-kuo-toa_whip_mm_14.json
-kuo-toa_whip_mm_25.json
-lacedon_ghoul_mm_25.json
-lacedon_tftyp.json
-lady_illmarrow_erlw.json
-lamia_mm_14.json
-lamia_mm_25.json
-lampad_mot.json
-lantern_archon_mpp.json
-large_mimic_rmbre.json
-large_mimic_wdmm.json
-larva_dmg_14.json
-larva_mm_25.json
-lava_child_wdmm.json
-lawmage_ggr.json
-lazav_ggr.json
-lemure_mm_14.json
-lemure_mm_25.json
-leonin_iconoclast_mot.json
-leprechaun_qftis.json
-lesser_death_dragon_dsotdq.json
-lesser_mummy_lord_tftyp.json
-lesser_star_spawn_emissary_vrgr.json
-leucrotta_mpmm.json
-leucrotta_vgm.json
-leviathan_mpmm.json
-leviathan_mtf.json
-lichen_lich_cm.json
-lich_mm_14.json
-lich_mm_25.json
-lightning_golem_cm.json
-lightning_hulk_bgg.json
-light_devourer_crcotn.json
-liondrake_ftd.json
-lion_mm_14.json
-lion_mm_25.json
-living_bigby_s_hand_idrotf.json
-living_blade_of_disaster_idrotf.json
-living_burning_hands_erlw.json
-living_cloudkill_erlw.json
-living_demiplane_idrotf.json
-living_doll_wbtw.json
-living_iron_statue_gos.json
-living_lightning_bolt_erlw.json
-living_portent_bmt.json
-living_unseen_servant_wdmm.json
-lizardfolk_commoner_gos.json
-lizardfolk_geomancer_mm_25.json
-lizardfolk_mm_14.json
-lizardfolk_render_gos.json
-lizardfolk_scaleshield_gos.json
-lizardfolk_shaman_mm_14.json
-lizardfolk_sovereign_mm_25.json
-lizardfolk_subchief_gos.json
-lizardfolk_warden_hotb.json
-lizard_king_mm_14.json
-lizard_mm_14.json
-lizard_mm_25.json
-lizard_queen_mm_14.json
-locathah_gos.json
-locathah_hunter_gos.json
-lonelywood_banshee_idrotf.json
-lonely_sorrowsworn_mpmm.json
-lords__alliance_guard_oota.json
-lords__alliance_spy_oota.json
-lorehold_apprentice_scc.json
-lorehold_pledgemage_scc.json
-lorehold_professor_of_chaos_scc.json
-lorehold_professor_of_order_scc.json
-lorwyn_giant_lfl.json
-lost_sorrowsworn_mpmm.json
-loup_garou_vrgr.json
-lunar_dragon_wyrmling_bam.json
-lycanthropickle_rmbre.json
-lyrandar_scion_efa.json
-mad_golem_wdmm.json
-maelephant_mpp.json
-magewright_erlw.json
-mage_apprentice_mm_25.json
-mage_hunter_scc.json
-mage_mm_14.json
-mage_mm_25.json
-mage_of_usamigaras_qftis.json
-magma_mephit_mm_14.json
-magma_mephit_mm_25.json
-magmin_mm_14.json
-magmin_mm_25.json
-malaxxix_bmt.json
-male_steeder_mpmm.json
-male_steeder_mtf.json
-male_steeder_oota.json
-malformed_kraken_tftyp.json
-mammoth_mm_14.json
-mammoth_mm_25.json
-manes_mm_14.json
-manes_mm_25.json
-manes_vaporspawn_mm_25.json
-manticore_mm_14.json
-manticore_mm_25.json
-mantrap_toa.json
-marid_mm_14.json
-marid_mm_25.json
-marilith_mm_14.json
-marilith_mm_25.json
-martial_arts_adept_mpmm.json
-martial_arts_adept_vgm.json
-marut_mpmm.json
-marut_mtf.json
-maschin-i-bozorg_qftis.json
-master_of_cruelties_ggr.json
-master_of_souls_bgdia.json
-master_sage_cm.json
-master_thief_mpmm.json
-master_thief_vgm.json
-mastiff_mm_14.json
-mastiff_mm_25.json
-maurezhi_mpmm.json
-maurezhi_mtf.json
-maw_demon_mpmm.json
-maw_demon_vgm.json
-maw_of_yeenoghu_bgg.json
-meazel_mpmm.json
-meazel_mtf.json
-mechachimera_oow.json
-mechanical_bird_wdh.json
-medani_inquisitive_efa.json
-medusa_mm_14.json
-medusa_mm_25.json
-medusa_mot.json
-medusa_wtthc.json
-meenlock_mpmm.json
-meenlock_vgm.json
-meeseeks_rmbre.json
-megapede_bam.json
-meletian_hoplite_mot.json
-memory_web_qftis.json
-mercane_bam.json
-mercykiller_bloodhound_mpp.json
-merfolk_mm_14.json
-merfolk_salvager_gos.json
-merfolk_scout_gos.json
-merfolk_skirmisher_mm_25.json
-merfolk_wavebender_mm_25.json
-merregon_mpmm.json
-merregon_mtf.json
-merrenoloth_mpmm.json
-merrenoloth_mtf.json
-merrow_doublespeaker_lfl.json
-merrow_extortionist_dosi.json
-merrow_haranguer_lfl.json
-merrow_mm_14.json
-merrow_mm_25.json
-merrow_shallowpriest_egw.json
-metallic_peacekeeper_ftd.json
-metallic_warbler_ftd.json
-metal_wasp_wdmm.json
-mezzoloth_mm_14.json
-mezzoloth_mm_25.json
-mighty_servant_of_leuk-o_tce.json
-mimic_chair_cm.json
-mimic_mm_14.json
-mimic_mm_25.json
-mindwitness_mpmm.json
-mindwitness_vgm.json
-mind_drinker_vampire_ggr.json
-mind_flayer_arcanist_mm_14.json
-mind_flayer_arcanist_mm_25.json
-mind_flayer_clairvoyant_pabtso.json
-mind_flayer_mm_14.json
-mind_flayer_mm_25.json
-mind_flayer_nothic_pabtso.json
-mind_flayer_prophet_pabtso.json
-mind_flayer_psion_vgm.json
-mind_mage_ggr.json
-mind_s_eye_matter_smith_mpp.json
-minotaur_archaeologist_bmt.json
-minotaur_infiltrator_bmt.json
-minotaur_living_crystal_statue_gos.json
-minotaur_mm_14.json
-minotaur_of_baphomet_mm_25.json
-minotaur_skeleton_mm_14.json
-minotaur_skeleton_mm_25.json
-mirror_shade_veor.json
-mist_hulk_bgg.json
-modron_duodrone_mm_25.json
-modron_monodrone_mm_25.json
-modron_pentadrone_mm_25.json
-modron_planar_incarnate_tofw.json
-modron_quadrone_mm_25.json
-modron_tridrone_mm_25.json
-moloch_mpmm.json
-moloch_mtf.json
-molten_magma_roper_pota.json
-molydeus_mpmm.json
-molydeus_mtf.json
-monastic_high_curator_crcotn.json
-monastic_infiltrator_crcotn.json
-monastic_operative_crcotn.json
-mongrelfolk_cos.json
-monodrone_mm_14.json
-monstrous_peryton_gos.json
-moonlight_guardian_veor.json
-moonshark_crcotn.json
-moonstone_dragon_wyrmling_ftd.json
-moorbounder_egw.json
-mordakhesh_erlw.json
-morkoth_mpmm.json
-morkoth_vgm.json
-mountain_goat_idrotf.json
-mouth_of_grolantor_mpmm.json
-mouth_of_grolantor_vgm.json
-mud_hulk_bgg.json
-mud_mephit_mm_14.json
-mud_mephit_mm_25.json
-mule_mm_14.json
-mule_mm_25.json
-mummy_lord_mm_14.json
-mummy_lord_mm_25.json
-mummy_mm_14.json
-mummy_mm_25.json
-murder_comet_bam.json
-musteval_guardinal_mpp.json
-mutated_drow_wdmm.json
-myconid_adult_mm_14.json
-myconid_adult_mm_25.json
-myconid_adult_wtthc.json
-myconid_sovereign_mm_14.json
-myconid_sovereign_mm_25.json
-myconid_spore_servant_mm_25.json
-myconid_sprout_mm_14.json
-myconid_sprout_mm_25.json
-nabassu_mpmm.json
-nabassu_mtf.json
-nagpa_mpmm.json
-nagpa_mtf.json
-naiad_cm.json
-naiad_mot.json
-nalfeshnee_mm_14.json
-nalfeshnee_mm_25.json
-narzugon_mpmm.json
-narzugon_mtf.json
-necrichor_vrgr.json
-necromancer_vgm.json
-necromancer_wizard_mpmm.json
-necromite_of_myrkul_bgdia.json
-necrotic_centipede_bgdia.json
-needle_blight_mm_14.json
-needle_blight_mm_25.json
-needle_blight_wtthc.json
-neh-thalggu_bam.json
-neogi_hatchling_mpmm.json
-neogi_hatchling_swarm_bam.json
-neogi_hatchling_vgm.json
-neogi_master_mpmm.json
-neogi_master_vgm.json
-neogi_mpmm.json
-neogi_pirate_bam.json
-neogi_vgm.json
-neogi_void_hunter_bam.json
-neothelid_mpmm.json
-neothelid_vgm.json
-nereid_tftyp.json
-nergaliid_egw.json
-nightmare_mm_14.json
-nightmare_mm_25.json
-nightmare_shepherd_mot.json
-nightsea_chil-liren_jttrc.json
-nightveil_specter_ggr.json
-nightwalker_mpmm.json
-nightwalker_mtf.json
-night_blade_bgdia.json
-night_hag_mm_14.json
-night_hag_mm_25.json
-night_scavver_bam.json
-nilbog_mpmm.json
-nilbog_vgm.json
-nimblewright_guard_fraif.json
-nimblewright_hulk_fraif.json
-nimblewright_steed_fraif.json
-nimblewright_wdh.json
-niv-mizzet_ggr.json
-nivix_cyclops_ggr.json
-noble_mm_14.json
-noble_mm_25.json
-noble_prodigy_mm_25.json
-noggle_ransacker_lfl.json
-noggle_wild_mage_lfl.json
-nonaton_modron_mpp.json
-nosferatu_vrgr.json
-nothic_mm_14.json
-nothic_mm_25.json
-nupperibo_mpmm.json
-nupperibo_mtf.json
-nycaloth_mm_14.json
-nycaloth_mm_25.json
-nyx-fleece_ram_mot.json
-oaken_bolter_mtf.json
-oblex_spawn_mpmm.json
-oblex_spawn_mtf.json
-obzedat_ghost_ggr.json
-occult_extollant_crcotn.json
-occult_initiate_crcotn.json
-occult_silvertongue_crcotn.json
-ochre_jelly_mm_14.json
-ochre_jelly_mm_25.json
-octon_modron_mpp.json
-octopus_mm_14.json
-octopus_mm_25.json
-oculorb_pabtso.json
-oddlewin_bmt.json
-ogre_battering_ram_mpmm.json
-ogre_battering_ram_mtf.json
-ogre_bolt_launcher_mpmm.json
-ogre_bolt_launcher_mtf.json
-ogre_chain_brute_mpmm.json
-ogre_chain_brute_mtf.json
-ogre_goblin_hucker_skt.json
-ogre_howdah_mpmm.json
-ogre_howdah_mtf.json
-ogre_mm_14.json
-ogre_mm_25.json
-ogre_skeleton_tftyp.json
-ogre_zombie_mm_14.json
-ogre_zombie_mm_25.json
-ogrillon_ogre_mm_25.json
-oinoloth_mpmm.json
-oinoloth_mtf.json
-old_troglodyte_wdmm.json
-one-eyed_shiver_pota.json
-oni_mm_14.json
-oni_mm_25.json
-ooze_master_tftyp.json
-oracle_mot.json
-oracle_of_strixhaven_scc.json
-orcus_mpmm.json
-orcus_mtf.json
-orc_blade_of_ilneval_vgm.json
-orc_claw_of_luthic_vgm.json
-orc_commoner_tftyp.json
-orc_eye_of_gruumsh_mm_14.json
-orc_hand_of_yurtrus_vgm.json
-orc_mm_14.json
-orc_nurtured_one_of_yurtrus_vgm.json
-orc_red_fang_of_shargaas_vgm.json
-orc_war_chief_mm_14.json
-oread_mot.json
-orien_enforcer_efa.json
-oriq_blood_mage_scc.json
-oriq_recruiter_scc.json
-orog_mm_14.json
-orthon_mpmm.json
-orthon_mtf.json
-orzhov_giant_ggr.json
-otherworldly_corrupter_bmt.json
-otherworldly_steed_phb_24.json
-otyugh_mm_14.json
-otyugh_mm_25.json
-otyugh_mutate_pabtso.json
-owlbear_mm_14.json
-owlbear_mm_25.json
-owl_mm_14.json
-owl_mm_25.json
-ox_mpmm.json
-ox_vgm.json
-panopticus_wizard_wdh.json
-panther_mm_14.json
-panther_mm_25.json
-paper_bird_wbtw.json
-paper_whirlwind_rot.json
-parasite-infested_behir_cm.json
-pari_jttrc.json
-pazrodine_bmt.json
-peacock_bgdia.json
-pech_ditlcot.json
-pech_qftis.json
-pegasus_mm_14.json
-pegasus_mm_25.json
-pentadrone_mm_14.json
-performer_legend_mm_25.json
-performer_maestro_mm_25.json
-performer_mm_25.json
-peryton_mm_14.json
-peryton_mm_25.json
-pest_mascot_scc.json
-phaerimm_agent_fraif.json
-phaerimm_elder_nf.json
-phaerimm_hatchling_fraif.json
-phaerimm_scout_nf.json
-phantom_warrior_archer_cos.json
-phantom_warrior_cos.json
-phase_spider_mm_14.json
-phase_spider_mm_25.json
-phisarazu_spyder-fiend_veor.json
-phoenix_mpmm.json
-phoenix_mtf.json
-phylaskia_mot.json
-piercer_mm_14.json
-piercer_mm_25.json
-pig_skt.json
-piranha_mm_25.json
-pirate_admiral_mm_25.json
-pirate_bosun_gos.json
-pirate_captain_gos.json
-pirate_captain_mm_25.json
-pirate_deck_wizard_gos.json
-pirate_first_mate_gos.json
-pirate_mm_25.json
-pit_fiend_mm_14.json
-pit_fiend_mm_25.json
-pixie_mm_14.json
-pixie_mm_25.json
-pixie_wonderbringer_mm_25.json
-planar_incarnate_mpp.json
-planetar_mm_14.json
-planetar_mm_25.json
-plasmoid_boss_bam.json
-plasmoid_explorer_bam.json
-plasmoid_warrior_bam.json
-plesiosaurus_mm_14.json
-plesiosaurus_mm_25.json
-podling_vrgr.json
-poisonous_snake_mm_14.json
-poison_weird_wdmm.json
-polar_bear_mm_14.json
-polar_bear_mm_25.json
-polar_serpent_fraif.json
-poltergeist_mm_14.json
-poltergeist_mm_25.json
-polukranos_mot.json
-pony_mm_14.json
-pony_mm_25.json
-pral_hotb.json
-precognitive_mage_ggr.json
-priest_acolyte_mm_25.json
-priest_mm_14.json
-priest_mm_25.json
-priest_of_osybus_vrgr.json
-primeval_owlbear_mm_25.json
-prismari_apprentice_scc.json
-prismari_pledgemage_scc.json
-prismari_professor_of_expression_scc.json
-prismari_professor_of_perfection_scc.json
-prophetess_dran_ai.json
-pseudodragon_mm_14.json
-pseudodragon_mm_25.json
-psionic_ashenwight_pabtso.json
-psionic_shambling_mound_pabtso.json
-psurlon_bam.json
-psurlon_leader_bam.json
-psurlon_ringer_bam.json
-psychic_gray_ooze_mm_25.json
-pterafolk_toa.json
-pteranodon_mm_14.json
-pteranodon_mm_25.json
-purple_wormling_skt.json
-purple_worm_mm_14.json
-purple_worm_mm_25.json
-quadrone_detention_drone_bmt.json
-quadrone_mm_14.json
-quaggoth_mm_14.json
-quaggoth_mm_25.json
-quaggoth_spore_servant_mm_14.json
-quaggoth_thonot_mm_14.json
-quaggoth_thonot_mm_25.json
-quandrix_apprentice_scc.json
-quandrix_pledgemage_scc.json
-quandrix_professor_of_substance_scc.json
-quandrix_professor_of_theory_scc.json
-quasit_mm_14.json
-quasit_mm_25.json
-quavilithku_spyder-fiend_veor.json
-questing_knight_mm_25.json
-quetzalcoatlus_mpmm.json
-quetzalcoatlus_vgm.json
-quickling_mpmm.json
-quickling_vgm.json
-quipper_mm_14.json
-radiant_idol_erlw.json
-rakdos_ggr.json
-rakdos_lampooner_ggr.json
-rakdos_performer_blade_juggler_ggr.json
-rakdos_performer_fire_eater_ggr.json
-rakdos_performer_high-wire_acrobat_ggr.json
-raklupis_spyder-fiend_veor.json
-rakshasa_mm_14.json
-rakshasa_mm_25.json
-rak_tulkhesh_erlw.json
-rat_mm_14.json
-rat_mm_25.json
-raven_mm_14.json
-raven_mm_25.json
-razerblast_pota.json
-razorvine_blight_mpp.json
-reaper_of_bhaal_bgdia.json
-reaper_spirit_bmt.json
-reckoner_ggr.json
-redbrand_ruffian_lmop.json
-redbrand_ruffian_pabtso.json
-redcap_mpmm.json
-redcap_vgm.json
-reduced-threat_aboleth_tftyp.json
-reduced-threat_basilisk_tftyp.json
-reduced-threat_behir_tftyp.json
-reduced-threat_beholder_tftyp.json
-reduced-threat_black_pudding_tftyp.json
-reduced-threat_carrion_crawler_tftyp.json
-reduced-threat_clay_golem_tftyp.json
-reduced-threat_darkmantle_tftyp.json
-reduced-threat_displacer_beast_tftyp.json
-reduced-threat_dragon_turtle_tftyp.json
-reduced-threat_ettercap_tftyp.json
-reduced-threat_flesh_golem_tftyp.json
-reduced-threat_glabrezu_tftyp.json
-reduced-threat_gray_ooze_tftyp.json
-reduced-threat_helmed_horror_tftyp.json
-reduced-threat_hezrou_tftyp.json
-reduced-threat_hook_horror_tftyp.json
-reduced-threat_ochre_jelly_tftyp.json
-reduced-threat_otyugh_tftyp.json
-reduced-threat_owlbear_tftyp.json
-reduced-threat_peryton_tftyp.json
-reduced-threat_remorhaz_tftyp.json
-reduced-threat_stone_golem_tftyp.json
-reduced-threat_vrock_tftyp.json
-reduced-threat_wight_tftyp.json
-reduced-threat_wyvern_tftyp.json
-red_abishai_mpmm.json
-red_abishai_mtf.json
-red_dragon_wyrmling_mm_14.json
-red_dragon_wyrmling_mm_25.json
-red_greatwyrm_ftd.json
-red_guard_drake_vgm.json
-red_slaad_mm_14.json
-red_slaad_mm_25.json
-red_wizard_rot.json
-reef_shark_mm_14.json
-reef_shark_mm_25.json
-reflection_tce.json
-refraction_of_ilvaash_pabtso.json
-regenerating_black_pudding_oota.json
-reghed_chieftain_idrotf.json
-reghed_great_warrior_idrotf.json
-reghed_shaman_idrotf.json
-reghed_warrior_idrotf.json
-regisaur_bgg.json
-reigar_bam.json
-reindeer_idrotf.json
-relentless_impaler_veor.json
-relentless_juggernaut_vrgr.json
-relentless_slasher_vrgr.json
-relic_sloth_scc.json
-remorhaz_mm_14.json
-remorhaz_mm_25.json
-replica_duodrone_oow.json
-replica_monodrone_oow.json
-replica_pentadrone_oow.json
-replica_quadrone_oow.json
-replica_tridrone_oow.json
-retriever_mpmm.json
-retriever_mtf.json
-returned_drifter_mot.json
-returned_kakomantis_mot.json
-returned_palamnite_mot.json
-returned_sentry_mot.json
-revenant_mm_14.json
-revenant_mm_25.json
-rhinoceros_mm_14.json
-rhinoceros_mm_25.json
-riding_horse_mm_14.json
-riding_horse_mm_25.json
-riffler_bmt.json
-rime_hulk_bgg.json
-rip_tide_priest_gos.json
-riverine_jttrc.json
-rock_gnome_recluse_dip.json
-roc_mm_14.json
-roc_mm_25.json
-rooster_jttrc.json
-roper_mm_14.json
-roper_mm_25.json
-roth_vgm.json
-rot_troll_mpmm.json
-rot_troll_mtf.json
-rowboat_mimic_wdmm.json
-rubblebelt_stalker_ggr.json
-rug_of_smothering_mm_14.json
-ruidium_elephant_crcotn.json
-ruin_grinder_scc.json
-ruin_spider_bmt.json
-runed_behir_wdmm.json
-runic_colossus_bgg.json
-rusted_behemoth_fraif.json
-rusted_berserker_fraif.json
-rusted_wyrm_fraif.json
-rust_monster_mm_14.json
-rust_monster_mm_25.json
-rutterkin_mpmm.json
-rutterkin_mtf.json
-saber-toothed_tiger_mm_14.json
-saber-toothed_tiger_mm_25.json
-sacred_statue_mpmm.json
-sacred_statue_mtf.json
-sacred_stone_monk_pota.json
-sage_cm.json
-sahuagin_baron_mm_14.json
-sahuagin_baron_mm_25.json
-sahuagin_blademaster_gos.json
-sahuagin_champion_gos.json
-sahuagin_coral_smasher_gos.json
-sahuagin_deep_diver_gos.json
-sahuagin_hatchling_swarm_gos.json
-sahuagin_high_priestess_gos.json
-sahuagin_mm_14.json
-sahuagin_priestess_mm_14.json
-sahuagin_priest_mm_25.json
-sahuagin_warlock_of_uk_otoa_egw.json
-sahuagin_warrior_mm_25.json
-sahuagin_wave_shaper_gos.json
-salamander_fire_snake_mm_25.json
-salamander_inferno_master_mm_25.json
-salamander_mm_14.json
-salamander_mm_25.json
-sapphire_dragon_wyrmling_ftd.json
-sapphire_greatwyrm_ftd.json
-sapphire_sentinel_cm.json
-satyr_mm_14.json
-satyr_mm_25.json
-satyr_reveler_mot.json
-satyr_revelmaster_mm_25.json
-satyr_thornbearer_mot.json
-scaladar_wdmm.json
-scarecrow_mm_14.json
-scarecrow_mm_25.json
-scarecrow_wtthc.json
-scholarly_agent_crcotn.json
-scholarly_excavator_crcotn.json
-scholarly_mastermind_crcotn.json
-scion_of_grolantor_bgg.json
-scion_of_memnor_bgg.json
-scion_of_skoraeus_bgg.json
-scion_of_stronmaus_bgg.json
-scion_of_surtur_bgg.json
-scion_of_thrym_bgg.json
-scorchbringer_guard_ggr.json
-scorpion_mm_14.json
-scorpion_mm_25.json
-scout_captain_mm_25.json
-scout_mm_14.json
-scout_mm_25.json
-scrag_tftyp.json
-scufflecup_teacup_scc.json
-scuttling_serpentmaw_crcotn.json
-seahorse_mm_25.json
-seal_idrotf.json
-sea_elf_scout_dsotdq.json
-sea_elf_skt.json
-sea_fury_egw.json
-sea_hag_mm_14.json
-sea_hag_mm_25.json
-sea_horse_mm_14.json
-sea_lion_tftyp.json
-sea_spawn_mpmm.json
-sea_spawn_vgm.json
-sentient_gray_ooze_tftyp.json
-sentient_ochre_jelly_tftyp.json
-sentinel_marshal_efa.json
-septon_modron_mpp.json
-sergeant_erlw.json
-sergeant_wdh.json
-servitor_thrull_ggr.json
-setessan_hoplite_mot.json
-shadar-kai_gloom_weaver_mpmm.json
-shadar-kai_shadow_dancer_mpmm.json
-shadar-kai_soul_monger_mpmm.json
-shadow-marked_agent_efa.json
-shadowghast_egw.json
-shadowmoor_giant_lfl.json
-shadow_assassin_wdmm.json
-shadow_dancer_mtf.json
-shadow_demon_mm_14.json
-shadow_demon_mm_25.json
-shadow_dragon_mm_25.json
-shadow_horror_ggr.json
-shadow_mastiff_alpha_mpmm.json
-shadow_mastiff_mpmm.json
-shadow_mastiff_vgm.json
-shadow_mm_14.json
-shadow_mm_25.json
-shadow_spirit_tce.json
-shadow_wtthc.json
-shadrix_silverquill_scc.json
-shambling_mound_mm_14.json
-shambling_mound_mm_25.json
-shapechanged_roper_wdmm.json
-shard_shunner_wdh.json
-sharkbody_abomination_egw.json
-shator_demodand_mpp.json
-sheep_skt.json
-shell_shark_gos.json
-shemeshka_mpp.json
-shield_dwarf_guard_skt.json
-shield_dwarf_noble_skt.json
-shield_guardian_mm_14.json
-shield_guardian_mm_25.json
-shifter_erlw.json
-shoosuva_mpmm.json
-shoosuva_vgm.json
-shrieker_fungus_mm_25.json
-shrieker_fungus_wtthc.json
-shrieker_mm_14.json
-sibriex_mpmm.json
-sibriex_mtf.json
-silverquill_apprentice_scc.json
-silverquill_pledgemage_scc.json
-silverquill_professor_of_radiance_scc.json
-silverquill_professor_of_shadow_scc.json
-silver_dragon_wyrmling_mm_14.json
-silver_dragon_wyrmling_mm_25.json
-silver_greatwyrm_ftd.json
-simic_merfolk_ggr.json
-sire_of_insanity_ggr.json
-sir_jared_bmt.json
-sivak_draconian_dsotdq.json
-sivis_scribe_efa.json
-skeletal_alchemist_gos.json
-skeletal_bloodfin_crcotn.json
-skeletal_juggernaut_gos.json
-skeletal_knight_dsotdq.json
-skeletal_rats_bgdia.json
-skeletal_riding_horse_dip.json
-skeletal_swarm_gos.json
-skeleton_key_toa.json
-skeleton_mm_14.json
-skeleton_mm_25.json
-skittering_horror_ggr.json
-skitterwidget_cm.json
-skulk_mpmm.json
-skulk_mtf.json
-skull_flier_slw.json
-skull_lasher_of_myrkul_bgdia.json
-skull_lord_mpmm.json
-skull_lord_mtf.json
-skum_gos.json
-skyjek_roc_ggr.json
-skyswimmer_ggr.json
-skyweaver_pota.json
-slaad_tadpole_mm_14.json
-slaad_tadpole_mm_25.json
-sled_dog_rot.json
-slithering_bloodfin_crcotn.json
-slithering_tracker_mpmm.json
-slithering_tracker_vgm.json
-smoke_mephit_mm_14.json
-smoke_mephit_mm_25.json
-snake_horror_rot.json
-sneak_hol.json
-snowy_owlbear_idrotf.json
-snow_golem_idrotf.json
-snow_leopard_tftyp.json
-snow_maiden_cos.json
-society_of_sensation_muse_mpp.json
-solar_bastion_knight_bmt.json
-solar_dragon_wyrmling_bam.json
-solar_mm_14.json
-solar_mm_25.json
-soldier_ggr.json
-sorrowfish_crcotn.json
-soul_monger_mtf.json
-soul_shaker_jttrc.json
-space_clown_bam.json
-space_eel_bam.json
-space_guppy_bam.json
-space_hamster_bam.json
-space_hamster_wdmm.json
-space_mollymawk_bam.json
-space_swine_bam.json
-spawn_of_kyuss_mpmm.json
-spawn_of_kyuss_vgm.json
-speaker_devil_abh.json
-spectator_mm_14.json
-spectator_mm_25.json
-specter_mm_14.json
-specter_mm_25.json
-spectral_cloud_bgg.json
-spellcaster_esk.json
-spellcaster_healer_dc.json
-spellcaster_healer_sdw.json
-spellcaster_healer_slw.json
-spellcaster_mage_dc.json
-spellcaster_mage_sdw.json
-spellcaster_mage_slw.json
-sperm_whale_idrotf.json
-sphinx_of_judgment_ggr.json
-sphinx_of_lore_mm_25.json
-sphinx_of_secrets_mm_25.json
-sphinx_of_valor_mm_25.json
-sphinx_of_wonder_mm_25.json
-spiderdragon_veor.json
-spider_mm_14.json
-spider_mm_25.json
-spiked_tomb_guardian_toa.json
-spined_devil_mm_14.json
-spined_devil_mm_25.json
-spirit_dragon_wyrmling_fraif.json
-spirit_naga_mm_14.json
-spirit_naga_mm_25.json
-spirit_statue_mascot_scc.json
-spirit_troll_mpmm.json
-spirit_troll_mtf.json
-spitting_mimic_idrotf.json
-splugoth_the_returned_ai.json
-spore_of_moander_fraif.json
-spore_servant_octopus_dosi.json
-spotted_lion_bgg.json
-spring_eladrin_mpmm.json
-spring_eladrin_mtf.json
-sprite_mm_14.json
-sprite_mm_25.json
-sprite_skirmisher_hotb.json
-spy_master_mm_25.json
-spy_mm_14.json
-spy_mm_25.json
-squire_hol.json
-ssurran_defiler_bam.json
-ssurran_poisoner_bam.json
-stalker_of_baphomet_bgg.json
-starlight_apparition_bam.json
-star_angler_veor.json
-star_spawn_grue_mpmm.json
-star_spawn_grue_mtf.json
-star_spawn_hulk_mpmm.json
-star_spawn_hulk_mtf.json
-star_spawn_larva_mage_mpmm.json
-star_spawn_larva_mage_mtf.json
-star_spawn_mangler_mpmm.json
-star_spawn_mangler_mtf.json
-star_spawn_seer_mpmm.json
-star_spawn_seer_mtf.json
-statue_of_talos_slw.json
-statue_of_vergadain_wdmm.json
-steam_mephit_mm_14.json
-steam_mephit_mm_25.json
-steel_defender_efa.json
-steel_defender_tce.json
-steel_predator_mpmm.json
-steel_predator_mtf.json
-stegosaurus_mpmm.json
-stegosaurus_vgm.json
-stench_kow_mpmm.json
-stench_kow_vgm.json
-stirge_mm_14.json
-stirge_mm_25.json
-stomping_foot_oow.json
-stonecloak_wdmm.json
-stonemelder_pota.json
-stone_cursed_mpmm.json
-stone_cursed_mtf.json
-stone_defender_mtf.json
-stone_dragon_statue_tftyp.json
-stone_giant_dreamwalker_mpmm.json
-stone_giant_dreamwalker_vgm.json
-stone_giant_mm_14.json
-stone_giant_mm_25.json
-stone_giant_of_evil_earth_bgg.json
-stone_giant_rockspeaker_bgg.json
-stone_giant_statue_skt.json
-stone_golem_mm_14.json
-stone_golem_mm_25.json
-stone_juggernaut_toa.json
-stone_warrior_pota.json
-storm_crab_bgg.json
-storm_giant_mm_14.json
-storm_giant_mm_25.json
-storm_giant_quintessent_mpmm.json
-storm_giant_quintessent_vgm.json
-storm_giant_skeleton_cm.json
-storm_giant_tempest_caller_bgg.json
-storm_herald_bgg.json
-strahd_zombie_cos.json
-strigoi_vrgr.json
-strixhaven_campus_guide_scc.json
-su-monster_toa.json
-succubus_mm_14.json
-succubus_mm_25.json
-sul_khatesh_erlw.json
-summer_eladrin_mpmm.json
-summer_eladrin_mtf.json
-sunder_shaman_ggr.json
-sunfly_mpp.json
-svirfneblin_wererat_oota.json
-swanmay_fraif.json
-swarm_of_animated_books_cm.json
-swarm_of_bats_mm_14.json
-swarm_of_bats_mm_25.json
-swarm_of_beetles_mm_14.json
-swarm_of_books_wdh.json
-swarm_of_campestris_wbtw.json
-swarm_of_centipedes_mm_14.json
-swarm_of_corrupted_rats_wtthc.json
-swarm_of_cranium_rats_mpmm.json
-swarm_of_cranium_rats_vgm.json
-swarm_of_crawling_claws_mm_25.json
-swarm_of_dretches_mm_25.json
-swarm_of_gibberlings_qftis.json
-swarm_of_gremishkas_vrgr.json
-swarm_of_hoard_scarabs_ftd.json
-swarm_of_insects_mm_14.json
-swarm_of_insects_mm_25.json
-swarm_of_larvae_mm_25.json
-swarm_of_lemures_mm_25.json
-swarm_of_maggots_vrgr.json
-swarm_of_mechanical_spiders_wdh.json
-swarm_of_piranhas_mm_25.json
-swarm_of_poisonous_snakes_mm_14.json
-swarm_of_quippers_mm_14.json
-swarm_of_rats_mm_14.json
-swarm_of_rats_mm_25.json
-swarm_of_ravens_mm_14.json
-swarm_of_ravens_mm_25.json
-swarm_of_rot_grubs_mpmm.json
-swarm_of_rot_grubs_vgm.json
-swarm_of_scarabs_vrgr.json
-swarm_of_sorrowfish_crcotn.json
-swarm_of_spiders_mm_14.json
-swarm_of_stirges_mm_25.json
-swarm_of_sunflies_mpp.json
-swarm_of_undead_snakes_egw.json
-swarm_of_venomous_snakes_mm_25.json
-swarm_of_wasps_mm_14.json
-swarm_of_zombie_limbs_vrgr.json
-swashbuckler_mpmm.json
-swashbuckler_vgm.json
-swavain_basilisk_egw.json
-sword_wraith_commander_mpmm.json
-sword_wraith_commander_mtf.json
-sword_wraith_warrior_mpmm.json
-sword_wraith_warrior_mtf.json
-tabaxi_hunter_toa.json
-tabaxi_minstrel_toa.json
-talon_beast_bmt.json
-tanarukk_mpmm.json
-tanarukk_vgm.json
-tanazir_quandrix_scc.json
-tarkanan_assassin_erlw.json
-tarkanan_marauder_efa.json
-tarkanan_ruffian_efa.json
-tarrasque_mm_14.json
-tarrasque_mm_25.json
-telepathic_pentacle_idrotf.json
-tempest_spirit_bgg.json
-terracotta_warrior_toa.json
-terran_magen_nf.json
-tharashk_hunter_efa.json
-thayan_apprentice_tftyp.json
-thayan_warrior_tftyp.json
-theran_chimera_mot.json
-thessalhydra_hftt.json
-the_angry_mtf.json
-the_bagman_vrgr.json
-the_hungry_mtf.json
-the_lonely_mtf.json
-the_lord_of_blades_erlw.json
-the_lost_mtf.json
-the_wretched_mtf.json
-thorny_vegepygmy_mpmm.json
-thorny_vgm.json
-thorn_slinger_tftyp.json
-thought_spy_ggr.json
-thri-kreen_gladiator_bam.json
-thri-kreen_hunter_bam.json
-thri-kreen_marauder_mm_25.json
-thri-kreen_mm_14.json
-thri-kreen_mystic_bam.json
-thri-kreen_psion_mm_25.json
-thug_mm_14.json
-thunderbeast_skeleton_skt.json
-tiefling_acrobat_kftgv.json
-tiger_mm_14.json
-tiger_mm_25.json
-time_dragon_wyrmling_mpp.json
-tiny_servant_xge.json
-tin_soldier_wbtw.json
-titanothere_bgg.json
-titivilus_mpmm.json
-titivilus_mtf.json
-tlacatecolo_jttrc.json
-tlexolotl_jttrc.json
-tlincalli_mpmm.json
-tlincalli_vgm.json
-tomb_dwarf_toa.json
-tomb_guardian_toa.json
-tomb_tapper_idrotf.json
-topaz_dragon_wyrmling_ftd.json
-topaz_greatwyrm_ftd.json
-tortle_druid_mpmm.json
-tortle_druid_mtf.json
-tortle_mpmm.json
-tortle_mtf.json
-tough_boss_mm_25.json
-tough_mm_25.json
-tower_hand_qftis.json
-tower_sage_qftis.json
-transcendent_order_conduit_mpp.json
-transcendent_order_instinct_mpp.json
-transmuter_vgm.json
-transmuter_wizard_mpmm.json
-trapper_mpmm.json
-trapper_vgm.json
-treant_mm_14.json
-treant_mm_25.json
-treant_sapling_wbtw.json
-tree_blight_cos.json
-tree_blight_mm_25.json
-tressym_bgdia.json
-tressym_skt.json
-tri-flower_frond_toa.json
-tribal_warrior_mm_14.json
-tribal_warrior_spore_servant_idrotf.json
-triceratops_mm_14.json
-triceratops_mm_25.json
-tridrone_mm_14.json
-triton_master_of_waves_mot.json
-triton_shorestalker_mot.json
-troglodyte_champion_of_laogzed_oota.json
-troglodyte_mm_14.json
-troglodyte_mm_25.json
-troll_amalgam_bgg.json
-troll_limb_mm_25.json
-troll_mm_14.json
-troll_mm_25.json
-troll_mutate_bgg.json
-tromokratis_mot.json
-trostani_ggr.json
-tsucora_quori_erlw.json
-twig_blight_mm_14.json
-twig_blight_mm_25.json
-two-headed_cerberus_mot.json
-two-headed_troll_oota.json
-typhon_mot.json
-tyrannosaurus_rex_mm_14.json
-tyrannosaurus_rex_mm_25.json
-tyrannosaurus_zombie_toa.json
-udaak_egw.json
-ulitharid_mpmm.json
-ulitharid_vgm.json
-ultroloth_mm_14.json
-ultroloth_mm_25.json
-umber_hulk_mm_14.json
-umber_hulk_mm_25.json
-umbragen_shadow_walker_efa.json
-undead_bulette_wdmm.json
-undead_cockatrice_oow.json
-undead_shambling_mound_wdmm.json
-undead_soldier_dsotdq.json
-undead_spirit_phb_24.json
-undead_spirit_tce.json
-undead_tree_bgdia.json
-undercity_medusa_ggr.json
-underworld_cerberus_mot.json
-undying_councilor_erlw.json
-undying_soldier_erlw.json
-unicorn_mm_14.json
-unicorn_mm_25.json
-unspeakable_horror_vrgr.json
-uthgardt_barbarian_leader_skt.json
-uthgardt_shaman_skt.json
-vadalis_heir_efa.json
-valenar_hawk_erlw.json
-valenar_hound_erlw.json
-valenar_steed_erlw.json
-vampirate_bam.json
-vampirate_captain_bam.json
-vampirate_mage_bam.json
-vampire_familiar_mm_25.json
-vampire_infernalist_abh.json
-vampire_mm_14.json
-vampire_mm_25.json
-vampire_nightbringer_mm_25.json
-vampire_spawn_mm_14.json
-vampire_spawn_mm_25.json
-vampire_spellcaster_mm_14.json
-vampire_umbral_lord_mm_25.json
-vampire_warden_abh.json
-vampire_warrior_mm_14.json
-vampiric_ixitxachitl_cleric_oota.json
-vampiric_ixitxachitl_oota.json
-vampiric_jade_statue_gos.json
-vampiric_mind_flayer_vrgr.json
-vampiric_mist_mpmm.json
-vampiric_mist_mtf.json
-vargouille_mpmm.json
-vargouille_reflection_mpp.json
-vargouille_vgm.json
-vecna_impersonator_tofw.json
-vegepygmy_chief_mpmm.json
-vegepygmy_chief_vgm.json
-vegepygmy_moldmaker_qftis.json
-vegepygmy_mpmm.json
-vegepygmy_scavenger_qftis.json
-vegepygmy_thorny_hunter_qftis.json
-vegepygmy_vgm.json
-veiled_presence_bmt.json
-velociraptor_mpmm.json
-velociraptor_vgm.json
-velomachus_lorehold_scc.json
-venomous_snake_mm_25.json
-venom_troll_mpmm.json
-venom_troll_mtf.json
-verbeeg_longstrider_idrotf.json
-verbeeg_marauder_idrotf.json
-veteran_mm_14.json
-veteran_of_the_gauntlet_oota.json
-vine_blight_mm_14.json
-vine_blight_mm_25.json
-vine_blight_tangler_wtthc.json
-violet_fungus_dosi.json
-violet_fungus_mm_14.json
-violet_fungus_mm_25.json
-violet_fungus_necrohulk_mm_25.json
-violet_fungus_wtthc.json
-virvos_magen_nf.json
-vistana_assassin_cos.json
-vistana_bandit_captain_cos.json
-vistana_bandit_cos.json
-vistana_commoner_cos.json
-vistana_guard_cos.json
-vistana_spy_cos.json
-vistana_thug_cos.json
-vlazok_veor.json
-void_scavver_bam.json
-vox_seeker_egw.json
-vrock_mm_14.json
-vrock_mm_25.json
-vulkoori_stingblade_efa.json
-vulkoori_venom_priest_efa.json
-vulture_mm_14.json
-vulture_mm_25.json
-walking_corpse_cos.json
-walking_statue_of_waterdeep_wdh.json
-walrus_idrotf.json
-warden_archon_mpp.json
-warforged_colossus_erlw.json
-warforged_soldier_erlw.json
-warforged_titan_erlw.json
-warforged_warrior_veor.json
-warhorse_mm_14.json
-warhorse_mm_25.json
-warhorse_skeleton_mm_14.json
-warhorse_skeleton_mm_25.json
-warlock_of_the_archfey_mpmm.json
-warlock_of_the_archfey_vgm.json
-warlock_of_the_fiend_mpmm.json
-warlock_of_the_fiend_vgm.json
-warlock_of_the_great_old_one_mpmm.json
-warlock_of_the_great_old_one_vgm.json
-warlord_mpmm.json
-warlord_vgm.json
-warrior_commander_mm_25.json
-warrior_dc.json
-warrior_esk.json
-warrior_infantry_mm_25.json
-warrior_of_madarua_qftis.json
-warrior_sdw.json
-warrior_slw.json
-warrior_veteran_mm_25.json
-war_priest_mpmm.json
-war_priest_vgm.json
-wasteland_dragonnel_dsotdq.json
-wastrilith_mpmm.json
-wastrilith_mtf.json
-water_elemental_mm_14.json
-water_elemental_mm_25.json
-water_elemental_myrmidon_mpmm.json
-water_elemental_myrmidon_mtf.json
-water_weird_mm_14.json
-water_weird_mm_25.json
-weasel_mm_14.json
-weasel_mm_25.json
-werebat_wdmm.json
-werebear_mm_14.json
-werebear_mm_25.json
-wereboar_mm_14.json
-wereboar_mm_25.json
-werejaguar_tftyp.json
-wererat_mm_14.json
-wererat_mm_25.json
-wereraven_vrgr.json
-weretiger_mm_14.json
-weretiger_mm_25.json
-werevulture_bmt.json
-werewolf_mm_14.json
-werewolf_mm_25.json
-werewyvern_fraif.json
-whirling_chandelier_veor.json
-whirlwyrm_tofw.json
-whistler_jttrc.json
-white_abishai_mpmm.json
-white_abishai_mtf.json
-white_dragon_wyrmling_mm_14.json
-white_dragon_wyrmling_mm_25.json
-white_greatwyrm_ftd.json
-white_guard_drake_vgm.json
-wight_lifedrinker_hotb.json
-wight_mm_14.json
-wight_mm_25.json
-wildfire_spirit_tce.json
-wild_dog_toa.json
-will-o_-wells_wbtw.json
-will-o_-wisp_mm_14.json
-will-o_-wisp_mm_25.json
-wine_weird_toa.json
-winged_bull_mot.json
-winged_kobold_mm_14.json
-winged_kobold_mm_25.json
-winged_lion_mot.json
-winged_thrull_ggr.json
-winter_eladrin_mpmm.json
-winter_eladrin_mtf.json
-winter_wolf_mm_14.json
-winter_wolf_mm_25.json
-witchlight_hand_medium_wbtw.json
-witchlight_hand_small_wbtw.json
-witherbloom_apprentice_scc.json
-witherbloom_pledgemage_scc.json
-witherbloom_professor_of_decay_scc.json
-witherbloom_professor_of_growth_scc.json
-woe_strider_mot.json
-wolf-in-sheep_s-clothing_qftis.json
-wolf_mm_14.json
-wolf_mm_25.json
-wooden_donkey_wdmm.json
-wood_elf_skt.json
-wood_elf_wizard_cm.json
-wood_woad_mpmm.json
-wood_woad_vgm.json
-worg_mm_14.json
-worg_mm_25.json
-worker_robot_qftis.json
-wraith_mm_14.json
-wraith_mm_25.json
-wretched_sorrowsworn_mpmm.json
-wurm_ggr.json
-wynling_jttrc.json
-wyvern_mm_14.json
-wyvern_mm_25.json
-xorn_mm_14.json
-xorn_mm_25.json
-xvart_mpmm.json
-xvart_speaker_vgm.json
-xvart_vgm.json
-xvart_warlock_of_raxivort_mpmm.json
-xvart_warlock_of_raxivort_vgm.json
-yagnoloth_mpmm.json
-yagnoloth_mtf.json
-yakfolk_priest_skt.json
-yakfolk_warrior_skt.json
-yak_skt.json
-yeenoghu_mpmm.json
-yeenoghu_mtf.json
-yellow_musk_creeper_toa.json
-yellow_musk_zombie_toa.json
-yeth_hound_mpmm.json
-yeth_hound_vgm.json
-yeti_leader_tftyp.json
-yeti_mm_14.json
-yeti_mm_25.json
-yeti_tyke_idrotf.json
-yochlol_mm_14.json
-yochlol_mm_25.json
-young_amethyst_dragon_ftd.json
-young_basilisk_oota.json
-young_black_dragon_mm_14.json
-young_black_dragon_mm_25.json
-young_blue_dragon_mm_14.json
-young_blue_dragon_mm_25.json
-young_brass_dragon_mm_14.json
-young_brass_dragon_mm_25.json
-young_bronze_dragon_mm_14.json
-young_bronze_dragon_mm_25.json
-young_bulette_pota.json
-young_cloud_giant_skt.json
-young_copper_dragon_mm_14.json
-young_copper_dragon_mm_25.json
-young_crystal_dragon_ftd.json
-young_deep_dragon_fraif.json
-young_deep_dragon_ftd.json
-young_dragon_turtle_ftd.json
-young_emerald_dragon_ftd.json
-young_fire_giant_tftyp.json
-young_frost_giant_tftyp.json
-young_gold_dragon_mm_14.json
-young_gold_dragon_mm_25.json
-young_green_dragon_mm_14.json
-young_green_dragon_mm_25.json
-young_griffon_medium_idrotf.json
-young_griffon_small_idrotf.json
-young_griffon_tiny_idrotf.json
-young_hill_giant_tftyp.json
-young_hook_horror_oota.json
-young_horizonback_tortoise_crcotn.json
-young_kruthik_mpmm.json
-young_kruthik_mtf.json
-young_lunar_dragon_bam.json
-young_moonstone_dragon_ftd.json
-young_ogre_servant_tftyp.json
-young_purple_worm_pota.json
-young_red_dragon_mm_14.json
-young_red_dragon_mm_25.json
-young_red_shadow_dragon_mm_14.json
-young_remorhaz_mm_14.json
-young_remorhaz_mm_25.json
-young_sapphire_dragon_ftd.json
-young_sea_serpent_ftd.json
-young_silver_dragon_mm_14.json
-young_silver_dragon_mm_25.json
-young_solar_dragon_bam.json
-young_spirit_dragon_fraif.json
-young_time_dragon_mpp.json
-young_topaz_dragon_ftd.json
-young_troglodyte_tftyp.json
-young_wereraven_cos.json
-young_white_dragon_mm_14.json
-young_white_dragon_mm_25.json
-young_winter_wolf_tftyp.json
-yuan-ti_abomination_mm_14.json
-yuan-ti_abomination_mm_25.json
-yuan-ti_anathema_mpmm.json
-yuan-ti_anathema_vgm.json
-yuan-ti_broodguard_mpmm.json
-yuan-ti_broodguard_vgm.json
-yuan-ti_infiltrator_mm_25.json
-yuan-ti_malison_type_1_mm_14.json
-yuan-ti_malison_type_1_mm_25.json
-yuan-ti_malison_type_2_mm_14.json
-yuan-ti_malison_type_2_mm_25.json
-yuan-ti_malison_type_3_mm_14.json
-yuan-ti_malison_type_3_mm_25.json
-yuan-ti_malison_type_4_vgm.json
-yuan-ti_malison_type_5_vgm.json
-yuan-ti_mind_whisperer_mpmm.json
-yuan-ti_mind_whisperer_vgm.json
-yuan-ti_nightmare_speaker_mpmm.json
-yuan-ti_nightmare_speaker_vgm.json
-yuan-ti_pit_master_mpmm.json
-yuan-ti_pit_master_vgm.json
-yuan-ti_priest_toa.json
-yuan-ti_pureblood_mm_14.json
-zakya_rakshasa_erlw.json
-zaratan_mpmm.json
-zaratan_mtf.json
-zariel_mpmm.json
-zariel_mtf.json
-zebra_toa.json
-zegana_ggr.json
-zhentarim_thug_oota.json
-zhentilar_paladin_of_bane_fraif.json
-zhentilar_soldier_fraif.json
-zhent_martial_arts_adept_wdh.json
-zodar_bam.json
-zombie_clot_vrgr.json
-zombie_mm_14.json
-zombie_mm_25.json
-zombie_plague_spreader_vrgr.json
-zorbo_toa.json
-zuggtmoy_mpmm.json
-zuggtmoy_mtf.json
+Aarakocra (MM'14).md
+Aarakocra Aeromancer (MM'25).md
+Aarakocra Simulacrum (SKT).md
+Aarakocra Skirmisher (MM'25).md
+Aarakocra Spelljammer (LoX).md
+Aartuk Elder (BAM).md
+Aartuk Starhorror (BAM).md
+Aartuk Weedling (BAM).md
+Aberrant Cultist (MM'25).md
+Aberrant Death's Head (RHW).md
+Aberrant Spirit (TCE).md
+Aberrant Spirit (PHB'24).md
+Aberrant Zealot (PaBTSO).md
+Aberrant Zealot (Tentacled) (PaBTSO).md
+Abhorrent Overlord (MOT).md
+Abjurer (VGM).md
+Abjurer Wizard (MPMM).md
+Aboleth (MM'14).md
+Aboleth (MM'25).md
+Aboleth Spawn (CRCotN).md
+Abominable Yeti (MM'14).md
+Abominable Yeti (MM'25).md
+Abyssal Chicken (BGDIA).md
+Abyssal Wretch (MTF).md
+Achaierai (MaBJoV).md
+Acidic Mist Apparition (GotSF).md
+Acolyte (MM'14).md
+Adult Amethyst Dragon (FTD).md
+Adult Amonkhet Dragon (PSA).md
+Adult Black Dragon (MM'14).md
+Adult Black Dragon (MM'25).md
+Adult Blue Dracolich (MM'14).md
+Adult Blue Dragon (MM'14).md
+Adult Blue Dragon (MM'25).md
+Adult Brass Dragon (MM'14).md
+Adult Brass Dragon (MM'25).md
+Adult Bronze Dragon (MM'14).md
+Adult Bronze Dragon (MM'25).md
+Adult Copper Dragon (MM'14).md
+Adult Copper Dragon (MM'25).md
+Adult Crystal Dragon (FTD).md
+Adult Deep Dragon (FRAiF).md
+Adult Deep Dragon (FTD).md
+Adult Emerald Dragon (FTD).md
+Adult Gold Dragon (MM'14).md
+Adult Gold Dragon (MM'25).md
+Adult Green Dragon (MM'14).md
+Adult Green Dragon (MM'25).md
+Adult Kruthik (MPMM).md
+Adult Kruthik (MTF).md
+Adult Lunar Dragon (BAM).md
+Adult Moonstone Dragon (FTD).md
+Adult Oblex (MPMM).md
+Adult Oblex (MTF).md
+Adult Red Dracolich (TCE).md
+Adult Red Dragon (MM'14).md
+Adult Red Dragon (MM'25).md
+Adult Sapphire Dragon (FTD).md
+Adult Sapphire Dragon (SADS).md
+Adult Silver Dragon (MM'14).md
+Adult Silver Dragon (MM'25).md
+Adult Solar Dragon (BAM).md
+Adult Spirit Dragon (FRAiF).md
+Adult Time Dragon (MPP).md
+Adult Topaz Dragon (FTD).md
+Adult White Dragon (MM'14).md
+Adult White Dragon (MM'25).md
+Advanced Detention Drone (BMT).md
+Aegisaur (PSX).md
+Aeorian Absorber (EGW).md
+Aeorian Nullifier (EGW).md
+Aeorian Reverser (EGW).md
+Aerosaur (BGG).md
+Aerosaur (Large) (PSX).md
+Aerosaur (Small) (PSX).md
+Affliction Devil (Kocrachon) (CoA).md
+Air Elemental (MM'14).md
+Air Elemental (MM'25).md
+Air Elemental Myrmidon (MPMM).md
+Air Elemental Myrmidon (MTF).md
+Air Totem Elemental (PSX).md
+Akroan Hoplite (MOT).md
+Albino Dwarf Spirit Warrior (ToA).md
+Albino Dwarf Warrior (ToA).md
+Aldani (Lobsterfolk) (ToA).md
+Alhoon (MPMM).md
+Alhoon (VGM).md
+Alkilith (MPMM).md
+Alkilith (MTF).md
+Allip (MPMM).md
+Allip (MTF).md
+Allosaurus (MM'14).md
+Allosaurus (MM'25).md
+Allowak Abominable Yeti (EGW).md
+Allowak Yeti (EGW).md
+Almiraj (ToA).md
+Alseid (MOT).md
+Altisaur (BGG).md
+Altisaur (PSX).md
+Alyxian Aboleth (CRCotN).md
+Alyxian the Hunter (CRCotN).md
+Amber Golem (CoS).md
+Ambitious Assassin (BMT).md
+Ambush Drake (HotDQ).md
+Amethyst Dragon Wyrmling (FTD).md
+Amethyst Greatwyrm (FTD).md
+Ammit (PSA).md
+Amnizu (MPMM).md
+Amnizu (MTF).md
+Amonkhet Dragon Wyrmling (PSA).md
+Amonkhet Hydra (PSA).md
+Amonkhet Mummy (PSA).md
+Amonkhet Mummy Lord (PSA).md
+Amonkhet Sphinx (PSA).md
+Amphisbaena (GoS).md
+Amphisbaena (TftYP).md
+Anarch (GGR).md
+Anchorite of Talos (DIP).md
+Ancient Amethyst Dragon (FTD).md
+Ancient Amonkhet Dragon (PSA).md
+Ancient Black Dragon (MM'14).md
+Ancient Black Dragon (MM'25).md
+Ancient Blue Dragon (MM'14).md
+Ancient Blue Dragon (MM'25).md
+Ancient Brass Dragon (MM'14).md
+Ancient Brass Dragon (MM'25).md
+Ancient Bronze Dragon (MM'14).md
+Ancient Bronze Dragon (MM'25).md
+Ancient Copper Dragon (MM'14).md
+Ancient Copper Dragon (MM'25).md
+Ancient Crystal Dragon (FTD).md
+Ancient Deep Crow (AI).md
+Ancient Deep Dragon (FRAiF).md
+Ancient Deep Dragon (FTD).md
+Ancient Dragon Turtle (FTD).md
+Ancient Emerald Dragon (FTD).md
+Ancient Gold Dragon (MM'14).md
+Ancient Gold Dragon (MM'25).md
+Ancient Green Dragon (MM'14).md
+Ancient Green Dragon (MM'25).md
+Ancient Lunar Dragon (BAM).md
+Ancient Moonstone Dragon (FTD).md
+Ancient Red Dragon (MM'14).md
+Ancient Red Dragon (MM'25).md
+Ancient Sapphire Dragon (FTD).md
+Ancient Sea Serpent (FTD).md
+Ancient Silver Dragon (MM'14).md
+Ancient Silver Dragon (MM'25).md
+Ancient Solar Dragon (BAM).md
+Ancient Spirit Dragon (FRAiF).md
+Ancient Time Dragon (MPP).md
+Ancient Topaz Dragon (FTD).md
+Ancient White Dragon (MM'14).md
+Ancient White Dragon (MM'25).md
+Android (QftIS).md
+Androsphinx (MM'14).md
+Angel (PSK).md
+Angel (PSZ).md
+Angel of Amonkhet (PSA).md
+Angry Sorrowsworn (MPMM).md
+Anhkolox (DSotDQ).md
+Animal Lord (MM'25).md
+Animated Armor (MM'14).md
+Animated Armor (MM'25).md
+Animated Armor Detention Drone (BMT).md
+Animated Ballista (WDMM).md
+Animated Breath (FTD).md
+Animated Broom (CM).md
+Animated Broom (MM'25).md
+Animated Chained Library (CM).md
+Animated Coffin (AATM).md
+Animated Drow Statue (OotA).md
+Animated Flying Sword (MM'25).md
+Animated Furniture (CoA).md
+Animated Glass Statue (CRCotN).md
+Animated Halberd (CoS).md
+Animated Jade Serpent (WDMM).md
+Animated Knife (EGW).md
+Animated Object (PHB'24).md
+Animated Object (Huge) (PHB'14).md
+Animated Object (Large) (PHB'14).md
+Animated Object (Medium) (PHB'14).md
+Animated Object (Small) (PHB'14).md
+Animated Object (Tiny) (PHB'14).md
+Animated Rug of Smothering (MM'25).md
+Animated Staff (WDMM).md
+Animated Statue (WDMM).md
+Animated Statue of Lolth (WDMM).md
+Animated Stove (WDMM).md
+Animated Table (TftYP).md
+Animated Tile Chimera (RoT).md
+Animated Tree (EGW).md
+Animated Wand (WDMM).md
+Animatronic Allosaurus (KftGV).md
+Ankheg (MM'14).md
+Ankheg (WttHC).md
+Ankheg (MM'25).md
+Ankhtepot (RHW).md
+Ankylosaurus (MM'14).md
+Ankylosaurus (MM'25).md
+Ankylosaurus Zombie (ToA).md
+Annis Hag (MPMM).md
+Annis Hag (VGM).md
+Anointed (PSA).md
+Anvilwrought Raptor (MOT).md
+Ape (MM'14).md
+Ape (MM'25).md
+Aphemia (MOT).md
+Apprentice (HoL).md
+Apprentice Wizard (MPMM).md
+Apprentice Wizard (VGM).md
+Aquatic Ghoul (PotA).md
+Aquatic Troll (RoT).md
+Aranea (FRAiF).md
+Arasta (MOT).md
+Arcanaloth (MM'14).md
+Arcanaloth (MM'25).md
+Arch-hag (MM'25).md
+Archaic (SCC).md
+Archdruid (MPMM).md
+Archdruid (VGM).md
+Archelon (MM'25).md
+Archer (MPMM).md
+Archer (VGM).md
+Archfiend of Ifnir (PSA).md
+Archmage (MM'14).md
+Archmage (MM'25).md
+Archon of Boundaries (MCV4EC).md
+Archon of Falling Stars (MOT).md
+Archon of Redemption (PSZ).md
+Archon of the Triumvirate (GGR).md
+Archpriest (MM'25).md
+Arclight Phoenix (GGR).md
+Aribeth de Tylmarande (MaBJoV).md
+Armanite (MPMM).md
+Armanite (MTF).md
+Armasaur (PSX).md
+Armored Saber-Toothed Tiger (CoS).md
+Armored Troglodyte (WDMM).md
+Art Elemental Mascot (SCC).md
+Ash Zombie (LMoP).md
+Ash Zombie (PaBTSO).md
+Ashen Animated Armor (KftGV).md
+Ashen Flying Sword (KftGV).md
+Ashen Heir Anarchist (JttRC).md
+Ashen Heir Assassin (JttRC).md
+Ashen Heir Mage (JttRC).md
+Ashen Heir Veteran (JttRC).md
+Ashen Knight (KftGV).md
+Ashen Rider (MOT).md
+Ashen Shambling Mound (KftGV).md
+Ashen Veteran (KftGV).md
+Ashen Warhorse (KftGV).md
+Asmodeus (CoA).md
+Aspect of Bahamut (FTD).md
+Aspect of Tiamat (FTD).md
+Aspirant of the Comet (BMT).md
+Assassin (MM'14).md
+Assassin (MM'25).md
+Assassin Bug (MFF).md
+Assassin Vine (ToA).md
+Asteria (BMT).md
+Asteroid Spider (MCV1SC).md
+Astral Blight (LoX).md
+Astral Dreadnought (MPMM).md
+Astral Dreadnought (MTF).md
+Astral Elf Aristocrat (BAM).md
+Astral Elf Commander (BAM).md
+Astral Elf Honor Guard (BAM).md
+Astral Elf Star Priest (BAM).md
+Astral Elf Warrior (BAM).md
+Athar Null (MPP).md
+Atropal (ToA).md
+Aurak Draconian (DSotDQ).md
+Aurelia (GGR).md
+Aurnozci (BMT).md
+Aurochs (MPMM).md
+Aurochs (VGM).md
+Aurumach Rilmani (MPP).md
+Aurumvorax (JttRC).md
+Aurumvorax Den Leader (JttRC).md
+Autognome (BAM).md
+Autumn Eladrin (MPMM).md
+Autumn Eladrin (MTF).md
+Avacyn (PSI).md
+Avatar of Baalzebul (CoA).md
+Avatar of Death (DMG'14).md
+Avatar of Death (DMG'24).md
+Avoral Guardinal (MPP).md
+Awakened Brown Bear (WDMM).md
+Awakened Elk (WDMM).md
+Awakened Giant Wasp (WDMM).md
+Awakened Rat (WDH).md
+Awakened Shrub (MM'14).md
+Awakened Shrub (MM'25).md
+Awakened Shrub Totem Elemental (PSX).md
+Awakened Tree (MM'14).md
+Awakened Tree (MM'25).md
+Awakened White Moose (IDRotF).md
+Awakened Zurkhwood (OotA).md
+Axe Beak (MM'14).md
+Axe Beak (MM'25).md
+Axe of Mirabar Soldier (SKT).md
+Ayperobo Swarm (CoA).md
+Azalin Rex (RHW).md
+Azer (MM'14).md
+Azer Pyromancer (MM'25).md
+Azer Sentinel (MM'25).md
+B'rohg (BAM).md
+Baalzebul (CoA).md
+Baalzebul (MaBJoV).md
+Baaz Draconian (DSotDQ).md
+Babau (MPMM).md
+Babau (VGM).md
+Baboon (MM'14).md
+Baboon (MM'25).md
+Badger (MM'14).md
+Badger (MM'25).md
+Bael (MPMM).md
+Bael (MTF).md
+Baernaloth (MPP).md
+Bag Jelly (BGG).md
+Bakunawa (JttRC).md
+Balhannoth (MPMM).md
+Balhannoth (MTF).md
+Balor (MM'14).md
+Balor (MM'25).md
+Baloth (PSZ).md
+Banderhobb (MPMM).md
+Banderhobb (VGM).md
+Bandit (MM'14).md
+Bandit (MM'25).md
+Bandit Captain (MM'14).md
+Bandit Captain (MM'25).md
+Bandit Crime Lord (MM'25).md
+Bandit Deceiver (MM'25).md
+Banshee (MM'14).md
+Banshee (MM'25).md
+Baphomet (MPMM).md
+Baphomet (MTF).md
+Barbed Devil (MM'14).md
+Barbed Devil (WttHC).md
+Barbed Devil (MM'25).md
+Bard (MPMM).md
+Bard (VGM).md
+Barghest (MPMM).md
+Barghest (VGM).md
+Bariaur Wanderer (MPP).md
+Barkburr (QftIS).md
+Barlgura (MM'14).md
+Barlgura (MM'25).md
+Barovian Commoner (CoS).md
+Barovian Scout (CoS).md
+Barovian Witch (CoS).md
+Barrowghast (BGG).md
+Basilisk (MM'14).md
+Basilisk (MM'25).md
+Bat (MM'14).md
+Bat (MM'25).md
+Battleforce Angel (GGR).md
+Battlehammer Dwarf (IDRotF).md
+Beanstalk Wurm (MCV4EC).md
+Bearded Devil (MM'14).md
+Bearded Devil (WttHC).md
+Bearded Devil (MM'25).md
+Beast of Malar (FRAiF).md
+Beast of the Land (TCE).md
+Beast of the Land (PHB'24).md
+Beast of the Sea (TCE).md
+Beast of the Sea (PHB'24).md
+Beast of the Sky (TCE).md
+Beast of the Sky (PHB'24).md
+Bebilith (MaBJoV).md
+Behir (MM'14).md
+Behir (MM'25).md
+Beholder (MM'14).md
+Beholder (MM'25).md
+Beholder Zombie (MM'14).md
+Beholder Zombie (MM'25).md
+Bel (CoA).md
+Belashyrra (ERLW).md
+Beledros Witherbloom (SCC).md
+Belial (CoA).md
+Berbalang (MPMM).md
+Berbalang (MTF).md
+Berserker (MM'14).md
+Berserker (MM'25).md
+Berserker Commander (MM'25).md
+Bestial Spirit (TCE).md
+Bestial Spirit (PHB'24).md
+Bhaal, Ravager (MaBJoV).md
+Bhaal, Slayer (MaBJoV).md
+Bheur Hag (MPMM).md
+Bheur Hag (VGM).md
+Big Xorn (WDMM).md
+Biomancer (GGR).md
+Black Abishai (MPMM).md
+Black Abishai (MTF).md
+Black Bear (MM'14).md
+Black Bear (MM'25).md
+Black Dragon Wyrmling (MM'14).md
+Black Dragon Wyrmling (MM'25).md
+Black Earth Guard (PotA).md
+Black Earth Priest (PotA).md
+Black Gauntlet of Bane (BGDIA).md
+Black Greatwyrm (FTD).md
+Black Guard Drake (VGM).md
+Black Pudding (MM'14).md
+Black Pudding (MM'25).md
+Black Rose Bearer (VEoR).md
+Blackguard (MPMM).md
+Blackguard (VGM).md
+Blacktongue Bullywug (WDMM).md
+Blade Lieutenant (VEoR).md
+Blade Scout (VEoR).md
+Blaze (MCV3MC).md
+Blazebear (VEoR).md
+Bleak Cabal Void Soother (MPP).md
+Blight Totem Elemental (PSX).md
+Blindheim (MFF).md
+Blink Dog (MM'14).md
+Blink Dog (MM'25).md
+Blistercoil Weird (GGR).md
+Blob of Annihilation (MM'25).md
+Blood Drinker Vampire (GGR).md
+Blood Hawk (MM'14).md
+Blood Hawk (MM'25).md
+Blood Hunter (EGW).md
+Blood Witch (GGR).md
+Blood-Toll Harpy (MOT).md
+Bloodfray Giant (GGR).md
+Blue Abishai (MPMM).md
+Blue Abishai (MTF).md
+Blue Dragon Wyrmling (MM'14).md
+Blue Dragon Wyrmling (MM'25).md
+Blue Greatwyrm (FTD).md
+Blue Guard Drake (VGM).md
+Blue Slaad (MM'14).md
+Blue Slaad (MM'25).md
+Boar (MM'14).md
+Boar (MM'25).md
+Bodak (MPMM).md
+Bodak (VGM).md
+Bodhi Irenicus (MaBJoV).md
+Bodytaker Plant (RHW).md
+Bodytaker Plant (VRGR).md
+Bodytaker Podling (RHW).md
+Boggle (MPMM).md
+Boggle (VGM).md
+Bone Devil (MM'14).md
+Bone Devil (MM'25).md
+Bone Knight (ERLW).md
+Bone Naga (MM'25).md
+Bone Naga (Guardian) (MM'14).md
+Bone Naga (Spirit) (MM'14).md
+Bone Roc (VEoR).md
+Bone Whelk (BGDIA).md
+Boneclaw (MPMM).md
+Boneclaw (MTF).md
+Boneless (RHW).md
+Boneless (VRGR).md
+Boontu Monkey (AWM).md
+Booyahg Booyahg Booyahg (VGM).md
+Booyahg Caster (VGM).md
+Booyahg Slave of the Archfey (VGM).md
+Booyahg Slave of the Fiend (VGM).md
+Booyahg Slave of the Great Old One (VGM).md
+Booyahg Whip (VGM).md
+Booyahg Wielder (VGM).md
+Borborygmos (GGR).md
+Bore Worm (WDMM).md
+Borivik Windheim (MaBJoV).md
+Boromar Smuggler (EFA).md
+Boromar Underboss (EFA).md
+Borthak (VEoR).md
+Boss Augustus (BMT).md
+Boss Delour (BMT).md
+Boulderfoot Giant (PSZ).md
+Bozak Draconian (DSotDQ).md
+Brackish Trudge (SCC).md
+Brain Breaker (PaBTSO).md
+Brain in Iron (IMR).md
+Brain in a Jar (LLK).md
+Brain in a Jar (RHW).md
+Brain in a Jar (VRGR).md
+Brass Dragon Wyrmling (MM'14).md
+Brass Dragon Wyrmling (MM'25).md
+Brass Greatwyrm (FTD).md
+Braxat (BAM).md
+Brazen Gorgon (MM'25).md
+Breath Drinker (BMT).md
+Bridesmaid of Zuggtmoy (OotA).md
+Brigganock (WBtW).md
+Bristled Moorbounder (EGW).md
+Broken King Antigonos (MOT).md
+Brontodon (PSX).md
+Brontosaurus (MPMM).md
+Brontosaurus (VGM).md
+Bronze Dragon Wyrmling (MM'14).md
+Bronze Dragon Wyrmling (MM'25).md
+Bronze Greatwyrm (FTD).md
+Bronze Sable (MOT).md
+Bronze Scout (MTF).md
+Broom of Animated Attack (CoS).md
+Brown Bear (MM'14).md
+Brown Bear (MM'25).md
+Brown Scavver (BAM).md
+Bruna (PSI).md
+Brusipha (BMT).md
+Bugbear (MM'14).md
+Bugbear Chief (MM'14).md
+Bugbear Gardener (TftYP).md
+Bugbear Lieutenant (TftYP).md
+Bugbear Stalker (MM'25).md
+Bugbear Warrior (MM'25).md
+Bulette (MM'14).md
+Bulette (MM'25).md
+Bulette Pup (MM'25).md
+Bulezau (MPMM).md
+Bulezau (MTF).md
+Bullywug (MM'14).md
+Bullywug Bog Sage (MM'25).md
+Bullywug Croaker (GoS).md
+Bullywug Knight (WBtW).md
+Bullywug Royal (GoS).md
+Bullywug Warrior (MM'25).md
+Burnished Hart (MOT).md
+Burrowshark (PotA).md
+Cackler (GGR).md
+Cadaver Collector (MPMM).md
+Cadaver Collector (MTF).md
+Cairnwight (BGG).md
+Caldron Magen (NF).md
+Cambion (MM'14).md
+Cambion (MM'25).md
+Camel (MM'14).md
+Camel (MM'25).md
+Campestri (WBtW).md
+Cannith Artificer (EFA).md
+Canoloth (MPMM).md
+Canoloth (MTF).md
+Canopic Golem (CM).md
+Carnivorous Flower (RoT).md
+Carrion Crawler (MM'14).md
+Carrion Crawler (MM'25).md
+Carrion Ogre (WDMM).md
+Carrion Stalker (RHW).md
+Carrion Stalker (VRGR).md
+Carrionette (RHW).md
+Carrionette (VRGR).md
+Cat (MM'14).md
+Cat (MM'25).md
+Cat Skeleton (CoS).md
+Category 1 Krasis (GGR).md
+Category 2 Krasis (GGR).md
+Category 3 Krasis (GGR).md
+Catoblepas (MPMM).md
+Catoblepas (VGM).md
+Caustic Crawler (PSZ).md
+Cave Badger (OotA).md
+Cave Bear (MM'14).md
+Cave Fisher (MPMM).md
+Cave Fisher (VGM).md
+Celestial Spirit (TCE).md
+Celestial Spirit (PHB'24).md
+Centaur (MM'14).md
+Centaur Mummy (TftYP).md
+Centaur Trooper (MM'25).md
+Centaur Warden (MM'25).md
+Ceratops (BGG).md
+Ceratops (PSX).md
+Cerodon (PSA).md
+Chain Devil (MM'14).md
+Chain Devil (MM'25).md
+Chakuna (RHW).md
+Chamberlain of Zuggtmoy (OotA).md
+Champion (MPMM).md
+Champion (VGM).md
+Champion of Gorm (QftIS).md
+Champion of Madarua (QftIS).md
+Champion of Usamigaras (QftIS).md
+Changeling (ERLW).md
+Chaos Quadrapod (AI).md
+Chardalyn Berserker (IDRotF).md
+Chardalyn Dragon (IDRotF).md
+Chasme (MM'14).md
+Chasme (MM'25).md
+Chimera (MM'14).md
+Chimera (MM'25).md
+Chimeric Baboon (IDRotF).md
+Chimeric Cat (IDRotF).md
+Chimeric Fox (IDRotF).md
+Chimeric Fox (NRH-AVitW).md
+Chimeric Hare (IDRotF).md
+Chimeric Rat (IDRotF).md
+Chimeric Weasel (IDRotF).md
+Chitine (MPMM).md
+Chitine (VGM).md
+Choker (MPMM).md
+Choker (MTF).md
+Choldrith (MPMM).md
+Choldrith (VGM).md
+Chupacabra (PSX).md
+Chuul (MM'14).md
+Chuul (MM'25).md
+Chuul Spore Servant (OotA).md
+Chwinga (CM).md
+Chwinga (IDRotF).md
+Chwinga (ToA).md
+Chwinga Astronaut (BAM).md
+Cinder Hulk (BGG).md
+Citadel Spider (VEoR).md
+Clawfoot (ERLW).md
+Clay Gladiator (ToA).md
+Clay Golem (MM'14).md
+Clay Golem (MM'25).md
+Cloaker (MM'14).md
+Cloaker (MM'25).md
+Cloaker Mutate (PaBTSO).md
+Clockwork Behir (OoW).md
+Clockwork Bronze Scout (MPMM).md
+Clockwork Defender (KftGV).md
+Clockwork Dragon (AI).md
+Clockwork Horror (MCV1SC).md
+Clockwork Iron Cobra (MPMM).md
+Clockwork Kraken (LLK).md
+Clockwork Mule (SKT).md
+Clockwork Oaken Bolter (MPMM).md
+Clockwork Observer (KftGV).md
+Clockwork Stone Defender (MPMM).md
+Cloud Giant (MM'14).md
+Cloud Giant (MM'25).md
+Cloud Giant Destiny Gambler (BGG).md
+Cloud Giant Ghost (CM).md
+Cloud Giant Noble (TftYP).md
+Cloud Giant Smiling One (MPMM).md
+Cloud Giant Smiling One (VGM).md
+Cloud Giant of Evil Air (BGG).md
+Clown (NRH-CoI).md
+Coatl (PSX).md
+Cockatrice (MM'14).md
+Cockatrice (MM'25).md
+Cockatrice Regent (MM'25).md
+Cogwork Archivist (SCC).md
+Coldlight Walker (IDRotF).md
+Colossus (MM'25).md
+Colossus of Akros (MOT).md
+Combat Robot (QftIS).md
+Commoner (MM'14).md
+Commoner (WttHC).md
+Commoner (MM'25).md
+Conclave Dryad (GGR).md
+Conjurer (VGM).md
+Conjurer Wizard (MPMM).md
+Conservatory Student (KftGV).md
+Constrictor Snake (MM'14).md
+Constrictor Snake (MM'25).md
+Construct (Animated Armor) (PSK).md
+Construct (Helmed Horror) (PSK).md
+Construct (Modron) (PSK).md
+Construct (Shield Guardian) (PSK).md
+Construct Spirit (TCE).md
+Construct Spirit (PHB'24).md
+Constructed Commoner (CM).md
+Copper Dragon Wyrmling (MM'14).md
+Copper Dragon Wyrmling (MM'25).md
+Copper Greatwyrm (FTD).md
+Coral (MisMV1).md
+Core Spawn Crawler (EGW).md
+Core Spawn Emissary (EGW).md
+Core Spawn Seer (EGW).md
+Core Spawn Worm (EGW).md
+Cornelius Watson (MaBJoV).md
+Corpse Flower (MPMM).md
+Corpse Flower (MTF).md
+Corrupted Avatar of Lurue (CM).md
+Corrupted Giant Shark (CRCotN).md
+Corrupted Rat (WttHC).md
+Corruption Devil (Paeliryon) (CoA).md
+Cosmic Horror (BAM).md
+Cosmotronic Blastseeker (GGR).md
+Couatl (MM'14).md
+Couatl (MM'25).md
+Counterflux Blastseeker (GGR).md
+Cow (VGM).md
+Crab (MM'14).md
+Crab (MM'25).md
+Crab Folk (MFF).md
+Cradle of the Cloud Scion (BGG).md
+Cradle of the Fire Scion (BGG).md
+Cradle of the Frost Scion (BGG).md
+Cradle of the Hill Scion (BGG).md
+Cradle of the Stone Scion (BGG).md
+Cradle of the Storm Scion (BGG).md
+Crag Cat (SKT).md
+Cranium Rat (MPMM).md
+Cranium Rat (VGM).md
+Cranium Rat Squeaker (MPP).md
+Cranium Rat Squeaker Swarm (MPP).md
+Crawling Claw (MM'14).md
+Crawling Claw (MM'25).md
+Creeper (MCV3MC).md
+Creepy Doll (PSI).md
+Crimson Helmed Horror (KftGV).md
+Criosphinx (PSA).md
+Crocodile (MM'14).md
+Crocodile (MM'25).md
+Crow (WDMM).md
+Crushing Wave Priest (PotA).md
+Crushing Wave Reaver (PotA).md
+Cryonax (MaBJoV).md
+Crystal Battleaxe (WDMM).md
+Crystal Cave Merfolk (AWM).md
+Crystal Dragon Wyrmling (FTD).md
+Crystal Golem (WDMM).md
+Crystal Greatwyrm (FTD).md
+Cthulhu (RHW).md
+Cult Fanatic (MM'14).md
+Cultist (MM'14).md
+Cultist (MM'25).md
+Cultist Fanatic (MM'25).md
+Cultist Hierophant (MM'25).md
+Cultist of Bane (FRAiF).md
+Cultist of Bhaal (FRAiF).md
+Cultist of Demogorgon (WttHC).md
+Cultist of Myrkul (FRAiF).md
+Cuprilach Rilmani (MPP).md
+Curate (HotB).md
+Cyclops (MM'14).md
+Cyclops Oracle (MM'25).md
+Cyclops Sentry (MM'25).md
+Daask Bruiser (EFA).md
+Daask Raider (EFA).md
+Dabus (MPP).md
+Daemogoth (SCC).md
+Daemogoth Titan (SCC).md
+Dagryn (MaBJoV).md
+Damaged Flesh Golem (EGW).md
+Dancing Flame (CRCotN).md
+Dancing Item (TCE).md
+Dandylion (MisMV1).md
+Dankwood Duergar (MGELFT).md
+Dankwood Grung (MGELFT).md
+Dankwood Hag (AWM).md
+Dao (MM'14).md
+Dao (MM'25).md
+Darien (MaBJoV).md
+Dark Tide Knight (PotA).md
+Darkling (MPMM).md
+Darkling (VGM).md
+Darkling Elder (MPMM).md
+Darkling Elder (VGM).md
+Darkmantle (MM'14).md
+Darkmantle (MM'25).md
+Darkweaver (MPP).md
+Dead Three Scion (FRAiF).md
+Deadbark Dryad (VEoR).md
+Deadstone Cleft Stone Giant (SKT).md
+Death Cultist (MM'25).md
+Death Dog (MM'14).md
+Death Dog (MM'25).md
+Death Embrace (CRCotN).md
+Death Giant Reaper (BGG).md
+Death Giant Shrouded One (BGG).md
+Death Kiss (MPMM).md
+Death Kiss (VGM).md
+Death Knight (MM'14).md
+Death Knight (MM'25).md
+Death Knight Aspirant (MM'25).md
+Death Slaad (MM'14).md
+Death Slaad (MM'25).md
+Death Tyrant (MM'14).md
+Death Tyrant (MM'25).md
+Death's Head (RHW).md
+Death's Head (VRGR).md
+Death's Head Tree (RHW).md
+Death's Head of Bhaal (BGDIA).md
+Deathless Rider (MCV4EC).md
+Deathlock (MPMM).md
+Deathlock (MTF).md
+Deathlock Mastermind (MPMM).md
+Deathlock Mastermind (MTF).md
+Deathlock Wight (MPMM).md
+Deathlock Wight (MTF).md
+Deathpact Angel (GGR).md
+Deathwolf (VEoR).md
+Decapus (TTP).md
+Decaton Modron (MPP).md
+Deck Defender (BMT).md
+Deep Crow (AI).md
+Deep Dragon Wyrmling (FRAiF).md
+Deep Dragon Wyrmling (FTD).md
+Deep Gnome (Svirfneblin) (MM'14).md
+Deep Rothé (MPMM).md
+Deep Rothé (VGM).md
+Deep Scion (MPMM).md
+Deep Scion (VGM).md
+Deep Spider (MaBJoV).md
+Deer (MM'14).md
+Deer (MM'25).md
+Degloth (VEoR).md
+Deinonychus (MPMM).md
+Deinonychus (VGM).md
+Demilich (MM'14).md
+Demilich (MM'25).md
+Demobat (WttHC).md
+Demodog (WttHC).md
+Demodragon (WttHC).md
+Demogorgon (HftT).md
+Demogorgon (MPMM).md
+Demogorgon (MTF).md
+Demogorgon Spawn (WttHC).md
+Demon (PSK).md
+Demon (PSX).md
+Demon Ichor (CoA).md
+Demonlord of Ashmouth (PSI).md
+Demos Magen (IDRotF).md
+Derro (MPMM).md
+Derro (MTF).md
+Derro (OotA).md
+Derro Apprentice (QftIS).md
+Derro Raider (QftIS).md
+Derro Savant (MPMM).md
+Derro Savant (MTF).md
+Derro Savant (OotA).md
+Detached Shadow (WBtW).md
+Deva (MM'14).md
+Deva (MM'25).md
+Devkarin Lich (GGR).md
+Devourer (MPMM).md
+Devourer (VGM).md
+Dhergoloth (MPMM).md
+Dhergoloth (MTF).md
+Diatryma (WDH).md
+Dimetrodon (MPMM).md
+Dimetrodon (VGM).md
+Dining Table Mimic (WDH).md
+Dinosaur Skeleton (JttRC).md
+Dire Corby (MFF).md
+Dire Troll (MPMM).md
+Dire Troll (MTF).md
+Dire Wolf (MM'14).md
+Dire Wolf (MM'25).md
+Dire Worg (MM'25).md
+Disciple (HoL).md
+Dispater (CoA).md
+Displacer Beast (MM'14).md
+Displacer Beast (MM'25).md
+Displacer Beast Kitten (WBtW).md
+Displacer Fiend (CoA).md
+Distended Corpse (CoS).md
+Diva (JttRC).md
+Diviner (VGM).md
+Diviner Wizard (MPMM).md
+Djinni (MM'14).md
+Djinni (MM'25).md
+Dohwar (BAM).md
+Dolgaunt (ERLW).md
+Dolgrim (ERLW).md
+Dolphin (MPMM).md
+Dolphin (VGM).md
+Dolphin Delighter (MPMM).md
+Domestic Wonder (FRAiF).md
+Doomguard Doom Lord (MPP).md
+Doomguard Rot Blade (MPP).md
+Doomwake Giant (MOT).md
+Doppelganger (MM'14).md
+Doppelganger (MM'25).md
+Doric (HAT-TG).md
+Dracohydra (FTD).md
+Dracolich (MM'25).md
+Draconian Dreadnought (FTD).md
+Draconian Foot Soldier (FTD).md
+Draconian Infiltrator (FTD).md
+Draconian Mage (FTD).md
+Draconian Mastermind (FTD).md
+Draconic Shard (FTD).md
+Draconic Spirit (FTD).md
+Draconic Spirit (PHB'24).md
+Dracophage Subject (DSotDQ).md
+Draegloth (MPMM).md
+Draegloth (VGM).md
+Draft Horse (MM'14).md
+Draft Horse (MM'25).md
+Dragon (PSK).md
+Dragon Army Dragonnel (DSotDQ).md
+Dragon Army Officer (DSotDQ).md
+Dragon Army Soldier (DSotDQ).md
+Dragon Blessed (FTD).md
+Dragon Chosen (FTD).md
+Dragon Hunter (JttRC).md
+Dragon Speaker (FTD).md
+Dragon Tortoise (CM).md
+Dragon Turtle (MM'14).md
+Dragon Turtle (MM'25).md
+Dragon Turtle Wyrmling (FTD).md
+Dragonblood Ooze (FTD).md
+Dragonbone Golem (FTD).md
+Dragonborn of Bahamut (FTD).md
+Dragonborn of Sardior (FTD).md
+Dragonborn of Tiamat (FTD).md
+Dragonclaw (HotDQ).md
+Dragonfang (RoT).md
+Dragonflesh Abomination (FTD).md
+Dragonflesh Grafter (FTD).md
+Dragonnel (FTD).md
+Dragonsoul (RoT).md
+Dragonwing (HotDQ).md
+Drake (Large) (PSK).md
+Drake (Large) (PSZ).md
+Drake (Small) (PSK).md
+Drake (Small) (PSZ).md
+Drake Companion (FTD).md
+Dread Doppelganger (MaBJoV).md
+Dread Warrior (TftYP).md
+Dream Eater (MCV2DC).md
+Dreaming Dark Infiltrator (EFA).md
+Dreaming Dark Mindkiller (EFA).md
+Dretch (MM'14).md
+Dretch (WttHC).md
+Dretch (MM'25).md
+Drider (MM'14).md
+Drider (MM'25).md
+Drow (MM'14).md
+Drow Acolyte (OotA).md
+Drow Arachnomancer (MPMM).md
+Drow Arachnomancer (MTF).md
+Drow Assassin (OotA).md
+Drow Bandit (OotA).md
+Drow Commander (TftYP).md
+Drow Commoner (OotA).md
+Drow Cultist (OotA).md
+Drow Elite Warrior (MM'14).md
+Drow Elite Warrior of Lolth (FRAiF).md
+Drow Favored Consort (MPMM).md
+Drow Favored Consort (MTF).md
+Drow Guard (OotA).md
+Drow Gunslinger (WDH).md
+Drow House Captain (MPMM).md
+Drow House Captain (MTF).md
+Drow Inquisitor (MPMM).md
+Drow Inquisitor (MTF).md
+Drow Mage (MM'14).md
+Drow Mage of Lolth (FRAiF).md
+Drow Matron Mother (MPMM).md
+Drow Matron Mother (MTF).md
+Drow Noble (OotA).md
+Drow Priestess of Lolth (FRAiF).md
+Drow Priestess of Lolth (MM'14).md
+Drow Scout (OotA).md
+Drow Shadowblade (MPMM).md
+Drow Shadowblade (MTF).md
+Drow Spore Servant (OotA).md
+Drow Spy (OotA).md
+Drow of Lolth (FRAiF).md
+Drowned Ascetic (GoS).md
+Drowned Assassin (GoS).md
+Drowned Blade (GoS).md
+Drowned Master (GoS).md
+Druid (MM'14).md
+Druid (MM'25).md
+Druid of the Old Ways (GGR).md
+Dryad (MM'14).md
+Dryad (PSX).md
+Dryad (MM'25).md
+Dryad Spirit (BGDIA).md
+Duergar (MM'14).md
+Duergar Alchemist (OotA).md
+Duergar Darkhaft (OotA).md
+Duergar Despot (MPMM).md
+Duergar Despot (MTF).md
+Duergar Hammerer (MPMM).md
+Duergar Hammerer (MTF).md
+Duergar Kavalrachni (MPMM).md
+Duergar Kavalrachni (MTF).md
+Duergar Keeper of the Flame (OotA).md
+Duergar Mind Master (MPMM).md
+Duergar Mind Master (MTF).md
+Duergar Screamer (MPMM).md
+Duergar Screamer (MTF).md
+Duergar Soulblade (MPMM).md
+Duergar Soulblade (MTF).md
+Duergar Spore Servant (OotA).md
+Duergar Spy (TftYP).md
+Duergar Stone Guard (MPMM).md
+Duergar Stone Guard (MTF).md
+Duergar Warlord (MPMM).md
+Duergar Warlord (MTF).md
+Duergar Xarrorn (MPMM).md
+Duergar Xarrorn (MTF).md
+Dullahan (RHW).md
+Dullahan (VRGR).md
+Dum-Dum Goblin (AWM).md
+Dunbarrow Witch (MCV4EC).md
+Duodrone (MM'14).md
+Dusk Hag (ERLW).md
+Dust Hulk (BGG).md
+Dust Mephit (MM'14).md
+Dust Mephit (MM'25).md
+Dwarf (AWM).md
+Dwarf Skeleton (PaBTSO).md
+Dwarven Worker (IMR).md
+Dybbuk (MPMM).md
+Dybbuk (MTF).md
+Dyrrn (ERLW).md
+Eagle (MM'14).md
+Eagle (MM'25).md
+Earth Elemental (MM'14).md
+Earth Elemental (MM'25).md
+Earth Elemental Myrmidon (MPMM).md
+Earth Elemental Myrmidon (MTF).md
+Earth Totem Elemental (PSX).md
+Eater of Hope (MOT).md
+Eater of Knowledge (MPP).md
+Eblis (ToA).md
+Ebonbane (RHW).md
+Echo of Demogorgon (BGG).md
+Edgin Darvis (HAT-TG).md
+Edwin Odesseiron (MaBJoV).md
+Efreeti (MM'14).md
+Efreeti (MM'25).md
+Egg Hunter Adult (FTD).md
+Egg Hunter Hatchling (FTD).md
+Eidolon (MPMM).md
+Eidolon (MTF).md
+Elder Black Pudding (TftYP).md
+Elder Brain (MPMM).md
+Elder Brain (VGM).md
+Elder Brain Dragon (FTD).md
+Elder Dinosaur (PSX).md
+Elder Dinosaur (Etali, Primal Storm) (PSX).md
+Elder Dinosaur (Ghalta, Primal Hunger) (PSX).md
+Elder Dinosaur (Nezahal, Primal Tide) (PSX).md
+Elder Dinosaur (Tetzimoc, Primal Death) (PSX).md
+Elder Dinosaur (Zacama, Primal Calamity) (PSX).md
+Elder Dinosaur (Zetalpa, Primal Dawn) (PSX).md
+Elder Giant Lizard (TftYP).md
+Elder Monastery of the Distressed Body Monk (LLK).md
+Elder Oblex (MPMM).md
+Elder Oblex (MTF).md
+Elder Tempest (MPMM).md
+Elder Tempest (MTF).md
+Elder Thing (RHW).md
+Eldritch Eddy (NF).md
+Eldritch Horror Hatchling (KftGV).md
+Eldritch Lich (MCV1SC).md
+Elemental Cataclysm (MM'25).md
+Elemental Cultist (MM'25).md
+Elemental Spirit (TCE).md
+Elemental Spirit (PHB'24).md
+Elephant (MM'14).md
+Elephant (MM'25).md
+Elk (MM'14).md
+Elk (MM'25).md
+Ember (MCV2DC).md
+Emberhorn Minotaur (PotA).md
+Emerald Claw Commander (EFA).md
+Emerald Claw Knight (EFA).md
+Emerald Dragon Wyrmling (FTD).md
+Emerald Enclave Scout (OotA).md
+Emerald Greatwyrm (FTD).md
+Empyrean (MM'14).md
+Empyrean (MM'25).md
+Empyrean Iota (MM'25).md
+Emrakul (PSZ).md
+Encephalon Cluster (PaBTSO).md
+Encephalon Gemmule (PaBTSO).md
+Enchanter (VGM).md
+Enchanter Wizard (MPMM).md
+Enchanting Infiltrator (BMT).md
+Ender Dragon (MCV3MC).md
+Enderman (MCV3MC).md
+Engineer (WDH).md
+Enhanced Medusa (IMR).md
+Enormous Tentacle (OoW).md
+Eo Ashmajiir (MaBJoV).md
+Equinal Guardinal (MPP).md
+Erinyes (MM'14).md
+Erinyes (MM'25).md
+Esthetic (BAM).md
+Eternal (PSA).md
+Eternal Flame Guardian (PotA).md
+Eternal Flame Priest (PotA).md
+Ettercap (MM'14).md
+Ettercap (MM'25).md
+Ettin (MM'14).md
+Ettin (MM'25).md
+Ettin Ceremorph (BGG).md
+Euryale (BMT).md
+Evil Mage (HftT).md
+Evil Mage (LMoP).md
+Evoker (VGM).md
+Evoker Wizard (MPMM).md
+Expeditious Messenger (ERLW).md
+Expert (DC).md
+Expert (ESK).md
+Expert (SDW).md
+Expert (SLW).md
+Eye Monger (BAM).md
+Eye of Fear and Flame (MFF).md
+Eyedrake (FTD).md
+Eyestalk of Gzemnid (ToFW).md
+Ez d'Avenir (RHW).md
+Factol Skall (AATM).md
+Faerie Borrower (MCV4EC).md
+Faerie Dragon (Blue) (MM'14).md
+Faerie Dragon (Green) (MM'14).md
+Faerie Dragon (Indigo) (MM'14).md
+Faerie Dragon (Orange) (MM'14).md
+Faerie Dragon (Red) (MM'14).md
+Faerie Dragon (Violet) (MM'14).md
+Faerie Dragon (Yellow) (MM'14).md
+Faerie Dragon Adult (MM'25).md
+Faerie Dragon Youth (MM'25).md
+Faerie Pathlighter (MCV4EC).md
+Faerie Pest (MCV4EC).md
+Falcon (WDH).md
+Faldorn (MaBJoV).md
+False Lich (VEoR).md
+Farastu Demodand (MPP).md
+Farastu Stalker (MaBJoV).md
+Fastieth (ERLW).md
+Fate Hag (BMT).md
+Fated Shaker (MPP).md
+Fathomer (PotA).md
+Feathergale Knight (PotA).md
+Felbarren Dwarf (SKT).md
+Felidar (GGR).md
+Felidar (PSZ).md
+Female Steeder (MPMM).md
+Female Steeder (MTF).md
+Female Steeder (OotA).md
+Fensir Devourer (BGG).md
+Fensir Skirmisher (BGG).md
+Feral Ashenwight (PaBTSO).md
+Ferocidon (PSX).md
+Ferrumach Rilmani (MPP).md
+Fey Spirit (TCE).md
+Fey Spirit (PHB'24).md
+Feyr (BAM).md
+Fiend Cultist (MM'25).md
+Fiendish Auger (PaBTSO).md
+Fiendish Flesh Golem (BGDIA).md
+Fiendish Formian (CoA).md
+Fiendish Giant Spider (OotA).md
+Fiendish Icon (ABH).md
+Fiendish Orc (CRCotN).md
+Fiendish Spirit (TCE).md
+Fiendish Spirit (PHB'24).md
+Fierna (CoA).md
+Firbolg Primeval Warden (BGG).md
+Firbolg Wanderer (BGG).md
+Fire Elemental (MM'14).md
+Fire Elemental (MM'25).md
+Fire Elemental Myrmidon (MPMM).md
+Fire Elemental Myrmidon (MTF).md
+Fire Giant (MM'14).md
+Fire Giant (MM'25).md
+Fire Giant Dreadnought (MPMM).md
+Fire Giant Dreadnought (VGM).md
+Fire Giant Forgecaller (BGG).md
+Fire Giant Royal Headsman (TftYP).md
+Fire Giant Servant (TftYP).md
+Fire Giant of Evil Fire (BGG).md
+Fire Guardian (PSX).md
+Fire Hellion (BGG).md
+Fire Kraken (CoA).md
+Fire Snake (MM'14).md
+Firefist (GGR).md
+Firegaunt (BGG).md
+Firemane Angel (GGR).md
+Firenewt Warlock of Imix (MPMM).md
+Firenewt Warlock of Imix (VGM).md
+Firenewt Warrior (MPMM).md
+Firenewt Warrior (VGM).md
+First-Year Student (SCC).md
+Fish (GoS).md
+Fist of Bane (BGDIA).md
+Five-Armed Troll (WDMM).md
+Flail Snail (MPMM).md
+Flail Snail (VGM).md
+Flameskull (MM'14).md
+Flameskull (MM'25).md
+Flamewrath (PotA).md
+Flaming Skeleton (MM'25).md
+Fleecemane Lion (MOT).md
+Flesh Colossus (BGG).md
+Flesh Golem (MM'14).md
+Flesh Golem (MM'25).md
+Flesh Meld (PaBTSO).md
+Flight Alabaster Angel (PSI).md
+Flight Goldnight Angel (PSI).md
+Flight of Moonsilver Angel (PSI).md
+Flimp Shagglecran (MaBJoV).md
+Flind (MPMM).md
+Flind (VGM).md
+Flitterstep Eidolon (MOT).md
+Flumph (MM'14).md
+Flumph (MM'25).md
+Flux Blastseeker (GGR).md
+Fluxcharger (GGR).md
+Flying Dagger (BGDIA).md
+Flying Horror (GGR).md
+Flying Monkey (ToA).md
+Flying Rocking Horse (WBtW).md
+Flying Shield (TftYP).md
+Flying Snake (MM'14).md
+Flying Snake (MM'25).md
+Flying Staff (WDH).md
+Flying Sword (MM'14).md
+Flying Trident (WDMM).md
+Flying Wand (WDMM).md
+Flying Wonder (FRAiF).md
+Fog Giant (MFF).md
+Fomorian (MM'14).md
+Fomorian (MM'25).md
+Fomorian Deep Crawler (BGG).md
+Fomorian Noble (BGG).md
+Fomorian Warlock of the Dark (BGG).md
+Forest Master (MCV2DC).md
+Foresworn (MCV2DC).md
+Forge Fitzwilliam (HAT-TG).md
+Forlarren (MFF).md
+Four-Armed Gargoyle (TftYP).md
+Four-Armed Statue (OotA).md
+Four-Armed Troll (HotDQ).md
+Fox (IDRotF).md
+Fractal Mascot (SCC).md
+Fractine (MCV1SC).md
+Fraternity of Order Law Bender (MPP).md
+Fraz-Urb'luu (MPMM).md
+Fraz-Urb'luu (MTF).md
+Frilled Deathspitter (PSX).md
+Frog (MM'14).md
+Frog (MM'25).md
+Froghemoth (MPMM).md
+Froghemoth (VGM).md
+Froghemoth Elder (QftIS).md
+Frontline Medic (GGR).md
+Frost Druid (IDRotF).md
+Frost Giant (MM'14).md
+Frost Giant (MM'25).md
+Frost Giant Everlasting One (MPMM).md
+Frost Giant Everlasting One (VGM).md
+Frost Giant Ice Shaper (BGG).md
+Frost Giant Servant (TftYP).md
+Frost Giant Skeleton (IDRotF).md
+Frost Giant Zombie (EGW).md
+Frost Giant of Evil Water (BGG).md
+Frost Salamander (MPMM).md
+Frost Salamander (MTF).md
+Frost Worm (EGW).md
+Frostmourn (BGG).md
+Frozen Golem (CoA).md
+Fume Drake (DoSI).md
+Fungal Servant (CM).md
+Fury of Kostchtchie (BGG).md
+Gadabout (MCV1SC).md
+Gaj (BAM).md
+Galazeth Prismari (SCC).md
+Galeb Duhr (MM'14).md
+Galeb Duhr (MM'25).md
+Gallows Speaker (RHW).md
+Gallows Speaker (VRGR).md
+Galvan Magen (IDRotF).md
+Galvanic Blastseeker (GGR).md
+Galvanice Weird (GGR).md
+Gargantua (BGG).md
+Gargantuan Rug of Smothering (TftYP).md
+Gargoyle (MM'14).md
+Gargoyle (MM'25).md
+Gas Spore (MM'14).md
+Gas Spore Fungus (MM'25).md
+Gauth (MPMM).md
+Gauth (VGM).md
+Gazer (MPMM).md
+Gazer (VGM).md
+Gearkeeper Construct (EGW).md
+Geist (PSI).md
+Gelatinous Cube (MM'14).md
+Gelatinous Cube (MM'25).md
+Gem Stalker (FTD).md
+Gennifer Weathermay-Foxgrove (RHW).md
+Geonid (TTP).md
+Geryon (MPMM).md
+Geryon (MTF).md
+Ghallanda Troubleshooter (EFA).md
+Ghast (MM'14).md
+Ghast (MM'25).md
+Ghast Gravecaller (MM'25).md
+Ghost (MM'14).md
+Ghost (MM'25).md
+Ghost Dragon (FTD).md
+Ghostblade Eidolon (MOT).md
+Ghoul (MM'14).md
+Ghoul (MM'25).md
+Giant (PSK).md
+Giant Ape (MM'14).md
+Giant Ape (MM'25).md
+Giant Axe Beak (MM'25).md
+Giant Badger (MM'14).md
+Giant Badger (MM'25).md
+Giant Bat (MM'14).md
+Giant Bat (MM'25).md
+Giant Boar (MM'14).md
+Giant Boar (MM'25).md
+Giant Canary (FTD).md
+Giant Centipede (MM'14).md
+Giant Centipede (MM'25).md
+Giant Child (BGG).md
+Giant Constrictor Snake (MM'14).md
+Giant Constrictor Snake (MM'25).md
+Giant Coral Snake (GoS).md
+Giant Corrupted Rat (WttHC).md
+Giant Crab (MM'14).md
+Giant Crab (MM'25).md
+Giant Crayfish (TftYP).md
+Giant Crocodile (MM'14).md
+Giant Crocodile (MM'25).md
+Giant Dragonfly (WBtW).md
+Giant Eagle (MM'14).md
+Giant Eagle (MM'25).md
+Giant Elk (MM'14).md
+Giant Elk (MM'25).md
+Giant Fire Beetle (MM'14).md
+Giant Fire Beetle (MM'25).md
+Giant Fly (DMG'14).md
+Giant Fly (DMG'24).md
+Giant Flying Spider (WDMM).md
+Giant Four-Armed Gargoyle (ToA).md
+Giant Frog (MM'14).md
+Giant Frog (MM'25).md
+Giant Gelatinous Cube (WDMM).md
+Giant Goat (MM'14).md
+Giant Goat (MM'25).md
+Giant Goose (BGG).md
+Giant Hyena (MM'14).md
+Giant Hyena (MM'25).md
+Giant Ice Toad (TftYP).md
+Giant Insect (PHB'24).md
+Giant Lightning Eel (TftYP).md
+Giant Lizard (MM'14).md
+Giant Lizard (MM'25).md
+Giant Lynx (BGG).md
+Giant Octopus (MM'14).md
+Giant Octopus (MM'25).md
+Giant Owl (MM'14).md
+Giant Owl (MM'25).md
+Giant Ox (BGG).md
+Giant Poisonous Snake (MM'14).md
+Giant Ram (BGG).md
+Giant Rat (MM'14).md
+Giant Rat (MM'25).md
+Giant Raven (SKT).md
+Giant Riding Lizard (OotA).md
+Giant River Serpent (PSA).md
+Giant Rocktopus (OotA).md
+Giant Scorpion (MM'14).md
+Giant Scorpion (MM'25).md
+Giant Sea Eel (GoS).md
+Giant Sea Horse (MM'14).md
+Giant Seahorse (MM'25).md
+Giant Shark (MM'14).md
+Giant Shark (MM'25).md
+Giant Shark Skeleton (SDW).md
+Giant Skeleton (TftYP).md
+Giant Slug (TTP).md
+Giant Snail (WBtW).md
+Giant Snapping Turtle (ToA).md
+Giant Space Hamster (BAM).md
+Giant Spider (MM'14).md
+Giant Spider (WttHC).md
+Giant Spider (MM'25).md
+Giant Squid (MM'25).md
+Giant Strider (MPMM).md
+Giant Strider (VGM).md
+Giant Subterranean Lizard (TftYP).md
+Giant Swan (WBtW).md
+Giant Tick (BGG).md
+Giant Toad (MM'14).md
+Giant Toad (MM'25).md
+Giant Venomous Snake (MM'25).md
+Giant Vulture (MM'14).md
+Giant Vulture (MM'25).md
+Giant Walrus (IDRotF).md
+Giant Wasp (MM'14).md
+Giant Wasp (MM'25).md
+Giant Weasel (MM'14).md
+Giant Weasel (MM'25).md
+Giant Whirlwyrm (ToFW).md
+Giant White Moray Eel (GoS).md
+Giant Wolf Spider (MM'14).md
+Giant Wolf Spider (MM'25).md
+Giant Zombie Constrictor Snake (AitFR-DN).md
+Gibbering Mouther (MM'14).md
+Gibbering Mouther (MM'25).md
+Gibberling (MaBJoV).md
+Gibberling (QftIS).md
+Giff (MPMM).md
+Giff (MTF).md
+Giff Shipmate (BAM).md
+Giff Shock Trooper (BAM).md
+Giff Warlord (BAM).md
+Gigant (BGG).md
+Gingerbrute (MCV4EC).md
+Gingwatzim (CM).md
+Girallon (MPMM).md
+Girallon (VGM).md
+Girallon Zombie (ToA).md
+Gisela (PSI).md
+Gishath, Sun's Avatar (PSX).md
+Githyanki Buccaneer (BAM).md
+Githyanki Dracomancer (MM'25).md
+Githyanki Gish (MPMM).md
+Githyanki Gish (MTF).md
+Githyanki Kith'rak (MPMM).md
+Githyanki Kith'rak (MTF).md
+Githyanki Knight (MM'14).md
+Githyanki Knight (MM'25).md
+Githyanki Star Seer (BAM).md
+Githyanki Supreme Commander (MPMM).md
+Githyanki Supreme Commander (MTF).md
+Githyanki Warrior (MM'14).md
+Githyanki Warrior (MM'25).md
+Githyanki Xenomancer (BAM).md
+Githzerai Anarch (MPMM).md
+Githzerai Anarch (MTF).md
+Githzerai Enlightened (MPMM).md
+Githzerai Enlightened (MTF).md
+Githzerai Futurist (MPP).md
+Githzerai Monk (MM'14).md
+Githzerai Monk (MM'25).md
+Githzerai Psion (MM'25).md
+Githzerai Traveler (MPP).md
+Githzerai Uniter (MPP).md
+Githzerai Zerth (MM'14).md
+Githzerai Zerth (MM'25).md
+Glabrezu (MM'14).md
+Glabrezu (MM'25).md
+Gladiator (MM'14).md
+Gladiator (MM'25).md
+Glass Pegasus (WBtW).md
+Glasswork Golem (WBtW).md
+Glasya (CoA).md
+Gloamwing (GGR).md
+Gloom Weaver (MTF).md
+Gloomstalker (EGW).md
+Gnarlid (PSZ).md
+Gnoll (MM'14).md
+Gnoll Demoniac (MM'25).md
+Gnoll Fang of Yeenoghu (MM'14).md
+Gnoll Fang of Yeenoghu (MM'25).md
+Gnoll Flesh Gnawer (MPMM).md
+Gnoll Flesh Gnawer (VGM).md
+Gnoll Hunter (MPMM).md
+Gnoll Hunter (VGM).md
+Gnoll Pack Lord (MM'14).md
+Gnoll Pack Lord (MM'25).md
+Gnoll Vampire (IDRotF).md
+Gnoll Warrior (WttHC).md
+Gnoll Warrior (MM'25).md
+Gnoll Witherling (MPMM).md
+Gnoll Witherling (VGM).md
+Gnome Ceremorph (IDRotF).md
+Gnome Squidling (IDRotF).md
+Goat (MM'14).md
+Goat (MM'25).md
+Goblin (MM'14).md
+Goblin Boss (MM'14).md
+Goblin Boss (MM'25).md
+Goblin Boss Archer (PaBTSO).md
+Goblin Commoner (TftYP).md
+Goblin Gang Member (KKW).md
+Goblin Hexer (MM'25).md
+Goblin Minion (MM'25).md
+Goblin Psi Brawler (PaBTSO).md
+Goblin Psi Commander (PaBTSO).md
+Goblin Warrior (WttHC).md
+Goblin Warrior (MM'25).md
+Gold Dragon Wyrmling (MM'14).md
+Gold Dragon Wyrmling (MM'25).md
+Gold Greatwyrm (FTD).md
+Gold-Forged Sentinel (MOT).md
+Golden Stag (HotDQ).md
+Golgari Shaman (GGR).md
+Goliath Giant-Kin (BGG).md
+Goliath Warrior (IDRotF).md
+Goliath Werebear (IDRotF).md
+Gomazoa (PSZ).md
+Goon (NRH-ASS).md
+Goon Balloon (MCV1SC).md
+Goose Mother (MCV4EC).md
+Gorgon (MM'14).md
+Gorgon (MM'25).md
+Goristro (MM'14).md
+Goristro (MM'25).md
+Granite Juggernaut (VEoR).md
+Graveyard Revenant (MM'25).md
+Gray Ooze (MM'14).md
+Gray Ooze (MM'25).md
+Gray Ooze Glob (HotB).md
+Gray Render (MPMM).md
+Gray Render (MTF).md
+Gray Scavver (BAM).md
+Gray Slaad (MM'14).md
+Gray Slaad (MM'25).md
+Graz'zt (MPMM).md
+Graz'zt (MTF).md
+Great Cat (PSZ).md
+Greater Death Dragon (DSotDQ).md
+Greater Shadow Horror (AitFR-THP).md
+Greater Star Spawn Emissary (RHW).md
+Greater Star Spawn Emissary (VRGR).md
+Greater Tyrant Shadow (CoA).md
+Greater Zombie (TftYP).md
+Green Abishai (MPMM).md
+Green Abishai (MTF).md
+Green Dragon Wyrmling (MM'14).md
+Green Dragon Wyrmling (MM'25).md
+Green Greatwyrm (FTD).md
+Green Guard Drake (VGM).md
+Green Hag (MM'14).md
+Green Hag (MM'25).md
+Green Slaad (MM'14).md
+Green Slaad (MM'25).md
+Grell (MM'14).md
+Grell (MM'25).md
+Grell Psychic (PaBTSO).md
+Gremishka (RHW).md
+Gremishka (VRGR).md
+Gremlin (PSK).md
+Gremorly's Ghost (BMT).md
+Grick (MM'14).md
+Grick (MM'25).md
+Grick Alpha (MM'14).md
+Grick Ancient (MM'25).md
+Griffin (PSX).md
+Griffin (Type 1) (PSZ).md
+Griffin (Type 2) (PSZ).md
+Griffon (MM'14).md
+Griffon (MM'25).md
+Griffon Cavalry Rider (WDH).md
+Grim Champion of Bloodshed (BMT).md
+Grim Champion of Desolation (BMT).md
+Grim Champion of Pestilence (BMT).md
+Grimlock (MM'14).md
+Grimlock (MM'25).md
+Grinning Cat (BGG).md
+Grippli Warrior (CM).md
+Groff (SCC).md
+Grotesque Tentacle (CoA).md
+Grung (MPMM).md
+Grung (VGM).md
+Grung Elite Warrior (MPMM).md
+Grung Elite Warrior (VGM).md
+Grung Wildling (MPMM).md
+Grung Wildling (VGM).md
+Guard (MM'14).md
+Guard (WttHC).md
+Guard (MM'25).md
+Guard Captain (MM'25).md
+Guard Drake (HotDQ).md
+Guard Drake (MPMM).md
+Guardian Giant (GGR).md
+Guardian Naga (MM'14).md
+Guardian Naga (MM'25).md
+Guardian Portrait (CoS).md
+Guardian Wolf (EGW).md
+Guardian of Gorm (QftIS).md
+Gug (RHW).md
+Gulthias Blight (MM'25).md
+Gynosphinx (MM'14).md
+Hadozee Explorer (BAM).md
+Hadozee Shipmate (BAM).md
+Hadozee Warrior (BAM).md
+Hadrosaur (PSX).md
+Hadrosaurus (MPMM).md
+Hadrosaurus (VGM).md
+Haint (JttRC).md
+Halaster Horror (WDMM).md
+Half-Blue Dragon Gladiator (RoT).md
+Half-Dragon (MM'25).md
+Half-Green Dragon Assassin (RoT).md
+Half-Ogre (Ogrillon) (MM'14).md
+Half-Red Dragon Gladiator (RoT).md
+Half-Red Dragon Veteran (MM'14).md
+Halog (CoA).md
+Hamadryad (MaBJoV).md
+Hammer-Handed Golem (WDMM).md
+Hammerskull (PSX).md
+Hands of Havoc Fire Starter (MPP).md
+Hangry Otyugh (AWM).md
+Hare (IDRotF).md
+Harengon Brigand (WBtW).md
+Harengon Sniper (WBtW).md
+Harkon Lukas (RHW).md
+Harmonium Captain (MPP).md
+Harmonium Peacekeeper (MPP).md
+Harpy (MM'14).md
+Harpy (PSX).md
+Harpy (MM'25).md
+Harpy Matriarch (GoS).md
+Harrow Hawk (BMT).md
+Harrow Hound (BMT).md
+Harvester Devil (ABH).md
+Hashalaq Quori (ERLW).md
+Haunting Revenant (MM'25).md
+Hawk (MM'14).md
+Hawk (MM'25).md
+Hazlik (RHW).md
+Hazvongel (VEoR).md
+Headless Iron Golem (IDRotF).md
+Heartstabber Mosquito (PSZ).md
+Hell Hound (MM'14).md
+Hell Hound (WttHC).md
+Hell Hound (MM'25).md
+Hellcat (Bezekira) (CoA).md
+Hellfire Engine (MPMM).md
+Hellfire Engine (MTF).md
+Hellion (PSZ).md
+Hellion (Huge) (PSK).md
+Hellion (Large) (PSK).md
+Hellwasp (BGDIA).md
+Hellwasp Grub (BGDIA).md
+Helmed Horror (MM'14).md
+Helmed Horror (MM'25).md
+Helmed Horror Detention Drone (BMT).md
+Heralds of Dust Exorcist (AATM).md
+Heralds of Dust Remnant (MPP).md
+Hertilod (VEoR).md
+Hexton Modron (MPP).md
+Hezrou (MM'14).md
+Hezrou (MM'25).md
+Hierophant Medusa (BMT).md
+Hierophant of the Comet (BMT).md
+High Fae Impostor (MCV4EC).md
+High Fae Kindguard (MCV4EC).md
+High Fae Mage (MCV4EC).md
+High Fae Noble (MCV4EC).md
+Hill Giant (MM'14).md
+Hill Giant (MM'25).md
+Hill Giant Avalancher (BGG).md
+Hill Giant Sergeant (TftYP).md
+Hill Giant Servant (TftYP).md
+Hill Giant Subchief (TftYP).md
+Hippocamp (MOT).md
+Hippogriff (MM'14).md
+Hippogriff (MM'25).md
+Hippopotamus (PSA).md
+Hippopotamus (MM'25).md
+Hoard Mimic (FTD).md
+Hoard Scarab (FTD).md
+Hobgoblin (MM'14).md
+Hobgoblin Captain (MM'14).md
+Hobgoblin Captain (MM'25).md
+Hobgoblin Devastator (MPMM).md
+Hobgoblin Devastator (VGM).md
+Hobgoblin Iron Shadow (MPMM).md
+Hobgoblin Iron Shadow (VGM).md
+Hobgoblin Warlord (MM'14).md
+Hobgoblin Warlord (MM'25).md
+Hobgoblin Warrior (MM'25).md
+Holga Kilgore (HAT-TG).md
+Hollow Dragon (FTD).md
+Hollyphant (BGDIA).md
+Homarid (PSD).md
+Homunculus (MM'14).md
+Homunculus (MM'25).md
+Homunculus Servant (EFA).md
+Homunculus Servant (TCE).md
+Hook Horror (MM'14).md
+Hook Horror (MM'25).md
+Hook Horror Spore Servant (OotA).md
+Horizonback Tortoise (EGW).md
+Horncaller (GGR).md
+Horned Devil (MM'14).md
+Horned Devil (MM'25).md
+Horned Frog (PSX).md
+Horrid Plant (QftIS).md
+Host of Herons Angel (PSI).md
+Hound Archon (MPP).md
+Hound of Ill Omen (XGE).md
+Howler (MPMM).md
+Howler (MTF).md
+Howling Hatred Initiate (PotA).md
+Howling Hatred Priest (PotA).md
+Huge Giant Crab (TftYP).md
+Huge Gray Ooze (WDMM).md
+Huge Ochre Jelly (TftYP).md
+Huge Polar Bear (TftYP).md
+Huge Stone Golem (SKT).md
+Hulgaz (BMT).md
+Hulking Crab (SKT).md
+Hulking Shadow (DSotDQ).md
+Humanoid Mutate (PaBTSO).md
+Hundred-Handed One (MOT).md
+Hungry Ghast (CoS).md
+Hungry Sorrowsworn (MPMM).md
+Hunter Shark (MM'14).md
+Hunter Shark (MM'25).md
+Hurda (PSZ).md
+Hurricane (PotA).md
+Husk Zombie (EGW).md
+Hutijin (MPMM).md
+Hutijin (MTF).md
+Hybrid Brute (GGR).md
+Hybrid Flier (GGR).md
+Hybrid Poisoner (GGR).md
+Hybrid Shocker (GGR).md
+Hybrid Spy (GGR).md
+Hydra (MM'14).md
+Hydra (PSK).md
+Hydra (MM'25).md
+Hydroloth (MPMM).md
+Hydroloth (MTF).md
+Hyena (MM'14).md
+Hyena (MM'25).md
+Hypnos Magen (IDRotF).md
+Hythonia (MOT).md
+Ice Devil (MM'14).md
+Ice Devil (MM'25).md
+Ice Mephit (MM'14).md
+Ice Mephit (MM'25).md
+Ice Piercer (IDRotF).md
+Ice Spider (SKT).md
+Ice Spider Queen (SKT).md
+Ice Toad (RoT).md
+Ice Troll (IDRotF).md
+Ice Troll (RoT).md
+Icewind Kobold (IDRotF).md
+Icewind Kobold Zombie (IDRotF).md
+Icy Simulacrum (CoA).md
+Illithilich (VGM).md
+Illusionist (VGM).md
+Illusionist Wizard (MPMM).md
+Immortal Lotus Monk (CM).md
+Imoen (MaBJoV).md
+Imp (MM'14).md
+Imp (MM'25).md
+Imp Trickster (WttHC).md
+Incarnation of Transience (LFL).md
+Incarnation of Vibrance (LFL).md
+Incomplete Dragon Skeleton (DSotDQ).md
+Incubus (MM'14).md
+Incubus (MM'25).md
+Indentured Spirit (GGR).md
+Infant Basilisk (OotA).md
+Infant Hook Horror (OotA).md
+Infected Elder Brain (PaBTSO).md
+Infected Townsperson (PaBTSO).md
+Initiate of the Comet (BMT).md
+Inkling Mascot (SCC).md
+Inquisitor of the Mind Fire (RHW).md
+Inquisitor of the Mind Fire (VRGR).md
+Inquisitor of the Sword (RHW).md
+Inquisitor of the Sword (VRGR).md
+Inquisitor of the Tome (RHW).md
+Inquisitor of the Tome (VRGR).md
+Inspired (ERLW).md
+Intellect Devourer (MM'14).md
+Intellect Devourer (MM'25).md
+Intellect Snare (PaBTSO).md
+Intelligent Black Pudding (WDMM).md
+Invisible Stalker (MM'14).md
+Invisible Stalker (MM'25).md
+Iona (PSZ).md
+Irda Seeker (MCV2DC).md
+Irda Veil Keeper (MCV2DC).md
+Iron Cobra (MTF).md
+Iron Consul (BGDIA).md
+Iron Defender (ERLW).md
+Iron Golem (MM'14).md
+Iron Golem (MM'25).md
+Ironscale Hydra (MOT).md
+Isperia (GGR).md
+Istarian Drone (DSotDQ).md
+Ivan Dilisnya (RHW).md
+Ivana Boritsi (RHW).md
+Ixitxachitl (OotA).md
+Ixitxachitl Cleric (OotA).md
+Jabberwock (WBtW).md
+Jackal (MM'14).md
+Jackal (MM'25).md
+Jackalwere (MM'14).md
+Jackalwere (MM'25).md
+Jaculi (ToA).md
+Jade Giant Spider (OotA).md
+Jaheira (MaBJoV).md
+Jammer Leech (BAM).md
+Jarad Vod Savo (GGR).md
+Jermlaine (MFF).md
+Jiangshi (RHW).md
+Jiangshi (VRGR).md
+Jon Irenicus (MaBJoV).md
+Jorasco Medic (EFA).md
+Juiblex (MPMM).md
+Juiblex (MTF).md
+Junior Drow Priestess of Lolth (WDMM).md
+Juvenile Eldritch Horror (KftGV).md
+Juvenile Hook Horror (OotA).md
+Juvenile Kraken (GoS).md
+Juvenile Mimic (TCE).md
+Juvenile Shadow Dragon (MM'25).md
+Kagain (MaBJoV).md
+Kakkuu Spyder-Fiend (VEoR).md
+Kalaman Soldier (DSotDQ).md
+Kalaraq Quori (ERLW).md
+Kalashtar (ERLW).md
+Kamadan (ToA).md
+Kapak Draconian (DSotDQ).md
+Karrnathi Undead Soldier (ERLW).md
+Kavu Predator (PSD).md
+Keeper of the Feather (PSI).md
+Keg Robot (AI).md
+Kelpie (TftYP).md
+Kelubar Consul (MaBJoV).md
+Kelubar Demodand (MPP).md
+Kender Skirmisher (DSotDQ).md
+Kenku (MM'14).md
+Kenku (MM'25).md
+Khargra (MFF).md
+Ki-rin (MPMM).md
+Ki-rin (VGM).md
+Kiddywidget (CM).md
+Killer Whale (MM'14).md
+Killer Whale (MM'25).md
+Killmoulis (MFF).md
+Kindori (BAM).md
+King Robbit the Slimy (MGELFT).md
+Kivan (MaBJoV).md
+Knight (MM'14).md
+Knight (MM'25).md
+Knight of Eldraine (MCV4EC).md
+Knight of the Black Sword (IDRotF).md
+Knight of the Mithral Shield (SKT).md
+Knight of the Order (CoS).md
+Knucklehead Trout (IDRotF).md
+Koalinth (GoS).md
+Koalinth Sergeant (GoS).md
+Kobold (MM'14).md
+Kobold Commoner (TftYP).md
+Kobold Dragonshield (MPMM).md
+Kobold Dragonshield (VGM).md
+Kobold Elite (TftYP).md
+Kobold Inventor (MPMM).md
+Kobold Inventor (VGM).md
+Kobold Scale Sorcerer (MPMM).md
+Kobold Scale Sorcerer (VGM).md
+Kobold Tinkerer (DoSI).md
+Kobold Underling (EGW).md
+Kobold Vampire Spawn (IDRotF).md
+Kobold Warrior (MM'25).md
+Koi Prawn (JttRC).md
+Kolyarut (MPP).md
+Korred (MPMM).md
+Korred (VGM).md
+Kozilek (PSZ).md
+Kraken (MM'14).md
+Kraken (PSZ).md
+Kraken (MM'25).md
+Kraken Priest (MPMM).md
+Kraken Priest (VGM).md
+Kraul Death Priest (GGR).md
+Kraul Warrior (GGR).md
+Kruthik Hive Lord (MPMM).md
+Kruthik Hive Lord (MTF).md
+Kundarak Warden (EFA).md
+Kuo-toa (MM'14).md
+Kuo-toa (MM'25).md
+Kuo-toa Archpriest (MM'14).md
+Kuo-toa Archpriest (MM'25).md
+Kuo-toa Heretic (CoA).md
+Kuo-toa Marauder (HotB).md
+Kuo-toa Monitor (MM'14).md
+Kuo-toa Monitor (MM'25).md
+Kuo-toa Whip (MM'14).md
+Kuo-toa Whip (MM'25).md
+Lacedon (TftYP).md
+Lacedon Ghoul (MM'25).md
+Lady Illmarrow (ERLW).md
+Lamia (MM'14).md
+Lamia (MM'25).md
+Lampad (MOT).md
+Lantern Archon (MPP).md
+Large Drake (PSA).md
+Large Mimic (RMBRE).md
+Large Mimic (WDMM).md
+Larva (DMG'14).md
+Larva (MM'25).md
+Laurie Weathermay-Foxgrove (RHW).md
+Lava Child (WDMM).md
+Lawmage (GGR).md
+Lazav (GGR).md
+Lemure (MM'14).md
+Lemure (MM'25).md
+Leonin Iconoclast (MOT).md
+Leprechaun (QftIS).md
+Lesser Death Dragon (DSotDQ).md
+Lesser Mummy Lord (TftYP).md
+Lesser Star Spawn Emissary (RHW).md
+Lesser Star Spawn Emissary (VRGR).md
+Lesser Tyrant Shadow (CoA).md
+Leucrotta (MPMM).md
+Leucrotta (VGM).md
+Leviathan (MPMM).md
+Leviathan (MTF).md
+Levistus (CoA).md
+Lich (MM'14).md
+Lich (MM'25).md
+Lichen Lich (CM).md
+Lifecraft Elephant (PSK).md
+Light Devourer (CRCotN).md
+Lightning Golem (CM).md
+Lightning Hulk (BGG).md
+Linvala (PSZ).md
+Lion (MM'14).md
+Lion (MM'25).md
+Liondrake (FTD).md
+Living Bigby's Hand (IDRotF).md
+Living Blade of Disaster (IDRotF).md
+Living Burning Hands (ERLW).md
+Living Cloudkill (ERLW).md
+Living Demiplane (IDRotF).md
+Living Doll (WBtW).md
+Living Iron Statue (GoS).md
+Living Lightning Bolt (ERLW).md
+Living Portent (BMT).md
+Living Unseen Servant (WDMM).md
+Lizard (MM'14).md
+Lizard (MM'25).md
+Lizard King (MM'14).md
+Lizard Queen (MM'14).md
+Lizardfolk (MM'14).md
+Lizardfolk Commoner (GoS).md
+Lizardfolk Geomancer (MM'25).md
+Lizardfolk Render (GoS).md
+Lizardfolk Scaleshield (GoS).md
+Lizardfolk Shaman (MM'14).md
+Lizardfolk Sovereign (MM'25).md
+Lizardfolk Subchief (GoS).md
+Lizardfolk Warden (HotB).md
+Locathah (GoS).md
+Locathah Hunter (GoS).md
+Lonely Sorrowsworn (MPMM).md
+Lonelywood Banshee (IDRotF).md
+Lord Soth of Sithicus (RHW).md
+Lords' Alliance Guard (OotA).md
+Lords' Alliance Spy (OotA).md
+Lorehold Apprentice (SCC).md
+Lorehold Pledgemage (SCC).md
+Lorehold Professor of Chaos (SCC).md
+Lorehold Professor of Order (SCC).md
+Lorwyn Giant (LFL).md
+Lost Sorrowsworn (MPMM).md
+Lothar (MaBJoV).md
+Loup Garou (RHW).md
+Loup Garou (VRGR).md
+Lunar Dragon Wyrmling (BAM).md
+Lycanthropickle (RMBRE).md
+Lyra (PSD).md
+Lyrandar Scion (EFA).md
+Macaw (PSX).md
+Mad Golem (WDMM).md
+Madam Eva (RHW).md
+Maelephant (MPP).md
+Maelephant Nomad (CoA).md
+Mage (MM'14).md
+Mage (MM'25).md
+Mage Apprentice (MM'25).md
+Mage Hunter (SCC).md
+Mage of Usamigaras (QftIS).md
+Magewright (ERLW).md
+Magma Mephit (MM'14).md
+Magma Mephit (MM'25).md
+Magmin (MM'14).md
+Magmin (MM'25).md
+Malaxxix (BMT).md
+Male Steeder (MPMM).md
+Male Steeder (MTF).md
+Male Steeder (OotA).md
+Malformed Kraken (TftYP).md
+Mammon (CoA).md
+Mammoth (MM'14).md
+Mammoth (MM'25).md
+Manes (MM'14).md
+Manes (MM'25).md
+Manes Vaporspawn (MM'25).md
+Manticore (MM'14).md
+Manticore (MM'25).md
+Manticore, Heart-Piercer (PSA).md
+Mantrap (ToA).md
+Marid (MM'14).md
+Marid (MM'25).md
+Marilith (MM'14).md
+Marilith (MM'25).md
+Martial Arts Adept (MPMM).md
+Martial Arts Adept (VGM).md
+Marut (MPMM).md
+Marut (MTF).md
+Maschin-i-Bozorg (QftIS).md
+Master Sage (CM).md
+Master Thief (MPMM).md
+Master Thief (VGM).md
+Master of Cruelties (GGR).md
+Master of Souls (BGDIA).md
+Mastiff (MM'14).md
+Mastiff (MM'25).md
+Maurezhi (MPMM).md
+Maurezhi (MTF).md
+Maw Demon (MPMM).md
+Maw Demon (VGM).md
+Maw of Yeenoghu (BGG).md
+Meazel (MPMM).md
+Meazel (MTF).md
+Mechachimera (OoW).md
+Mechanical Bird (WDH).md
+Medani Inquisitive (EFA).md
+Medusa (MM'14).md
+Medusa (MOT).md
+Medusa (WttHC).md
+Medusa (MM'25).md
+Meenlock (MPMM).md
+Meenlock (VGM).md
+Meeseeks (RMBRE).md
+Megapede (BAM).md
+Meletian Hoplite (MOT).md
+Memory Web (QftIS).md
+Mephistopheles (CoA).md
+Mephistopheles (MaBJoV).md
+Mercane (BAM).md
+Mercenary Envoy (AitFR-FCD).md
+Mercykiller Bloodhound (MPP).md
+Merfolk (MM'14).md
+Merfolk Salvager (GoS).md
+Merfolk Scout (GoS).md
+Merfolk Skirmisher (MM'25).md
+Merfolk Wavebender (MM'25).md
+Merregon (MPMM).md
+Merregon (MTF).md
+Merrenoloth (MPMM).md
+Merrenoloth (MTF).md
+Merrow (MM'14).md
+Merrow (MM'25).md
+Merrow Doublespeaker (LFL).md
+Merrow Extortionist (DoSI).md
+Merrow Haranguer (LFL).md
+Merrow Shallowpriest (EGW).md
+Metal Wasp (WDMM).md
+Metallic Peacekeeper (FTD).md
+Metallic Warbler (FTD).md
+Mezzoloth (MM'14).md
+Mezzoloth (MM'25).md
+Mi-Go (RHW).md
+Miasmorne (CoA).md
+Mighty Servant of Leuk-o (TCE).md
+Mimic (MM'14).md
+Mimic (MM'25).md
+Mimic Chair (CM).md
+Mind Drinker Vampire (GGR).md
+Mind Flayer (MM'14).md
+Mind Flayer (MM'25).md
+Mind Flayer Arcanist (MM'14).md
+Mind Flayer Arcanist (MM'25).md
+Mind Flayer Clairvoyant (PaBTSO).md
+Mind Flayer Nothic (PaBTSO).md
+Mind Flayer Prophet (PaBTSO).md
+Mind Flayer Psion (VGM).md
+Mind Mage (GGR).md
+Mind's Eye Matter Smith (MPP).md
+Mindwitness (MPMM).md
+Mindwitness (VGM).md
+Minotaur (MM'14).md
+Minotaur Archaeologist (BMT).md
+Minotaur Infiltrator (BMT).md
+Minotaur Living Crystal Statue (GoS).md
+Minotaur Skeleton (MM'14).md
+Minotaur Skeleton (MM'25).md
+Minotaur of Baphomet (MM'25).md
+Minsc and Boo! (MaBJoV).md
+Mirror Shade (VEoR).md
+Mist Horror (RHW).md
+Mist Hulk (BGG).md
+Mist Wanderer (RHW).md
+Mite (MFF).md
+Modron Duodrone (MM'25).md
+Modron Monodrone (MM'25).md
+Modron Pentadrone (MM'25).md
+Modron Planar Incarnate (ToFW).md
+Modron Quadrone (MM'25).md
+Modron Tridrone (MM'25).md
+Moloch (MPMM).md
+Moloch (MTF).md
+Molten Magma Roper (PotA).md
+Molydeus (MPMM).md
+Molydeus (MTF).md
+Monastery of the Distressed Body Monk (LLK).md
+Monastic High Curator (CRCotN).md
+Monastic Infiltrator (CRCotN).md
+Monastic Operative (CRCotN).md
+Mongrelfolk (CoS).md
+Monodrone (MM'14).md
+Monstrous Peryton (GoS).md
+Montaron and the Laughing Skull (MaBJoV).md
+Moonlight Guardian (VEoR).md
+Moonshark (CRCotN).md
+Moonstone Dragon Wyrmling (FTD).md
+Moorbounder (EGW).md
+Mordakhesh (ERLW).md
+Mordenheim's Monster (RHW).md
+Morkoth (MPMM).md
+Morkoth (VGM).md
+Mother Lorinda (RHW).md
+Mountain Goat (IDRotF).md
+Mouth of Grolantor (MPMM).md
+Mouth of Grolantor (VGM).md
+Mud Hulk (BGG).md
+Mud Mephit (MM'14).md
+Mud Mephit (MM'25).md
+Mule (MM'14).md
+Mule (MM'25).md
+Mummy (MM'14).md
+Mummy (MM'25).md
+Mummy Lord (MM'14).md
+Mummy Lord (MM'25).md
+Murder Comet (BAM).md
+Musteval Guardinal (MPP).md
+Mutated Drow (WDMM).md
+Myconid Adult (MM'14).md
+Myconid Adult (WttHC).md
+Myconid Adult (MM'25).md
+Myconid Sovereign (MM'14).md
+Myconid Sovereign (MM'25).md
+Myconid Spore Servant (MM'25).md
+Myconid Sprout (MM'14).md
+Myconid Sprout (MM'25).md
+Nabassu (MPMM).md
+Nabassu (MTF).md
+Naes Inuus (MaBJoV).md
+Nagpa (MPMM).md
+Nagpa (MTF).md
+Naiad (CM).md
+Naiad (MOT).md
+Nalfeshnee (MM'14).md
+Nalfeshnee (MM'25).md
+Narzugon (MPMM).md
+Narzugon (MTF).md
+Nauk (MaBJoV).md
+Necrichor (RHW).md
+Necrichor (VRGR).md
+Necro-Alchemist (PSI).md
+Necromancer (VGM).md
+Necromancer Wizard (MPMM).md
+Necromite of Myrkul (BGDIA).md
+Necrotic Centipede (BGDIA).md
+Needle Blight (MM'14).md
+Needle Blight (WttHC).md
+Needle Blight (MM'25).md
+Needle Lord (MFF).md
+Needle Spawn (MFF).md
+Neh-thalggu (BAM).md
+Neo-Otyugh (IMR).md
+Neogi (MPMM).md
+Neogi (VGM).md
+Neogi Hatchling (MPMM).md
+Neogi Hatchling (VGM).md
+Neogi Hatchling Swarm (BAM).md
+Neogi Master (MPMM).md
+Neogi Master (VGM).md
+Neogi Pirate (BAM).md
+Neogi Void Hunter (BAM).md
+Neothelid (MPMM).md
+Neothelid (VGM).md
+Nereid (TftYP).md
+Nergaliid (EGW).md
+Nevermind Gnome Inventor (MCV2DC).md
+Nevermind Gnome Mastermind (MCV2DC).md
+Night Blade (BGDIA).md
+Night Hag (MM'14).md
+Night Hag (MM'25).md
+Night Scavver (BAM).md
+Nightgaunt (RHW).md
+Nightmare (MM'14).md
+Nightmare (MM'25).md
+Nightmare Beast (MCV1SC).md
+Nightmare Haunt (MCV4EC).md
+Nightmare Shepherd (MOT).md
+Nightsea Chil-liren (JttRC).md
+Nightveil Specter (GGR).md
+Nightwalker (MPMM).md
+Nightwalker (MTF).md
+Nilbog (MPMM).md
+Nilbog (VGM).md
+Nimblewright (WDH).md
+Nimblewright Guard (FRAiF).md
+Nimblewright Hulk (FRAiF).md
+Nimblewright Steed (FRAiF).md
+Niv-Mizzet (GGR).md
+Nivix Cyclops (GGR).md
+Noble (MM'14).md
+Noble (MM'25).md
+Noble Prodigy (MM'25).md
+Noggle Ransacker (LFL).md
+Noggle Wild Mage (LFL).md
+Nonaton Modron (MPP).md
+Norker (MFF).md
+Norker War Leader (MFF).md
+Nosferatu (VRGR).md
+Nothic (MM'14).md
+Nothic (MM'25).md
+Nupperibo (MPMM).md
+Nupperibo (MTF).md
+Nycaloth (MM'14).md
+Nycaloth (MM'25).md
+Nyx-Fleece Ram (MOT).md
+Oaken Bolter (MTF).md
+Oblex Spawn (MPMM).md
+Oblex Spawn (MTF).md
+Obzedat Ghost (GGR).md
+Occult Extollant (CRCotN).md
+Occult Initiate (CRCotN).md
+Occult Silvertongue (CRCotN).md
+Ochre Jelly (MM'14).md
+Ochre Jelly (MM'25).md
+Octon Modron (MPP).md
+Octopus (MM'14).md
+Octopus (MM'25).md
+Oculorb (PaBTSO).md
+Oddlewin (BMT).md
+Ogre (MM'14).md
+Ogre (MM'25).md
+Ogre Battering Ram (MPMM).md
+Ogre Battering Ram (MTF).md
+Ogre Bolt Launcher (MPMM).md
+Ogre Bolt Launcher (MTF).md
+Ogre Chain Brute (MPMM).md
+Ogre Chain Brute (MTF).md
+Ogre Channeler (PSZ).md
+Ogre Chitterlord (MCV4EC).md
+Ogre Goblin Hucker (SKT).md
+Ogre Howdah (MPMM).md
+Ogre Howdah (MTF).md
+Ogre Skeleton (TftYP).md
+Ogre Zombie (MM'14).md
+Ogre Zombie (MM'25).md
+Ogrillon Ogre (MM'25).md
+Oinoloth (MPMM).md
+Oinoloth (MTF).md
+Old Troglodyte (WDMM).md
+One-Eyed Shiver (PotA).md
+Oneirovore (CoA).md
+Oni (MM'14).md
+Oni (MM'25).md
+Ooze Master (TftYP).md
+Ooze-Folk (LLK).md
+Oracle (MOT).md
+Oracle of Strixhaven (SCC).md
+Orc (MM'14).md
+Orc Blade of Ilneval (VGM).md
+Orc Claw of Luthic (VGM).md
+Orc Commoner (TftYP).md
+Orc Eye of Gruumsh (MM'14).md
+Orc Hand of Yurtrus (VGM).md
+Orc Nurtured One of Yurtrus (VGM).md
+Orc Red Fang of Shargaas (VGM).md
+Orc War Chief (MM'14).md
+Orcus (MPMM).md
+Orcus (MTF).md
+Oread (MOT).md
+Orien Enforcer (EFA).md
+Oriq Blood Mage (SCC).md
+Oriq Recruiter (SCC).md
+Orog (MM'14).md
+Orthon (MPMM).md
+Orthon (MTF).md
+Orzhov Giant (GGR).md
+Otherworldly Corrupter (BMT).md
+Otherworldly Steed (PHB'24).md
+Otyugh (MM'14).md
+Otyugh (MM'25).md
+Otyugh Mutate (PaBTSO).md
+Owl (MM'14).md
+Owl (MM'25).md
+Owlbear (MM'14).md
+Owlbear (MM'25).md
+Ox (MPMM).md
+Ox (VGM).md
+Oxen (PSZ).md
+Pain Devil (Excruciarch) (CoA).md
+Panopticus Wizard (WDH).md
+Panther (MM'14).md
+Panther (MM'25).md
+Paper Bird (WBtW).md
+Paper Whirlwind (RoT).md
+Parasite-infested Behir (CM).md
+Pari (JttRC).md
+Parrot (PSX).md
+Pazrodine (BMT).md
+Pazuzu (MaBJoV).md
+Peacock (BGDIA).md
+Pech (DitLCoT).md
+Pech (QftIS).md
+Pegasus (MM'14).md
+Pegasus (MM'25).md
+Pelyious Avhoste (MaBJoV).md
+Pentadrone (MM'14).md
+Performer (MM'25).md
+Performer Legend (MM'25).md
+Performer Maestro (MM'25).md
+Peryton (MM'14).md
+Peryton (MM'25).md
+Pest Mascot (SCC).md
+Pestilence Demon (PSZ).md
+Petrifying Death's Head (RHW).md
+Phaerimm (MaBJoV).md
+Phaerimm Agent (FRAiF).md
+Phaerimm Elder (NF).md
+Phaerimm Hatchling (FRAiF).md
+Phaerimm Scout (NF).md
+Phantom Warrior (CoS).md
+Phantom Warrior (Archer) (CoS).md
+Phase Spider (MM'14).md
+Phase Spider (MM'25).md
+Phisarazu Spyder-Fiend (VEoR).md
+Phoenix (MPMM).md
+Phoenix (MTF).md
+Phylaskia (MOT).md
+Piercer (MM'14).md
+Piercer (MM'25).md
+Pig (SKT).md
+Piranha (PSX).md
+Piranha (MM'25).md
+Pirate (MM'25).md
+Pirate Admiral (MM'25).md
+Pirate Bosun (GoS).md
+Pirate Captain (GoS).md
+Pirate Captain (MM'25).md
+Pirate Deck Wizard (GoS).md
+Pirate First Mate (GoS).md
+Pit Fiend (MM'14).md
+Pit Fiend (MM'25).md
+Pixie (MM'14).md
+Pixie (MM'25).md
+Pixie Wonderbringer (MM'25).md
+Planar Incarnate (MPP).md
+Planetar (MM'14).md
+Planetar (MM'25).md
+Plasmoid Boss (BAM).md
+Plasmoid Explorer (BAM).md
+Plasmoid Warrior (BAM).md
+Plesiosaurus (MM'14).md
+Plesiosaurus (MM'25).md
+Podling (VRGR).md
+Poison Weird (WDMM).md
+Poisonous Snake (MM'14).md
+Polar Bear (MM'14).md
+Polar Bear (MM'25).md
+Polar Serpent (FRAiF).md
+Poltergeist (MM'14).md
+Poltergeist (MM'25).md
+Polukranos (MOT).md
+Pony (MM'14).md
+Pony (MM'25).md
+Precognitive Mage (GGR).md
+Priest (MM'14).md
+Priest (MM'25).md
+Priest Acolyte (MM'25).md
+Priest of Osybus (RHW).md
+Priest of Osybus (VRGR).md
+Primeval Owlbear (MM'25).md
+Prismari Apprentice (SCC).md
+Prismari Pledgemage (SCC).md
+Prismari Professor of Expression (SCC).md
+Prismari Professor of Perfection (SCC).md
+Prophetess Dran (AI).md
+Pseudodragon (MM'14).md
+Pseudodragon (MM'25).md
+Psionic Ashenwight (PaBTSO).md
+Psionic Shambling Mound (PaBTSO).md
+Psurlon (BAM).md
+Psurlon Leader (BAM).md
+Psurlon Ringer (BAM).md
+Psychic Gray Ooze (MM'25).md
+Pterafolk (ToA).md
+Pteranodon (MM'14).md
+Pteranodon (MM'25).md
+Puppeteer Parasite (MCV1SC).md
+Purple Worm (MM'14).md
+Purple Worm (MM'25).md
+Purple Wormling (SKT).md
+Quadrone (MM'14).md
+Quadrone Detention Drone (BMT).md
+Quaggoth (MM'14).md
+Quaggoth (MM'25).md
+Quaggoth Spore Servant (MM'14).md
+Quaggoth Thonot (MM'14).md
+Quaggoth Thonot (MM'25).md
+Quandrix Apprentice (SCC).md
+Quandrix Pledgemage (SCC).md
+Quandrix Professor of Substance (SCC).md
+Quandrix Professor of Theory (SCC).md
+Quasit (MM'14).md
+Quasit (MM'25).md
+Quavilithku Spyder-Fiend (VEoR).md
+Questing Knight (MM'25).md
+Quetzalcoatlus (MPMM).md
+Quetzalcoatlus (VGM).md
+Quickling (MPMM).md
+Quickling (VGM).md
+Quipper (MM'14).md
+Radiant Idol (ERLW).md
+Rain (MisMV1).md
+Rak Tulkhesh (ERLW).md
+Rakdos (GGR).md
+Rakdos Lampooner (GGR).md
+Rakdos Performer, Blade Juggler (GGR).md
+Rakdos Performer, Fire Eater (GGR).md
+Rakdos Performer, High-Wire Acrobat (GGR).md
+Raklupis Spyder-Fiend (VEoR).md
+Rakshasa (MM'14).md
+Rakshasa (MM'25).md
+Ramya Vasavadan (RHW).md
+Rat (MM'14).md
+Rat (MM'25).md
+Raven (MM'14).md
+Raven (MM'25).md
+Razerblast (PotA).md
+Razorvine Blight (MPP).md
+Reanimated Companion (RHW).md
+Reaper Spirit (BMT).md
+Reaper of Bhaal (BGDIA).md
+Reckoner (GGR).md
+Red Abishai (MPMM).md
+Red Abishai (MTF).md
+Red Dragon Wyrmling (MM'14).md
+Red Dragon Wyrmling (MM'25).md
+Red Greatwyrm (FTD).md
+Red Guard Drake (VGM).md
+Red Slaad (MM'14).md
+Red Slaad (MM'25).md
+Red Wizard (RoT).md
+Redbrand Ruffian (LMoP).md
+Redbrand Ruffian (PaBTSO).md
+Redcap (MPMM).md
+Redcap (VGM).md
+Redtooth Werefox (MCV4EC).md
+Reduced-Threat Aboleth (TftYP).md
+Reduced-Threat Basilisk (TftYP).md
+Reduced-Threat Behir (TftYP).md
+Reduced-Threat Beholder (TftYP).md
+Reduced-Threat Black Pudding (TftYP).md
+Reduced-Threat Carrion Crawler (TftYP).md
+Reduced-Threat Clay Golem (TftYP).md
+Reduced-Threat Darkmantle (TftYP).md
+Reduced-Threat Displacer Beast (TftYP).md
+Reduced-Threat Dragon Turtle (TftYP).md
+Reduced-Threat Ettercap (TftYP).md
+Reduced-Threat Flesh Golem (TftYP).md
+Reduced-Threat Glabrezu (TftYP).md
+Reduced-Threat Gray Ooze (TftYP).md
+Reduced-Threat Helmed Horror (TftYP).md
+Reduced-Threat Hezrou (TftYP).md
+Reduced-Threat Hook Horror (TftYP).md
+Reduced-Threat Ochre Jelly (TftYP).md
+Reduced-Threat Otyugh (TftYP).md
+Reduced-Threat Owlbear (TftYP).md
+Reduced-Threat Peryton (TftYP).md
+Reduced-Threat Remorhaz (TftYP).md
+Reduced-Threat Stone Golem (TftYP).md
+Reduced-Threat Vrock (TftYP).md
+Reduced-Threat Wight (TftYP).md
+Reduced-Threat Wyvern (TftYP).md
+Reef Shark (MM'14).md
+Reef Shark (MM'25).md
+Reflection (TCE).md
+Refraction of Ilvaash (PaBTSO).md
+Regenerating Black Pudding (OotA).md
+Reghed Chieftain (IDRotF).md
+Reghed Great Warrior (IDRotF).md
+Reghed Shaman (IDRotF).md
+Reghed Warrior (IDRotF).md
+Regisaur (BGG).md
+Reigar (BAM).md
+Reindeer (IDRotF).md
+Relentless Impaler (VEoR).md
+Relentless Juggernaut (RHW).md
+Relentless Juggernaut (VRGR).md
+Relentless Nightmare (RHW).md
+Relentless Slasher (RHW).md
+Relentless Slasher (VRGR).md
+Relic Sloth (SCC).md
+Remorhaz (MM'14).md
+Remorhaz (MM'25).md
+Replica Duodrone (OoW).md
+Replica Monodrone (OoW).md
+Replica Pentadrone (OoW).md
+Replica Quadrone (OoW).md
+Replica Tridrone (OoW).md
+Retriever (MPMM).md
+Retriever (MTF).md
+Returned Drifter (MOT).md
+Returned Kakomantis (MOT).md
+Returned Palamnite (MOT).md
+Returned Sentry (MOT).md
+Revenant (MM'14).md
+Revenant (MM'25).md
+Rhinoceros (MM'14).md
+Rhinoceros (MM'25).md
+Riding Horse (MM'14).md
+Riding Horse (MM'25).md
+Riffler (BMT).md
+Rime Hulk (BGG).md
+Rip Tide Priest (GoS).md
+River Serpent (PSA).md
+Riverine (JttRC).md
+Roc (MM'14).md
+Roc (MM'25).md
+Rock Gnome Recluse (DIP).md
+Rooster (JttRC).md
+Roper (MM'14).md
+Roper (MM'25).md
+Rot Troll (MPMM).md
+Rot Troll (MTF).md
+Rothé (CoA).md
+Rothé (VGM).md
+Rotter (RtG).md
+Rowboat Mimic (WDMM).md
+Rubblebelt Stalker (GGR).md
+Rudolph van Richten (RHW).md
+Rug of Smothering (MM'14).md
+Ruidium Elephant (CRCotN).md
+Ruin Grinder (SCC).md
+Ruin Spider (BMT).md
+Runed Behir (WDMM).md
+Runic Colossus (BGG).md
+Rust Monster (MM'14).md
+Rust Monster (MM'25).md
+Rusted Behemoth (FRAiF).md
+Rusted Berserker (FRAiF).md
+Rusted Wyrm (FRAiF).md
+Rutterkin (MPMM).md
+Rutterkin (MTF).md
+Saber-Toothed Tiger (MM'14).md
+Saber-Toothed Tiger (MM'25).md
+Sacred Statue (MPMM).md
+Sacred Statue (MTF).md
+Sacred Stone Monk (PotA).md
+Saemon Havarian (MaBJoV).md
+Sage (CM).md
+Sahuagin (MM'14).md
+Sahuagin Baron (MM'14).md
+Sahuagin Baron (MM'25).md
+Sahuagin Blademaster (GoS).md
+Sahuagin Champion (GoS).md
+Sahuagin Coral Smasher (GoS).md
+Sahuagin Deep Diver (GoS).md
+Sahuagin Hatchling Swarm (GoS).md
+Sahuagin High Priestess (GoS).md
+Sahuagin Priest (MM'25).md
+Sahuagin Priestess (MM'14).md
+Sahuagin Warlock of Uk'otoa (EGW).md
+Sahuagin Warrior (MM'25).md
+Sahuagin Wave Shaper (GoS).md
+Saidra d'Honaire (RHW).md
+Sailback (PSX).md
+Salamander (MM'14).md
+Salamander (MM'25).md
+Salamander Fire Snake (MM'25).md
+Salamander Inferno Master (MM'25).md
+Sandwurm (PSA).md
+Sapphire Dragon Wyrmling (FTD).md
+Sapphire Greatwyrm (FTD).md
+Sapphire Sentinel (CM).md
+Sarevok (MaBJoV).md
+Satyr (MM'14).md
+Satyr (MM'25).md
+Satyr Reveler (MOT).md
+Satyr Revelmaster (MM'25).md
+Satyr Thornbearer (MOT).md
+Scaladar (WDMM).md
+Scarecrow (MM'14).md
+Scarecrow (WttHC).md
+Scarecrow (MM'25).md
+Scarlet Sentinel (NRH-AVitW).md
+Scholarly Agent (CRCotN).md
+Scholarly Excavator (CRCotN).md
+Scholarly Mastermind (CRCotN).md
+Scion of Grolantor (BGG).md
+Scion of Memnor (BGG).md
+Scion of Skoraeus (BGG).md
+Scion of Stronmaus (BGG).md
+Scion of Surtur (BGG).md
+Scion of Thrym (BGG).md
+Scorchbringer Guard (GGR).md
+Scorpion (MM'14).md
+Scorpion (MM'25).md
+Scout (MM'14).md
+Scout (MM'25).md
+Scout Captain (MM'25).md
+Scrag (TftYP).md
+Scrapper (MisMV1).md
+Screaming Devilkin (MFF).md
+Scufflecup Teacup (SCC).md
+Scuttling Serpentmaw (CRCotN).md
+Sea Elf (SKT).md
+Sea Elf Scout (DSotDQ).md
+Sea Fury (EGW).md
+Sea Hag (MM'14).md
+Sea Hag (MM'25).md
+Sea Horse (MM'14).md
+Sea Lion (TftYP).md
+Sea Spawn (MPMM).md
+Sea Spawn (VGM).md
+Seahorse (MM'25).md
+Seal (IDRotF).md
+Sentient Gray Ooze (TftYP).md
+Sentient Ochre Jelly (TftYP).md
+Sentinel Marshal (EFA).md
+Septon Modron (MPP).md
+Sergeant (ERLW).md
+Sergeant (WDH).md
+Serpopard (PSA).md
+Serra Angel (PSD).md
+Servitor Thrull (GGR).md
+Servo (PSK).md
+Setessan Hoplite (MOT).md
+Seth the Shapeshifting Dragon (MisMV1).md
+Sewer King (MCV4EC).md
+Shadar-kai Gloom Weaver (MPMM).md
+Shadar-kai Shadow Dancer (MPMM).md
+Shadar-kai Soul Monger (MPMM).md
+Shade (PSZ).md
+Shadow (MM'14).md
+Shadow (WttHC).md
+Shadow (MM'25).md
+Shadow Assassin (WDMM).md
+Shadow Dancer (MTF).md
+Shadow Demon (MM'14).md
+Shadow Demon (MM'25).md
+Shadow Dragon (MM'25).md
+Shadow Horror (GGR).md
+Shadow Mastiff (MPMM).md
+Shadow Mastiff (VGM).md
+Shadow Mastiff Alpha (MPMM).md
+Shadow Spirit (TCE).md
+Shadow-Marked Agent (EFA).md
+Shadowghast (EGW).md
+Shadowmoor Giant (LFL).md
+Shadrix Silverquill (SCC).md
+Shalai (PSD).md
+Shambling Mound (MM'14).md
+Shambling Mound (MM'25).md
+Shambling Mound Totem Elemental (PSX).md
+Shapechanged Roper (WDMM).md
+Shard Shunner (WDH).md
+Sharkbody Abomination (EGW).md
+Shator Demodand (MPP).md
+Shator Warden (MaBJoV).md
+Shatterskull Giant (PSZ).md
+Sheep (SKT).md
+Sheldon the Blueberry Dragon (MisMV1).md
+Shell Shark (GoS).md
+Shemeshka (MPP).md
+Shield Dwarf Guard (SKT).md
+Shield Dwarf Noble (SKT).md
+Shield Guardian (MM'14).md
+Shield Guardian (MM'25).md
+Shifter (ERLW).md
+Shoal Serpent (PSZ).md
+Shoggoth (RHW).md
+Shoosuva (MPMM).md
+Shoosuva (VGM).md
+Shredwing (CoA).md
+Shrieker (MM'14).md
+Shrieker Fungus (WttHC).md
+Shrieker Fungus (MM'25).md
+Sibriex (MPMM).md
+Sibriex (MTF).md
+Sigarda (PSI).md
+Silver Dragon Wyrmling (MM'14).md
+Silver Dragon Wyrmling (MM'25).md
+Silver Greatwyrm (FTD).md
+Silverquill Apprentice (SCC).md
+Silverquill Pledgemage (SCC).md
+Silverquill Professor of Radiance (SCC).md
+Silverquill Professor of Shadow (SCC).md
+Simic Merfolk (GGR).md
+Simon Aumar (HAT-TG).md
+Sir Jared (BMT).md
+Sire of Insanity (GGR).md
+Sirene (MaBJoV).md
+Sivak Draconian (DSotDQ).md
+Sivis Scribe (EFA).md
+Skaab (PSI).md
+Skeletal Alchemist (GoS).md
+Skeletal Bloodfin (CRCotN).md
+Skeletal Giant Owl (IMR).md
+Skeletal Horror (AitFR-DN).md
+Skeletal Juggernaut (GoS).md
+Skeletal Knight (DSotDQ).md
+Skeletal Owlbear (IMR).md
+Skeletal Polar Bear (IMR).md
+Skeletal Rats (BGDIA).md
+Skeletal Riding Horse (DIP).md
+Skeletal Swarm (GoS).md
+Skeletal Two-Headed Owlbear (IMR).md
+Skeleton (MM'14).md
+Skeleton (MM'25).md
+Skeleton Key (ToA).md
+Skeleton Lord (MaBJoV).md
+Skeleton Warrior (MaBJoV).md
+Skittering Horror (GGR).md
+Skitterwidget (CM).md
+Skulk (MPMM).md
+Skulk (MTF).md
+Skull Flier (SLW).md
+Skull Lasher of Myrkul (BGDIA).md
+Skull Lord (MPMM).md
+Skull Lord (MTF).md
+Skum (GoS).md
+Sky Leviathan (PSK).md
+Sky Whale (PSK).md
+Skyjek Roc (GGR).md
+Skyswimmer (GGR).md
+Skyweaver (PotA).md
+Slaad Tadpole (MM'14).md
+Slaad Tadpole (MM'25).md
+Slayer (CoA).md
+Sled Dog (RoT).md
+Slithering Bloodfin (CRCotN).md
+Slithering Tracker (MPMM).md
+Slithering Tracker (VGM).md
+Sludge Hag (MGELFT).md
+Slurmy (NRH-TCMC).md
+Small Drake (PSA).md
+Smoke Mephit (MM'14).md
+Smoke Mephit (MM'25).md
+Snake Horror (RoT).md
+Snapping Hydra (MCV4EC).md
+Sneak (HoL).md
+Snow Golem (IDRotF).md
+Snow Leopard (TftYP).md
+Snow Maiden (CoS).md
+Snowy Owlbear (IDRotF).md
+Society of Sensation Muse (MPP).md
+Sofina (HAT-TG).md
+Solar (MM'14).md
+Solar (MM'25).md
+Solar Bastion Knight (BMT).md
+Solar Dragon Wyrmling (BAM).md
+Soldier (GGR).md
+Sorrowfish (CRCotN).md
+Soul Monger (MTF).md
+Soul Shaker (JttRC).md
+Soulstinger Demon (PSA).md
+Space Clown (BAM).md
+Space Eel (BAM).md
+Space Guppy (BAM).md
+Space Hamster (BAM).md
+Space Hamster (WDMM).md
+Space Mollymawk (BAM).md
+Space Swine (BAM).md
+Spawn of Kyuss (MPMM).md
+Spawn of Kyuss (VGM).md
+Speaker Devil (ABH).md
+Spectator (MM'14).md
+Spectator (MM'25).md
+Specter (MM'14).md
+Specter (MM'25).md
+Specter of Night (MCV4EC).md
+Spectral Cloud (BGG).md
+Spellcaster (ESK).md
+Spellcaster (Healer) (DC).md
+Spellcaster (Healer) (SDW).md
+Spellcaster (Healer) (SLW).md
+Spellcaster (Mage) (DC).md
+Spellcaster (Mage) (SDW).md
+Spellcaster (Mage) (SLW).md
+Sperm Whale (IDRotF).md
+Sphinx (Type 1) (PSZ).md
+Sphinx (Type 2) (PSZ).md
+Sphinx of Judgment (GGR).md
+Sphinx of Lore (MM'25).md
+Sphinx of Secrets (MM'25).md
+Sphinx of Valor (MM'25).md
+Sphinx of Wonder (MM'25).md
+Spider (MM'14).md
+Spider (MM'25).md
+Spiderdragon (VEoR).md
+Spiderfrog (MGELFT).md
+Spiked Tomb Guardian (ToA).md
+Spined Devil (MM'14).md
+Spined Devil (MM'25).md
+Spirit (PSZ).md
+Spirit Dragon Wyrmling (FRAiF).md
+Spirit Naga (MM'14).md
+Spirit Naga (MM'25).md
+Spirit Statue Mascot (SCC).md
+Spirit Troll (MPMM).md
+Spirit Troll (MTF).md
+Spitting Mimic (IDRotF).md
+Splugoth the Returned (AI).md
+Spore Servant Octopus (DoSI).md
+Spore of Moander (FRAiF).md
+Spotted Lion (BGG).md
+Spring Eladrin (MPMM).md
+Spring Eladrin (MTF).md
+Sprite (MM'14).md
+Sprite (MM'25).md
+Sprite Skirmisher (HotB).md
+Spy (MM'14).md
+Spy (MM'25).md
+Spy Master (MM'25).md
+Squire (HoL).md
+Ssendam, Lord of Madness (MaBJoV).md
+Ssurran Defiler (BAM).md
+Ssurran Poisoner (BAM).md
+Stalker of Baphomet (BGG).md
+Star Angler (VEoR).md
+Star Lancer (MCV1SC).md
+Star Spawn Grue (MPMM).md
+Star Spawn Grue (MTF).md
+Star Spawn Hulk (MPMM).md
+Star Spawn Hulk (MTF).md
+Star Spawn Larva Mage (MPMM).md
+Star Spawn Larva Mage (MTF).md
+Star Spawn Mangler (MPMM).md
+Star Spawn Mangler (MTF).md
+Star Spawn Seer (MPMM).md
+Star Spawn Seer (MTF).md
+Starlight Apparition (BAM).md
+Statue of Talos (SLW).md
+Statue of Vergadain (WDMM).md
+Steam Mephit (MM'14).md
+Steam Mephit (MM'25).md
+Steel Defender (EFA).md
+Steel Defender (TCE).md
+Steel Leaf Kavu (PSD).md
+Steel Predator (MPMM).md
+Steel Predator (MTF).md
+Stegosaurus (MPMM).md
+Stegosaurus (VGM).md
+Stench Kow (MPMM).md
+Stench Kow (VGM).md
+Stirge (MM'14).md
+Stirge (MM'25).md
+Stomping Foot (OoW).md
+Stone Cursed (MPMM).md
+Stone Cursed (MTF).md
+Stone Defender (MTF).md
+Stone Dragon Statue (TftYP).md
+Stone Giant (MM'14).md
+Stone Giant (MM'25).md
+Stone Giant Dreamwalker (MPMM).md
+Stone Giant Dreamwalker (VGM).md
+Stone Giant Rockspeaker (BGG).md
+Stone Giant Statue (SKT).md
+Stone Giant of Evil Earth (BGG).md
+Stone Golem (MM'14).md
+Stone Golem (MM'25).md
+Stone Guardian (Animated Armor) (PSX).md
+Stone Guardian (Helmed Horror) (PSX).md
+Stone Guardian (Shield Guardian) (PSX).md
+Stone Guardian (Stone Golem) (PSX).md
+Stone Juggernaut (ToA).md
+Stone Warrior (PotA).md
+Stonecloak (WDMM).md
+Stonemelder (PotA).md
+Storm Crab (BGG).md
+Storm Giant (MM'14).md
+Storm Giant (MM'25).md
+Storm Giant Quintessent (MPMM).md
+Storm Giant Quintessent (VGM).md
+Storm Giant Skeleton (CM).md
+Storm Giant Tempest Caller (BGG).md
+Storm Herald (BGG).md
+Strahd Skeleton (RHW).md
+Strahd Zombie (CoS).md
+Strahd von Zarovich (RHW).md
+Strigoi (RHW).md
+Strigoi (VRGR).md
+Strixhaven Campus Guide (SCC).md
+Styx Dragon (CoA).md
+Su-monster (ToA).md
+Succubus (MM'14).md
+Succubus (MM'25).md
+Sul Khatesh (ERLW).md
+Suldil Baldoriel (MaBJoV).md
+Summer Eladrin (MPMM).md
+Summer Eladrin (MTF).md
+Sunbird (PSX).md
+Sunder Shaman (GGR).md
+Sunfly (MPP).md
+Surrakar (PSZ).md
+Svirfneblin Wererat (OotA).md
+Swanmay (FRAiF).md
+Swarm of Animated Books (CM).md
+Swarm of Bats (MM'14).md
+Swarm of Bats (MM'25).md
+Swarm of Beetles (MM'14).md
+Swarm of Books (WDH).md
+Swarm of Campestris (WBtW).md
+Swarm of Centipedes (MM'14).md
+Swarm of Corrupted Rats (WttHC).md
+Swarm of Cranium Rats (MPMM).md
+Swarm of Cranium Rats (VGM).md
+Swarm of Crawling Claws (MM'25).md
+Swarm of Dretches (MM'25).md
+Swarm of Gibberlings (QftIS).md
+Swarm of Gremishkas (RHW).md
+Swarm of Gremishkas (VRGR).md
+Swarm of Hoard Scarabs (FTD).md
+Swarm of Infesting Insects (RHW).md
+Swarm of Insects (MM'14).md
+Swarm of Insects (MM'25).md
+Swarm of Larvae (MM'25).md
+Swarm of Lemures (MM'25).md
+Swarm of Maggots (VRGR).md
+Swarm of Mechanical Spiders (WDH).md
+Swarm of Piranhas (PSX).md
+Swarm of Piranhas (MM'25).md
+Swarm of Poisonous Snakes (MM'14).md
+Swarm of Quippers (MM'14).md
+Swarm of Rats (MM'14).md
+Swarm of Rats (MM'25).md
+Swarm of Ravenous Insects (RHW).md
+Swarm of Ravens (MM'14).md
+Swarm of Ravens (MM'25).md
+Swarm of Rot Grubs (MPMM).md
+Swarm of Rot Grubs (VGM).md
+Swarm of Scarabs (VRGR).md
+Swarm of Sorrowfish (CRCotN).md
+Swarm of Spiders (MM'14).md
+Swarm of Stirges (MM'25).md
+Swarm of Sunflies (MPP).md
+Swarm of Undead Snakes (EGW).md
+Swarm of Venomous Snakes (MM'25).md
+Swarm of Wasps (MM'14).md
+Swarm of Zombie Limbs (RHW).md
+Swarm of Zombie Limbs (VRGR).md
+Swashbuckler (MPMM).md
+Swashbuckler (VGM).md
+Swavain Basilisk (EGW).md
+Sweettooth Horror (MCV4EC).md
+Sword Spider (MaBJoV).md
+Sword Wraith Commander (MPMM).md
+Sword Wraith Commander (MTF).md
+Sword Wraith Warrior (MPMM).md
+Sword Wraith Warrior (MTF).md
+Tabaxi Hunter (ToA).md
+Tabaxi Minstrel (ToA).md
+Talon Beast (BMT).md
+Tanarukk (MPMM).md
+Tanarukk (VGM).md
+Tanazir Quandrix (SCC).md
+Tarkanan Assassin (ERLW).md
+Tarkanan Marauder (EFA).md
+Tarkanan Ruffian (EFA).md
+Tarrasque (MM'14).md
+Tarrasque (MM'25).md
+Tasloi (MaBJoV).md
+Tasloi Sniper (MaBJoV).md
+Telepathic Pentacle (IDRotF).md
+Tempest Hart (MCV4EC).md
+Tempest Spirit (BGG).md
+Terastodon (PSZ).md
+Terra Stomper (PSZ).md
+Terracotta Warrior (ToA).md
+Terran Magen (NF).md
+Thanoi Hunter (MCV2DC).md
+Tharashk Hunter (EFA).md
+Thayan Apprentice (TftYP).md
+Thayan Warrior (TftYP).md
+The Angry (MTF).md
+The Bagman (VRGR).md
+The Hungry (MTF).md
+The Lonely (MTF).md
+The Lord of Blades (ERLW).md
+The Lost (MTF).md
+The Wretched (MTF).md
+Theran Chimera (MOT).md
+Thessalheart Construct (IMR).md
+Thessalhydra (HftT).md
+Thessalkraken (IMR).md
+Thopter (Bat) (PSK).md
+Thopter (Blood Hawk) (PSK).md
+Thopter (Eagle) (PSK).md
+Thopter (Hawk) (PSK).md
+Thopter (Owl) (PSK).md
+Thopter (Pseudodragon) (PSK).md
+Thopter (Raven) (PSK).md
+Thopter (Vulture) (PSK).md
+Thorn Slinger (TftYP).md
+Thorny (VGM).md
+Thorny Vegepygmy (MPMM).md
+Thought Spy (GGR).md
+Thri-kreen (MM'14).md
+Thri-kreen Gladiator (BAM).md
+Thri-kreen Hunter (BAM).md
+Thri-kreen Marauder (MM'25).md
+Thri-kreen Mystic (BAM).md
+Thri-kreen Psion (MM'25).md
+Thug (MM'14).md
+Thunderbeast Skeleton (SKT).md
+Tiberius Inuus (MaBJoV).md
+Tiefling Acrobat (KftGV).md
+Tiefling Muralist (IMR).md
+Tiger (MM'14).md
+Tiger (MM'25).md
+Timbermaw (PSZ).md
+Time Dragon Wyrmling (MPP).md
+Tin Soldier (WBtW).md
+Tiny Servant (XGE).md
+Titanothere (BGG).md
+Titivilus (MPMM).md
+Titivilus (MTF).md
+Tlacatecolo (JttRC).md
+Tlexolotl (JttRC).md
+Tlincalli (MPMM).md
+Tlincalli (VGM).md
+Tomb Dwarf (ToA).md
+Tomb Guardian (ToA).md
+Tomb Tapper (IDRotF).md
+Topaz Dragon Wyrmling (FTD).md
+Topaz Greatwyrm (FTD).md
+Topi (TTP).md
+Tortle (MPMM).md
+Tortle (MTF).md
+Tortle Druid (MPMM).md
+Tortle Druid (MTF).md
+Tough (MM'25).md
+Tough Boss (MM'25).md
+Tower Hand (QftIS).md
+Tower Sage (QftIS).md
+Traag Draconian (MCV2DC).md
+Transcendent Order Conduit (MPP).md
+Transcendent Order Instinct (MPP).md
+Transmuter (VGM).md
+Transmuter Wizard (MPMM).md
+Trapper (MPMM).md
+Trapper (VGM).md
+Treant (MM'14).md
+Treant (MM'25).md
+Treant Sapling (WBtW).md
+Treant Totem Elemental (PSX).md
+Tree Blight (CoS).md
+Tree Blight (MM'25).md
+Treefolk (MCV4EC).md
+Trench Giant (PSZ).md
+Tressym (BGDIA).md
+Tressym (SKT).md
+Tri-flower Frond (ToA).md
+Tribal Warrior (MM'14).md
+Tribal Warrior Spore Servant (IDRotF).md
+Triceratops (MM'14).md
+Triceratops (MM'25).md
+Tridrone (MM'14).md
+Trilobite (PSX).md
+Trilobite (Giant) (PSX).md
+Triton Master of Waves (MOT).md
+Triton Shorestalker (MOT).md
+Troglodyte (MM'14).md
+Troglodyte (MM'25).md
+Troglodyte Champion of Laogzed (OotA).md
+Troll (MM'14).md
+Troll (MM'25).md
+Troll Amalgam (BGG).md
+Troll Limb (MM'25).md
+Troll Mutate (BGG).md
+Tromokratis (MOT).md
+Trostani (GGR).md
+Tsucora Quori (ERLW).md
+Turntimber Giant (PSZ).md
+Twig Blight (MM'14).md
+Twig Blight (MM'25).md
+Two-Headed Cerberus (MOT).md
+Two-Headed Crocodile (IMR).md
+Two-Headed Owlbear (IMR).md
+Two-Headed Plesiosaurus (TTP).md
+Two-Headed Troll (OotA).md
+Typhon (MOT).md
+Tyrannosaurus Rex (MM'14).md
+Tyrannosaurus Rex (MM'25).md
+Tyrannosaurus Zombie (ToA).md
+Tyrant (PSX).md
+Tyrant Shadow (CoA).md
+Udaak (EGW).md
+Ulamog (PSZ).md
+Ulitharid (MPMM).md
+Ulitharid (VGM).md
+Ultroloth (MM'14).md
+Ultroloth (MM'25).md
+Umber Hulk (MM'14).md
+Umber Hulk (MM'25).md
+Umbragen Shadow Walker (EFA).md
+Undead Bulette (WDMM).md
+Undead Cockatrice (OoW).md
+Undead Shambling Mound (WDMM).md
+Undead Soldier (DSotDQ).md
+Undead Spirit (TCE).md
+Undead Spirit (PHB'24).md
+Undead Tree (BGDIA).md
+Undercity Medusa (GGR).md
+Underworld Cerberus (MOT).md
+Undying Councilor (ERLW).md
+Undying Soldier (ERLW).md
+Unicorn (MM'14).md
+Unicorn (MM'25).md
+Unspeakable Horror (RHW).md
+Unspeakable Horror (VRGR).md
+Usagt (AitFR-THP).md
+Uthgardt Barbarian Leader (SKT).md
+Uthgardt Shaman (SKT).md
+Vadalis Heir (EFA).md
+Valenar Hawk (ERLW).md
+Valenar Hound (ERLW).md
+Valenar Steed (ERLW).md
+Valygar (MaBJoV).md
+Vampirate (BAM).md
+Vampirate Captain (BAM).md
+Vampirate Mage (BAM).md
+Vampire (MM'14).md
+Vampire (MM'25).md
+Vampire Familiar (MM'25).md
+Vampire Infernalist (ABH).md
+Vampire Mind Flayer (RHW).md
+Vampire Neonate (PSI).md
+Vampire Nightbringer (MM'25).md
+Vampire Nosferatu (RHW).md
+Vampire Null (PSZ).md
+Vampire Spawn (MM'14).md
+Vampire Spawn (MM'25).md
+Vampire Spellcaster (MM'14).md
+Vampire Umbral Lord (MM'25).md
+Vampire Warden (ABH).md
+Vampire Warrior (MM'14).md
+Vampiric Ixitxachitl (OotA).md
+Vampiric Ixitxachitl Cleric (OotA).md
+Vampiric Jade Statue (GoS).md
+Vampiric Mind Flayer (VRGR).md
+Vampiric Mist (MPMM).md
+Vampiric Mist (MTF).md
+Vargouille (MPMM).md
+Vargouille (VGM).md
+Vargouille Reflection (MPP).md
+Vecna Impersonator (ToFW).md
+Vecna the Archlich (VD).md
+Vegepygmy (MPMM).md
+Vegepygmy (VGM).md
+Vegepygmy Chief (MPMM).md
+Vegepygmy Chief (VGM).md
+Vegepygmy Moldmaker (QftIS).md
+Vegepygmy Scavenger (QftIS).md
+Vegepygmy Thorny Hunter (QftIS).md
+Veiled Presence (BMT).md
+Vellin Farstride (MaBJoV).md
+Velociraptor (MPMM).md
+Velociraptor (VGM).md
+Velomachus Lorehold (SCC).md
+Venom Troll (MPMM).md
+Venom Troll (MTF).md
+Venomous Snake (MM'25).md
+Verbeeg Longstrider (IDRotF).md
+Verbeeg Marauder (IDRotF).md
+Verminaard (MCV2DC).md
+Veteran (MM'14).md
+Veteran of the Gauntlet (OotA).md
+Viconia DeVir (MaBJoV).md
+Viktor (MaBJoV).md
+Viktra Mordenheim (RHW).md
+Vine Blight (MM'14).md
+Vine Blight (MM'25).md
+Vine Blight Tangler (WttHC).md
+Violet Fungus (DoSI).md
+Violet Fungus (MM'14).md
+Violet Fungus (WttHC).md
+Violet Fungus (MM'25).md
+Violet Fungus Necrohulk (MM'25).md
+Virvos Magen (NF).md
+Vistana Assassin (CoS).md
+Vistana Bandit (CoS).md
+Vistana Bandit Captain (CoS).md
+Vistana Commoner (CoS).md
+Vistana Guard (CoS).md
+Vistana Spy (CoS).md
+Vistana Thug (CoS).md
+Vladeska Drakov (RHW).md
+Vlazok (VEoR).md
+Void Scavver (BAM).md
+Vorvolaka (CoA).md
+Vox Seeker (EGW).md
+Vrock (MM'14).md
+Vrock (MM'25).md
+Vulkoori Stingblade (EFA).md
+Vulkoori Venom Priest (EFA).md
+Vulture (MM'14).md
+Vulture (MM'25).md
+Walking Corpse (CoS).md
+Walking Statue of Waterdeep (WDH).md
+Walrus (IDRotF).md
+War Devil (CoA).md
+War Priest (MPMM).md
+War Priest (VGM).md
+Warden Archon (MPP).md
+Warforged Colossus (ERLW).md
+Warforged Soldier (ERLW).md
+Warforged Titan (ERLW).md
+Warforged Warrior (VEoR).md
+Warhorse (MM'14).md
+Warhorse (MM'25).md
+Warhorse Skeleton (MM'14).md
+Warhorse Skeleton (MM'25).md
+Warlock of the Archfey (MPMM).md
+Warlock of the Archfey (VGM).md
+Warlock of the Fiend (MPMM).md
+Warlock of the Fiend (VGM).md
+Warlock of the Great Old One (MPMM).md
+Warlock of the Great Old One (VGM).md
+Warlord (MPMM).md
+Warlord (VGM).md
+Warrior (DC).md
+Warrior (ESK).md
+Warrior (SDW).md
+Warrior (SLW).md
+Warrior Commander (MM'25).md
+Warrior Infantry (MM'25).md
+Warrior Veteran (MM'25).md
+Warrior of Madarua (QftIS).md
+Wasteland Dragonnel (DSotDQ).md
+Wastrilith (MPMM).md
+Wastrilith (MTF).md
+Water Elemental (MM'14).md
+Water Elemental (MM'25).md
+Water Elemental Myrmidon (MPMM).md
+Water Elemental Myrmidon (MTF).md
+Water Totem Elemental (PSX).md
+Water Weird (MM'14).md
+Water Weird (MM'25).md
+Waxwork (RHW).md
+Weasel (MM'14).md
+Weasel (MM'25).md
+Werebat (WDMM).md
+Werebear (MM'14).md
+Werebear (MM'25).md
+Wereboar (MM'14).md
+Wereboar (MM'25).md
+Werejaguar (TftYP).md
+Wererat (MM'14).md
+Wererat (MM'25).md
+Wereraven (RHW).md
+Wereraven (VRGR).md
+Weretiger (MM'14).md
+Weretiger (MM'25).md
+Werevulture (BMT).md
+Werewolf (MM'14).md
+Werewolf (MM'25).md
+Werewolf (Krallenhorde) (PSI).md
+Werewyvern (FRAiF).md
+Whirling Chandelier (VEoR).md
+Whirlwyrm (ToFW).md
+Whistler (JttRC).md
+White Abishai (MPMM).md
+White Abishai (MTF).md
+White Dragon Wyrmling (MM'14).md
+White Dragon Wyrmling (MM'25).md
+White Greatwyrm (FTD).md
+White Guard Drake (VGM).md
+Wight (MM'14).md
+Wight (MM'25).md
+Wight Lifedrinker (HotB).md
+Wild Dog (ToA).md
+Wildfire Spirit (TCE).md
+Wilfred Godefroy (RHW).md
+Will-o'-Wells (WBtW).md
+Will-o'-Wisp (MM'14).md
+Will-o'-Wisp (MM'25).md
+Wine Weird (ToA).md
+Winged Bull (MOT).md
+Winged Kobold (MM'14).md
+Winged Kobold (MM'25).md
+Winged Lion (MOT).md
+Winged Thrull (GGR).md
+Winter Eladrin (MPMM).md
+Winter Eladrin (MTF).md
+Winter Wolf (MM'14).md
+Winter Wolf (MM'25).md
+Witchkite (MCV4EC).md
+Witchlight Hand (Medium) (WBtW).md
+Witchlight Hand (Small) (WBtW).md
+Witchstalker (MCV4EC).md
+Witherbloom Apprentice (SCC).md
+Witherbloom Pledgemage (SCC).md
+Witherbloom Professor of Decay (SCC).md
+Witherbloom Professor of Growth (SCC).md
+Woe Strider (MOT).md
+Wolf (MM'14).md
+Wolf (MM'25).md
+Wolf of the Overworld (MCV3MC).md
+Wolf-in-Sheep's-Clothing (QftIS).md
+Wolfwere (MaBJoV).md
+Wolfwere Alpha (MaBJoV).md
+Wood Elf (SKT).md
+Wood Elf Wizard (CM).md
+Wood Woad (MPMM).md
+Wood Woad (VGM).md
+Woodcrasher Baloth (PSZ).md
+Wooden Donkey (WDMM).md
+Worg (MM'14).md
+Worg (MM'25).md
+Worker Robot (QftIS).md
+Wraith (MM'14).md
+Wraith (PSZ).md
+Wraith (MM'25).md
+Wretched Sorrowsworn (MPMM).md
+Wurm (GGR).md
+Wurm (PSK).md
+Wurm (PSZ).md
+Wynling (JttRC).md
+Wyvern (MM'14).md
+Wyvern (MM'25).md
+Xan Moonblade (MaBJoV).md
+Xenk Yendar (HAT-TG).md
+Xill (MFF).md
+Xorn (MM'14).md
+Xorn (MM'25).md
+Xvart (MPMM).md
+Xvart (VGM).md
+Xvart Speaker (VGM).md
+Xvart Warlock of Raxivort (MPMM).md
+Xvart Warlock of Raxivort (VGM).md
+Xzar the Chaos Clone (MaBJoV).md
+Yagnoloth (MPMM).md
+Yagnoloth (MTF).md
+Yak (SKT).md
+Yakfolk Priest (SKT).md
+Yakfolk Warrior (SKT).md
+Yarnspinner (DoD).md
+Yeenoghu (MPMM).md
+Yeenoghu (MTF).md
+Yellow Musk Creeper (ToA).md
+Yellow Musk Zombie (ToA).md
+Yeth Hound (MPMM).md
+Yeth Hound (VGM).md
+Yeti (MM'14).md
+Yeti (MM'25).md
+Yeti Leader (TftYP).md
+Yeti Tyke (IDRotF).md
+Yeti Tyke (MGELFT).md
+Yggdrasti (MCV1SC).md
+Ygorl, Lord of Entropy (MFF).md
+Yithian (RHW).md
+Yochlol (MM'14).md
+Yochlol (MM'25).md
+Young Amethyst Dragon (FTD).md
+Young Amonkhet Dragon (PSA).md
+Young Basilisk (OotA).md
+Young Black Dragon (MM'14).md
+Young Black Dragon (MM'25).md
+Young Blue Dragon (MM'14).md
+Young Blue Dragon (MM'25).md
+Young Brass Dragon (MM'14).md
+Young Brass Dragon (MM'25).md
+Young Bronze Dragon (MM'14).md
+Young Bronze Dragon (MM'25).md
+Young Bulette (PotA).md
+Young Cloud Giant (SKT).md
+Young Copper Dragon (MM'14).md
+Young Copper Dragon (MM'25).md
+Young Crystal Dragon (FTD).md
+Young Deep Dragon (FRAiF).md
+Young Deep Dragon (FTD).md
+Young Dragon Turtle (FTD).md
+Young Emerald Dragon (FTD).md
+Young Fire Giant (TftYP).md
+Young Frost Giant (TftYP).md
+Young Gold Dragon (MM'14).md
+Young Gold Dragon (MM'25).md
+Young Green Dragon (MM'14).md
+Young Green Dragon (MM'25).md
+Young Griffon (Medium) (IDRotF).md
+Young Griffon (Small) (IDRotF).md
+Young Griffon (Tiny) (IDRotF).md
+Young Hill Giant (TftYP).md
+Young Hook Horror (OotA).md
+Young Horizonback Tortoise (CRCotN).md
+Young Kraken (LR).md
+Young Kruthik (MPMM).md
+Young Kruthik (MTF).md
+Young Lunar Dragon (BAM).md
+Young Moonstone Dragon (FTD).md
+Young Ogre Servant (TftYP).md
+Young Purple Worm (PotA).md
+Young Red Dragon (MM'14).md
+Young Red Dragon (MM'25).md
+Young Red Shadow Dragon (MM'14).md
+Young Remorhaz (MM'14).md
+Young Remorhaz (MM'25).md
+Young Sapphire Dragon (FTD).md
+Young Sea Serpent (FTD).md
+Young Silver Dragon (MM'14).md
+Young Silver Dragon (MM'25).md
+Young Solar Dragon (BAM).md
+Young Spirit Dragon (FRAiF).md
+Young Time Dragon (MPP).md
+Young Topaz Dragon (FTD).md
+Young Troglodyte (TftYP).md
+Young Wereraven (CoS).md
+Young White Dragon (MM'14).md
+Young White Dragon (MM'25).md
+Young Winter Wolf (TftYP).md
+Yuan-ti Abomination (MM'14).md
+Yuan-ti Abomination (MM'25).md
+Yuan-ti Anathema (MPMM).md
+Yuan-ti Anathema (VGM).md
+Yuan-ti Broodguard (MPMM).md
+Yuan-ti Broodguard (VGM).md
+Yuan-ti Infiltrator (MM'25).md
+Yuan-ti Malison (Type 1) (MM'14).md
+Yuan-ti Malison (Type 1) (MM'25).md
+Yuan-ti Malison (Type 2) (MM'14).md
+Yuan-ti Malison (Type 2) (MM'25).md
+Yuan-ti Malison (Type 3) (MM'14).md
+Yuan-ti Malison (Type 3) (MM'25).md
+Yuan-ti Malison (Type 4) (VGM).md
+Yuan-ti Malison (Type 5) (VGM).md
+Yuan-ti Mind Whisperer (MPMM).md
+Yuan-ti Mind Whisperer (VGM).md
+Yuan-ti Nightmare Speaker (MPMM).md
+Yuan-ti Nightmare Speaker (VGM).md
+Yuan-ti Pit Master (MPMM).md
+Yuan-ti Pit Master (VGM).md
+Yuan-ti Priest (ToA).md
+Yuan-ti Pureblood (MM'14).md
+Zakya Rakshasa (ERLW).md
+Zaratan (MPMM).md
+Zaratan (MTF).md
+Zariel (CoA).md
+Zariel (MPMM).md
+Zariel (MTF).md
+Zebra (ToA).md
+Zegana (GGR).md
+Zendikar Dragon (PSZ).md
+Zendikar Golem (PSZ).md
+Zhent Martial Arts Adept (WDH).md
+Zhentarim Thug (OotA).md
+Zhentilar Paladin of Bane (FRAiF).md
+Zhentilar Soldier (FRAiF).md
+Zodar (BAM).md
+Zombie (MM'14).md
+Zombie (MM'25).md
+Zombie Cat (PSI).md
+Zombie Clot (RHW).md
+Zombie Clot (VRGR).md
+Zombie Horse (PSD).md
+Zombie Plague Spreader (RHW).md
+Zombie Plague Spreader (VRGR).md
+Zombie Rat (PSI).md
+Zombie Snake (PSI).md
+Zorbo (ToA).md
+Zuggtmoy (MPMM).md
+Zuggtmoy (MTF).md

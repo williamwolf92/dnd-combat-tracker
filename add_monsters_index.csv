@@ -4,13 +4,13 @@ Aarakocra Aeromancer,MM'25,16,12d8+12,+3
 Aarakocra Simulacrum,SKT,12,3d4,+2
 Aarakocra Skirmisher,MM'25,12,2d8+2,+2
 Aarakocra Spelljammer,LoX,12,9d8,+2
-Aartuk Elder,BAM,16,10d10+20,0
-Aartuk Starhorror,BAM,14,8d8+16,0
+Aartuk Elder,BAM,16,10d10+20,+0
+Aartuk Starhorror,BAM,14,8d8+16,+0
 Aartuk Weedling,BAM,15,7d8+7,+1
 Aberrant Cultist,MM'25,14,25d8+25,+4
 Aberrant Death's Head,RHW,16,7d4+7,+1
-Aberrant Spirit,PHB'24,11,(manual),0
-Aberrant Spirit,TCE,11,(manual),0
+Aberrant Spirit,PHB'24,11,(manual),+0
+Aberrant Spirit,TCE,11,(manual),+0
 Aberrant Zealot,PaBTSO,16,17d8+17,+4
 Aberrant Zealot (Tentacled),PaBTSO,16,17d8+17,+4
 Abhorrent Overlord,MOT,16,16d10+48,+4
@@ -18,25 +18,25 @@ Abjurer,VGM,12,13d8+26,+2
 Abjurer Wizard,MPMM,12,16d8+32,+2
 Aboleth,MM'14,17,18d10+36,-1
 Aboleth,MM'25,17,20d10+40,-1
-Aboleth Spawn,CRCotN,14,11d8+44,0
-Abominable Yeti,MM'25,15,11d12+66,0
-Abominable Yeti,MM'14,15,11d12+66,0
+Aboleth Spawn,CRCotN,14,11d8+44,+0
+Abominable Yeti,MM'25,15,11d12+66,+0
+Abominable Yeti,MM'14,15,11d12+66,+0
 Abyssal Chicken,BGDIA,13,3d4+3,+2
 Abyssal Wretch,MTF,11,4d8,+1
 Achaierai,MaBJoV,15,12d10+24,+2
 Acidic Mist Apparition,GotSF,15,12d10+24,+5
-Acolyte,MM'14,10,2d8,0
+Acolyte,MM'14,10,2d8,+0
 Adult Amethyst Dragon,FTD,19,17d12+119,+2
-Adult Amonkhet Dragon,PSA,19,19d12+133,0
+Adult Amonkhet Dragon,PSA,19,19d12+133,+0
 Adult Black Dragon,MM'25,19,17d12+85,+2
 Adult Black Dragon,MM'14,19,17d12+85,+2
-Adult Blue Dracolich,MM'14,19,18d12+108,0
-Adult Blue Dragon,MM'25,19,17d12+102,0
-Adult Blue Dragon,MM'14,19,18d12+108,0
-Adult Brass Dragon,MM'25,18,15d12+75,0
-Adult Brass Dragon,MM'14,17,15d12+75,0
-Adult Bronze Dragon,MM'25,18,17d12+102,0
-Adult Bronze Dragon,MM'14,19,17d12+102,0
+Adult Blue Dracolich,MM'14,19,18d12+108,+0
+Adult Blue Dragon,MM'25,19,17d12+102,+0
+Adult Blue Dragon,MM'14,19,18d12+108,+0
+Adult Brass Dragon,MM'25,18,15d12+75,+0
+Adult Brass Dragon,MM'14,17,15d12+75,+0
+Adult Bronze Dragon,MM'25,18,17d12+102,+0
+Adult Bronze Dragon,MM'14,19,17d12+102,+0
 Adult Copper Dragon,MM'25,18,16d12+80,+1
 Adult Copper Dragon,MM'14,17,16d12+80,+1
 Adult Crystal Dragon,FTD,16,15d12+75,+1
@@ -53,25 +53,25 @@ Adult Lunar Dragon,BAM,17,15d12+75,+1
 Adult Moonstone Dragon,FTD,19,17d12+85,+4
 Adult Oblex,MPMM,14,10d8+30,+4
 Adult Oblex,MTF,14,10d8+30,+4
-Adult Red Dracolich,TCE,19,19d12+133,0
-Adult Red Dragon,MM'25,19,19d12+133,0
-Adult Red Dragon,MM'14,19,19d12+133,0
+Adult Red Dracolich,TCE,19,19d12+133,+0
+Adult Red Dragon,MM'25,19,19d12+133,+0
+Adult Red Dragon,MM'14,19,19d12+133,+0
 Adult Sapphire Dragon,SADS,19,18d12+60,+3
 Adult Sapphire Dragon,FTD,17,18d12+108,+2
-Adult Silver Dragon,MM'25,19,16d12+112,0
-Adult Silver Dragon,MM'14,19,18d12+126,0
+Adult Silver Dragon,MM'25,19,16d12+112,+0
+Adult Silver Dragon,MM'14,19,18d12+126,+0
 Adult Solar Dragon,BAM,17,16d12+96,+2
 Adult Spirit Dragon,FRAiF,18,18d12+90,+2
 Adult Time Dragon,MPP,19,20d12+120,+2
 Adult Topaz Dragon,FTD,17,20d12+80,+1
-Adult White Dragon,MM'25,18,16d12+96,0
-Adult White Dragon,MM'14,17,16d12+96,0
+Adult White Dragon,MM'25,18,16d12+96,+0
+Adult White Dragon,MM'14,17,16d12+96,+0
 Advanced Detention Drone,BMT,17,15d10+60,-1
-Aegisaur,PSX,15,8d12+16,0
+Aegisaur,PSX,15,8d12+16,+0
 Aeorian Absorber,EGW,15,18d10+72,+4
 Aeorian Nullifier,EGW,17,19d10+76,+2
 Aeorian Reverser,EGW,15,14d10+56,+3
-Aerosaur,BGG,14,10d20+50,0
+Aerosaur,BGG,14,10d20+50,+0
 Aerosaur (Large),PSX,13,4d12+4,+1
 Aerosaur (Small),PSX,13,3d8,+2
 Affliction Devil (Kocrachon),CoA,20,16d8+32,+4
@@ -92,10 +92,10 @@ Allip,MPMM,13,9d8,+3
 Allip,MTF,13,9d8,+3
 Allosaurus,MM'25,13,6d10+18,+1
 Allosaurus,MM'14,13,6d10+18,+1
-Allowak Abominable Yeti,EGW,15,11d12+66,0
+Allowak Abominable Yeti,EGW,15,11d12+66,+0
 Allowak Yeti,EGW,12,6d10+18,+1
 Almiraj,ToA,13,1d6,+3
-Alseid,MOT,15,4d8+4,0
+Alseid,MOT,15,4d8+4,+0
 Altisaur,PSX,15,9d20+27,-1
 Altisaur,BGG,15,12d20+72,-2
 Alyxian Aboleth,CRCotN,17,18d10+36,-1
@@ -103,30 +103,30 @@ Alyxian the Hunter,CRCotN,17,17d10+85,-1
 Amber Golem,CoS,17,17d10+85,-1
 Ambitious Assassin,BMT,16,14d8+28,+4
 Ambush Drake,HotDQ,13,4d6+8,+2
-Amethyst Dragon Wyrmling,FTD,17,10d8+30,0
+Amethyst Dragon Wyrmling,FTD,17,10d8+30,+0
 Amethyst Greatwyrm,FTD,20,26d20+234,+2
 Ammit,PSA,14,9d12+27,-1
 Amnizu,MPMM,20,27d8+81,+1
 Amnizu,MTF,20,27d8+81,+1
-Amonkhet Dragon Wyrmling,PSA,17,10d8+30,0
+Amonkhet Dragon Wyrmling,PSA,17,10d8+30,+0
 Amonkhet Hydra,PSA,15,15d12+75,+1
 Amonkhet Mummy,PSA,11,9d8+18,-1
-Amonkhet Mummy Lord,PSA,17,13d8+39,0
-Amonkhet Sphinx,PSA,17,19d10+95,0
+Amonkhet Mummy Lord,PSA,17,13d8+39,+0
+Amonkhet Sphinx,PSA,17,19d10+95,+0
 Amphisbaena,GoS,14,2d8+2,+4
 Amphisbaena,TftYP,12,8d12+8,+2
 Anarch,GGR,13,2d8+2,+1
 Anchorite of Talos,DIP,13,9d8+18,+1
 Ancient Amethyst Dragon,FTD,20,24d20+192,+2
-Ancient Amonkhet Dragon,PSA,22,28d20+252,0
+Ancient Amonkhet Dragon,PSA,22,28d20+252,+0
 Ancient Black Dragon,MM'25,22,21d20+147,+2
 Ancient Black Dragon,MM'14,22,21d20+147,+2
-Ancient Blue Dragon,MM'25,22,26d20+208,0
-Ancient Blue Dragon,MM'14,22,26d20+208,0
-Ancient Brass Dragon,MM'14,20,17d20+119,0
-Ancient Brass Dragon,MM'25,20,19d20+133,0
-Ancient Bronze Dragon,MM'25,22,24d20+192,0
-Ancient Bronze Dragon,MM'14,22,24d20+192,0
+Ancient Blue Dragon,MM'25,22,26d20+208,+0
+Ancient Blue Dragon,MM'14,22,26d20+208,+0
+Ancient Brass Dragon,MM'14,20,17d20+119,+0
+Ancient Brass Dragon,MM'25,20,19d20+133,+0
+Ancient Bronze Dragon,MM'25,22,24d20+192,+0
+Ancient Bronze Dragon,MM'14,22,24d20+192,+0
 Ancient Copper Dragon,MM'14,20,20d20+140,+1
 Ancient Copper Dragon,MM'25,21,21d20+147,+1
 Ancient Crystal Dragon,FTD,20,12d20+96,+1
@@ -141,45 +141,45 @@ Ancient Green Dragon,MM'14,20,22d20+154,+1
 Ancient Green Dragon,MM'25,21,23d20+161,+1
 Ancient Lunar Dragon,BAM,17,17d20+119,+1
 Ancient Moonstone Dragon,FTD,20,20d20+120,+4
-Ancient Red Dragon,MM'25,22,26d20+234,0
-Ancient Red Dragon,MM'14,22,28d20+252,0
+Ancient Red Dragon,MM'25,22,26d20+234,+0
+Ancient Red Dragon,MM'14,22,28d20+252,+0
 Ancient Sapphire Dragon,FTD,20,20d20+160,+2
 Ancient Sea Serpent,FTD,17,11d20+55,+2
-Ancient Silver Dragon,MM'25,22,24d20+216,0
-Ancient Silver Dragon,MM'14,22,25d20+225,0
+Ancient Silver Dragon,MM'25,22,24d20+216,+0
+Ancient Silver Dragon,MM'14,22,25d20+225,+0
 Ancient Solar Dragon,BAM,17,23d20+184,+2
 Ancient Spirit Dragon,FRAiF,21,24d20+168,+2
 Ancient Time Dragon,MPP,22,29d20+232,+2
 Ancient Topaz Dragon,FTD,20,17d20+102,+1
-Ancient White Dragon,MM'25,20,18d20+144,0
-Ancient White Dragon,MM'14,20,18d20+144,0
+Ancient White Dragon,MM'25,20,18d20+144,+0
+Ancient White Dragon,MM'14,20,18d20+144,+0
 Android,QftIS,15,14d8+28,+4
-Androsphinx,MM'14,17,19d10+95,0
+Androsphinx,MM'14,17,19d10+95,+0
 Angel,PSK,17,16d8+64,+4
 Angel,PSZ,17,16d8+64,+4
 Angel of Amonkhet,PSA,17,16d8+64,+4
-Angry Sorrowsworn,MPMM,17,30d8+120,0
-Anhkolox,DSotDQ,15,15d12+60,0
+Angry Sorrowsworn,MPMM,17,30d8+120,+0
+Anhkolox,DSotDQ,15,15d12+60,+0
 Animal Lord,MM'25,19,34d8+170,+7
-Animated Armor,MM'25,18,6d8+6,0
-Animated Armor,MM'14,17,6d8+6,0
-Animated Armor Detention Drone,BMT,17,6d8+6,0
-Animated Ballista,WDMM,15,50,0
-Animated Breath,FTD,15,10d10+40,0
+Animated Armor,MM'25,18,6d8+6,+0
+Animated Armor,MM'14,17,6d8+6,+0
+Animated Armor Detention Drone,BMT,17,6d8+6,+0
+Animated Ballista,WDMM,15,50,+0
+Animated Breath,FTD,15,10d10+40,+0
 Animated Broom,MM'25,15,4d6,+3
 Animated Broom,CM,15,5d6,+3
 Animated Chained Library,CM,14,6d10+12,-1
 Animated Coffin,AATM,16,8d10+16,+1
-Animated Drow Statue,OotA,17,6d8+6,0
+Animated Drow Statue,OotA,17,6d8+6,+0
 Animated Flying Sword,MM'25,17,4d6,+2
 Animated Furniture,CoA,17,17d10+85,-1
-Animated Glass Statue,CRCotN,10,3d10+6,0
+Animated Glass Statue,CRCotN,10,3d10+6,+0
 Animated Halberd,CoS,15,5d6,+2
 Animated Jade Serpent,WDMM,14,2d8+2,+4
 Animated Knife,EGW,17,5d4,+2
-Animated Object,PHB'24,15,(manual),0
+Animated Object,PHB'24,15,(manual),+0
 Animated Object (Huge),PHB'14,10,80,-2
-Animated Object (Large),PHB'14,10,50,0
+Animated Object (Large),PHB'14,10,50,+0
 Animated Object (Medium),PHB'14,13,40,+1
 Animated Object (Small),PHB'14,16,25,+2
 Animated Object (Tiny),PHB'14,17,20,+4
@@ -187,18 +187,18 @@ Animated Rug of Smothering,MM'25,12,5d10,+2
 Animated Staff,WDMM,17,40,+1
 Animated Statue,WDMM,12,18d8+18,+2
 Animated Statue of Lolth,WDMM,17,20d12+100,-1
-Animated Stove,WDMM,17,50,0
+Animated Stove,WDMM,17,50,+0
 Animated Table,TftYP,15,6d10+6,-1
-Animated Tile Chimera,RoT,14,12d10+48,0
+Animated Tile Chimera,RoT,14,12d10+48,+0
 Animated Tree,EGW,16,12d12+60,-1
 Animated Wand,WDMM,17,20,+4
 Animatronic Allosaurus,KftGV,13,6d10+18,+1
-Ankheg,MM'14,14,6d10+6,0
-Ankheg,WttHC,14,6d10+12,0
-Ankheg,MM'25,14,6d10+12,0
-Ankhtepot,RHW,17,27d8+81,0
-Ankylosaurus,MM'25,15,8d12+16,0
-Ankylosaurus,MM'14,15,8d12+16,0
+Ankheg,MM'14,14,6d10+6,+0
+Ankheg,WttHC,14,6d10+12,+0
+Ankheg,MM'25,14,6d10+12,+0
+Ankhtepot,RHW,17,27d8+81,+0
+Ankylosaurus,MM'25,15,8d12+16,+0
+Ankylosaurus,MM'14,15,8d12+16,+0
 Ankylosaurus Zombie,ToA,14,8d12+16,-1
 Annis Hag,VGM,17,10d10+20,+1
 Annis Hag,MPMM,17,12d10+24,+1
@@ -207,9 +207,9 @@ Anvilwrought Raptor,MOT,14,4d4+8,+3
 Ape,MM'14,12,3d8+6,+2
 Ape,MM'25,12,3d8+6,+2
 Aphemia,MOT,15,8d8+16,+3
-Apprentice,HoL,10,2d8-2,0
-Apprentice Wizard,MPMM,10,3d8,0
-Apprentice Wizard,VGM,10,2d8,0
+Apprentice,HoL,10,2d8-2,+0
+Apprentice Wizard,MPMM,10,3d8,+0
+Apprentice Wizard,VGM,10,2d8,+0
 Aquatic Ghoul,PotA,12,5d8,+2
 Aquatic Troll,RoT,15,8d10+40,+1
 Aranea,FRAiF,14,12d8+12,+3
@@ -217,13 +217,13 @@ Arasta,MOT,19,24d12+144,+3
 Arcanaloth,MM'14,17,16d8+32,+1
 Arcanaloth,MM'25,18,27d8+54,+1
 Arch-hag,MM'25,20,29d10+174,+2
-Archaic,SCC,20,14d20+98,0
+Archaic,SCC,20,14d20+98,+0
 Archdruid,VGM,16,24d8+24,+2
 Archdruid,MPMM,14,28d8+28,+2
 Archelon,MM'25,17,12d12+12,+3
 Archer,MPMM,16,10d8+30,+4
 Archer,VGM,16,10d8+30,+4
-Archfiend of Ifnir,PSA,17,16d10+96,0
+Archfiend of Ifnir,PSA,17,16d10+96,+0
 Archmage,MM'25,17,31d8+31,+2
 Archmage,MM'14,12,18d8+18,+2
 Archon of Boundaries,MCV4EC,17,17d12+85,+3
@@ -237,17 +237,17 @@ Armanite,MTF,16,8d10+40,+4
 Armanite,MPMM,16,9d10+45,+4
 Armasaur,PSX,13,8d12+24,-1
 Armored Saber-Toothed Tiger,CoS,17,7d10+14,+2
-Armored Troglodyte,WDMM,14,2d8+4,0
+Armored Troglodyte,WDMM,14,2d8+4,+0
 Art Elemental Mascot,SCC,11,4d6+4,+1
 Ash Zombie,LMoP,8,3d8+9,-2
 Ash Zombie,PaBTSO,8,3d8+9,-2
-Ashen Animated Armor,KftGV,17,6d8+6,0
+Ashen Animated Armor,KftGV,17,6d8+6,+0
 Ashen Flying Sword,KftGV,17,5d6,+2
-Ashen Heir Anarchist,JttRC,13,5d8+5,0
+Ashen Heir Anarchist,JttRC,13,5d8+5,+0
 Ashen Heir Assassin,JttRC,15,12d8+24,+3
 Ashen Heir Mage,JttRC,12,9d8,+2
 Ashen Heir Veteran,JttRC,17,9d8+18,+1
-Ashen Knight,KftGV,17,8d8+16,0
+Ashen Knight,KftGV,17,8d8+16,+0
 Ashen Rider,MOT,17,21d8+84,+3
 Ashen Shambling Mound,KftGV,15,16d10+48,-1
 Ashen Veteran,KftGV,17,9d8+18,+1
@@ -259,24 +259,24 @@ Aspirant of the Comet,BMT,11,5d8+5,+1
 Assassin,MM'14,15,12d8+24,+3
 Assassin,MM'25,16,15d8+30,+4
 Assassin Bug,MFF,14,10d8+10,+2
-Assassin Vine,ToA,13,10d10+30,0
+Assassin Vine,ToA,13,10d10+30,+0
 Asteria,BMT,17,26d8+78,+5
-Asteroid Spider,MCV1SC,17,24d20+96,0
+Asteroid Spider,MCV1SC,17,24d20+96,+0
 Astral Blight,LoX,12,4d8+8,-1
 Astral Dreadnought,MPMM,20,17d20+119,-2
 Astral Dreadnought,MTF,20,17d20+119,-2
 Astral Elf Aristocrat,BAM,16,23d8,+2
 Astral Elf Commander,BAM,17,26d8+26,+2
 Astral Elf Honor Guard,BAM,17,17d8+17,+2
-Astral Elf Star Priest,BAM,13,20d8,0
+Astral Elf Star Priest,BAM,13,20d8,+0
 Astral Elf Warrior,BAM,16,13d8,+2
 Athar Null,MPP,14,13d8+26,+3
 Atropal,ToA,7,18d12+108,-3
 Aurak Draconian,DSotDQ,17,9d8+27,+2
 Aurelia,GGR,22,25d8+175,+7
 Aurnozci,BMT,16,20d20+160,+5
-Aurochs,MPMM,11,4d10+16,0
-Aurochs,VGM,11,4d10+16,0
+Aurochs,MPMM,11,4d10+16,+0
+Aurochs,VGM,11,4d10+16,+0
 Aurumach Rilmani,MPP,17,30d10+120,+5
 Aurumvorax,JttRC,15,8d6+8,+1
 Aurumvorax Den Leader,JttRC,16,8d8+16,+2
@@ -288,16 +288,16 @@ Avatar of Baalzebul,CoA,14,30d8+150,+1
 Avatar of Death,DMG'14,20,(manual),+3
 Avatar of Death,DMG'24,20,(manual),+3
 Avoral Guardinal,MPP,16,23d8+69,+4
-Awakened Brown Bear,WDMM,11,4d10+12,0
-Awakened Elk,WDMM,10,2d10+2,0
+Awakened Brown Bear,WDMM,11,4d10+12,+0
+Awakened Elk,WDMM,10,2d10+2,+0
 Awakened Giant Wasp,WDMM,12,3d8,+2
-Awakened Rat,WDH,10,1d4-1,0
+Awakened Rat,WDH,10,1d4-1,+0
 Awakened Shrub,MM'14,9,3d6,-1
 Awakened Shrub,MM'25,9,3d6,-1
 Awakened Shrub Totem Elemental,PSX,9,3d6,-1
 Awakened Tree,MM'25,13,7d12+14,-2
 Awakened Tree,MM'14,13,7d12+14,-2
-Awakened White Moose,IDRotF,11,8d10+24,0
+Awakened White Moose,IDRotF,11,8d10+24,+0
 Awakened Zurkhwood,OotA,13,7d12+14,-2
 Axe Beak,MM'14,11,3d10+3,+1
 Axe Beak,MM'25,11,3d10+3,+1
@@ -310,13 +310,13 @@ Azer Sentinel,MM'25,17,6d8+12,+1
 B'rohg,BAM,14,8d12+40,+2
 Baalzebul,CoA,19,40d12+280,+2
 Baalzebul,MaBJoV,19,40d12+280,+2
-Baaz Draconian,DSotDQ,14,4d8+4,0
+Baaz Draconian,DSotDQ,14,4d8+4,+0
 Babau,MPMM,16,11d8+33,+3
 Babau,VGM,16,11d8+33,+3
 Baboon,MM'14,12,1d6,+2
 Baboon,MM'25,12,1d6,+2
-Badger,MM'14,10,1d4+1,0
-Badger,MM'25,11,1d4+3,0
+Badger,MM'14,10,1d4+1,+0
+Badger,MM'25,11,1d4+3,+0
 Bael,MTF,17,18d10+90,+3
 Bael,MPMM,17,18d10+90,+3
 Baernaloth,MPP,17,27d10+108,+2
@@ -350,9 +350,9 @@ Bariaur Wanderer,MPP,14,11d8+22,+2
 Barkburr,QftIS,16,8d6+24,-2
 Barlgura,MM'14,15,8d10+24,+2
 Barlgura,MM'25,15,10d10+30,+2
-Barovian Commoner,CoS,10,1d8,0
+Barovian Commoner,CoS,10,1d8,+0
 Barovian Scout,CoS,13,3d8+3,+2
-Barovian Witch,CoS,10,3d8+3,0
+Barovian Witch,CoS,10,3d8+3,+0
 Barrowghast,BGG,12,12d12+60,-1
 Basilisk,MM'25,15,8d8+16,-1
 Basilisk,MM'14,15,8d8+16,-1
@@ -387,30 +387,30 @@ Berbalang,MPMM,14,14d8-14,+3
 Berserker,MM'25,13,9d8+27,+1
 Berserker,MM'14,13,9d8+27,+1
 Berserker Commander,MM'25,16,16d8+64,+2
-Bestial Spirit,PHB'24,11,(manual),0
-Bestial Spirit,TCE,11,(manual),0
+Bestial Spirit,PHB'24,11,(manual),+0
+Bestial Spirit,TCE,11,(manual),+0
 "Bhaal, Ravager",MaBJoV,20,26d12+182,+7
 "Bhaal, Slayer",MaBJoV,19,28d8+140,+6
 Bheur Hag,MPMM,17,14d8+28,+3
 Bheur Hag,VGM,17,14d8+28,+3
-Big Xorn,WDMM,19,9d10+54,0
+Big Xorn,WDMM,19,9d10+54,+0
 Biomancer,GGR,17,17d8+34,+2
 Black Abishai,MPMM,15,9d8+18,+3
 Black Abishai,MTF,15,9d8+18,+3
 Black Bear,MM'25,11,3d8+6,+1
-Black Bear,MM'14,11,3d8+6,0
+Black Bear,MM'14,11,3d8+6,+0
 Black Dragon Wyrmling,MM'25,17,6d8+6,+2
 Black Dragon Wyrmling,MM'14,17,6d8+6,+2
-Black Earth Guard,PotA,17,6d8+12,0
-Black Earth Priest,PotA,17,7d8+14,0
-Black Gauntlet of Bane,BGDIA,16,6d8+24,0
+Black Earth Guard,PotA,17,6d8+12,+0
+Black Earth Priest,PotA,17,7d8+14,+0
+Black Gauntlet of Bane,BGDIA,16,6d8+24,+0
 Black Greatwyrm,FTD,22,26d20+260,+2
-Black Guard Drake,VGM,14,7d8+21,0
+Black Guard Drake,VGM,14,7d8+21,+0
 Black Pudding,MM'25,7,8d10+24,-3
 Black Pudding,MM'14,7,10d10+30,-3
 Black Rose Bearer,VEoR,11,13d8+52,-2
-Blackguard,MPMM,17,14d8+56,0
-Blackguard,VGM,17,18d8+72,0
+Blackguard,MPMM,17,14d8+56,+0
+Blackguard,VGM,17,18d8+72,+0
 Blacktongue Bullywug,WDMM,15,2d8+2,+1
 Blade Lieutenant,VEoR,16,18d8+72,+1
 Blade Scout,VEoR,17,14d8+42,+5
@@ -432,20 +432,20 @@ Blood-Toll Harpy,MOT,11,2d8,+1
 Bloodfray Giant,GGR,14,9d12+45,-1
 Blue Abishai,MTF,19,26d8+78,+2
 Blue Abishai,MPMM,19,27d8+81,+2
-Blue Dragon Wyrmling,MM'14,17,8d8+16,0
-Blue Dragon Wyrmling,MM'25,17,10d8+20,0
+Blue Dragon Wyrmling,MM'14,17,8d8+16,+0
+Blue Dragon Wyrmling,MM'25,17,10d8+20,+0
 Blue Greatwyrm,FTD,22,26d20+260,+2
-Blue Guard Drake,VGM,14,7d8+21,0
+Blue Guard Drake,VGM,14,7d8+21,+0
 Blue Slaad,MM'14,15,13d10+52,+2
 Blue Slaad,MM'25,15,14d10+56,+2
-Boar,MM'14,11,2d8+2,0
-Boar,MM'25,11,2d8+4,0
+Boar,MM'14,11,2d8+2,+0
+Boar,MM'25,11,2d8+4,+0
 Bodak,MPMM,15,9d8+18,+3
 Bodak,VGM,15,9d8+18,+3
 Bodhi Irenicus,MaBJoV,17,25d8+100,+5
 Bodytaker Plant,RHW,16,12d12+60,-1
 Bodytaker Plant,VRGR,16,8d12+40,-1
-Bodytaker Podling,RHW,12,4d8+8,0
+Bodytaker Podling,RHW,12,4d8+8,+0
 Boggle,MPMM,14,4d6+4,+4
 Boggle,VGM,14,4d6+4,+4
 Bone Devil,MM'14,19,15d10+60,+3
@@ -468,7 +468,7 @@ Booyahg Slave of the Fiend,VGM,12,12d8+24,+2
 Booyahg Slave of the Great Old One,VGM,12,14d8+28,+2
 Booyahg Whip,VGM,15,2d6,+2
 Booyahg Wielder,VGM,15,2d6,+2
-Borborygmos,GGR,14,20d12+140,0
+Borborygmos,GGR,14,20d12+140,+0
 Bore Worm,WDMM,17,15d20+90,-2
 Borivik Windheim,MaBJoV,17,30d8+60,+5
 Boromar Smuggler,EFA,13,6d6+6,+2
@@ -477,45 +477,45 @@ Borthak,VEoR,16,16d12+96,+3
 Boss Augustus,BMT,13,20d8+60,+3
 Boss Delour,BMT,14,20d6+40,+4
 Boulderfoot Giant,PSZ,17,11d12+55,+2
-Bozak Draconian,DSotDQ,15,9d8,0
-Brackish Trudge,SCC,12,8d10+24,0
-Brain Breaker,PaBTSO,14,18d10+90,0
+Bozak Draconian,DSotDQ,15,9d8,+0
+Brackish Trudge,SCC,12,8d10+24,+0
+Brain Breaker,PaBTSO,14,18d10+90,+0
 Brain in a Jar,RHW,11,10d6+20,-4
 Brain in a Jar,VRGR,11,10d6+20,-4
 Brain in a Jar,LLK,11,9d8+18,-5
 Brain in Iron,IMR,15,9d8+18,-5
-Brass Dragon Wyrmling,MM'14,16,3d8+3,0
-Brass Dragon Wyrmling,MM'25,15,4d8+4,0
+Brass Dragon Wyrmling,MM'14,16,3d8+3,+0
+Brass Dragon Wyrmling,MM'25,15,4d8+4,+0
 Brass Greatwyrm,FTD,22,29d20+261,+3
 Braxat,BAM,17,13d12+78,-1
 Brazen Gorgon,MM'25,19,17d10+68,+2
 Breath Drinker,BMT,17,21d8+63,+4
-Bridesmaid of Zuggtmoy,OotA,13,5d8,0
+Bridesmaid of Zuggtmoy,OotA,13,5d8,+0
 Brigganock,WBtW,12,2d4+4,+2
 Bristled Moorbounder,EGW,15,7d10+14,+2
-Broken King Antigonos,MOT,14,9d10+27,0
+Broken King Antigonos,MOT,14,9d10+27,+0
 Brontodon,PSX,15,9d20+27,-1
 Brontosaurus,MPMM,15,9d20+27,-1
 Brontosaurus,VGM,15,9d20+27,-1
-Bronze Dragon Wyrmling,MM'14,17,5d8+10,0
-Bronze Dragon Wyrmling,MM'25,15,6d8+12,0
+Bronze Dragon Wyrmling,MM'14,17,5d8+10,+0
+Bronze Dragon Wyrmling,MM'25,15,6d8+12,+0
 Bronze Greatwyrm,FTD,22,29d20+261,+3
 Bronze Sable,MOT,15,5d8+10,+3
 Bronze Scout,MTF,13,4d8,+3
 Broom of Animated Attack,CoS,15,5d6,+3
 Brown Bear,MM'25,11,3d10+6,+1
-Brown Bear,MM'14,11,4d10+12,0
+Brown Bear,MM'14,11,4d10+12,+0
 Brown Scavver,BAM,13,6d10+18,+2
 Bruna,PSI,19,16d10+112,+5
-Brusipha,BMT,14,12d8+36,0
+Brusipha,BMT,14,12d8+36,+0
 Bugbear,MM'14,16,5d8+5,+2
 Bugbear Chief,MM'14,17,10d8+20,+2
 Bugbear Gardener,TftYP,16,5d8+5,+2
 Bugbear Lieutenant,TftYP,16,5d8+5,+2
 Bugbear Stalker,MM'25,15,10d8+20,+2
 Bugbear Warrior,MM'25,14,6d8+6,+2
-Bulette,MM'25,17,9d10+45,0
-Bulette,MM'14,17,9d10+45,0
+Bulette,MM'25,17,9d10+45,+0
+Bulette,MM'14,17,9d10+45,+0
 Bulette Pup,MM'25,16,6d8+18,-1
 Bulezau,MPMM,14,7d8+21,+2
 Bulezau,MTF,14,7d8+21,+2
@@ -530,7 +530,7 @@ Burrowshark,PotA,17,11d8+33,+1
 Cackler,GGR,15,3d6,+3
 Cadaver Collector,MPMM,17,18d10+90,+2
 Cadaver Collector,MTF,17,18d10+90,+2
-Cairnwight,BGG,19,12d12+60,0
+Cairnwight,BGG,19,12d12+60,+0
 Caldron Magen,NF,20,9d8+27,+1
 Cambion,MM'25,19,14d8+42,+4
 Cambion,MM'14,19,11d8+33,+4
@@ -538,10 +538,10 @@ Camel,MM'14,9,2d10+4,-1
 Camel,MM'25,10,2d10+6,-1
 Campestri,WBtW,12,1d4,-2
 Cannith Artificer,EFA,16,11d8+22,+1
-Canoloth,MPMM,16,16d8+48,0
-Canoloth,MTF,16,16d8+48,0
-Canopic Golem,CM,17,24d10+120,0
-Carnivorous Flower,RoT,14,12d10+48,0
+Canoloth,MPMM,16,16d8+48,+0
+Canoloth,MTF,16,16d8+48,+0
+Canopic Golem,CM,17,24d10+120,+0
+Carnivorous Flower,RoT,14,12d10+48,+0
 Carrion Crawler,MM'25,13,6d10+18,+1
 Carrion Crawler,MM'14,13,6d10+18,+1
 Carrion Ogre,WDMM,11,7d10+21,-1
@@ -557,9 +557,9 @@ Category 2 Krasis,GGR,15,16d10+48,+2
 Category 3 Krasis,GGR,16,25d12+125,+1
 Catoblepas,MPMM,14,8d10+40,+1
 Catoblepas,VGM,14,8d10+40,+1
-Caustic Crawler,PSZ,14,6d10+6,0
-Cave Badger,OotA,12,2d8+4,0
-Cave Bear,MM'14,12,5d10+15,0
+Caustic Crawler,PSZ,14,6d10+6,+0
+Cave Badger,OotA,12,2d8+4,+0
+Cave Bear,MM'14,12,5d10+15,+0
 Cave Fisher,MPMM,16,9d8+18,+1
 Cave Fisher,VGM,16,9d8+18,+1
 Celestial Spirit,PHB'24,11,(manual),+2
@@ -577,23 +577,23 @@ Chakuna,RHW,16,28d8+84,+4
 Chamberlain of Zuggtmoy,OotA,13,6d10+12,-2
 Champion,VGM,17,22d8+44,+2
 Champion,MPMM,17,22d8+44,+2
-Champion of Gorm,QftIS,19,6d8+6,0
+Champion of Gorm,QftIS,19,6d8+6,+0
 Champion of Madarua,QftIS,13,6d8+12,+1
 Champion of Usamigaras,QftIS,12,6d8+6,+2
 Changeling,ERLW,13,4d8+4,+2
 Chaos Quadrapod,AI,14,7d10+14,+1
 Chardalyn Berserker,IDRotF,13,12d8+36,+1
-Chardalyn Dragon,IDRotF,17,14d12+56,0
+Chardalyn Dragon,IDRotF,17,14d12+56,+0
 Chasme,MM'25,15,12d10+12,+2
 Chasme,MM'14,15,13d10+13,+2
-Chimera,MM'25,14,12d10+48,0
-Chimera,MM'14,14,12d10+48,0
+Chimera,MM'25,14,12d10+48,+0
+Chimera,MM'14,14,12d10+48,+0
 Chimeric Baboon,IDRotF,12,1d6,+2
 Chimeric Cat,IDRotF,12,1d4,+2
 Chimeric Fox,IDRotF,13,1d4,+3
 Chimeric Fox,NRH-AVitW,13,1d4,+3
 Chimeric Hare,IDRotF,13,1d4-1,+3
-Chimeric Rat,IDRotF,10,1d4-1,0
+Chimeric Rat,IDRotF,10,1d4-1,+0
 Chimeric Weasel,IDRotF,13,1d4-1,+3
 Chitine,MPMM,14,4d6+4,+2
 Chitine,VGM,14,4d6+4,+2
@@ -602,15 +602,15 @@ Choker,MTF,16,3d6+3,+2
 Choldrith,MPMM,15,12d8+12,+3
 Choldrith,VGM,15,12d8+12,+3
 Chupacabra,PSX,14,6d8+18,+2
-Chuul,MM'25,16,9d10+27,0
-Chuul,MM'14,16,11d10+33,0
-Chuul Spore Servant,OotA,16,11d10+33,0
+Chuul,MM'25,16,9d10+27,+0
+Chuul,MM'14,16,11d10+33,+0
+Chuul Spore Servant,OotA,16,11d10+33,+0
 Chwinga,CM,15,2d4,+5
 Chwinga,IDRotF,15,2d4,+5
 Chwinga,ToA,15,2d4,+5
 Chwinga Astronaut,BAM,15,3d4,+5
 Cinder Hulk,BGG,16,8d10+40,+1
-Citadel Spider,VEoR,17,20d20+150,0
+Citadel Spider,VEoR,17,20d20+150,+0
 Clawfoot,ERLW,13,3d8+6,+3
 Clay Gladiator,ToA,17,15d8+45,+2
 Clay Golem,MM'25,14,13d10+52,-1
@@ -621,20 +621,20 @@ Cloaker Mutate,PaBTSO,14,22d10+22,+2
 Clockwork Behir,OoW,17,16d12+64,+3
 Clockwork Bronze Scout,MPMM,13,8d8,+3
 Clockwork Defender,KftGV,17,5d8+20,+2
-Clockwork Dragon,AI,16,4d8+4,0
+Clockwork Dragon,AI,16,4d8+4,+0
 Clockwork Horror,MCV1SC,17,8d6+32,+2
 Clockwork Iron Cobra,MPMM,13,14d8+28,+3
 Clockwork Kraken,LLK,17,15d10+60,+1
-Clockwork Mule,SKT,10,2d8+2,0
+Clockwork Mule,SKT,10,2d8+2,+0
 Clockwork Oaken Bolter,MPMM,16,18d8+36,+4
 Clockwork Observer,KftGV,14,2d4+2,+3
-Clockwork Stone Defender,MPMM,16,14d8+42,0
-Cloud Giant,MM'25,14,16d12+96,0
-Cloud Giant,MM'14,14,16d12+96,0
+Clockwork Stone Defender,MPMM,16,14d8+42,+0
+Cloud Giant,MM'25,14,16d12+96,+0
+Cloud Giant,MM'14,14,16d12+96,+0
 Cloud Giant Destiny Gambler,BGG,15,27d12+162,+1
-Cloud Giant Ghost,CM,15,16d12,0
-Cloud Giant Noble,TftYP,16,16d12+96,0
-Cloud Giant of Evil Air,BGG,14,16d12+96,0
+Cloud Giant Ghost,CM,15,16d12,+0
+Cloud Giant Noble,TftYP,16,16d12+96,+0
+Cloud Giant of Evil Air,BGG,14,16d12+96,+0
 Cloud Giant Smiling One,MPMM,15,20d12+120,+1
 Cloud Giant Smiling One,VGM,15,21d12+128,+1
 Clown,NRH-CoI,13,2d8+2,+1
@@ -642,27 +642,27 @@ Coatl,PSX,19,13d8+39,+5
 Cockatrice,MM'25,11,5d6+5,+1
 Cockatrice,MM'14,11,6d6+6,+1
 Cockatrice Regent,MM'25,15,16d10+48,+2
-Cogwork Archivist,SCC,17,12d10+24,0
-Coldlight Walker,IDRotF,13,11d8+33,0
-Colossus,MM'25,23,27d20+270,0
-Colossus of Akros,MOT,20,20d20+140,0
+Cogwork Archivist,SCC,17,12d10+24,+0
+Coldlight Walker,IDRotF,13,11d8+33,+0
+Colossus,MM'25,23,27d20+270,+0
+Colossus of Akros,MOT,20,20d20+140,+0
 Combat Robot,QftIS,15,15d8+45,+2
-Commoner,MM'14,10,1d8,0
-Commoner,WttHC,10,1d8,0
-Commoner,MM'25,10,1d8,0
+Commoner,MM'14,10,1d8,+0
+Commoner,WttHC,10,1d8,+0
+Commoner,MM'25,10,1d8,+0
 Conclave Dryad,GGR,16,22d8+44,+4
 Conjurer,VGM,12,9d8,+2
 Conjurer Wizard,MPMM,12,13d8,+2
 Conservatory Student,KftGV,11,2d8,+1
 Constrictor Snake,MM'14,12,2d10+2,+2
 Constrictor Snake,MM'25,13,2d10+2,+2
-Construct (Animated Armor),PSK,17,6d8+6,0
+Construct (Animated Armor),PSK,17,6d8+6,+0
 Construct (Helmed Horror),PSK,20,8d8+24,+1
 Construct (Modron),PSK,15,1d8+1,+1
 Construct (Shield Guardian),PSK,17,15d10+60,-1
-Construct Spirit,PHB'24,13,(manual),0
-Construct Spirit,TCE,13,(manual),0
-Constructed Commoner,CM,15,1d8+2,0
+Construct Spirit,PHB'24,13,(manual),+0
+Construct Spirit,TCE,13,(manual),+0
+Constructed Commoner,CM,15,1d8+2,+0
 Copper Dragon Wyrmling,MM'25,16,4d8+4,+1
 Copper Dragon Wyrmling,MM'14,16,4d8+4,+1
 Copper Greatwyrm,FTD,22,29d20+261,+3
@@ -675,22 +675,22 @@ Cornelius Watson,MaBJoV,12,28d8+28,+2
 Corpse Flower,MPMM,12,15d10+45,+2
 Corpse Flower,MTF,12,15d10+45,+2
 Corrupted Avatar of Lurue,CM,14,12d10+24,+2
-Corrupted Giant Shark,CRCotN,13,11d12+55,0
-Corrupted Rat,WttHC,10,1d4-1,0
+Corrupted Giant Shark,CRCotN,13,11d12+55,+0
+Corrupted Rat,WttHC,10,1d4-1,+0
 Corruption Devil (Paeliryon),CoA,16,19d10+114,+2
-Cosmic Horror,BAM,15,16d20+112,0
+Cosmic Horror,BAM,15,16d20+112,+0
 Cosmotronic Blastseeker,GGR,15,5d8+15,+2
 Couatl,MM'25,19,8d8+24,+5
 Couatl,MM'14,19,13d8+39,+5
 Counterflux Blastseeker,GGR,13,6d8+12,+3
-Cow,VGM,10,2d10+4,0
-Crab,MM'14,11,1d4,0
-Crab,MM'25,11,1d4+1,0
-Crab Folk,MFF,16,8d10+24,0
+Cow,VGM,10,2d10+4,+0
+Crab,MM'14,11,1d4,+0
+Crab,MM'25,11,1d4+1,+0
+Crab Folk,MFF,16,8d10+24,+0
 Cradle of the Cloud Scion,BGG,19,32d20+288,+5
 Cradle of the Fire Scion,BGG,20,30d20+240,+1
 Cradle of the Frost Scion,BGG,20,27d20+216,+2
-Cradle of the Hill Scion,BGG,19,23d20+161,0
+Cradle of the Hill Scion,BGG,19,23d20+161,+0
 Cradle of the Stone Scion,BGG,20,26d20+182,+2
 Cradle of the Storm Scion,BGG,19,35d20+315,+2
 Crag Cat,SKT,13,4d10+12,+3
@@ -700,14 +700,14 @@ Cranium Rat Squeaker,MPP,12,1d4,+2
 Cranium Rat Squeaker Swarm,MPP,12,17d8,+2
 Crawling Claw,MM'14,12,1d4,+2
 Crawling Claw,MM'25,12,1d4,+2
-Creeper,MCV3MC,12,3d8+6,0
+Creeper,MCV3MC,12,3d8+6,+0
 Creepy Doll,PSI,12,6d4+6,+2
 Crimson Helmed Horror,KftGV,20,8d8+24,+1
 Criosphinx,PSA,17,24d10+96,+2
-Crocodile,MM'25,12,2d10+2,0
-Crocodile,MM'14,12,3d10+3,0
+Crocodile,MM'25,12,2d10+2,+0
+Crocodile,MM'14,12,3d10+3,+0
 Crow,WDMM,12,1d4-1,+2
-Crushing Wave Priest,PotA,13,8d8+16,0
+Crushing Wave Priest,PotA,13,8d8+16,+0
 Crushing Wave Reaver,PotA,14,4d8+4,+2
 Cryonax,MaBJoV,20,27d12+216,+3
 Crystal Battleaxe,WDMM,17,5d6,+2
@@ -727,20 +727,20 @@ Cultist of Demogorgon,WttHC,12,2d8,+2
 Cultist of Myrkul,FRAiF,16,24d8+96,+2
 Cuprilach Rilmani,MPP,16,27d8+81,+5
 Curate,HotB,12,15d8+30,+2
-Cyclops,MM'14,14,12d12+60,0
-Cyclops Oracle,MM'25,16,18d12+90,0
-Cyclops Sentry,MM'25,14,12d12+60,0
+Cyclops,MM'14,14,12d12+60,+0
+Cyclops Oracle,MM'25,16,18d12+90,+0
+Cyclops Sentry,MM'25,14,12d12+60,+0
 Daask Bruiser,EFA,17,20d8+60,+1
 Daask Raider,EFA,15,6d8+6,+1
 Dabus,MPP,12,8d8+8,+2
 Daemogoth,SCC,16,15d12+60,+2
-Daemogoth Titan,SCC,17,11d20+88,0
+Daemogoth Titan,SCC,17,11d20+88,+0
 Dagryn,MaBJoV,19,13d8+26,-1
 Damaged Flesh Golem,EGW,9,11d8+44,-1
 Dancing Flame,CRCotN,15,12d8+12,+3
 Dancing Item,TCE,16,(manual),+2
 Dandylion,MisMV1,14,12d10+24,+4
-Dankwood Duergar,MGELFT,17,4d8+8,0
+Dankwood Duergar,MGELFT,17,4d8+8,+0
 Dankwood Grung,MGELFT,13,5d6+10,+3
 Dankwood Hag,AWM,17,82,+1
 Dao,MM'14,17,15d10+105,+1
@@ -765,9 +765,9 @@ Death Giant Reaper,BGG,17,15d12+75,+2
 Death Giant Shrouded One,BGG,12,17d12+85,+2
 Death Kiss,MPMM,15,15d10+60,+2
 Death Kiss,VGM,16,17d10+68,+2
-Death Knight,MM'14,20,19d8+95,0
-Death Knight,MM'25,20,21d8+105,0
-Death Knight Aspirant,MM'25,20,21d8+84,0
+Death Knight,MM'14,20,19d8+95,+0
+Death Knight,MM'25,20,21d8+105,+0
+Death Knight Aspirant,MM'25,20,21d8+84,+0
 Death Slaad,MM'14,17,20d8+80,+2
 Death Slaad,MM'25,18,21d8+84,+2
 Death Tyrant,MM'14,19,25d10+50,+2
@@ -776,7 +776,7 @@ Death's Head,RHW,16,5d4+5,+1
 Death's Head,VRGR,16,5d4+5,+1
 Death's Head of Bhaal,BGDIA,15,8d8+40,+5
 Death's Head Tree,RHW,15,10d12+30,-1
-Deathless Rider,MCV4EC,17,13d8+26,0
+Deathless Rider,MCV4EC,17,13d8+26,+0
 Deathlock,MPMM,12,8d8,+2
 Deathlock,MTF,12,8d8,+2
 Deathlock Mastermind,MPMM,13,20d8+20,+3
@@ -789,11 +789,11 @@ Decapus,TTP,14,10d10+20,+2
 Decaton Modron,MPP,16,17d10+51,+1
 Deck Defender,BMT,16,(manual),+3
 Deep Crow,AI,17,14d10+56,+3
-Deep Dragon Wyrmling,FRAiF,15,5d8+5,0
-Deep Dragon Wyrmling,FTD,15,5d8+5,0
+Deep Dragon Wyrmling,FRAiF,15,5d8+5,+0
+Deep Dragon Wyrmling,FTD,15,5d8+5,+0
 Deep Gnome (Svirfneblin),MM'14,15,3d6+6,+2
-Deep Rothé,MPMM,10,2d8+4,0
-Deep Rothé,VGM,10,2d8+4,0
+Deep Rothé,MPMM,10,2d8+4,+0
+Deep Rothé,VGM,10,2d8+4,+0
 Deep Scion,MPMM,11,9d8+27,+1
 Deep Scion,VGM,11,9d8+27,+1
 Deep Spider,MaBJoV,15,10d12+30,+2
@@ -806,7 +806,7 @@ Demilich,MM'25,20,72d4,+5
 Demilich,MM'14,20,32d4,+5
 Demobat,WttHC,13,6d4+6,+3
 Demodog,WttHC,14,6d6+6,+2
-Demodragon,WttHC,16,12d12+24,0
+Demodragon,WttHC,16,12d12+24,+0
 Demogorgon,MTF,22,28d12+224,+2
 Demogorgon,MPMM,22,32d12+256,+2
 Demogorgon,HftT,15,8d8+24,+1
@@ -830,11 +830,11 @@ Deva,MM'25,17,27d8+108,+4
 Devkarin Lich,GGR,14,15d8+30,+3
 Devourer,VGM,16,17d10+85,+1
 Devourer,MPMM,16,18d10+90,+1
-Dhergoloth,MPMM,15,14d8+56,0
-Dhergoloth,MTF,15,14d8+56,0
+Dhergoloth,MPMM,15,14d8+56,+0
+Dhergoloth,MTF,15,14d8+56,+0
 Diatryma,WDH,11,3d10+3,+1
-Dimetrodon,MPMM,12,3d8+6,0
-Dimetrodon,VGM,12,3d8+6,0
+Dimetrodon,MPMM,12,3d8+6,+0
+Dimetrodon,VGM,12,3d8+6,+0
 Dining Table Mimic,WDH,12,10d10+20,+1
 Dinosaur Skeleton,JttRC,13,6d10+18,+1
 Dire Corby,MFF,13,3d8+3,+2
@@ -849,7 +849,7 @@ Displacer Beast,MM'25,13,9d10+27,+2
 Displacer Beast,MM'14,13,10d10+30,+2
 Displacer Beast Kitten,WBtW,12,2d6+2,+1
 Displacer Fiend,CoA,16,18d10+36,+4
-Distended Corpse,CoS,10,1d8,0
+Distended Corpse,CoS,10,1d8,+0
 Diva,JttRC,13,3d8+3,+2
 Diviner,VGM,12,15d8,+2
 Diviner Wizard,MPMM,12,20d8,+2
@@ -869,11 +869,11 @@ Doppelganger,MM'14,14,8d8+16,+4
 Doppelganger,MM'25,14,8d8+16,+4
 Doric,HAT-TG,14,16d8+32,+3
 Dracohydra,FTD,17,19d12+95,+1
-Dracolich,MM'25,20,18d12+108,0
-Draconian Dreadnought,FTD,16,6d10+24,0
-Draconian Foot Soldier,FTD,14,4d8+4,0
+Dracolich,MM'25,20,18d12+108,+0
+Draconian Dreadnought,FTD,16,6d10+24,+0
+Draconian Foot Soldier,FTD,14,4d8+4,+0
 Draconian Infiltrator,FTD,15,6d8+12,+3
-Draconian Mage,FTD,15,9d8,0
+Draconian Mage,FTD,15,9d8,+0
 Draconian Mastermind,FTD,17,9d8+27,+2
 Draconic Shard,FTD,17,16d12+64,+1
 Draconic Spirit,PHB'24,14,(manual),+2
@@ -881,29 +881,29 @@ Draconic Spirit,FTD,14,(manual),+2
 Dracophage Subject,DSotDQ,15,6d8+12,+3
 Draegloth,MPMM,15,13d10+52,+2
 Draegloth,VGM,15,13d10+52,+2
-Draft Horse,MM'25,10,2d10+4,0
-Draft Horse,MM'14,10,3d10+3,0
-Dragon,PSK,19,19d12+133,0
+Draft Horse,MM'25,10,2d10+4,+0
+Draft Horse,MM'14,10,3d10+3,+0
+Dragon,PSK,19,19d12+133,+0
 Dragon Army Dragonnel,DSotDQ,16,9d10+9,+2
 Dragon Army Officer,DSotDQ,19,10d8+20,+2
 Dragon Army Soldier,DSotDQ,17,4d8+4,+1
-Dragon Blessed,FTD,14,10d8+30,0
+Dragon Blessed,FTD,14,10d8+30,+0
 Dragon Chosen,FTD,17,7d8+14,+4
 Dragon Hunter,JttRC,13,9d8+18,+1
 Dragon Speaker,FTD,13,8d6+8,+2
-Dragon Tortoise,CM,20,22d20+110,0
-Dragon Turtle,MM'14,20,22d20+110,0
-Dragon Turtle,MM'25,20,23d20+115,0
-Dragon Turtle Wyrmling,FTD,17,12d10+24,0
+Dragon Tortoise,CM,20,22d20+110,+0
+Dragon Turtle,MM'14,20,22d20+110,+0
+Dragon Turtle,MM'25,20,23d20+115,+0
+Dragon Turtle Wyrmling,FTD,17,12d10+24,+0
 Dragonblood Ooze,FTD,14,8d10+24,-2
-Dragonbone Golem,FTD,17,19d10+57,0
+Dragonbone Golem,FTD,17,19d10+57,+0
 Dragonborn of Bahamut,FTD,17,11d8+44,+1
 Dragonborn of Sardior,FTD,17,10d8+30,+3
-Dragonborn of Tiamat,FTD,17,10d8+40,0
+Dragonborn of Tiamat,FTD,17,10d8+40,+0
 Dragonclaw,HotDQ,14,3d8+3,+3
 Dragonfang,RoT,15,12d8+24,+3
 Dragonflesh Abomination,FTD,15,7d12+21,+2
-Dragonflesh Grafter,FTD,14,7d10+14,0
+Dragonflesh Grafter,FTD,14,7d10+14,+0
 Dragonnel,FTD,13,9d10+9,+2
 Dragonsoul,RoT,16,17d8+34,+4
 Dragonwing,HotDQ,14,6d8+6,+3
@@ -913,23 +913,23 @@ Drake (Small),PSK,13,3d8,+2
 Drake (Small),PSZ,13,3d8,+2
 Drake Companion,FTD,14,(manual),+1
 Dread Doppelganger,MaBJoV,16,12d8+24,+6
-Dread Warrior,TftYP,17,5d8+15,0
+Dread Warrior,TftYP,17,5d8+15,+0
 Dream Eater,MCV2DC,15,14d8+14,+5
 Dreaming Dark Infiltrator,EFA,15,16d8+32,+3
 Dreaming Dark Mindkiller,EFA,19,24d8+72,+4
-Dretch,WttHC,11,4d6+4,0
-Dretch,MM'25,11,4d6+4,0
-Dretch,MM'14,11,4d6+4,0
+Dretch,WttHC,11,4d6+4,+0
+Dretch,MM'25,11,4d6+4,+0
+Dretch,MM'14,11,4d6+4,+0
 Drider,MM'25,19,13d10+52,+4
 Drider,MM'14,19,13d10+52,+3
 Drow,MM'14,15,3d8,+2
-Drow Acolyte,OotA,10,2d8,0
+Drow Acolyte,OotA,10,2d8,+0
 Drow Arachnomancer,MPMM,15,25d8+50,+3
 Drow Arachnomancer,MTF,15,25d8+50,+3
 Drow Assassin,OotA,15,12d8+24,+3
 Drow Bandit,OotA,12,2d8+2,+1
 Drow Commander,TftYP,17,11d8+22,+4
-Drow Commoner,OotA,10,1d8,0
+Drow Commoner,OotA,10,1d8,+0
 Drow Cultist,OotA,12,2d8,+1
 Drow Elite Warrior,MM'14,17,11d8+22,+4
 Drow Elite Warrior of Lolth,FRAiF,18,11d8+22,+4
@@ -965,30 +965,30 @@ Dryad,MM'14,11,5d8,+1
 Dryad,PSX,11,5d8,+1
 Dryad,MM'25,16,5d8,+1
 Dryad Spirit,BGDIA,12,13d8,+2
-Duergar,MM'14,16,4d8+4,0
-Duergar Alchemist,OotA,16,4d8+4,0
-Duergar Darkhaft,OotA,16,4d8+4,0
+Duergar,MM'14,16,4d8+4,+0
+Duergar Alchemist,OotA,16,4d8+4,+0
+Duergar Darkhaft,OotA,16,4d8+4,+0
 Duergar Despot,MPMM,20,14d8+56,-3
 Duergar Despot,MTF,20,14d8+56,-3
 Duergar Hammerer,MPMM,17,6d8+6,-2
 Duergar Hammerer,MTF,17,6d8+6,-2
-Duergar Kavalrachni,MPMM,16,4d8+8,0
-Duergar Kavalrachni,MTF,16,4d8+8,0
-Duergar Keeper of the Flame,OotA,16,4d8+4,0
+Duergar Kavalrachni,MPMM,16,4d8+8,+0
+Duergar Kavalrachni,MTF,16,4d8+8,+0
+Duergar Keeper of the Flame,OotA,16,4d8+4,+0
 Duergar Mind Master,MPMM,14,6d8+12,+3
 Duergar Mind Master,MTF,14,6d8+12,+3
 Duergar Screamer,MPMM,15,7d8+7,-2
 Duergar Screamer,MTF,15,7d8+7,-2
 Duergar Soulblade,MTF,14,4d8,+3
 Duergar Soulblade,MPMM,14,6d8,+3
-Duergar Spore Servant,OotA,16,4d8+8,0
+Duergar Spore Servant,OotA,16,4d8+8,+0
 Duergar Spy,TftYP,15,6d8+6,+3
-Duergar Stone Guard,MPMM,17,6d8+12,0
-Duergar Stone Guard,MTF,17,6d8+12,0
-Duergar Warlord,MPMM,20,10d8+30,0
-Duergar Warlord,MTF,20,10d8+30,0
-Duergar Xarrorn,MPMM,17,4d8+8,0
-Duergar Xarrorn,MTF,17,4d8+8,0
+Duergar Stone Guard,MPMM,17,6d8+12,+0
+Duergar Stone Guard,MTF,17,6d8+12,+0
+Duergar Warlord,MPMM,20,10d8+30,+0
+Duergar Warlord,MTF,20,10d8+30,+0
+Duergar Xarrorn,MPMM,17,4d8+8,+0
+Duergar Xarrorn,MTF,17,4d8+8,+0
 Dullahan,RHW,15,17d8+51,+2
 Dullahan,VRGR,16,18d8+54,+2
 Dum-Dum Goblin,AWM,7,7,+2
@@ -999,7 +999,7 @@ Dust Hulk,BGG,16,8d10+24,+4
 Dust Mephit,MM'14,12,5d6,+2
 Dust Mephit,MM'25,12,5d6,+2
 Dwarf,AWM,10,30,+1
-Dwarf Skeleton,PaBTSO,13,4d8+8,0
+Dwarf Skeleton,PaBTSO,13,4d8+8,+0
 Dwarven Worker,IMR,12,2d8,+1
 Dybbuk,MPMM,14,5d8+15,+4
 Dybbuk,MTF,14,5d8+15,+4
@@ -1008,14 +1008,14 @@ Eagle,MM'14,12,1d6,+2
 Eagle,MM'25,12,1d6+1,+2
 Earth Elemental,MM'14,17,12d10+60,-1
 Earth Elemental,MM'25,17,14d10+70,-1
-Earth Elemental Myrmidon,MTF,17,17d8+51,0
-Earth Elemental Myrmidon,MPMM,17,17d8+51,0
+Earth Elemental Myrmidon,MTF,17,17d8+51,+0
+Earth Elemental Myrmidon,MPMM,17,17d8+51,+0
 Earth Totem Elemental,PSX,17,12d10+60,-1
 Eater of Hope,MOT,17,12d10+24,+3
-Eater of Knowledge,MPP,15,12d10+36,0
+Eater of Knowledge,MPP,15,12d10+36,+0
 Eblis,ToA,13,4d10+4,+3
 Ebonbane,RHW,17,29d6+29,+4
-Echo of Demogorgon,BGG,14,10d10+30,0
+Echo of Demogorgon,BGG,14,10d10+30,+0
 Edgin Darvis,HAT-TG,14,17d8+34,+3
 Edwin Odesseiron,MaBJoV,13,30d8+60,+3
 Efreeti,MM'14,17,16d10+112,+1
@@ -1025,25 +1025,25 @@ Egg Hunter Hatchling,FTD,14,8d4+8,+3
 Eidolon,MPMM,9,18d8-18,-1
 Eidolon,MTF,9,18d8-18,-1
 Elder Black Pudding,TftYP,7,10d12+30,-3
-Elder Brain,MPMM,10,20d10+100,0
-Elder Brain,VGM,10,20d10+100,0
+Elder Brain,MPMM,10,20d10+100,+0
+Elder Brain,VGM,10,20d10+100,+0
 Elder Brain Dragon,FTD,17,20d20+140,+1
-Elder Dinosaur,PSX,25,33d20+330,0
-"Elder Dinosaur (Etali, Primal Storm)",PSX,25,33d20+330,0
-"Elder Dinosaur (Ghalta, Primal Hunger)",PSX,25,33d20+330,0
-"Elder Dinosaur (Nezahal, Primal Tide)",PSX,25,33d20+330,0
-"Elder Dinosaur (Tetzimoc, Primal Death)",PSX,25,33d20+330,0
-"Elder Dinosaur (Zacama, Primal Calamity)",PSX,25,33d20+330,0
-"Elder Dinosaur (Zetalpa, Primal Dawn)",PSX,25,33d20+330,0
+Elder Dinosaur,PSX,25,33d20+330,+0
+"Elder Dinosaur (Etali, Primal Storm)",PSX,25,33d20+330,+0
+"Elder Dinosaur (Ghalta, Primal Hunger)",PSX,25,33d20+330,+0
+"Elder Dinosaur (Nezahal, Primal Tide)",PSX,25,33d20+330,+0
+"Elder Dinosaur (Tetzimoc, Primal Death)",PSX,25,33d20+330,+0
+"Elder Dinosaur (Zacama, Primal Calamity)",PSX,25,33d20+330,+0
+"Elder Dinosaur (Zetalpa, Primal Dawn)",PSX,25,33d20+330,+0
 Elder Giant Lizard,TftYP,14,9d12+27,-1
 Elder Monastery of the Distressed Body Monk,LLK,13,6d8+6,+2
 Elder Oblex,MPMM,16,10d12+50,+3
 Elder Oblex,MTF,16,10d12+50,+3
 Elder Tempest,MPMM,19,16d20+96,+9
 Elder Tempest,MTF,19,16d20+96,+9
-Elder Thing,RHW,16,22d10+88,0
+Elder Thing,RHW,16,22d10+88,+0
 Eldritch Eddy,NF,11,17d10+51,+1
-Eldritch Horror Hatchling,KftGV,14,6d10+6,0
+Eldritch Horror Hatchling,KftGV,14,6d10+6,+0
 Eldritch Lich,MCV1SC,17,22d8+66,+4
 Elemental Cataclysm,MM'25,20,20d20+160,+4
 Elemental Cultist,MM'25,16,18d8+54,+1
@@ -1051,27 +1051,27 @@ Elemental Spirit,PHB'24,11,(manual),+2
 Elemental Spirit,TCE,11,(manual),+2
 Elephant,MM'25,12,8d12+24,-1
 Elephant,MM'14,12,8d12+24,-1
-Elk,MM'25,10,2d10,0
-Elk,MM'14,10,2d10+2,0
-Ember,MCV2DC,20,20d12+140,0
-Emberhorn Minotaur,PotA,14,9d10+27,0
-Emerald Claw Commander,EFA,20,12d8+24,0
-Emerald Claw Knight,EFA,18,8d8+16,0
+Elk,MM'25,10,2d10,+0
+Elk,MM'14,10,2d10+2,+0
+Ember,MCV2DC,20,20d12+140,+0
+Emberhorn Minotaur,PotA,14,9d10+27,+0
+Emerald Claw Commander,EFA,20,12d8+24,+0
+Emerald Claw Knight,EFA,18,8d8+16,+0
 Emerald Dragon Wyrmling,FTD,16,6d8+12,+1
 Emerald Enclave Scout,OotA,16,3d8+6,+2
 Emerald Greatwyrm,FTD,20,26d20+234,+2
 Empyrean,MM'14,22,19d12+190,+5
 Empyrean,MM'25,22,21d12+210,+5
 Empyrean Iota,MM'25,13,5d8,+2
-Emrakul,PSZ,25,33d20+330,0
-Encephalon Cluster,PaBTSO,13,17d10+17,0
+Emrakul,PSZ,25,33d20+330,+0
+Encephalon Cluster,PaBTSO,13,17d10+17,+0
 Encephalon Gemmule,PaBTSO,14,12d4+24,+4
 Enchanter,VGM,12,9d8,+2
 Enchanter Wizard,MPMM,12,11d8,+2
 Enchanting Infiltrator,BMT,17,24d8+48,+5
 Ender Dragon,MCV3MC,22,20d20+140,+2
 Enderman,MCV3MC,14,12d8+24,+4
-Engineer,WDH,10,2d6,0
+Engineer,WDH,10,2d6,+0
 Enhanced Medusa,IMR,15,17d8+51,+2
 Enormous Tentacle,OoW,12,8d12+8,+2
 Eo Ashmajiir,MaBJoV,16,28d8+0,+3
@@ -1099,7 +1099,7 @@ Expert,SDW,16,10d8+10,+4
 Expert,DC,17,12d8+12,+5
 Eye Monger,BAM,17,13d10+78,-2
 Eye of Fear and Flame,MFF,15,16d8+64,+2
-Eyedrake,FTD,16,14d10+42,0
+Eyedrake,FTD,16,14d10+42,+0
 Eyestalk of Gzemnid,ToFW,17,15d20+90,-2
 Ez d'Avenir,RHW,14,16d8+48,+4
 Factol Skall,AATM,17,28d8+84,+3
@@ -1123,7 +1123,7 @@ Farastu Stalker,MaBJoV,16,11d8+22,+1
 Fastieth,ERLW,14,2d8,+4
 Fate Hag,BMT,14,13d8+13,+2
 Fated Shaker,MPP,13,17d8,+3
-Fathomer,PotA,10,8d8+16,0
+Fathomer,PotA,10,8d8+16,+0
 Feathergale Knight,PotA,16,6d8+6,+2
 Felbarren Dwarf,SKT,16,2d8+2,+1
 Felidar,PSZ,12,9d10+18,+2
@@ -1131,7 +1131,7 @@ Felidar,GGR,17,11d10+33,+3
 Female Steeder,MPMM,14,4d10+8,+3
 Female Steeder,MTF,14,4d10+8,+3
 Female Steeder,OotA,14,4d10+8,+3
-Fensir Devourer,BGG,17,12d12+60,0
+Fensir Devourer,BGG,17,12d12+60,+0
 Fensir Skirmisher,BGG,15,9d10+45,+2
 Feral Ashenwight,PaBTSO,16,10d8+20,+1
 Ferocidon,PSX,13,6d10+18,+1
@@ -1140,7 +1140,7 @@ Fey Spirit,PHB'24,12,(manual),+3
 Fey Spirit,TCE,12,(manual),+3
 Feyr,BAM,16,16d10,+3
 Fiend Cultist,MM'25,16,17d8+51,+2
-Fiendish Auger,PaBTSO,15,9d12+27,0
+Fiendish Auger,PaBTSO,15,9d12+27,+0
 Fiendish Flesh Golem,BGDIA,12,20d10+100,-1
 Fiendish Formian,CoA,15,6d8+18,+2
 Fiendish Giant Spider,OotA,13,2d8+2,+3
@@ -1159,24 +1159,24 @@ Fire Giant,MM'25,18,13d12+78,-1
 Fire Giant,MM'14,17,13d12+78,-1
 Fire Giant Dreadnought,VGM,20,15d12+90,-1
 Fire Giant Dreadnought,MPMM,20,15d12+90,-1
-Fire Giant Forgecaller,BGG,17,25d12+150,0
+Fire Giant Forgecaller,BGG,17,25d12+150,+0
 Fire Giant of Evil Fire,BGG,17,12d12+72,-1
 Fire Giant Royal Headsman,TftYP,17,13d12+78,-1
 Fire Giant Servant,TftYP,13,10d12+40,-1
 Fire Guardian,PSX,13,12d10+36,+3
-Fire Hellion,BGG,17,14d12+84,0
-Fire Kraken,CoA,16,23d20+161,0
+Fire Hellion,BGG,17,14d12+84,+0
+Fire Kraken,CoA,16,23d20+161,+0
 Fire Snake,MM'14,14,5d8,+2
-Firefist,GGR,17,18d8+36,0
+Firefist,GGR,17,18d8+36,+0
 Firegaunt,BGG,15,14d12+84,-2
 Firemane Angel,GGR,17,18d8+54,+2
-Firenewt Warlock of Imix,MPMM,10,6d8+6,0
-Firenewt Warlock of Imix,VGM,10,6d8+6,0
+Firenewt Warlock of Imix,MPMM,10,6d8+6,+0
+Firenewt Warlock of Imix,VGM,10,6d8+6,+0
 Firenewt Warrior,VGM,16,4d8+4,+1
 Firenewt Warrior,MPMM,13,5d8+5,+1
 First-Year Student,SCC,11,6d8+6,+1
 Fish,GoS,13,1d4-1,+3
-Fist of Bane,BGDIA,17,4d8+4,0
+Fist of Bane,BGDIA,17,4d8+4,+0
 Five-Armed Troll,WDMM,15,8d10+40,+1
 Flail Snail,MPMM,16,5d10+25,-3
 Flail Snail,VGM,16,5d10+25,-3
@@ -1192,9 +1192,9 @@ Flesh Meld,PaBTSO,12,10d12+30,+2
 Flight Alabaster Angel,PSI,17,16d8+64,+4
 Flight Goldnight Angel,PSI,17,16d8+64,+4
 Flight of Moonsilver Angel,PSI,17,16d8+64,+4
-Flimp Shagglecran,MaBJoV,20,25d6+50,0
+Flimp Shagglecran,MaBJoV,20,25d6+50,+0
 Flind,MPMM,16,15d8+60,+2
-Flind,VGM,16,15d8+60,0
+Flind,VGM,16,15d8+60,+0
 Flitterstep Eidolon,MOT,14,8d8+8,+4
 Flumph,MM'14,12,2d6,+2
 Flumph,MM'25,12,2d6,+2
@@ -1203,7 +1203,7 @@ Fluxcharger,GGR,16,8d10+16,+4
 Flying Dagger,BGDIA,17,3d4,+2
 Flying Horror,GGR,16,9d8+9,+5
 Flying Monkey,ToA,12,1d6,+2
-Flying Rocking Horse,WBtW,15,4d8+4,0
+Flying Rocking Horse,WBtW,15,4d8+4,+0
 Flying Shield,TftYP,17,5d6,+2
 Flying Snake,MM'14,14,2d4,+4
 Flying Snake,MM'25,14,2d4,+2
@@ -1212,9 +1212,9 @@ Flying Sword,MM'14,17,5d6,+2
 Flying Trident,WDMM,17,5d6,+2
 Flying Wand,WDMM,17,5d6,+2
 Flying Wonder,FRAiF,12,1d4,+2
-Fog Giant,MFF,16,16d12+96,0
-Fomorian,MM'14,14,13d12+65,0
-Fomorian,MM'25,14,15d12+75,0
+Fog Giant,MFF,16,16d12+96,+0
+Fomorian,MM'14,14,13d12+65,+0
+Fomorian,MM'25,14,15d12+75,+0
 Fomorian Deep Crawler,BGG,14,16d12+80,+2
 Fomorian Noble,BGG,14,22d12+110,+4
 Fomorian Warlock of the Dark,BGG,15,18d12+90,+1
@@ -1222,7 +1222,7 @@ Forest Master,MCV2DC,16,14d10+28,+2
 Foresworn,MCV2DC,17,11d8+33,+2
 Forge Fitzwilliam,HAT-TG,17,20d8+20,+2
 Forlarren,MFF,16,6d8+18,+3
-Four-Armed Gargoyle,TftYP,15,7d8+21,0
+Four-Armed Gargoyle,TftYP,15,7d8+21,+0
 Four-Armed Statue,OotA,17,17d10+85,-1
 Four-Armed Troll,HotDQ,15,8d10+40,+1
 Fox,IDRotF,13,1d4,+3
@@ -1237,13 +1237,13 @@ Frog,MM'25,11,1d4-1,+1
 Froghemoth,MPMM,14,14d12+70,+1
 Froghemoth,VGM,14,16d12+80,+1
 Froghemoth Elder,QftIS,14,18d12+90,+1
-Frontline Medic,GGR,20,3d8+6,0
+Frontline Medic,GGR,20,3d8+6,+0
 Frost Druid,IDRotF,13,9d8+27,+1
 Frost Giant,MM'14,15,12d12+60,-1
 Frost Giant,MM'25,15,13d12+65,-1
 Frost Giant Everlasting One,MPMM,15,14d12+98,-1
 Frost Giant Everlasting One,VGM,15,14d12+98,-1
-Frost Giant Ice Shaper,BGG,16,27d12+135,0
+Frost Giant Ice Shaper,BGG,16,27d12+135,+0
 Frost Giant of Evil Water,BGG,16,15d12+75,+3
 Frost Giant Servant,TftYP,13,10d12+40,-1
 Frost Giant Skeleton,IDRotF,14,12d12+24,-1
@@ -1254,10 +1254,10 @@ Frost Worm,EGW,17,16d20+96,-1
 Frostmourn,BGG,13,17d12+85,-1
 Frozen Golem,CoA,20,20d10+100,-1
 Fume Drake,DoSI,12,5d6+5,+2
-Fungal Servant,CM,17,13d8+39,0
-Fury of Kostchtchie,BGG,16,16d12+112,0
-Gadabout,MCV1SC,11,2d8+2,0
-Gaj,BAM,16,10d10+20,0
+Fungal Servant,CM,17,13d8+39,+0
+Fury of Kostchtchie,BGG,16,16d12+112,+0
+Gadabout,MCV1SC,11,2d8+2,+0
+Gaj,BAM,16,10d10+20,+0
 Galazeth Prismari,SCC,20,23d20+161,+2
 Galeb Duhr,MM'25,16,13d8+65,+2
 Galeb Duhr,MM'14,16,9d8+45,+2
@@ -1265,11 +1265,11 @@ Gallows Speaker,RHW,13,10d12+10,+3
 Gallows Speaker,VRGR,12,19d8,+2
 Galvan Magen,IDRotF,14,8d8+32,+4
 Galvanic Blastseeker,GGR,13,8d8+16,+3
-Galvanice Weird,GGR,12,3d8+9,0
-Gargantua,BGG,17,21d20+168,0
+Galvanice Weird,GGR,12,3d8+9,+0
+Gargantua,BGG,17,21d20+168,+0
 Gargantuan Rug of Smothering,TftYP,12,6d20,+2
-Gargoyle,MM'14,15,7d8+21,0
-Gargoyle,MM'25,15,9d8+27,0
+Gargoyle,MM'14,15,7d8+21,+0
+Gargoyle,MM'25,15,9d8+27,+0
 Gas Spore,MM'14,5,1d10-4,-5
 Gas Spore Fungus,MM'25,8,9d10-36,-5
 Gauth,MPMM,15,7d8+21,+2
@@ -1282,7 +1282,7 @@ Gelatinous Cube,MM'25,6,6d10+30,-4
 Gelatinous Cube,MM'14,6,8d10+40,-4
 Gem Stalker,FTD,17,9d10+18,+2
 Gennifer Weathermay-Foxgrove,RHW,14,8d8+8,+2
-Geonid,TTP,17,4d6+12,0
+Geonid,TTP,17,4d6+12,+0
 Geryon,MPMM,19,24d12+144,+3
 Geryon,MTF,19,24d12+144,+3
 Ghallanda Troubleshooter,EFA,14,12d6+36,+3
@@ -1291,7 +1291,7 @@ Ghast,MM'25,13,8d8,+3
 Ghast Gravecaller,MM'25,16,15d8+30,+3
 Ghost,MM'14,11,10d8,+1
 Ghost,MM'25,11,10d8,+1
-Ghost Dragon,FTD,10,24d12+168,0
+Ghost Dragon,FTD,10,24d12+168,+0
 Ghostblade Eidolon,MOT,12,10d8+10,+2
 Ghoul,MM'14,12,5d8,+2
 Ghoul,MM'25,12,5d8,+2
@@ -1299,16 +1299,16 @@ Giant,PSK,17,11d12+55,+2
 Giant Ape,MM'14,12,15d12+60,+2
 Giant Ape,MM'25,12,16d12+64,+2
 Giant Axe Beak,MM'25,15,8d12+32,+2
-Giant Badger,MM'14,10,2d8+4,0
-Giant Badger,MM'25,13,2d8+6,0
+Giant Badger,MM'14,10,2d8+4,+0
+Giant Badger,MM'25,13,2d8+6,+0
 Giant Bat,MM'14,13,4d10,+3
 Giant Bat,MM'25,13,4d10,+3
-Giant Boar,MM'14,12,5d10+15,0
-Giant Boar,MM'25,13,5d10+15,0
+Giant Boar,MM'14,12,5d10+15,+0
+Giant Boar,MM'25,13,5d10+15,+0
 Giant Canary,FTD,12,4d10+4,+2
 Giant Centipede,MM'14,13,1d6+1,+2
 Giant Centipede,MM'25,14,2d6+2,+2
-Giant Child,BGG,10,1d8,0
+Giant Child,BGG,10,1d8,+0
 Giant Constrictor Snake,MM'14,12,8d12+8,+2
 Giant Constrictor Snake,MM'25,12,8d12+8,+2
 Giant Coral Snake,GoS,13,12d10+24,+3
@@ -1323,17 +1323,17 @@ Giant Eagle,MM'14,13,4d10+4,+3
 Giant Eagle,MM'25,13,4d10+4,+3
 Giant Elk,MM'25,14,5d12+10,+4
 Giant Elk,MM'14,14,5d12+10,+3
-Giant Fire Beetle,MM'25,13,1d6+1,0
-Giant Fire Beetle,MM'14,13,1d6+1,0
+Giant Fire Beetle,MM'25,13,1d6+1,+0
+Giant Fire Beetle,MM'14,13,1d6+1,+0
 Giant Fly,DMG'14,11,3d10+3,+1
 Giant Fly,DMG'24,11,3d10+3,+1
 Giant Flying Spider,WDMM,14,4d10+4,+3
-Giant Four-Armed Gargoyle,ToA,17,14d10+70,0
+Giant Four-Armed Gargoyle,ToA,17,14d10+70,+0
 Giant Frog,MM'14,11,4d8,+1
 Giant Frog,MM'25,11,4d8,+1
 Giant Gelatinous Cube,WDMM,6,8d10+40,-4
 Giant Goat,MM'25,11,3d10+3,+1
-Giant Goat,MM'14,11,3d10+3,0
+Giant Goat,MM'14,11,3d10+3,+0
 Giant Goose,BGG,13,8d10+16,+3
 Giant Hyena,MM'14,12,6d10+12,+2
 Giant Hyena,MM'25,12,6d10+12,+2
@@ -1347,12 +1347,12 @@ Giant Octopus,MM'25,11,7d10+7,+1
 Giant Octopus,MM'14,11,8d10+8,+1
 Giant Owl,MM'14,12,3d10+3,+2
 Giant Owl,MM'25,12,3d10+3,+2
-Giant Ox,BGG,12,10d12+40,0
+Giant Ox,BGG,12,10d12+40,+0
 Giant Poisonous Snake,MM'14,14,2d8+2,+4
 Giant Ram,BGG,13,3d10+12,+1
 Giant Rat,MM'14,12,2d6,+2
 Giant Rat,MM'25,13,2d6,+3
-Giant Raven,SKT,10,3d10+6,0
+Giant Raven,SKT,10,3d10+6,+0
 Giant Riding Lizard,OotA,12,3d10+3,+1
 Giant River Serpent,PSA,17,16d12+64,+3
 Giant Rocktopus,OotA,11,8d10+8,+1
@@ -1361,13 +1361,13 @@ Giant Scorpion,MM'14,15,7d10+14,+1
 Giant Sea Eel,GoS,14,3d10+3,+2
 Giant Sea Horse,MM'14,13,3d10,+2
 Giant Seahorse,MM'25,14,3d10,+1
-Giant Shark,MM'14,13,11d12+55,0
-Giant Shark,MM'25,13,8d12+40,0
-Giant Shark Skeleton,SDW,13,11d12+55,0
-Giant Skeleton,TftYP,17,10d12+50,0
+Giant Shark,MM'14,13,11d12+55,+0
+Giant Shark,MM'25,13,8d12+40,+0
+Giant Shark Skeleton,SDW,13,11d12+55,+0
+Giant Skeleton,TftYP,17,10d12+50,+0
 Giant Slug,TTP,13,6d10+18,+1
 Giant Snail,WBtW,11,4d10,-4
-Giant Snapping Turtle,ToA,17,10d10+20,0
+Giant Snapping Turtle,ToA,17,10d10+20,+0
 Giant Space Hamster,BAM,11,4d10,+1
 Giant Spider,WttHC,14,4d10+4,+3
 Giant Spider,MM'25,14,4d10+4,+3
@@ -1377,12 +1377,12 @@ Giant Strider,MPMM,14,3d10+6,+1
 Giant Strider,VGM,14,3d10+6,+1
 Giant Subterranean Lizard,TftYP,14,7d12+21,-1
 Giant Swan,WBtW,13,4d10+4,+3
-Giant Tick,BGG,14,7d8+21,0
+Giant Tick,BGG,14,7d8+21,+0
 Giant Toad,MM'14,11,6d10+6,+1
 Giant Toad,MM'25,11,6d10+6,+1
 Giant Venomous Snake,MM'25,14,2d8+2,+4
-Giant Vulture,MM'14,10,3d10+6,0
-Giant Vulture,MM'25,10,3d10+9,0
+Giant Vulture,MM'14,10,3d10+6,+0
+Giant Vulture,MM'25,10,3d10+9,+0
 Giant Walrus,IDRotF,9,9d12+27,-1
 Giant Wasp,MM'14,12,3d8,+2
 Giant Wasp,MM'25,13,5d8,+2
@@ -1418,7 +1418,7 @@ Githyanki Kith'rak,MTF,17,24d8+72,+3
 Githyanki Kith'rak,MPMM,17,24d8+72,+3
 Githyanki Knight,MM'25,18,18d8+36,+2
 Githyanki Knight,MM'14,17,14d8+28,+2
-Githyanki Star Seer,BAM,13,17d8+34,0
+Githyanki Star Seer,BAM,13,17d8+34,+0
 Githyanki Supreme Commander,MTF,17,22d8+88,+3
 Githyanki Supreme Commander,MPMM,17,22d8+88,+3
 Githyanki Warrior,MM'25,17,9d8+9,+2
@@ -1441,12 +1441,12 @@ Glabrezu,MM'25,17,18d10+90,+2
 Gladiator,MM'25,16,15d8+45,+2
 Gladiator,MM'14,16,15d8+45,+2
 Glass Pegasus,WBtW,15,7d10+21,+2
-Glasswork Golem,WBtW,13,8d8,0
+Glasswork Golem,WBtW,13,8d8,+0
 Glasya,CoA,20,40d8+200,+9
 Gloamwing,GGR,16,16d10+48,+3
 Gloom Weaver,MTF,14,16d8+32,+4
 Gloomstalker,EGW,15,12d10+24,+3
-Gnarlid,PSZ,11,4d10+12,0
+Gnarlid,PSZ,11,4d10+12,+0
 Gnoll,MM'14,15,5d8,+1
 Gnoll Demoniac,MM'25,16,18d8+54,+1
 Gnoll Fang of Yeenoghu,MM'14,14,10d8+20,+2
@@ -1464,13 +1464,13 @@ Gnoll Witherling,MPMM,12,2d8+2,-1
 Gnoll Witherling,VGM,12,2d8+2,-1
 Gnome Ceremorph,IDRotF,16,13d6+13,+2
 Gnome Squidling,IDRotF,8,3d6,-2
-Goat,MM'14,10,1d8,0
-Goat,MM'25,10,1d8,0
+Goat,MM'14,10,1d8,+0
+Goat,MM'25,10,1d8,+0
 Goblin,MM'14,15,2d6,+2
 Goblin Boss,MM'25,17,6d6,+2
 Goblin Boss,MM'14,17,6d6,+2
 Goblin Boss Archer,PaBTSO,17,6d6,+2
-Goblin Commoner,TftYP,10,1d6,0
+Goblin Commoner,TftYP,10,1d6,+0
 Goblin Gang Member,KKW,14,3d6,+3
 Goblin Hexer,MM'25,13,10d6+10,+3
 Goblin Minion,MM'25,12,2d6,+2
@@ -1482,19 +1482,19 @@ Gold Dragon Wyrmling,MM'25,17,8d8+24,+2
 Gold Dragon Wyrmling,MM'14,17,8d8+24,+2
 Gold Greatwyrm,FTD,22,29d20+261,+3
 Gold-Forged Sentinel,MOT,16,8d10+32,+1
-Golden Stag,HotDQ,10,2d10+2,0
+Golden Stag,HotDQ,10,2d10+2,+0
 Golgari Shaman,GGR,14,16d8+16,+2
 Goliath Giant-Kin,BGG,17,9d8+27,+1
-Goliath Warrior,IDRotF,12,9d8+27,0
-Goliath Werebear,IDRotF,10,19d8+76,0
+Goliath Warrior,IDRotF,12,9d8+27,+0
+Goliath Werebear,IDRotF,10,19d8+76,+0
 Gomazoa,PSZ,20,11d10+33,-1
 Goon,NRH-ASS,12,2d8,+1
-Goon Balloon,MCV1SC,10,1d8+2,0
+Goon Balloon,MCV1SC,10,1d8+2,+0
 Goose Mother,MCV4EC,12,12d12+36,+2
-Gorgon,MM'25,19,12d10+48,0
-Gorgon,MM'14,19,12d10+48,0
-Goristro,MM'25,19,23d12+161,0
-Goristro,MM'14,19,23d12+161,0
+Gorgon,MM'25,19,12d10+48,+0
+Gorgon,MM'14,19,12d10+48,+0
+Goristro,MM'25,19,23d12+161,+0
+Goristro,MM'14,19,23d12+161,+0
 Granite Juggernaut,VEoR,14,15d10+75,-5
 Graveyard Revenant,MM'25,14,14d12+70,+2
 Gray Ooze,MM'14,8,3d8+9,-2
@@ -1508,18 +1508,18 @@ Gray Slaad,MM'25,18,20d8+60,+3
 Graz'zt,MPMM,20,33d10+165,+2
 Graz'zt,MTF,20,33d10+165,+2
 Great Cat,PSZ,12,7d10+14,+2
-Greater Death Dragon,DSotDQ,16,20d12+100,0
+Greater Death Dragon,DSotDQ,16,20d12+100,+0
 Greater Shadow Horror,AitFR-THP,13,20d12+40,+3
 Greater Star Spawn Emissary,VRGR,15,20d12+160,+1
 Greater Star Spawn Emissary,RHW,15,21d12+168,+1
 Greater Tyrant Shadow,CoA,17,24d20+120,+2
-Greater Zombie,TftYP,15,13d8+39,0
+Greater Zombie,TftYP,15,13d8+39,+0
 Green Abishai,MTF,17,25d8+75,+3
 Green Abishai,MPMM,17,26d8+78,+3
 Green Dragon Wyrmling,MM'25,17,7d8+7,+1
 Green Dragon Wyrmling,MM'14,17,7d8+7,+1
 Green Greatwyrm,FTD,22,26d20+260,+2
-Green Guard Drake,VGM,14,7d8+21,0
+Green Guard Drake,VGM,14,7d8+21,+0
 Green Hag,MM'25,17,11d8+33,+1
 Green Hag,MM'14,17,11d8+33,+1
 Green Slaad,MM'14,16,15d10+45,+2
@@ -1548,7 +1548,7 @@ Grimlock,MM'14,11,2d8+2,+1
 Grimlock,MM'25,11,2d8+2,+1
 Grinning Cat,BGG,12,7d10+7,+2
 Grippli Warrior,CM,12,3d6+3,+2
-Groff,SCC,13,8d10+24,0
+Groff,SCC,13,8d10+24,+0
 Grotesque Tentacle,CoA,17,15d10+45,+4
 Grung,MPMM,12,2d6+4,+2
 Grung,VGM,12,2d6+4,+2
@@ -1560,43 +1560,43 @@ Guard,WttHC,16,2d8+2,+1
 Guard,MM'25,16,2d8+2,+1
 Guard,MM'14,16,2d8+2,+1
 Guard Captain,MM'25,18,10d8+30,+2
-Guard Drake,HotDQ,14,7d8+21,0
-Guard Drake,MPMM,14,7d8+21,0
+Guard Drake,HotDQ,14,7d8+21,+0
+Guard Drake,MPMM,14,7d8+21,+0
 Guardian Giant,GGR,19,11d12+66,+3
 Guardian Naga,MM'14,17,15d10+45,+4
 Guardian Naga,MM'25,18,16d10+48,+4
-Guardian of Gorm,QftIS,16,2d8,0
+Guardian of Gorm,QftIS,16,2d8,+0
 Guardian Portrait,CoS,5,5d8,-5
 Guardian Wolf,EGW,14,7d12+21,+2
 Gug,RHW,16,20d12+120,+2
-Gulthias Blight,MM'25,20,16d20+96,0
+Gulthias Blight,MM'25,20,16d20+96,+0
 Gynosphinx,MM'14,17,16d10+48,+2
 Hadozee Explorer,BAM,15,9d8+9,+3
 Hadozee Shipmate,BAM,12,2d8,+2
 Hadozee Warrior,BAM,16,3d8+3,+3
-Hadrosaur,PSX,11,3d10+3,0
-Hadrosaurus,MPMM,11,3d10+3,0
-Hadrosaurus,VGM,11,3d10+3,0
+Hadrosaur,PSX,11,3d10+3,+0
+Hadrosaurus,MPMM,11,3d10+3,+0
+Hadrosaurus,VGM,11,3d10+3,+0
 Haint,JttRC,12,10d8+30,+2
 Halaster Horror,WDMM,20,8d8+24,+1
 Half-Blue Dragon Gladiator,RoT,16,15d8+45,+2
 Half-Dragon,MM'25,18,14d8+42,+2
 Half-Green Dragon Assassin,RoT,15,12d8+24,+3
-Half-Ogre (Ogrillon),MM'14,12,4d10+8,0
+Half-Ogre (Ogrillon),MM'14,12,4d10+8,+0
 Half-Red Dragon Gladiator,RoT,16,15d8+45,+2
 Half-Red Dragon Veteran,MM'14,17,10d8+20,+1
 Halog,CoA,14,20d6+80,+2
 Hamadryad,MaBJoV,13,5d8+10,+3
 Hammer-Handed Golem,WDMM,17,17d10+85,-1
-Hammerskull,PSX,11,3d10+3,0
+Hammerskull,PSX,11,3d10+3,+0
 Hands of Havoc Fire Starter,MPP,16,10d8+20,+2
-Hangry Otyugh,AWM,14,114,0
+Hangry Otyugh,AWM,14,114,+0
 Hare,IDRotF,13,1d4-1,+3
 Harengon Brigand,WBtW,14,2d8,+3
 Harengon Sniper,WBtW,14,2d8,+3
 Harkon Lukas,RHW,15,22d8+88,+4
-Harmonium Captain,MPP,20,17d8+34,0
-Harmonium Peacekeeper,MPP,17,7d8+14,0
+Harmonium Captain,MPP,20,17d8+34,+0
+Harmonium Peacekeeper,MPP,17,7d8+14,+0
 Harpy,MM'14,11,7d8+7,+1
 Harpy,PSX,11,7d8+7,+1
 Harpy,MM'25,11,7d8+7,+1
@@ -1663,15 +1663,15 @@ Hobgoblin Warlord,MM'14,20,13d8+39,+2
 Hobgoblin Warrior,MM'25,18,2d8+2,+1
 Holga Kilgore,HAT-TG,15,16d8+48,+2
 Hollow Dragon,FTD,19,21d12+105,+1
-Hollyphant,BGDIA,17,8d6+8,0
+Hollyphant,BGDIA,17,8d6+8,+0
 Homarid,PSD,14,8d8+8,-1
 Homunculus,MM'25,13,1d4+2,+2
 Homunculus,MM'14,13,2d4,+2
 Homunculus Servant,TCE,13,(manual),+2
 Homunculus Servant,EFA,13,(manual),+2
-Hook Horror,MM'25,15,10d10+20,0
-Hook Horror,MM'14,15,10d10+20,0
-Hook Horror Spore Servant,OotA,15,10d10+10,0
+Hook Horror,MM'25,15,10d10+20,+0
+Hook Horror,MM'14,15,10d10+20,+0
+Hook Horror Spore Servant,OotA,15,10d10+10,+0
 Horizonback Tortoise,EGW,17,13d20+91,-4
 Horncaller,GGR,13,6d8+12,+1
 Horned Devil,MM'14,17,17d10+85,+3
@@ -1688,23 +1688,23 @@ Howling Hatred Priest,PotA,15,10d8,+3
 Huge Giant Crab,TftYP,15,14d12+70,+2
 Huge Gray Ooze,WDMM,8,16d12+48,-2
 Huge Ochre Jelly,TftYP,8,6d12+12,-2
-Huge Polar Bear,TftYP,12,5d12+15,0
+Huge Polar Bear,TftYP,12,5d12+15,+0
 Huge Stone Golem,SKT,17,17d12+85,-1
-Hulgaz,BMT,17,20d10+80,0
+Hulgaz,BMT,17,20d10+80,+0
 Hulking Crab,SKT,17,8d12+24,-1
 Hulking Shadow,DSotDQ,14,14d10+56,-1
 Humanoid Mutate,PaBTSO,14,10d8+20,+4
 Hundred-Handed One,MOT,15,18d12+126,+2
 Hungry Ghast,CoS,13,2d6,+3
-Hungry Sorrowsworn,MPMM,17,30d8+90,0
+Hungry Sorrowsworn,MPMM,17,30d8+90,+0
 Hunter Shark,MM'25,12,6d10+12,+2
 Hunter Shark,MM'14,12,6d10+12,+1
 Hurda,PSZ,13,10d12+40,-1
 Hurricane,PotA,14,6d8+6,+3
-Husk Zombie,EGW,10,5d8+15,0
+Husk Zombie,EGW,10,5d8+15,+0
 Hutijin,MPMM,19,16d10+112,+2
 Hutijin,MTF,19,16d10+112,+2
-Hybrid Brute,GGR,17,8d8+16,0
+Hybrid Brute,GGR,17,8d8+16,+0
 Hybrid Flier,GGR,13,6d8+12,+3
 Hybrid Poisoner,GGR,14,4d8+8,+4
 Hybrid Shocker,GGR,12,6d8+12,+2
@@ -1725,7 +1725,7 @@ Ice Mephit,MM'25,11,6d6,+1
 Ice Piercer,IDRotF,15,3d8+9,+1
 Ice Spider,SKT,14,4d10+4,+3
 Ice Spider Queen,SKT,14,4d10+4,+3
-Ice Toad,RoT,12,5d8+10,0
+Ice Toad,RoT,12,5d8+10,+0
 Ice Troll,IDRotF,16,10d10+60,-1
 Ice Troll,RoT,15,8d10+40,+1
 Icewind Kobold,IDRotF,14,2d6+2,+2
@@ -1746,8 +1746,8 @@ Incubus,MM'25,15,12d8+12,+3
 Incubus,MM'14,15,12d8+12,+3
 Indentured Spirit,GGR,11,3d8,+1
 Infant Basilisk,OotA,11,1d4+2,-1
-Infant Hook Horror,OotA,10,1d4+2,0
-Infected Elder Brain,PaBTSO,10,18d10+90,0
+Infant Hook Horror,OotA,10,1d4+2,+0
+Infected Elder Brain,PaBTSO,10,18d10+90,+0
 Infected Townsperson,PaBTSO,13,9d8+27,+1
 Initiate of the Comet,BMT,12,10d8+30,+2
 Inkling Mascot,SCC,13,4d4+8,+3
@@ -1768,13 +1768,13 @@ Iona,PSZ,20,18d10+144,+6
 Irda Seeker,MCV2DC,12,5d8+5,+2
 Irda Veil Keeper,MCV2DC,13,9d8+9,+3
 Iron Cobra,MTF,13,7d8+14,+3
-Iron Consul,BGDIA,16,6d8+18,0
+Iron Consul,BGDIA,16,6d8+18,+0
 Iron Defender,ERLW,17,4d8+12,+2
 Iron Golem,MM'14,20,20d10+100,-1
 Iron Golem,MM'25,20,24d10+120,-1
-Ironscale Hydra,MOT,17,11d20+66,0
+Ironscale Hydra,MOT,17,11d20+66,+0
 Isperia,GGR,17,18d20+72,+2
-Istarian Drone,DSotDQ,17,15d8+60,0
+Istarian Drone,DSotDQ,17,15d8+60,+0
 Ivan Dilisnya,RHW,12,12d8+36,+2
 Ivana Boritsi,RHW,17,16d8+32,+3
 Ixitxachitl,OotA,15,4d6+4,+3
@@ -1794,12 +1794,12 @@ Jiangshi,RHW,16,14d8+56,-4
 Jiangshi,VRGR,16,14d8+56,-4
 Jon Irenicus,MaBJoV,17,29d8+87,+3
 Jorasco Medic,EFA,16,9d6+27,+2
-Juiblex,MPMM,17,28d12+168,0
-Juiblex,MTF,17,28d12+168,0
-Junior Drow Priestess of Lolth,WDMM,13,5d8+5,0
+Juiblex,MPMM,17,28d12+168,+0
+Juiblex,MTF,17,28d12+168,+0
+Junior Drow Priestess of Lolth,WDMM,13,5d8+5,+0
 Juvenile Eldritch Horror,KftGV,17,16d12+64,+3
-Juvenile Hook Horror,OotA,13,6d8+12,0
-Juvenile Kraken,GoS,16,18d12+90,0
+Juvenile Hook Horror,OotA,13,6d8+12,+0
+Juvenile Kraken,GoS,16,18d12+90,+0
 Juvenile Mimic,TCE,11,2d4+2,+1
 Juvenile Shadow Dragon,MM'25,15,6d8+18,+2
 Kagain,MaBJoV,17,17d8+85,+1
@@ -1819,27 +1819,27 @@ Kelubar Demodand,MPP,17,22d8+88,+1
 Kender Skirmisher,DSotDQ,14,4d6,+3
 Kenku,MM'14,13,3d8,+3
 Kenku,MM'25,13,3d8,+3
-Khargra,MFF,20,2d6+4,0
+Khargra,MFF,20,2d6+4,+0
 Ki-rin,VGM,20,16d12+48,+3
 Ki-rin,MPMM,20,18d10+54,+3
 Kiddywidget,CM,16,2d6+8,+2
 Killer Whale,MM'25,12,12d12+12,+2
-Killer Whale,MM'14,12,12d12+12,0
+Killer Whale,MM'14,12,12d12+12,+0
 Killmoulis,MFF,14,2d4+2,+4
 Kindori,BAM,11,15d20+45,-2
 King Robbit the Slimy,MGELFT,13,5d6+10,+3
 Kivan,MaBJoV,16,24d8+24,+4
-Knight,MM'25,18,8d8+16,0
-Knight,MM'14,17,8d8+16,0
+Knight,MM'25,18,8d8+16,+0
+Knight,MM'14,17,8d8+16,+0
 Knight of Eldraine,MCV4EC,20,12d8+24,+1
 Knight of the Black Sword,IDRotF,13,6d8+6,+2
-Knight of the Mithral Shield,SKT,20,8d8+16,0
+Knight of the Mithral Shield,SKT,20,8d8+16,+0
 Knight of the Order,CoS,13,16d8+64,+2
 Knucklehead Trout,IDRotF,12,2d6,+2
-Koalinth,GoS,14,3d8+3,0
-Koalinth Sergeant,GoS,14,6d8+6,0
+Koalinth,GoS,14,3d8+3,+0
+Koalinth Sergeant,GoS,14,6d8+6,+0
 Kobold,MM'14,12,2d6-2,+2
-Kobold Commoner,TftYP,10,1d6,0
+Kobold Commoner,TftYP,10,1d6,+0
 Kobold Dragonshield,VGM,15,8d6+16,+2
 Kobold Dragonshield,MPMM,15,8d6+16,+2
 Kobold Elite,TftYP,12,2d6-2,+2
@@ -1855,27 +1855,27 @@ Koi Prawn,JttRC,13,3d10,+2
 Kolyarut,MPP,17,35d8+140,+1
 Korred,VGM,17,12d6+60,+2
 Korred,MPMM,17,11d6+55,+2
-Kozilek,PSZ,17,27d20+189,0
+Kozilek,PSZ,17,27d20+189,+0
 Kraken,PSZ,16,20d12+100,+2
-Kraken,MM'14,17,27d20+189,0
-Kraken,MM'25,18,26d20+208,0
-Kraken Priest,VGM,10,10d8+30,0
-Kraken Priest,MPMM,15,10d8+30,0
+Kraken,MM'14,17,27d20+189,+0
+Kraken,MM'25,18,26d20+208,+0
+Kraken Priest,VGM,10,10d8+30,+0
+Kraken Priest,MPMM,15,10d8+30,+0
 Kraul Death Priest,GGR,17,10d8+20,+1
 Kraul Warrior,GGR,17,5d8+5,+1
 Kruthik Hive Lord,MPMM,20,12d10+36,+3
 Kruthik Hive Lord,MTF,20,12d10+36,+3
 Kundarak Warden,EFA,14,11d8+33,+1
-Kuo-toa,MM'25,13,4d8,0
-Kuo-toa,MM'14,13,4d8,0
+Kuo-toa,MM'25,13,4d8,+0
+Kuo-toa,MM'14,13,4d8,+0
 Kuo-toa Archpriest,MM'25,13,14d8+42,+2
 Kuo-toa Archpriest,MM'14,13,13d8+39,+2
-Kuo-toa Heretic,CoA,13,10d8+20,0
-Kuo-toa Marauder,HotB,12,4d8+4,0
-Kuo-toa Monitor,MM'25,13,10d8+20,0
-Kuo-toa Monitor,MM'14,13,10d8+20,0
-Kuo-toa Whip,MM'25,11,7d8+14,0
-Kuo-toa Whip,MM'14,11,10d8+20,0
+Kuo-toa Heretic,CoA,13,10d8+20,+0
+Kuo-toa Marauder,HotB,12,4d8+4,+0
+Kuo-toa Monitor,MM'25,13,10d8+20,+0
+Kuo-toa Monitor,MM'14,13,10d8+20,+0
+Kuo-toa Whip,MM'25,11,7d8+14,+0
+Kuo-toa Whip,MM'14,11,10d8+20,+0
 Lacedon,TftYP,12,5d8,+2
 Lacedon Ghoul,MM'25,12,5d8,+2
 Lady Illmarrow,ERLW,19,21d8+105,+3
@@ -1896,8 +1896,8 @@ Lemure,MM'14,7,3d8,-3
 Lemure,MM'25,9,2d8,-3
 Leonin Iconoclast,MOT,17,9d8+27,+4
 Leprechaun,QftIS,13,8d6+24,+3
-Lesser Death Dragon,DSotDQ,15,21d10+84,0
-Lesser Mummy Lord,TftYP,17,13d8+39,0
+Lesser Death Dragon,DSotDQ,15,21d10+84,+0
+Lesser Mummy Lord,TftYP,17,13d8+39,+0
 Lesser Star Spawn Emissary,RHW,19,21d8+147,+4
 Lesser Star Spawn Emissary,VRGR,19,21d8+147,+4
 Lesser Tyrant Shadow,CoA,20,12d8+60,+4
@@ -1917,26 +1917,26 @@ Linvala,PSZ,19,16d10+112,+5
 Lion,MM'25,12,4d10,+2
 Lion,MM'14,12,4d10+4,+2
 Liondrake,FTD,16,14d10+42,+2
-Living Bigby's Hand,IDRotF,20,5d10+25,0
+Living Bigby's Hand,IDRotF,20,5d10+25,+0
 Living Blade of Disaster,IDRotF,14,9d6+36,+3
 Living Burning Hands,ERLW,15,2d8+6,+1
 Living Cloudkill,ERLW,15,7d10+35,+2
-Living Demiplane,IDRotF,10,7d8,0
-Living Doll,WBtW,11,8d4+8,0
+Living Demiplane,IDRotF,10,7d8,+0
+Living Doll,WBtW,11,8d4+8,+0
 Living Iron Statue,GoS,16,12d8+48,+2
 Living Lightning Bolt,ERLW,15,6d10+24,+2
 Living Portent,BMT,15,10d8+20,+3
-Living Unseen Servant,WDMM,10,1d8,0
-Lizard,MM'14,10,1d4,0
-Lizard,MM'25,10,1d4,0
+Living Unseen Servant,WDMM,10,1d8,+0
+Lizard,MM'14,10,1d4,+0
+Lizard,MM'25,10,1d4,+0
 Lizard King,MM'14,15,12d8+24,+1
 Lizard Queen,MM'14,15,12d8+24,+1
-Lizardfolk,MM'14,15,4d8+4,0
-Lizardfolk Commoner,GoS,13,3d8+3,0
-Lizardfolk Geomancer,MM'25,13,6d8+6,0
-Lizardfolk Render,GoS,15,7d10+14,0
-Lizardfolk Scaleshield,GoS,16,5d8+10,0
-Lizardfolk Shaman,MM'14,13,5d8+5,0
+Lizardfolk,MM'14,15,4d8+4,+0
+Lizardfolk Commoner,GoS,13,3d8+3,+0
+Lizardfolk Geomancer,MM'25,13,6d8+6,+0
+Lizardfolk Render,GoS,15,7d10+14,+0
+Lizardfolk Scaleshield,GoS,16,5d8+10,+0
+Lizardfolk Shaman,MM'14,13,5d8+5,+0
 Lizardfolk Sovereign,MM'25,15,12d8+24,+1
 Lizardfolk Subchief,GoS,14,8d8+16,+1
 Lizardfolk Warden,HotB,15,5d8+10,+1
@@ -1944,7 +1944,7 @@ Locathah,GoS,13,4d8+4,+1
 Locathah Hunter,GoS,14,6d8+6,+2
 Lonely Sorrowsworn,MPMM,16,15d8+45,+1
 Lonelywood Banshee,IDRotF,12,13d8,+2
-Lord Soth of Sithicus,RHW,18,24d8+120,0
+Lord Soth of Sithicus,RHW,18,24d8+120,+0
 Lords' Alliance Guard,OotA,16,2d8+2,+1
 Lords' Alliance Spy,OotA,13,6d8,+2
 Lorehold Apprentice,SCC,12,6d8+6,+2
@@ -1962,9 +1962,9 @@ Lyra,PSD,19,16d10+112,+5
 Lyrandar Scion,EFA,13,11d8+11,+3
 Macaw,PSX,12,1d4-1,+2
 Mad Golem,WDMM,17,23d12+115,-1
-Madam Eva,RHW,15,18d8+36,0
-Maelephant,MPP,15,17d10+68,0
-Maelephant Nomad,CoA,16,20d10+80,0
+Madam Eva,RHW,15,18d8+36,+0
+Maelephant,MPP,15,17d10+68,+0
+Maelephant Nomad,CoA,16,20d10+80,+0
 Mage,MM'14,12,9d8,+2
 Mage,MM'25,15,18d8,+2
 Mage Apprentice,MM'25,15,9d8+9,+2
@@ -1979,7 +1979,7 @@ Malaxxix,BMT,17,25d12+150,+3
 Male Steeder,MPMM,12,2d8+4,+1
 Male Steeder,MTF,12,2d8+4,+1
 Male Steeder,OotA,12,2d8+4,+1
-Malformed Kraken,TftYP,17,15d12+75,0
+Malformed Kraken,TftYP,17,15d12+75,+0
 Mammon,CoA,17,32d12+256,+3
 Mammoth,MM'25,13,11d12+55,-1
 Mammoth,MM'14,13,11d12+55,-1
@@ -2001,7 +2001,7 @@ Marut,MTF,22,32d10+256,+1
 Maschin-i-Bozorg,QftIS,17,9d10+45,+3
 Master of Cruelties,GGR,17,15d10+45,+3
 Master of Souls,BGDIA,12,6d8+18,+2
-Master Sage,CM,10,12d8,0
+Master Sage,CM,10,12d8,+0
 Master Thief,VGM,16,13d8+26,+4
 Master Thief,MPMM,16,13d8+26,+4
 Mastiff,MM'14,12,1d8+1,+2
@@ -2010,25 +2010,25 @@ Maurezhi,MPMM,15,16d8+16,+3
 Maurezhi,MTF,15,16d8+16,+3
 Maw Demon,MPMM,13,6d8+6,-1
 Maw Demon,VGM,13,6d8+6,-1
-Maw of Yeenoghu,BGG,15,14d12+70,0
+Maw of Yeenoghu,BGG,15,14d12+70,+0
 Meazel,MPMM,13,10d8-10,+3
 Meazel,MTF,13,10d8-10,+3
-Mechachimera,OoW,14,12d10+48,0
-Mechanical Bird,WDH,15,1,0
-Medani Inquisitive,EFA,14,7d8+14,0
+Mechachimera,OoW,14,12d10+48,+0
+Mechanical Bird,WDH,15,1,+0
+Medani Inquisitive,EFA,14,7d8+14,+0
 Medusa,WttHC,15,17d8+51,+3
 Medusa,MM'25,15,17d8+51,+3
 Medusa,MM'14,15,17d8+51,+2
 Medusa,MOT,15,17d8+51,#VALUE!
 Meenlock,MPMM,15,7d6+7,+2
 Meenlock,VGM,15,7d6+7,+2
-Meeseeks,RMBRE,10,(manual),0
-Megapede,BAM,15,13d20+39,0
+Meeseeks,RMBRE,10,(manual),+0
+Megapede,BAM,15,13d20+39,+0
 Meletian Hoplite,MOT,17,9d8+9,+2
 Memory Web,QftIS,14,6d10+6,+4
 Mephistopheles,CoA,20,40d10+240,+6
 Mephistopheles,MaBJoV,20,40d10+240,+6
-Mercane,BAM,13,10d10+20,0
+Mercane,BAM,13,10d10+20,+0
 Mercenary Envoy,AitFR-FCD,15,4d8+8,+2
 Mercykiller Bloodhound,MPP,17,16d8+48,+1
 Merfolk,MM'14,11,2d8+2,+1
@@ -2041,18 +2041,18 @@ Merregon,MTF,16,6d8+18,+2
 Merrenoloth,MPMM,13,9d8,+3
 Merrenoloth,MTF,13,9d8,+3
 Merrow,MM'25,13,6d10+12,+2
-Merrow,MM'14,13,6d10+12,0
+Merrow,MM'14,13,6d10+12,+0
 Merrow Doublespeaker,LFL,14,9d8+27,+3
-Merrow Extortionist,DoSI,13,4d10+8,0
+Merrow Extortionist,DoSI,13,4d10+8,+0
 Merrow Haranguer,LFL,14,12d8+36,+4
 Merrow Shallowpriest,EGW,15,10d10+20,+2
 Metal Wasp,WDMM,16,3d8,+2
-Metallic Peacekeeper,FTD,17,8d8+32,0
+Metallic Peacekeeper,FTD,17,8d8+32,+0
 Metallic Warbler,FTD,14,4d4+4,+2
-Mezzoloth,MM'25,18,10d8+30,0
-Mezzoloth,MM'14,17,10d8+30,0
+Mezzoloth,MM'25,18,10d8+30,+0
+Mezzoloth,MM'14,17,10d8+30,+0
 Mi-Go,RHW,16,16d8+48,+2
-Miasmorne,CoA,19,20d12+100,0
+Miasmorne,CoA,19,20d12+100,+0
 Mighty Servant of Leuk-o,TCE,22,27d12+135,+2
 Mimic,MM'25,12,9d8+18,+1
 Mimic,MM'14,12,9d8+18,+1
@@ -2070,13 +2070,13 @@ Mind Mage,GGR,12,11d8,+2
 Mind's Eye Matter Smith,MPP,12,12d8+24,+2
 Mindwitness,MPMM,15,10d10+20,+2
 Mindwitness,VGM,15,10d10+20,+2
-Minotaur,MM'14,14,9d10+27,0
-Minotaur Archaeologist,BMT,11,4d8,0
-Minotaur Infiltrator,BMT,13,8d8+16,0
+Minotaur,MM'14,14,9d10+27,+0
+Minotaur Archaeologist,BMT,11,4d8,+0
+Minotaur Infiltrator,BMT,13,8d8+16,+0
 Minotaur Living Crystal Statue,GoS,15,16d10+48,-1
-Minotaur of Baphomet,MM'25,14,10d10+30,0
-Minotaur Skeleton,MM'25,12,6d10+12,0
-Minotaur Skeleton,MM'14,12,9d10+18,0
+Minotaur of Baphomet,MM'25,14,10d10+30,+0
+Minotaur Skeleton,MM'25,12,6d10+12,+0
+Minotaur Skeleton,MM'14,12,9d10+18,+0
 Minsc and Boo!,MaBJoV,13,22d8+88,+1
 Mirror Shade,VEoR,13,14d8+28,+3
 Mist Horror,RHW,13,7d10+7,+2
@@ -2086,7 +2086,7 @@ Mite,MFF,12,2d6,+2
 Modron Duodrone,MM'25,15,2d8+2,+1
 Modron Monodrone,MM'25,15,1d8+1,+2
 Modron Pentadrone,MM'25,16,5d10+5,+2
-Modron Planar Incarnate,ToFW,20,18d20+144,0
+Modron Planar Incarnate,ToFW,20,18d20+144,+0
 Modron Quadrone,MM'25,16,4d8+4,+2
 Modron Tridrone,MM'25,15,3d8+3,+1
 Moloch,MPMM,19,22d10+132,+4
@@ -2103,7 +2103,7 @@ Monodrone,MM'14,15,1d8+1,+1
 Monstrous Peryton,GoS,14,17d10+51,+2
 Montaron and the Laughing Skull,MaBJoV,17,23d6+69,+5
 Moonlight Guardian,VEoR,16,14d8+42,-1
-Moonshark,CRCotN,13,11d12+55,0
+Moonshark,CRCotN,13,11d12+55,+0
 Moonstone Dragon Wyrmling,FTD,17,6d8+12,+2
 Moorbounder,EGW,13,4d10+8,+2
 Mordakhesh,ERLW,17,20d8+80,+3
@@ -2112,28 +2112,28 @@ Morkoth,VGM,17,20d8+40,+2
 Morkoth,MPMM,17,22d10+44,+2
 Mother Lorinda,RHW,18,14d8+42,+1
 Mountain Goat,IDRotF,11,2d8+4,+1
-Mouth of Grolantor,MPMM,14,10d12+40,0
-Mouth of Grolantor,VGM,14,10d12+40,0
+Mouth of Grolantor,MPMM,14,10d12+40,+0
+Mouth of Grolantor,VGM,14,10d12+40,+0
 Mud Hulk,BGG,13,8d10+24,-1
 Mud Mephit,MM'25,11,3d6+3,+1
 Mud Mephit,MM'14,11,6d6+6,+1
-Mule,MM'14,10,2d8+2,0
-Mule,MM'25,10,2d8+2,0
+Mule,MM'14,10,2d8+2,+0
+Mule,MM'25,10,2d8+2,+0
 Mummy,MM'25,11,9d8+18,-1
 Mummy,MM'14,11,9d8+18,-1
-Mummy Lord,MM'25,17,25d8+75,0
-Mummy Lord,MM'14,17,13d8+39,0
+Mummy Lord,MM'25,17,25d8+75,+0
+Mummy Lord,MM'14,17,13d8+39,+0
 Murder Comet,BAM,19,7d8+35,+2
 Musteval Guardinal,MPP,13,11d6,+3
-Mutated Drow,WDMM,14,16d12+96,0
-Myconid Adult,WttHC,12,3d8+3,0
-Myconid Adult,MM'25,12,3d8+3,0
-Myconid Adult,MM'14,12,4d8+4,0
-Myconid Sovereign,MM'25,13,6d10+12,0
-Myconid Sovereign,MM'14,13,8d10+16,0
+Mutated Drow,WDMM,14,16d12+96,+0
+Myconid Adult,WttHC,12,3d8+3,+0
+Myconid Adult,MM'25,12,3d8+3,+0
+Myconid Adult,MM'14,12,4d8+4,+0
+Myconid Sovereign,MM'25,13,6d10+12,+0
+Myconid Sovereign,MM'14,13,8d10+16,+0
 Myconid Spore Servant,MM'25,13,5d8+15,+1
-Myconid Sprout,MM'25,10,1d6,0
-Myconid Sprout,MM'14,10,2d6,0
+Myconid Sprout,MM'25,10,1d6,+0
+Myconid Sprout,MM'14,10,2d6,+0
 Nabassu,MPMM,17,20d8+100,+2
 Nabassu,MTF,17,20d8+100,+2
 Naes Inuus,MaBJoV,17,25d8+75,+2
@@ -2141,10 +2141,10 @@ Nagpa,MTF,19,34d8+34,+2
 Nagpa,MPMM,19,37d8+37,+2
 Naiad,CM,15,7d8,+3
 Naiad,MOT,15,7d8,+3
-Nalfeshnee,MM'25,18,16d10+96,0
-Nalfeshnee,MM'14,17,16d10+96,0
-Narzugon,MPMM,20,15d8+45,0
-Narzugon,MTF,20,15d8+45,0
+Nalfeshnee,MM'25,18,16d10+96,+0
+Nalfeshnee,MM'14,17,16d10+96,+0
+Narzugon,MPMM,20,15d8+45,+0
+Narzugon,MTF,20,15d8+45,+0
 Nauk,MaBJoV,17,20d8+80,+1
 Necrichor,VRGR,12,9d8+27,+2
 Necrichor,RHW,14,10d8+40,+3
@@ -2156,10 +2156,10 @@ Necrotic Centipede,BGDIA,17,17d12+85,+1
 Needle Blight,MM'14,12,2d8+2,+1
 Needle Blight,WttHC,12,3d8+3,+1
 Needle Blight,MM'25,12,3d8+3,+1
-Needle Lord,MFF,15,6d10+12,0
+Needle Lord,MFF,15,6d10+12,+0
 Needle Spawn,MFF,13,3d8+3,+3
 Neh-thalggu,BAM,14,10d10+40,-1
-Neo-Otyugh,IMR,16,12d12+72,0
+Neo-Otyugh,IMR,16,12d12+72,+0
 Neogi,MPMM,15,6d6+12,+3
 Neogi,VGM,15,6d6+12,+3
 Neogi Hatchling,MPMM,11,3d4,+1
@@ -2182,7 +2182,7 @@ Night Scavver,BAM,14,12d12+36,+2
 Nightgaunt,RHW,16,16d10+48,+5
 Nightmare,MM'25,13,8d10+24,+2
 Nightmare,MM'14,13,8d10+24,+2
-Nightmare Beast,MCV1SC,17,15d20+75,0
+Nightmare Beast,MCV1SC,17,15d20+75,+0
 Nightmare Haunt,MCV4EC,13,8d8+8,+3
 Nightmare Shepherd,MOT,17,14d10+56,+2
 Nightsea Chil-liren,JttRC,11,2d8+2,+1
@@ -2203,20 +2203,20 @@ Noble Prodigy,MM'25,16,27d8+27,+3
 Noggle Ransacker,LFL,12,3d6+3,+2
 Noggle Wild Mage,LFL,13,4d6+8,+3
 Nonaton Modron,MPP,16,19d10+57,+1
-Norker,MFF,17,3d8+3,0
-Norker War Leader,MFF,17,6d8+12,0
+Norker,MFF,17,3d8+3,+0
+Norker War Leader,MFF,17,6d8+12,+0
 Nosferatu,VRGR,17,9d8+45,+4
 Nothic,MM'25,15,6d8+18,+3
 Nothic,MM'14,15,6d8+18,+3
-Nupperibo,MPMM,13,2d8+2,0
-Nupperibo,MTF,13,2d8+2,0
-Nycaloth,MM'14,17,13d10+52,0
-Nycaloth,MM'25,18,16d10+64,0
+Nupperibo,MPMM,13,2d8+2,+0
+Nupperibo,MTF,13,2d8+2,+0
+Nycaloth,MM'14,17,13d10+52,+0
+Nycaloth,MM'25,18,16d10+64,+0
 Nyx-Fleece Ram,MOT,14,5d8+5,+2
 Oaken Bolter,MTF,16,9d8+18,+4
 Oblex Spawn,MPMM,13,4d4+8,+3
 Oblex Spawn,MTF,13,4d4+8,+3
-Obzedat Ghost,GGR,14,20d8+20,0
+Obzedat Ghost,GGR,14,20d8+20,+0
 Occult Extollant,CRCotN,12,14d8+28,+2
 Occult Initiate,CRCotN,12,12d8+12,+2
 Occult Silvertongue,CRCotN,13,17d8+51,+3
@@ -2225,7 +2225,7 @@ Ochre Jelly,MM'25,8,7d10+14,-2
 Octon Modron,MPP,17,22d10+66,+2
 Octopus,MM'14,12,1d6,+2
 Octopus,MM'25,12,1d6,+2
-Oculorb,PaBTSO,13,15d10+45,0
+Oculorb,PaBTSO,13,15d10+45,+0
 Oddlewin,BMT,13,6d6,+2
 Ogre,MM'14,11,7d10+21,-1
 Ogre,MM'25,11,8d10+24,-1
@@ -2235,32 +2235,32 @@ Ogre Bolt Launcher,MPMM,13,7d10+21,+1
 Ogre Bolt Launcher,MTF,13,7d10+21,+1
 Ogre Chain Brute,MPMM,11,7d10+21,-1
 Ogre Chain Brute,MTF,11,7d10+21,-1
-Ogre Channeler,PSZ,16,13d10+39,0
-Ogre Chitterlord,MCV4EC,12,7d10+14,0
+Ogre Channeler,PSZ,16,13d10+39,+0
+Ogre Chitterlord,MCV4EC,12,7d10+14,+0
 Ogre Goblin Hucker,SKT,11,7d10+21,-1
 Ogre Howdah,MTF,13,7d10+21,-1
 Ogre Howdah,MPMM,15,7d10+21,-1
 Ogre Skeleton,TftYP,11,7d10+21,-1
 Ogre Zombie,MM'14,8,9d10+36,-2
 Ogre Zombie,MM'25,8,9d10+36,-2
-Ogrillon Ogre,MM'25,12,7d10+14,0
+Ogrillon Ogre,MM'25,12,7d10+14,+0
 Oinoloth,MPMM,17,14d8+56,+3
 Oinoloth,MTF,17,12d10+60,+3
-Old Troglodyte,WDMM,11,2d8+4,0
+Old Troglodyte,WDMM,11,2d8+4,+0
 One-Eyed Shiver,PotA,12,9d8+9,+2
 Oneirovore,CoA,19,19d10+133,+1
-Oni,MM'14,16,13d10+39,0
-Oni,MM'25,17,14d10+42,0
+Oni,MM'14,16,13d10+39,+0
+Oni,MM'25,17,14d10+42,+0
 Ooze Master,TftYP,9,12d12+60,-5
 Ooze-Folk,LLK,10,2d8+10,-4
 Oracle,MOT,15,8d8+8,+2
 Oracle of Strixhaven,SCC,12,20d8+60,+2
 Orc,MM'14,13,2d8+6,+1
-Orc Blade of Ilneval,VGM,17,8d8+24,0
+Orc Blade of Ilneval,VGM,17,8d8+24,+0
 Orc Claw of Luthic,VGM,14,6d8+18,+2
-Orc Commoner,TftYP,10,1d8,0
+Orc Commoner,TftYP,10,1d8,+0
 Orc Eye of Gruumsh,MM'14,16,6d8+18,+1
-Orc Hand of Yurtrus,VGM,12,4d8+12,0
+Orc Hand of Yurtrus,VGM,12,4d8+12,+0
 Orc Nurtured One of Yurtrus,VGM,9,4d8+12,-1
 Orc Red Fang of Shargaas,VGM,15,8d8+16,+3
 Orc War Chief,MM'14,16,11d8+44,+1
@@ -2276,18 +2276,18 @@ Orthon,MPMM,17,10d10+50,+3
 Orzhov Giant,GGR,17,8d10+40,+1
 Otherworldly Corrupter,BMT,19,29d8+87,+6
 Otherworldly Steed,PHB'24,10,(manual),+1
-Otyugh,MM'25,14,11d10+44,0
-Otyugh,MM'14,14,12d10+48,0
-Otyugh Mutate,PaBTSO,16,8d10+32,0
+Otyugh,MM'25,14,11d10+44,+0
+Otyugh,MM'14,14,12d10+48,+0
+Otyugh Mutate,PaBTSO,16,8d10+32,+0
 Owl,MM'14,11,1d4-1,+1
 Owl,MM'25,11,1d4-1,+1
 Owlbear,MM'25,13,7d10+21,+1
 Owlbear,MM'14,13,7d10+21,+1
-Ox,MPMM,10,2d10+4,0
-Ox,VGM,10,2d10+4,0
-Oxen,PSZ,11,3d10+3,0
+Ox,MPMM,10,2d10+4,+0
+Ox,VGM,10,2d10+4,+0
+Oxen,PSZ,11,3d10+3,+0
 Pain Devil (Excruciarch),CoA,16,18d8+90,+2
-Panopticus Wizard,WDH,10,2d8,0
+Panopticus Wizard,WDH,10,2d8,+0
 Panther,MM'14,12,3d8,+2
 Panther,MM'25,13,3d8,+3
 Paper Bird,WBtW,13,1d4-1,+3
@@ -2297,9 +2297,9 @@ Pari,JttRC,16,19d8+95,+5
 Parrot,PSX,12,1d4-1,+2
 Pazrodine,BMT,20,20d20+120,+4
 Pazuzu,MaBJoV,20,30d10+240,+10
-Peacock,BGDIA,10,1d8+1,0
-Pech,DitLCoT,17,11d6+44,0
-Pech,QftIS,17,11d6+44,0
+Peacock,BGDIA,10,1d8+1,+0
+Pech,DitLCoT,17,11d6+44,+0
+Pech,QftIS,17,11d6+44,+0
 Pegasus,MM'14,12,7d10+21,+2
 Pegasus,MM'25,12,7d10+21,+2
 Pelyious Avhoste,MaBJoV,12,22d8+44,+2
@@ -2317,8 +2317,8 @@ Phaerimm Agent,FRAiF,15,19d10+19,+4
 Phaerimm Elder,NF,17,23d12+69,+3
 Phaerimm Hatchling,FRAiF,12,3d6+3,+1
 Phaerimm Scout,NF,13,8d8+8,+1
-Phantom Warrior,CoS,16,6d8+18,0
-Phantom Warrior (Archer),CoS,16,6d8+18,0
+Phantom Warrior,CoS,16,6d8+18,+0
+Phantom Warrior (Archer),CoS,16,6d8+18,+0
 Phase Spider,MM'14,13,5d10+5,+2
 Phase Spider,MM'25,14,7d10+7,+3
 Phisarazu Spyder-Fiend,VEoR,17,20d10+60,+2
@@ -2327,22 +2327,22 @@ Phoenix,MTF,18,10d20+70,+8
 Phylaskia,MOT,17,11d10+44,+2
 Piercer,MM'25,15,3d8+9,+1
 Piercer,MM'14,15,3d8+9,+1
-Pig,SKT,11,1d8+1,0
+Pig,SKT,11,1d8+1,+0
 Piranha,PSX,13,1d4-1,+3
 Piranha,MM'25,13,1d4-1,+3
 Pirate,MM'25,14,6d8+6,+3
 Pirate Admiral,MM'25,20,28d8+56,+6
-Pirate Bosun,GoS,12,5d8+5,0
+Pirate Bosun,GoS,12,5d8+5,+0
 Pirate Captain,GoS,14,7d8+14,+2
 Pirate Captain,MM'25,17,13d8+26,+4
 Pirate Deck Wizard,GoS,12,5d8+10,+2
-Pirate First Mate,GoS,16,4d8+8,0
+Pirate First Mate,GoS,16,4d8+8,+0
 Pit Fiend,MM'14,19,24d10+168,+2
 Pit Fiend,MM'25,21,27d10+189,+2
 Pixie,MM'14,15,1d4-1,+5
 Pixie,MM'25,15,6d4-6,+5
 Pixie Wonderbringer,MM'25,15,24d4,+5
-Planar Incarnate,MPP,20,18d20+144,0
+Planar Incarnate,MPP,20,18d20+144,+0
 Planetar,MM'14,19,16d10+112,+5
 Planetar,MM'25,19,21d10+147,+5
 Plasmoid Boss,BAM,11,11d10+22,+1
@@ -2350,22 +2350,21 @@ Plasmoid Explorer,BAM,11,3d8+3,+1
 Plasmoid Warrior,BAM,16,11d8+22,+2
 Plesiosaurus,MM'25,13,8d10+24,+2
 Plesiosaurus,MM'14,13,8d10+24,+2
-Podling,VRGR,10,4d8+8,0
+Podling,VRGR,10,4d8+8,+0
 Poison Weird,WDMM,13,9d10+9,+3
 Poisonous Snake,MM'14,13,1d4,+3
 Polar Bear,MM'25,12,5d10+15,+2
-Polar Bear,MM'14,12,5d10+15,0
+Polar Bear,MM'14,12,5d10+15,+0
 Polar Serpent,FRAiF,14,9d10+9,+4
 Poltergeist,MM'14,12,5d8,+2
 Poltergeist,MM'25,12,5d8,+2
 Polukranos,MOT,17,15d20+75,+2
-Pony,MM'14,10,2d8+2,0
-Pony,MM'25,10,2d8+2,0
-Pral,HotB,14,8d8+16,+3
+Pony,MM'14,10,2d8+2,+0
+Pony,MM'25,10,2d8+2,+0
 Precognitive Mage,GGR,11,14d8,+1
-Priest,MM'14,13,5d8+5,0
-Priest,MM'25,13,7d8+7,0
-Priest Acolyte,MM'25,13,2d8+2,0
+Priest,MM'14,13,5d8+5,+0
+Priest,MM'25,13,7d8+7,+0
+Priest Acolyte,MM'25,13,2d8+2,+0
 Priest of Osybus,RHW,12,8d8+24,+2
 Priest of Osybus,VRGR,14,8d8+24,+2
 Primeval Owlbear,MM'25,16,12d12+48,+2
@@ -2373,14 +2372,14 @@ Prismari Apprentice,SCC,12,8d8+8,+2
 Prismari Pledgemage,SCC,12,12d8+12,+2
 Prismari Professor of Expression,SCC,13,15d8+30,+3
 Prismari Professor of Perfection,SCC,13,15d8+30,+3
-Prophetess Dran,AI,14,5d8+5,0
+Prophetess Dran,AI,14,5d8+5,+0
 Pseudodragon,MM'25,14,3d4+3,+2
 Pseudodragon,MM'14,13,2d4+2,+2
 Psionic Ashenwight,PaBTSO,16,12d8+24,+1
 Psionic Shambling Mound,PaBTSO,15,16d10+48,-1
 Psurlon,BAM,15,7d8+14,+2
 Psurlon Leader,BAM,15,17d8+51,+2
-Psurlon Ringer,BAM,13,7d8,0
+Psurlon Ringer,BAM,13,7d8,+0
 Psychic Gray Ooze,MM'25,9,5d8+15,-1
 Pterafolk,ToA,12,4d10+4,+1
 Pteranodon,MM'25,13,3d8,+2
@@ -2410,7 +2409,7 @@ Quickling,MPMM,16,3d4+3,+6
 Quickling,VGM,16,3d4+3,+6
 Quipper,MM'14,13,1d4-1,+3
 Radiant Idol,ERLW,17,15d10+60,+4
-Rain,MisMV1,15,11d6+22,0
+Rain,MisMV1,15,11d6+22,+0
 Rak Tulkhesh,ERLW,23,33d12+264,+4
 Rakdos,GGR,20,24d12+144,+2
 Rakdos Lampooner,GGR,12,5d8+5,+1
@@ -2421,26 +2420,26 @@ Raklupis Spyder-Fiend,VEoR,19,28d10+56,+5
 Rakshasa,MM'14,16,13d8+52,+3
 Rakshasa,MM'25,17,26d8+104,+3
 Ramya Vasavadan,RHW,18,20d8+100,+5
-Rat,MM'14,10,1d4-1,0
-Rat,MM'25,10,1d4-1,0
+Rat,MM'14,10,1d4-1,+0
+Rat,MM'25,10,1d4-1,+0
 Raven,MM'14,12,1d4-1,+2
 Raven,MM'25,12,1d4,+2
-Razerblast,PotA,17,15d8+75,0
+Razerblast,PotA,17,15d8+75,+0
 Razorvine Blight,MPP,12,5d8+5,+2
-Reanimated Companion,RHW,10,(manual),0
+Reanimated Companion,RHW,10,(manual),+0
 Reaper of Bhaal,BGDIA,15,5d8+5,+5
 Reaper Spirit,BMT,11,(manual),+3
 Reckoner,GGR,17,8d8+16,+1
 Red Abishai,MTF,22,30d8+120,+3
 Red Abishai,MPMM,22,34d8+136,+3
-Red Dragon Wyrmling,MM'25,17,10d8+30,0
-Red Dragon Wyrmling,MM'14,17,10d8+30,0
+Red Dragon Wyrmling,MM'25,17,10d8+30,+0
+Red Dragon Wyrmling,MM'14,17,10d8+30,+0
 Red Greatwyrm,FTD,22,26d20+260,+2
-Red Guard Drake,VGM,14,7d8+21,0
+Red Guard Drake,VGM,14,7d8+21,+0
 Red Slaad,MM'25,14,11d10+33,+1
 Red Slaad,MM'14,14,11d10+33,+1
 Red Wizard,RoT,12,9d8,+2
-Redbrand Ruffian,PaBTSO,11,3d8+3,0
+Redbrand Ruffian,PaBTSO,11,3d8+3,+0
 Redbrand Ruffian,LMoP,14,3d8+3,+2
 Redcap,VGM,13,6d6+24,+1
 Redcap,MPMM,14,6d6+24,+1
@@ -2454,35 +2453,35 @@ Reduced-Threat Carrion Crawler,TftYP,13,(manual),+1
 Reduced-Threat Clay Golem,TftYP,14,(manual),-1
 Reduced-Threat Darkmantle,TftYP,11,(manual),+1
 Reduced-Threat Displacer Beast,TftYP,13,(manual),+2
-Reduced-Threat Dragon Turtle,TftYP,20,(manual),0
+Reduced-Threat Dragon Turtle,TftYP,20,(manual),+0
 Reduced-Threat Ettercap,TftYP,13,(manual),+2
 Reduced-Threat Flesh Golem,TftYP,9,(manual),-1
 Reduced-Threat Glabrezu,TftYP,17,(manual),+2
 Reduced-Threat Gray Ooze,TftYP,8,(manual),-2
 Reduced-Threat Helmed Horror,TftYP,20,(manual),+1
 Reduced-Threat Hezrou,TftYP,16,(manual),+3
-Reduced-Threat Hook Horror,TftYP,15,(manual),0
+Reduced-Threat Hook Horror,TftYP,15,(manual),+0
 Reduced-Threat Ochre Jelly,TftYP,8,(manual),-2
-Reduced-Threat Otyugh,TftYP,14,(manual),0
+Reduced-Threat Otyugh,TftYP,14,(manual),+0
 Reduced-Threat Owlbear,TftYP,13,(manual),+1
 Reduced-Threat Peryton,TftYP,13,(manual),+1
 Reduced-Threat Remorhaz,TftYP,17,(manual),+1
 Reduced-Threat Stone Golem,TftYP,17,(manual),-1
 Reduced-Threat Vrock,TftYP,15,(manual),+2
 Reduced-Threat Wight,TftYP,14,(manual),+2
-Reduced-Threat Wyvern,TftYP,13,(manual),0
+Reduced-Threat Wyvern,TftYP,13,(manual),+0
 Reef Shark,MM'25,12,4d8+4,+2
 Reef Shark,MM'14,12,4d8+4,+1
 Reflection,TCE,12,3d8+3,+2
-Refraction of Ilvaash,PaBTSO,11,21d12+63,0
+Refraction of Ilvaash,PaBTSO,11,21d12+63,+0
 Regenerating Black Pudding,OotA,7,10d10+30,-3
 Reghed Chieftain,IDRotF,16,15d8+45,+2
 Reghed Great Warrior,IDRotF,16,15d8+45,+2
 Reghed Shaman,IDRotF,11,5d8+5,+1
-Reghed Warrior,IDRotF,12,2d8+2,0
+Reghed Warrior,IDRotF,12,2d8+2,+0
 Regisaur,BGG,17,11d20+66,-1
 Reigar,BAM,19,15d8+15,+2
-Reindeer,IDRotF,10,2d10+2,0
+Reindeer,IDRotF,10,2d10+2,+0
 Relentless Impaler,VEoR,16,16d10+96,+3
 Relentless Juggernaut,VRGR,17,14d10+84,+1
 Relentless Juggernaut,RHW,16,16d10+80,+1
@@ -2507,23 +2506,23 @@ Revenant,MM'25,13,15d8+60,+2
 Revenant,MM'14,13,16d8+64,+2
 Rhinoceros,MM'14,11,6d10+12,-1
 Rhinoceros,MM'25,13,6d10+12,-1
-Riding Horse,MM'14,10,2d10+2,0
+Riding Horse,MM'14,10,2d10+2,+0
 Riding Horse,MM'25,11,2d10+2,+1
 Riffler,BMT,15,20d6+20,+3
-Rime Hulk,BGG,15,9d10+36,0
-Rip Tide Priest,GoS,13,8d8+16,0
+Rime Hulk,BGG,15,9d10+36,+0
+Rip Tide Priest,GoS,13,8d8+16,+0
 River Serpent,PSA,12,8d12+8,+2
 Riverine,JttRC,14,24d10+72,+4
-Roc,MM'25,15,16d20+80,0
-Roc,MM'14,15,16d20+80,0
-Rock Gnome Recluse,DIP,10,2d6,0
+Roc,MM'25,15,16d20+80,+0
+Roc,MM'14,15,16d20+80,+0
+Rock Gnome Recluse,DIP,10,2d6,+0
 Rooster,JttRC,13,1d4-1,+3
 Roper,MM'25,20,11d10+33,-1
 Roper,MM'14,20,11d10+33,-1
 Rot Troll,MPMM,16,12d10+72,+1
 Rot Troll,MTF,16,12d10+72,+1
-Rothé,CoA,10,2d10+4,0
-Rothé,VGM,10,2d10+4,0
+Rothé,CoA,10,2d10+4,+0
+Rothé,VGM,10,2d10+4,+0
 Rotter,RtG,17,10d8+30,+1
 Rowboat Mimic,WDMM,12,9d10+18,+1
 Rubblebelt Stalker,GGR,14,2d8+2,+2
@@ -2536,7 +2535,7 @@ Runed Behir,WDMM,17,16d12+64,+3
 Runic Colossus,BGG,20,18d20+126,-1
 Rust Monster,MM'14,14,5d8+5,+1
 Rust Monster,MM'25,14,6d8+6,+1
-Rusted Behemoth,FRAiF,18,15d12+60,0
+Rusted Behemoth,FRAiF,18,15d12+60,+0
 Rusted Berserker,FRAiF,16,11d8+33,+2
 Rusted Wyrm,FRAiF,20,14d20+84,+1
 Rutterkin,MPMM,12,5d8+15,+2
@@ -2547,8 +2546,8 @@ Sacred Statue,MPMM,19,10d10+40,-1
 Sacred Statue,MTF,19,10d10+40,-1
 Sacred Stone Monk,PotA,14,4d8+4,+2
 Saemon Havarian,MaBJoV,14,24d8+48,+4
-Sage,CM,10,5d8,0
-Sahuagin,MM'14,12,4d8+4,0
+Sage,CM,10,5d8,+0
+Sahuagin,MM'14,12,4d8+4,+0
 Sahuagin Baron,MM'25,16,9d10+27,+2
 Sahuagin Baron,MM'14,16,9d10+27,+2
 Sahuagin Blademaster,GoS,20,15d8+30,+1
@@ -2557,10 +2556,10 @@ Sahuagin Coral Smasher,GoS,14,6d8+6,+1
 Sahuagin Deep Diver,GoS,15,14d8+28,+3
 Sahuagin Hatchling Swarm,GoS,14,8d10+8,+4
 Sahuagin High Priestess,GoS,14,11d8+22,+1
-Sahuagin Priest,MM'25,12,7d8+7,0
-Sahuagin Priestess,MM'14,12,6d8+6,0
-Sahuagin Warlock of Uk'otoa,EGW,14,5d8,0
-Sahuagin Warrior,MM'25,12,4d8+4,0
+Sahuagin Priest,MM'25,12,7d8+7,+0
+Sahuagin Priestess,MM'14,12,6d8+6,+0
+Sahuagin Warlock of Uk'otoa,EGW,14,5d8,+0
+Sahuagin Warrior,MM'25,12,4d8+4,+0
 Sahuagin Wave Shaper,GoS,14,11d8+11,+1
 Saidra d'Honaire,RHW,13,12d8+36,+3
 Sailback,PSX,14,9d12+27,-1
@@ -2572,13 +2571,13 @@ Sandwurm,PSA,17,15d20+90,-2
 Sapphire Dragon Wyrmling,FTD,16,6d8+18,+2
 Sapphire Greatwyrm,FTD,20,26d20+234,+2
 Sapphire Sentinel,CM,17,17d10+85,-1
-Sarevok,MaBJoV,20,18d8+72,0
+Sarevok,MaBJoV,20,18d8+72,+0
 Satyr,MM'25,13,7d8,+3
 Satyr,MM'14,14,7d8,+3
 Satyr Reveler,MOT,13,6d8+6,+3
 Satyr Revelmaster,MM'25,17,15d8+15,+4
 Satyr Thornbearer,MOT,15,7d8+7,+4
-Scaladar,WDMM,19,7d12+49,0
+Scaladar,WDMM,19,7d12+49,+0
 Scarecrow,WttHC,11,6d8,+1
 Scarecrow,MM'25,11,6d8,+1
 Scarecrow,MM'14,11,8d8,+1
@@ -2593,13 +2592,13 @@ Scion of Stronmaus,BGG,20,32d20+320,+5
 Scion of Surtur,BGG,20,28d20+252,+3
 Scion of Thrym,BGG,19,27d20+216,+3
 Scorchbringer Guard,GGR,16,2d8+2,+2
-Scorpion,MM'25,11,1d4-1,0
-Scorpion,MM'14,11,1d4-1,0
+Scorpion,MM'25,11,1d4-1,+0
+Scorpion,MM'14,11,1d4-1,+0
 Scout,MM'25,13,3d8+3,+2
 Scout,MM'14,13,3d8+3,+2
 Scout Captain,MM'25,15,12d8+12,+3
 Scrag,TftYP,15,8d10+40,+1
-Scrapper,MisMV1,17,12d10+60,0
+Scrapper,MisMV1,17,12d10+60,+0
 Screaming Devilkin,MFF,17,4d6+4,+3
 Scufflecup Teacup,SCC,12,2d4,+2
 Scuttling Serpentmaw,CRCotN,17,10d6+30,+2
@@ -2623,7 +2622,7 @@ Sergeant,WDH,16,2d8+2,+1
 Serpopard,PSA,12,7d10+14,+2
 Serra Angel,PSD,17,16d8+64,+4
 Servitor Thrull,GGR,11,4d6+8,+1
-Servo,PSK,11,3d4+3,0
+Servo,PSK,11,3d4+3,+0
 Setessan Hoplite,MOT,16,9d8+18,+3
 Seth the Shapeshifting Dragon,MisMV1,17,18d8+72,+7
 Sewer King,MCV4EC,13,8d8+16,+1
@@ -2656,9 +2655,9 @@ Shapechanged Roper,WDMM,20,11d10+33,-1
 Shard Shunner,WDH,12,6d6+6,+2
 Sharkbody Abomination,EGW,12,6d10+12,+1
 Shator Demodand,MPP,19,23d10+69,+2
-Shator Warden,MaBJoV,16,14d10+42,0
+Shator Warden,MaBJoV,16,14d10+42,+0
 Shatterskull Giant,PSZ,17,11d12+55,+2
-Sheep,SKT,10,1d6,0
+Sheep,SKT,10,1d6,+0
 Sheldon the Blueberry Dragon,MisMV1,16,15d10+60,+1
 Shell Shark,GoS,17,5d8+10,+1
 Shemeshka,MPP,17,25d8+50,+2
@@ -2678,8 +2677,8 @@ Shrieker Fungus,MM'25,5,3d8,-5
 Sibriex,MPMM,19,12d12+72,-4
 Sibriex,MTF,19,12d12+72,-4
 Sigarda,PSI,19,16d10+112,+5
-Silver Dragon Wyrmling,MM'25,17,6d8+18,0
-Silver Dragon Wyrmling,MM'14,17,6d8+18,0
+Silver Dragon Wyrmling,MM'25,17,6d8+18,+0
+Silver Dragon Wyrmling,MM'14,17,6d8+18,+0
 Silver Greatwyrm,FTD,22,29d20+261,+3
 Silverquill Apprentice,SCC,12,8d8+8,+2
 Silverquill Pledgemage,SCC,13,12d8+12,+3
@@ -2690,7 +2689,7 @@ Simon Aumar,HAT-TG,12,18d8+18,+2
 Sir Jared,BMT,20,12d8+36,+1
 Sire of Insanity,GGR,17,15d12+60,-2
 Sirene,MaBJoV,14,14d8,+4
-Sivak Draconian,DSotDQ,16,6d10+24,0
+Sivak Draconian,DSotDQ,16,6d10+24,+0
 Sivis Scribe,EFA,15,16d6,+2
 Skaab,PSI,9,11d8+44,-1
 Skeletal Alchemist,GoS,11,5d8+10,+1
@@ -2698,11 +2697,11 @@ Skeletal Bloodfin,CRCotN,16,11d10+33,+2
 Skeletal Giant Owl,IMR,12,3d10+3,+2
 Skeletal Horror,AitFR-DN,13,20d10+40,+2
 Skeletal Juggernaut,GoS,13,19d10+38,+2
-Skeletal Knight,DSotDQ,17,15d8+45,0
+Skeletal Knight,DSotDQ,17,15d8+45,+0
 Skeletal Owlbear,IMR,13,7d10+21,+1
-Skeletal Polar Bear,IMR,12,5d10+15,0
-Skeletal Rats,BGDIA,10,7d8-7,0
-Skeletal Riding Horse,DIP,10,2d10+2,0
+Skeletal Polar Bear,IMR,12,5d10+15,+0
+Skeletal Rats,BGDIA,10,7d8-7,+0
+Skeletal Riding Horse,DIP,10,2d10+2,+0
 Skeletal Swarm,GoS,13,8d10+16,+2
 Skeletal Two-Headed Owlbear,IMR,13,7d10+21,+1
 Skeleton,MM'14,13,2d8+4,+2
@@ -2718,7 +2717,7 @@ Skull Flier,SLW,16,3d8,+2
 Skull Lasher of Myrkul,BGDIA,12,5d8+10,+2
 Skull Lord,MTF,17,14d8+42,+3
 Skull Lord,MPMM,17,15d8+45,+3
-Skum,GoS,14,11d8+44,0
+Skum,GoS,14,11d8+44,+0
 Sky Leviathan,PSK,14,15d20+90,-2
 Sky Whale,PSK,14,9d12+27,-1
 Skyjek Roc,GGR,15,5d10+10,+1
@@ -2747,7 +2746,7 @@ Society of Sensation Muse,MPP,14,8d8+8,+3
 Sofina,HAT-TG,14,19d8+76,+2
 Solar,MM'14,20,18d10+144,+6
 Solar,MM'25,21,22d10+176,+6
-Solar Bastion Knight,BMT,20,20d8+60,0
+Solar Bastion Knight,BMT,20,20d8+60,+0
 Solar Dragon Wyrmling,BAM,15,6d8+24,+2
 Soldier,GGR,17,3d8+3,+1
 Sorrowfish,CRCotN,13,1d4-1,+3
@@ -2757,12 +2756,12 @@ Soulstinger Demon,PSA,19,15d10+60,+3
 Space Clown,BAM,13,9d8+18,+3
 Space Eel,BAM,14,2d6,+4
 Space Guppy,BAM,13,1d6,+3
-Space Hamster,WDMM,10,1d4-1,0
+Space Hamster,WDMM,10,1d4-1,+0
 Space Hamster,BAM,15,4d4,+5
 Space Mollymawk,BAM,12,1d6,+2
 Space Swine,BAM,11,4d8+4,+1
-Spawn of Kyuss,MPMM,10,9d8+36,0
-Spawn of Kyuss,VGM,10,9d8+36,0
+Spawn of Kyuss,MPMM,10,9d8+36,+0
+Spawn of Kyuss,VGM,10,9d8+36,+0
 Speaker Devil,ABH,17,18d10+90,+4
 Spectator,MM'14,14,6d8+12,+2
 Spectator,MM'25,14,7d8+14,+2
@@ -2778,12 +2777,12 @@ Spellcaster (Mage),SLW,13,8d8,+1
 Spellcaster (Mage),SDW,13,10d8,+1
 Spellcaster (Mage),DC,13,12d8,+1
 Sperm Whale,IDRotF,13,14d20+42,-1
-Sphinx (Type 1),PSZ,17,19d10+95,0
+Sphinx (Type 1),PSZ,17,19d10+95,+0
 Sphinx (Type 2),PSZ,17,16d10+48,+2
 Sphinx of Judgment,GGR,17,16d10+48,+2
 Sphinx of Lore,MM'25,17,20d10+60,+2
 Sphinx of Secrets,MM'25,16,16d10+48,+2
-Sphinx of Valor,MM'25,17,19d10+95,0
+Sphinx of Valor,MM'25,17,19d10+95,+0
 Sphinx of Wonder,MM'25,13,7d4+7,+3
 Spider,MM'14,12,1d4-1,+2
 Spider,MM'25,12,1d4-1,+2
@@ -2812,7 +2811,7 @@ Sprite Skirmisher,HotB,15,4d4,+4
 Spy,MM'14,12,6d8,+2
 Spy,MM'25,12,6d8,+2
 Spy Master,MM'25,19,25d8+25,+5
-Squire,HoL,12,2d8+2,0
+Squire,HoL,12,2d8+2,+0
 "Ssendam, Lord of Madness",MaBJoV,19,26d10+156,+7
 Ssurran Defiler,BAM,16,7d8+21,+1
 Ssurran Poisoner,BAM,16,4d8+4,+1
@@ -2829,11 +2828,11 @@ Star Spawn Mangler,MPMM,14,13d8+13,+4
 Star Spawn Mangler,MTF,14,13d8+13,+4
 Star Spawn Seer,MPMM,17,18d8+72,+1
 Star Spawn Seer,MTF,17,18d8+72,+1
-Starlight Apparition,BAM,10,16d8,0
-Statue of Talos,SLW,17,14d10+70,0
+Starlight Apparition,BAM,10,16d8,+0
+Statue of Talos,SLW,17,14d10+70,+0
 Statue of Vergadain,WDMM,17,17d10+85,-1
-Steam Mephit,MM'25,10,5d6,0
-Steam Mephit,MM'14,10,6d6,0
+Steam Mephit,MM'25,10,5d6,+0
+Steam Mephit,MM'14,10,6d6,+0
 Steel Defender,TCE,15,(manual),+1
 Steel Defender,EFA,12,(manual),+1
 Steel Leaf Kavu,PSD,16,15d10+60,+1
@@ -2841,14 +2840,14 @@ Steel Predator,MPMM,20,18d10+108,+3
 Steel Predator,MTF,20,18d10+108,+3
 Stegosaurus,MPMM,13,8d12+24,-1
 Stegosaurus,VGM,13,8d12+24,-1
-Stench Kow,MPMM,10,2d10+4,0
-Stench Kow,VGM,10,2d10+4,0
+Stench Kow,MPMM,10,2d10+4,+0
+Stench Kow,VGM,10,2d10+4,+0
 Stirge,MM'14,14,1d4,+3
 Stirge,MM'25,13,2d4,+3
 Stomping Foot,OoW,12,1d4,+2
 Stone Cursed,MTF,17,3d8+4,-3
 Stone Cursed,MPMM,17,3d8+6,-3
-Stone Defender,MTF,16,7d8+21,0
+Stone Defender,MTF,16,7d8+21,+0
 Stone Dragon Statue,TftYP,17,17d10+85,-1
 Stone Giant,MM'25,17,11d12+55,+2
 Stone Giant,MM'14,17,11d12+55,+2
@@ -2859,15 +2858,15 @@ Stone Giant Rockspeaker,BGG,19,24d12+120,+2
 Stone Giant Statue,SKT,17,17d12+85,-1
 Stone Golem,MM'14,17,17d10+85,-1
 Stone Golem,MM'25,18,21d10+105,-1
-Stone Guardian (Animated Armor),PSX,17,6d8+6,0
+Stone Guardian (Animated Armor),PSX,17,6d8+6,+0
 Stone Guardian (Helmed Horror),PSX,20,8d8+24,+1
 Stone Guardian (Shield Guardian),PSX,17,15d10+60,-1
 Stone Guardian (Stone Golem),PSX,17,17d10+85,-1
 Stone Juggernaut,ToA,15,15d10+75,+1
 Stone Warrior,PotA,17,17d10+85,-1
 Stonecloak,WDMM,17,17d10+85,-1
-Stonemelder,PotA,17,10d8+30,0
-Storm Crab,BGG,17,10d20+50,0
+Stonemelder,PotA,17,10d8+30,+0
+Storm Crab,BGG,17,10d20+50,+0
 Storm Giant,MM'25,16,20d12+100,+2
 Storm Giant,MM'14,16,20d12+100,+2
 Storm Giant Quintessent,MPMM,12,20d12+100,+2
@@ -2889,10 +2888,10 @@ Sul Khatesh,ERLW,22,50d10+200,+5
 Suldil Baldoriel,MaBJoV,12,25d8+25,+2
 Summer Eladrin,MTF,19,17d8+51,+5
 Summer Eladrin,MPMM,19,22d8+66,+5
-Sunbird,PSX,17,18d20+90,0
+Sunbird,PSX,17,18d20+90,+0
 Sunder Shaman,GGR,20,12d12+60,+2
 Sunfly,MPP,13,1d4,+3
-Surrakar,PSZ,15,4d8+4,0
+Surrakar,PSZ,15,4d8+4,+0
 Svirfneblin Wererat,OotA,12,6d8+6,+2
 Swanmay,FRAiF,14,11d8+22,+4
 Swarm of Animated Books,CM,12,4d8+4,+1
@@ -2906,7 +2905,7 @@ Swarm of Corrupted Rats,WttHC,12,6d8,+2
 Swarm of Cranium Rats,VGM,12,8d8,+2
 Swarm of Cranium Rats,MPMM,12,17d8,+2
 Swarm of Crawling Claws,MM'25,12,11d8,+2
-Swarm of Dretches,MM'25,12,6d10+12,0
+Swarm of Dretches,MM'25,12,6d10+12,+0
 Swarm of Gibberlings,QftIS,12,7d10,+2
 Swarm of Gremishkas,VRGR,12,7d6,+2
 Swarm of Gremishkas,RHW,14,7d4+14,+2
@@ -2914,7 +2913,7 @@ Swarm of Hoard Scarabs,FTD,14,7d8,+3
 Swarm of Infesting Insects,RHW,13,6d8+6,+2
 Swarm of Insects,MM'25,11,3d8+6,+1
 Swarm of Insects,MM'14,12,5d8,+1
-Swarm of Larvae,MM'25,13,3d10+6,0
+Swarm of Larvae,MM'25,13,3d10+6,+0
 Swarm of Lemures,MM'25,12,6d10+12,-2
 Swarm of Maggots,VRGR,11,5d8,+1
 Swarm of Mechanical Spiders,WDH,12,5d8,+1
@@ -2922,8 +2921,8 @@ Swarm of Piranhas,PSX,13,8d8-8,+3
 Swarm of Piranhas,MM'25,13,8d8-8,+3
 Swarm of Poisonous Snakes,MM'14,14,8d8,+4
 Swarm of Quippers,MM'14,13,8d8-8,+3
-Swarm of Rats,MM'25,10,4d8-4,0
-Swarm of Rats,MM'14,10,7d8-7,0
+Swarm of Rats,MM'25,10,4d8-4,+0
+Swarm of Rats,MM'14,10,7d8-7,+0
 Swarm of Ravenous Insects,RHW,13,6d8+12,+2
 Swarm of Ravens,MM'25,12,2d8+2,+2
 Swarm of Ravens,MM'14,12,7d8-7,+2
@@ -2937,7 +2936,7 @@ Swarm of Sunflies,MPP,13,5d8,+3
 Swarm of Undead Snakes,EGW,14,8d8,+4
 Swarm of Venomous Snakes,MM'25,14,8d8,+4
 Swarm of Wasps,MM'14,12,5d8,+1
-Swarm of Zombie Limbs,VRGR,10,5d8,0
+Swarm of Zombie Limbs,VRGR,10,5d8,+0
 Swarm of Zombie Limbs,RHW,12,4d8+8,+2
 Swashbuckler,MPMM,17,12d8+12,+4
 Swashbuckler,VGM,17,12d8+12,+4
@@ -2957,24 +2956,24 @@ Tanazir Quandrix,SCC,20,24d20+192,+2
 Tarkanan Assassin,ERLW,15,7d8+14,+3
 Tarkanan Marauder,EFA,16,26d8+130,+3
 Tarkanan Ruffian,EFA,13,5d8+10,+1
-Tarrasque,MM'14,25,33d20+330,0
-Tarrasque,MM'25,25,34d20+340,0
+Tarrasque,MM'14,25,33d20+330,+0
+Tarrasque,MM'25,25,34d20+340,+0
 Tasloi,MaBJoV,13,2d6-2,+3
 Tasloi Sniper,MaBJoV,14,6d6,+4
 Telepathic Pentacle,IDRotF,15,15d12+75,+1
 Tempest Hart,MCV4EC,13,14d12+56,+3
 Tempest Spirit,BGG,12,17d12+85,+2
 Terastodon,PSZ,13,11d12+55,-1
-Terra Stomper,PSZ,13,13d12+52,0
-Terracotta Warrior,ToA,17,6d8+6,0
-Terran Magen,NF,21,22d8+22,0
+Terra Stomper,PSZ,13,13d12+52,+0
+Terracotta Warrior,ToA,17,6d8+6,+0
+Terran Magen,NF,21,22d8+22,+0
 Thanoi Hunter,MCV2DC,14,5d8+10,+2
 Tharashk Hunter,EFA,16,15d8+30,+4
 Thayan Apprentice,TftYP,12,5d8+5,+2
 Thayan Warrior,TftYP,16,8d8+16,+1
-The Angry,MTF,17,30d8+120,0
+The Angry,MTF,17,30d8+120,+0
 The Bagman,VRGR,15,8d10+40,+1
-The Hungry,MTF,17,30d8+90,0
+The Hungry,MTF,17,30d8+90,+0
 The Lonely,MTF,16,15d8+45,+1
 The Lord of Blades,ERLW,19,23d8+92,+2
 The Lost,MTF,15,12d8+24,+1
@@ -2982,7 +2981,7 @@ The Wretched,MTF,15,4d6-4,+1
 Theran Chimera,MOT,15,10d10+40,+1
 Thessalheart Construct,IMR,15,2d4+2,+2
 Thessalhydra,HftT,14,6d12+30,+1
-Thessalkraken,IMR,16,18d12+90,0
+Thessalkraken,IMR,16,18d12+90,+0
 Thopter (Bat),PSK,12,1d4-1,+2
 Thopter (Blood Hawk),PSK,12,2d6,+2
 Thopter (Eagle),PSK,12,1d6,+2
@@ -2990,7 +2989,7 @@ Thopter (Hawk),PSK,13,1d4-1,+3
 Thopter (Owl),PSK,11,1d4-1,+1
 Thopter (Pseudodragon),PSK,13,2d4+2,+2
 Thopter (Raven),PSK,12,1d4-1,+2
-Thopter (Vulture),PSK,10,1d8+1,0
+Thopter (Vulture),PSK,10,1d8+1,+0
 Thorn Slinger,TftYP,11,5d10+5,+1
 Thorny,VGM,14,5d8+5,+1
 Thorny Vegepygmy,MPMM,14,5d8+5,+1
@@ -3001,89 +3000,89 @@ Thri-kreen Hunter,BAM,16,11d8+11,+3
 Thri-kreen Marauder,MM'25,15,6d8+6,+2
 Thri-kreen Mystic,BAM,15,18d8+18,+2
 Thri-kreen Psion,MM'25,16,23d8+46,+2
-Thug,MM'14,11,5d8+10,0
-Thunderbeast Skeleton,SKT,15,8d12+16,0
+Thug,MM'14,11,5d8+10,+0
+Thunderbeast Skeleton,SKT,15,8d12+16,+0
 Tiberius Inuus,MaBJoV,17,20d8+80,+1
-Tiefling Acrobat,KftGV,10,1d8,0
+Tiefling Acrobat,KftGV,10,1d8,+0
 Tiefling Muralist,IMR,12,2d8,+1
 Tiger,MM'25,13,4d10+8,+3
 Tiger,MM'14,12,5d10+10,+2
 Timbermaw,PSZ,14,6d8,+2
-Time Dragon Wyrmling,MPP,17,10d8+30,0
-Tin Soldier,WBtW,17,6d6+6,0
+Time Dragon Wyrmling,MPP,17,10d8+30,+0
+Tin Soldier,WBtW,17,6d6+6,+0
 Tiny Servant,XGE,15,4d4,+3
-Titanothere,BGG,16,13d12+52,0
+Titanothere,BGG,16,13d12+52,+0
 Titivilus,MTF,20,17d8+51,+6
 Titivilus,MPMM,20,20d8+60,+6
 Tlacatecolo,JttRC,13,12d8+24,+3
-Tlexolotl,JttRC,15,11d12+33,0
+Tlexolotl,JttRC,15,11d12+33,+0
 Tlincalli,MPMM,15,10d10+30,+1
 Tlincalli,VGM,15,10d10+30,+1
 Tomb Dwarf,ToA,14,6d8+18,+2
 Tomb Guardian,ToA,17,11d8+44,-1
-Tomb Tapper,IDRotF,17,18d12+90,0
+Tomb Tapper,IDRotF,17,18d12+90,+0
 Topaz Dragon Wyrmling,FTD,16,6d8+6,+1
 Topaz Greatwyrm,FTD,20,26d20+234,+2
 Topi,TTP,13,3d6+3,+2
-Tortle,MPMM,17,4d8+4,0
-Tortle,MTF,17,4d8+4,0
-Tortle Druid,MPMM,17,6d8+6,0
-Tortle Druid,MTF,17,6d8+6,0
+Tortle,MPMM,17,4d8+4,+0
+Tortle,MTF,17,4d8+4,+0
+Tortle Druid,MPMM,17,6d8+6,+0
+Tortle Druid,MTF,17,6d8+6,+0
 Tough,MM'25,12,5d8+10,+1
 Tough Boss,MM'25,16,11d8+33,+2
 Tower Hand,QftIS,14,4d8+4,+2
-Tower Sage,QftIS,10,5d8,0
-Traag Draconian,MCV2DC,14,8d10+24,0
+Tower Sage,QftIS,10,5d8,+0
+Traag Draconian,MCV2DC,14,8d10+24,+0
 Transcendent Order Conduit,MPP,17,15d8+30,+4
 Transcendent Order Instinct,MPP,16,9d8+9,+3
 Transmuter,VGM,12,9d8,+2
 Transmuter Wizard,MPMM,12,11d8,+2
-Trapper,MPMM,13,8d10+24,0
-Trapper,VGM,13,10d10+30,0
+Trapper,MPMM,13,8d10+24,+0
+Trapper,VGM,13,10d10+30,+0
 Treant,MM'25,16,12d12+60,-1
 Treant,MM'14,16,12d12+60,-1
 Treant Sapling,WBtW,14,6d10+12,-1
 Treant Totem Elemental,PSX,16,12d12+60,-1
-Tree Blight,MM'25,15,10d12+50,0
-Tree Blight,CoS,15,8d12+40,0
+Tree Blight,MM'25,15,10d12+50,+0
+Tree Blight,CoS,15,8d12+40,+0
 Treefolk,MCV4EC,17,18d10+72,+1
-Trench Giant,PSZ,14,13d12+65,0
+Trench Giant,PSZ,14,13d12+65,+0
 Tressym,BGDIA,12,2d4,+2
 Tressym,SKT,12,2d4,+2
 Tri-flower Frond,ToA,10,2d8+2,+2
-Tribal Warrior,MM'14,12,2d8+2,0
-Tribal Warrior Spore Servant,IDRotF,12,2d8+2,0
+Tribal Warrior,MM'14,12,2d8+2,+0
+Tribal Warrior Spore Servant,IDRotF,12,2d8+2,+0
 Triceratops,MM'25,14,12d12+36,-1
 Triceratops,MM'14,13,10d12+30,-1
 Tridrone,MM'14,15,3d8+3,+1
-Trilobite,PSX,11,1d4,0
+Trilobite,PSX,11,1d4,+0
 Trilobite (Giant),PSX,15,3d8,+2
-Triton Master of Waves,MOT,15,14d8+42,0
+Triton Master of Waves,MOT,15,14d8+42,+0
 Triton Shorestalker,MOT,13,5d8+10,+3
-Troglodyte,MM'25,11,2d8+4,0
-Troglodyte,MM'14,11,2d8+4,0
+Troglodyte,MM'25,11,2d8+4,+0
+Troglodyte,MM'14,11,2d8+4,+0
 Troglodyte Champion of Laogzed,OotA,14,7d8+28,+1
 Troll,MM'14,15,8d10+40,+1
 Troll,MM'25,15,9d10+45,+1
 Troll Amalgam,BGG,15,14d20+70,+2
 Troll Limb,MM'25,13,4d6,+1
 Troll Mutate,BGG,16,10d10+40,+1
-Tromokratis,MOT,22,21d20+189,0
+Tromokratis,MOT,22,21d20+189,+0
 Trostani,GGR,17,24d10+120,+2
 Tsucora Quori,ERLW,16,8d8+32,+2
-Turntimber Giant,PSZ,14,16d12+96,0
+Turntimber Giant,PSZ,14,16d12+96,+0
 Twig Blight,MM'14,13,1d6+1,+1
 Twig Blight,MM'25,14,2d6,+2
 Two-Headed Cerberus,MOT,12,6d8+12,+2
-Two-Headed Crocodile,IMR,12,3d10+3,0
+Two-Headed Crocodile,IMR,12,3d10+3,+0
 Two-Headed Owlbear,IMR,13,7d10+21,+1
 Two-Headed Plesiosaurus,TTP,13,8d10+24,+2
 Two-Headed Troll,OotA,15,8d10+40,+1
-Typhon,MOT,17,17d12+85,0
-Tyrannosaurus Rex,MM'25,13,13d12+52,0
-Tyrannosaurus Rex,MM'14,13,13d12+52,0
+Typhon,MOT,17,17d12+85,+0
+Tyrannosaurus Rex,MM'25,13,13d12+52,+0
+Tyrannosaurus Rex,MM'14,13,13d12+52,+0
 Tyrannosaurus Zombie,ToA,11,13d12+52,-2
-Tyrant,PSX,13,13d12+52,0
+Tyrant,PSX,13,13d12+52,+0
 Tyrant Shadow,CoA,19,18d12+90,+3
 Udaak,EGW,17,10d20+60,+2
 Ulamog,PSZ,22,19d12+190,+5
@@ -3094,7 +3093,7 @@ Ultroloth,MM'25,19,26d8+104,+3
 Umber Hulk,MM'25,18,11d10+33,+1
 Umber Hulk,MM'14,17,11d10+33,+1
 Umbragen Shadow Walker,EFA,14,25d8+50,+4
-Undead Bulette,WDMM,17,9d10+45,0
+Undead Bulette,WDMM,17,9d10+45,+0
 Undead Cockatrice,OoW,11,6d6+6,+1
 Undead Shambling Mound,WDMM,15,16d10+48,-1
 Undead Soldier,DSotDQ,17,6d8+18,+2
@@ -3103,7 +3102,7 @@ Undead Spirit,TCE,11,(manual),+3
 Undead Tree,BGDIA,16,12d12+60,-1
 Undercity Medusa,GGR,16,16d8+48,+4
 Underworld Cerberus,MOT,16,11d10+44,+1
-Undying Councilor,ERLW,17,16d8+32,0
+Undying Councilor,ERLW,17,16d8+32,+0
 Undying Soldier,ERLW,17,4d8+8,+1
 Unicorn,MM'14,12,9d10+18,+2
 Unicorn,MM'25,12,13d10+26,+2
@@ -3162,7 +3161,7 @@ Venom Troll,MPMM,15,9d10+45,+1
 Venom Troll,MTF,15,9d10+45,+1
 Venomous Snake,MM'25,12,2d4,+2
 Verbeeg Longstrider,IDRotF,14,14d10+42,+2
-Verbeeg Marauder,IDRotF,14,10d10+30,0
+Verbeeg Marauder,IDRotF,14,10d10+30,+0
 Verminaard,MCV2DC,20,22d8+44,+1
 Veteran,MM'14,17,9d8+18,+1
 Veteran of the Gauntlet,OotA,17,9d8+18,+1
@@ -3177,33 +3176,33 @@ Violet Fungus,MM'14,5,4d8,-5
 Violet Fungus,WttHC,5,4d8,-5
 Violet Fungus,MM'25,5,4d8,-5
 Violet Fungus Necrohulk,MM'25,17,13d10+52,+1
-Virvos Magen,NF,21,17d8+34,0
+Virvos Magen,NF,21,17d8+34,+0
 Vistana Assassin,CoS,15,12d8+24,+3
 Vistana Bandit,CoS,12,2d8+2,+1
 Vistana Bandit Captain,CoS,15,10d8+20,+3
-Vistana Commoner,CoS,10,1d8,0
+Vistana Commoner,CoS,10,1d8,+0
 Vistana Guard,CoS,16,2d8+2,+1
 Vistana Spy,CoS,12,6d8,+2
-Vistana Thug,CoS,11,5d8+10,0
+Vistana Thug,CoS,11,5d8+10,+0
 Vladeska Drakov,RHW,18,20d8+80,+2
 Vlazok,VEoR,17,16d10+48,+4
 Void Scavver,BAM,15,15d12+60,+3
 Vorvolaka,CoA,17,20d8+100,+4
-Vox Seeker,EGW,14,2d4+2,0
+Vox Seeker,EGW,14,2d4+2,+0
 Vrock,MM'14,15,11d10+44,+2
 Vrock,MM'25,15,16d10+64,+2
 Vulkoori Stingblade,EFA,14,6d8,+2
 Vulkoori Venom Priest,EFA,15,8d8+8,+3
-Vulture,MM'14,10,1d8+1,0
-Vulture,MM'25,10,1d8+1,0
-Walking Corpse,CoS,10,1d8,0
+Vulture,MM'14,10,1d8+1,+0
+Vulture,MM'25,10,1d8+1,+0
+Walking Corpse,CoS,10,1d8,+0
 Walking Statue of Waterdeep,WDH,17,17d20+136,-1
 Walrus,IDRotF,9,3d10+6,-1
 War Devil,CoA,11,19d12+114,-1
-War Priest,VGM,17,18d8+36,0
-War Priest,MPMM,17,18d8+36,0
-Warden Archon,MPP,17,16d10+48,0
-Warforged Colossus,ERLW,23,20d20+200,0
+War Priest,VGM,17,18d8+36,+0
+War Priest,MPMM,17,18d8+36,+0
+Warden Archon,MPP,17,16d10+48,+0
+Warforged Colossus,ERLW,23,20d20+200,+0
 Warforged Soldier,ERLW,16,4d8+12,+1
 Warforged Titan,ERLW,20,10d12+60,-1
 Warforged Warrior,VEoR,16,4d8+12,+1
@@ -3224,7 +3223,7 @@ Warrior,SLW,20,8d8+16,+2
 Warrior,SDW,20,10d8+20,+2
 Warrior,DC,20,12d8+24,+2
 Warrior Commander,MM'25,18,19d8+76,+5
-Warrior Infantry,MM'25,13,2d8,0
+Warrior Infantry,MM'25,13,2d8,+0
 Warrior of Madarua,QftIS,12,2d8+2,+1
 Warrior Veteran,MM'25,17,10d8+20,+1
 Wasteland Dragonnel,DSotDQ,13,10d10+10,+3
@@ -3241,10 +3240,10 @@ Waxwork,RHW,14,7d8+21,+1
 Weasel,MM'14,13,1d4-1,+3
 Weasel,MM'25,13,1d4-1,+3
 Werebat,WDMM,13,7d6,+3
-Werebear,MM'14,10,18d8+54,0
-Werebear,MM'25,15,18d8+54,0
-Wereboar,MM'14,10,12d8+24,0
-Wereboar,MM'25,15,15d8+30,0
+Werebear,MM'14,10,18d8+54,+0
+Werebear,MM'25,15,18d8+54,+0
+Wereboar,MM'14,10,12d8+24,+0
+Wereboar,MM'25,15,15d8+30,+0
 Werejaguar,TftYP,12,16d8+48,+2
 Wererat,MM'14,12,6d8+6,+2
 Wererat,MM'25,13,11d8+11,+3
@@ -3260,12 +3259,12 @@ Werewyvern,FRAiF,16,16d8+80,+2
 Whirling Chandelier,VEoR,13,14d10+28,+2
 Whirlwyrm,ToFW,14,9d12+27,-1
 Whistler,JttRC,15,24d10+48,+3
-White Abishai,MPMM,15,8d8+32,0
-White Abishai,MTF,15,8d8+32,0
-White Dragon Wyrmling,MM'25,16,5d8+10,0
-White Dragon Wyrmling,MM'14,16,5d8+10,0
+White Abishai,MPMM,15,8d8+32,+0
+White Abishai,MTF,15,8d8+32,+0
+White Dragon Wyrmling,MM'25,16,5d8+10,+0
+White Dragon Wyrmling,MM'14,16,5d8+10,+0
 White Greatwyrm,FTD,22,26d20+260,+2
-White Guard Drake,VGM,14,7d8+21,0
+White Guard Drake,VGM,14,7d8+21,+0
 Wight,MM'14,14,6d8+18,+2
 Wight,MM'25,14,11d8+33,+2
 Wight Lifedrinker,HotB,14,11d8+33,+2
@@ -3281,11 +3280,11 @@ Winged Kobold,MM'25,15,4d6-4,+3
 Winged Kobold,MM'14,13,3d6-3,+3
 Winged Lion,MOT,13,12d10+48,+3
 Winged Thrull,GGR,12,7d6+7,+2
-Winter Eladrin,MTF,19,17d8+51,0
+Winter Eladrin,MTF,19,17d8+51,+0
 Winter Eladrin,MPMM,19,22d8+66,+3
 Winter Wolf,MM'25,13,10d10+20,+1
 Winter Wolf,MM'14,13,10d10+20,+1
-Witchkite,MCV4EC,16,21d12+84,0
+Witchkite,MCV4EC,16,21d12+84,+0
 Witchlight Hand (Medium),WBtW,12,2d8,+2
 Witchlight Hand (Small),WBtW,12,2d6,+2
 Witchstalker,MCV4EC,13,11d10+22,+3
@@ -3305,7 +3304,7 @@ Wood Elf Wizard,CM,12,10d8,+2
 Wood Woad,MPMM,17,10d8+30,+1
 Wood Woad,VGM,17,10d8+30,+1
 Woodcrasher Baloth,PSZ,13,10d12+30,-1
-Wooden Donkey,WDMM,10,2d8+2,0
+Wooden Donkey,WDMM,10,2d8+2,+0
 Worg,MM'25,13,4d10+4,+1
 Worg,MM'14,13,4d10+4,+1
 Worker Robot,QftIS,13,10d8+30,-1
@@ -3313,17 +3312,17 @@ Wraith,MM'14,13,9d8+27,+3
 Wraith,PSZ,13,9d8+27,+3
 Wraith,MM'25,13,9d8+27,+3
 Wretched Sorrowsworn,MPMM,15,4d6-4,+1
-Wurm,GGR,17,16d12+96,0
+Wurm,GGR,17,16d12+96,+0
 Wurm,PSK,17,15d20+90,-2
 Wurm,PSZ,17,15d20+90,-2
 Wynling,JttRC,15,6d4+6,+5
-Wyvern,MM'14,13,13d10+39,0
-Wyvern,MM'25,14,15d10+45,0
+Wyvern,MM'14,13,13d10+39,+0
+Wyvern,MM'25,14,15d10+45,+0
 Xan Moonblade,MaBJoV,13,25d8,+3
-Xenk Yendar,HAT-TG,15,21d8+63,0
+Xenk Yendar,HAT-TG,15,21d8+63,+0
 Xill,MFF,16,6d8+6,+4
-Xorn,MM'14,19,7d8+42,0
-Xorn,MM'25,19,8d8+48,0
+Xorn,MM'14,19,7d8+42,+0
+Xorn,MM'25,19,8d8+48,+0
 Xvart,MPMM,13,2d6,+2
 Xvart,VGM,13,2d6,+2
 Xvart Speaker,VGM,13,2d6,+2
@@ -3332,9 +3331,9 @@ Xvart Warlock of Raxivort,VGM,12,5d6+5,+2
 Xzar the Chaos Clone,MaBJoV,15,22d8+22,+3
 Yagnoloth,MPMM,17,14d10+70,+2
 Yagnoloth,MTF,17,14d10+70,+2
-Yak,SKT,10,2d10+2,0
-Yakfolk Priest,SKT,12,7d10+14,0
-Yakfolk Warrior,SKT,11,8d10+16,0
+Yak,SKT,10,2d10+2,+0
+Yakfolk Priest,SKT,12,7d10+14,+0
+Yakfolk Warrior,SKT,11,8d10+16,+0
 Yarnspinner,DoD,16,12d12+60,+3
 Yeenoghu,MPMM,20,23d12+184,+3
 Yeenoghu,MTF,20,23d12+184,+3
@@ -3345,24 +3344,24 @@ Yeth Hound,VGM,14,6d10+18,+3
 Yeti,MM'25,12,6d10+18,+1
 Yeti,MM'14,12,6d10+18,+1
 Yeti Leader,TftYP,12,6d10+18,+1
-Yeti Tyke,IDRotF,11,2d6+2,0
-Yeti Tyke,MGELFT,11,2d6+2,0
-Yggdrasti,MCV1SC,15,9d20+18,0
+Yeti Tyke,IDRotF,11,2d6+2,+0
+Yeti Tyke,MGELFT,11,2d6+2,+0
+Yggdrasti,MCV1SC,15,9d20+18,+0
 "Ygorl, Lord of Entropy",MFF,20,26d10+182,+4
-Yithian,RHW,14,19d10+76,0
+Yithian,RHW,14,19d10+76,+0
 Yochlol,MM'14,15,16d8+64,+2
 Yochlol,MM'25,15,18d8+72,+4
 Young Amethyst Dragon,FTD,17,16d10+80,+1
-Young Amonkhet Dragon,PSA,17,17d10+85,0
+Young Amonkhet Dragon,PSA,17,17d10+85,+0
 Young Basilisk,OotA,13,4d6+8,-1
 Young Black Dragon,MM'25,18,15d10+45,+2
 Young Black Dragon,MM'14,17,15d10+45,+2
-Young Blue Dragon,MM'25,18,16d10+64,0
-Young Blue Dragon,MM'14,17,16d10+64,0
-Young Brass Dragon,MM'25,17,13d10+39,0
-Young Brass Dragon,MM'14,17,13d10+39,0
-Young Bronze Dragon,MM'25,17,15d10+60,0
-Young Bronze Dragon,MM'14,17,15d10+60,0
+Young Blue Dragon,MM'25,18,16d10+64,+0
+Young Blue Dragon,MM'14,17,16d10+64,+0
+Young Brass Dragon,MM'25,17,13d10+39,+0
+Young Brass Dragon,MM'14,17,13d10+39,+0
+Young Bronze Dragon,MM'25,17,15d10+60,+0
+Young Bronze Dragon,MM'14,17,15d10+60,+0
 Young Bulette,PotA,11,6d10+12,-1
 Young Cloud Giant,SKT,13,10d12+40,-1
 Young Copper Dragon,MM'25,17,14d10+42,+1
@@ -3370,7 +3369,7 @@ Young Copper Dragon,MM'14,17,14d10+42,+1
 Young Crystal Dragon,FTD,15,10d10+40,+1
 Young Deep Dragon,FRAiF,16,11d10+33,+1
 Young Deep Dragon,FTD,16,11d10+33,+1
-Young Dragon Turtle,FTD,19,17d12+68,0
+Young Dragon Turtle,FTD,19,17d12+68,+0
 Young Emerald Dragon,FTD,17,15d10+60,+1
 Young Fire Giant,TftYP,11,7d10+21,-1
 Young Frost Giant,TftYP,11,7d10+21,-1
@@ -3382,32 +3381,32 @@ Young Griffon (Medium),IDRotF,12,5d6+15,+2
 Young Griffon (Small),IDRotF,12,2d6+6,+2
 Young Griffon (Tiny),IDRotF,12,1d4+3,+2
 Young Hill Giant,TftYP,13,2d8+6,+1
-Young Hook Horror,OotA,11,2d6+4,0
-Young Horizonback Tortoise,CRCotN,15,8d12+16,0
-Young Kraken,LR,16,18d12+90,0
+Young Hook Horror,OotA,11,2d6+4,+0
+Young Horizonback Tortoise,CRCotN,15,8d12+16,+0
+Young Kraken,LR,16,18d12+90,+0
 Young Kruthik,MPMM,16,2d6+2,+3
 Young Kruthik,MTF,16,2d6+2,+3
 Young Lunar Dragon,BAM,16,13d10+52,+1
 Young Moonstone Dragon,FTD,17,17d10+51,+3
 Young Ogre Servant,TftYP,13,2d8+6,+1
 Young Purple Worm,PotA,17,15d20+90,-2
-Young Red Dragon,MM'25,18,17d10+85,0
-Young Red Dragon,MM'14,17,17d10+85,0
-Young Red Shadow Dragon,MM'14,17,17d10+85,0
+Young Red Dragon,MM'25,18,17d10+85,+0
+Young Red Dragon,MM'14,17,17d10+85,+0
+Young Red Shadow Dragon,MM'14,17,17d10+85,+0
 Young Remorhaz,MM'25,14,11d10+33,+1
 Young Remorhaz,MM'14,14,11d10+33,+1
 Young Sapphire Dragon,FTD,17,15d10+75,+2
 Young Sea Serpent,FTD,16,13d12+39,+1
-Young Silver Dragon,MM'25,18,16d10+80,0
-Young Silver Dragon,MM'14,17,16d10+80,0
+Young Silver Dragon,MM'25,18,16d10+80,+0
+Young Silver Dragon,MM'14,17,16d10+80,+0
 Young Solar Dragon,BAM,16,17d10+85,+2
 Young Spirit Dragon,FRAiF,17,16d10+64,+1
 Young Time Dragon,MPP,17,20d10+100,+1
 Young Topaz Dragon,FTD,17,17d10+34,+1
 Young Troglodyte,TftYP,12,2d6-2,+2
 Young Wereraven,CoS,12,2d6,+2
-Young White Dragon,MM'25,17,13d10+52,0
-Young White Dragon,MM'14,17,14d10+56,0
+Young White Dragon,MM'25,17,13d10+52,+0
+Young White Dragon,MM'14,17,14d10+56,+0
 Young Winter Wolf,TftYP,14,5d10+10,+2
 Yuan-ti Abomination,MM'25,15,15d10+45,+3
 Yuan-ti Abomination,MM'14,15,15d10+45,+3
@@ -3433,30 +3432,30 @@ Yuan-ti Pit Master,VGM,14,16d8+16,+2
 Yuan-ti Priest,ToA,12,12d8+12,+2
 Yuan-ti Pureblood,MM'14,11,9d8,+1
 Zakya Rakshasa,ERLW,17,7d8+28,+2
-Zaratan,MPMM,20,15d20+150,0
-Zaratan,MTF,20,15d20+150,0
+Zaratan,MPMM,20,15d20+150,+0
+Zaratan,MTF,20,15d20+150,+0
 Zariel,CoA,20,29d10+261,+7
 Zariel,MPMM,20,29d10+261,+7
 Zariel,MTF,20,40d10+360,+7
-Zebra,ToA,10,2d10+2,0
+Zebra,ToA,10,2d10+2,+0
 Zegana,GGR,16,20d8+40,+2
-Zendikar Dragon,PSZ,17,17d10+85,0
+Zendikar Dragon,PSZ,17,17d10+85,+0
 Zendikar Golem,PSZ,17,17d10+85,-1
 Zhent Martial Arts Adept,WDH,16,11d6+11,+3
-Zhentarim Thug,OotA,11,5d8+10,0
-Zhentilar Paladin of Bane,FRAiF,18,9d8+18,0
+Zhentarim Thug,OotA,11,5d8+10,+0
+Zhentilar Paladin of Bane,FRAiF,18,9d8+18,+0
 Zhentilar Soldier,FRAiF,13,4d8+4,+2
-Zodar,BAM,20,16d8+128,0
+Zodar,BAM,20,16d8+128,+0
 Zombie,MM'25,8,2d8+6,-2
 Zombie,MM'14,8,3d8+9,-2
 Zombie Cat,PSI,12,1d4,+2
-Zombie Clot,RHW,12,11d12+33,0
-Zombie Clot,VRGR,12,11d12+33,0
+Zombie Clot,RHW,12,11d12+33,+0
+Zombie Clot,VRGR,12,11d12+33,+0
 Zombie Horse,PSD,8,3d8+9,-2
-Zombie Plague Spreader,RHW,10,12d8+24,0
-Zombie Plague Spreader,VRGR,10,12d8+24,0
-Zombie Rat,PSI,10,1d4-1,0
+Zombie Plague Spreader,RHW,10,12d8+24,+0
+Zombie Plague Spreader,VRGR,10,12d8+24,+0
+Zombie Rat,PSI,10,1d4-1,+0
 Zombie Snake,PSI,13,1d4,+3
-Zorbo,ToA,10,6d6+6,0
+Zorbo,ToA,10,6d6+6,+0
 Zuggtmoy,MPMM,17,32d10+128,+2
 Zuggtmoy,MTF,17,32d10+128,+2

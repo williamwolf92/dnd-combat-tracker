@@ -24,7 +24,7 @@
 // ────────────────────────────────────────
 let monstersData       = [];
 let currentSuggestions = [];
-let bestiaryIndex      = new Set();
+let bestiaryIndex      = new Map(); // clave: nombre en minúsculas (sin .md) -> nombre real de archivo (sin .md)
 
 const MONSTERS_CACHE_KEY = 'dnd_monsters_cache';
 
@@ -179,117 +179,157 @@ async function loadBestiaryIndex() {
 
   for (const line of text.split('\n')) {
     const t = line.trim().replace(/\r/g, '');
-    if (t.endsWith('.json')) {
-      bestiaryIndex.add(t.slice(0, -5));
+    if (t.toLowerCase().endsWith('.md')) {
+      const realName = t.slice(0, -3); // quita ".md" conservando mayúsculas/minúsculas originales
+      bestiaryIndex.set(realName.toLowerCase(), realName);
     }
   }
   console.log(`Bestiary index loaded: ${bestiaryIndex.size} entries`);
 }
 
-function monsterNameToFilename(name) {
-  return name
-    .toLowerCase()
-    .replace(/[(),]/g, '')
-    .replace(/'/g, '_')
-    .replace(/\s+/g, '_');
-}
-
+// Busca el archivo .md correspondiente a un nombre de monstruo.
+// No hay conversión de nombre: "Wolf (MPMM)" busca directamente "Wolf (MPMM).md",
+// sin distinguir mayúsculas/minúsculas.
 function findBestStatFile(name) {
-  let filename = monsterNameToFilename(name);
-  if (bestiaryIndex.has(filename)) return filename;
+  const key = name.trim().toLowerCase();
+  if (bestiaryIndex.has(key)) return bestiaryIndex.get(key);
   // Strip trailing number suffix (e.g. "Goblin 1" → "Goblin")
-  const stripped = name.replace(/\s+\d+$/, '');
+  const stripped = name.replace(/\s+\d+$/, '').trim();
   if (stripped !== name) {
-    filename = monsterNameToFilename(stripped);
-    if (bestiaryIndex.has(filename)) return filename;
+    const strippedKey = stripped.toLowerCase();
+    if (bestiaryIndex.has(strippedKey)) return bestiaryIndex.get(strippedKey);
   }
   return null;
 }
 
-// ── Stat block modal helpers ──
-function sbGetMod(v) { return Math.floor((parseInt(v) - 10) / 2); }
-function sbFmtMod(mod) { return mod >= 0 ? '+' + mod : '' + mod; }
-
-function sbAttrBox(name, val) {
-  const hasVal = val != null && val !== '';
-  const score  = hasVal ? val : '—';
-  const modStr = hasVal ? sbFmtMod(sbGetMod(val)) : '—';
-  return `<div class="sb-attr-box">
-    <span class="sb-attr-name">${name}</span>
-    <span class="sb-attr-mod">${modStr}</span>
-    <span class="sb-attr-score">${score}</span>
-  </div>`;
+// ── Stat block modal: conversor Markdown → HTML ──
+// (misma lógica que el "Convertidor Markdown a HTML": sin dependencias externas)
+function mdInlineFormat(text){
+  // escapar
+  text = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  // negrita + cursiva combinadas: ***texto***
+  text = text.replace(/\*\*\*(.+?)\*\*\*/g, "<strong><em>$1</em></strong>");
+  // negrita: **texto**
+  text = text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  // cursiva: *texto*
+  text = text.replace(/\*(.+?)\*/g, "<em>$1</em>");
+  // código en línea
+  text = text.replace(/`(.+?)`/g, "<code>$1</code>");
+  return text;
 }
 
-function sbInfoRow(label, val, required = false) {
-  if (!required && !val) return '';
-  const display = (val != null && val !== '') ? esc(String(val)).replace(/\n/g, '<br>').replace(/&lt;(\/?(?:b|i|s|u))&gt;/g, '<$1>') : '—';
-  return `<div class="sb-info-row"><span class="sb-info-label">${esc(label)}:</span> ${display}</div>`;
-}
+// Parsea un bloque de líneas (nivel raíz o contenido interno de un blockquote)
+// usando siempre la misma lógica, para que el renderizado sea idéntico dentro
+// y fuera de una cita. Llama a sí misma de forma recursiva para citas anidadas.
+function mdParseLines(lines){
+  let html = "";
+  let i = 0;
+  let inList = false;
 
-function formatMonsterName(raw) {
-  const match = raw.match(/^(.*?)(\s*\([^)]*\))$/);
-  if (match) {
-    return esc(match[1]) + `<span class="sb-title-source">${esc(match[2])}</span>`;
+  function closeListIfOpen(){
+    if(inList){ html += "</ul>\n"; inList = false; }
   }
-  return esc(raw);
+
+  while(i < lines.length){
+    let line = lines[i];
+
+    if(line.trim() === ""){
+      closeListIfOpen();
+      i++;
+      continue;
+    }
+
+    // tabla: fila de encabezado seguida de fila separadora
+    if(/^\s*\|.*\|\s*$/.test(line) && lines[i+1] && /^\s*\|?[\s:|-]+\|?\s*$/.test(lines[i+1])){
+      closeListIfOpen();
+      const headerCells = line.trim().replace(/^\||\|$/g, "").split("|").map(c => c.trim());
+      // fila separadora: detecta alineación por columna (:---, :---:, ---:)
+      const alignCells = lines[i+1].trim().replace(/^\||\|$/g, "").split("|").map(c => c.trim());
+      const aligns = alignCells.map(c => {
+        const left = c.startsWith(":");
+        const right = c.endsWith(":");
+        if(left && right) return "center";
+        if(right) return "right";
+        if(left) return "left";
+        return null;
+      });
+      const alignAttr = idx => aligns[idx] ? " style=\"text-align:" + aligns[idx] + "\"" : "";
+      let tbl = "<table>\n<thead><tr>";
+      headerCells.forEach((c, idx) => tbl += "<th" + alignAttr(idx) + ">" + mdInlineFormat(c) + "</th>");
+      tbl += "</tr></thead>\n<tbody>\n";
+      i += 2;
+      while(i < lines.length && /^\s*\|.*\|\s*$/.test(lines[i])){
+        const rowCells = lines[i].trim().replace(/^\||\|$/g, "").split("|").map(c => c.trim());
+        tbl += "<tr>";
+        rowCells.forEach((c, idx) => tbl += "<td" + alignAttr(idx) + ">" + mdInlineFormat(c) + "</td>");
+        tbl += "</tr>\n";
+        i++;
+      }
+      tbl += "</tbody>\n</table>\n";
+      html += tbl;
+      continue;
+    }
+
+    // encabezados
+    let h = line.match(/^(#{1,6})\s+(.*)$/);
+    if(h){
+      closeListIfOpen();
+      const level = h[1].length;
+      html += "<h" + level + ">" + mdInlineFormat(h[2]) + "</h" + level + ">\n";
+      i++;
+      continue;
+    }
+
+    // regla horizontal
+    if(/^\s*(---|\*\*\*|___)\s*$/.test(line)){
+      closeListIfOpen();
+      html += "<hr>\n";
+      i++;
+      continue;
+    }
+
+    // cita (recursiva: el contenido interno se procesa con este mismo parser)
+    if(/^\s*>\s?/.test(line)){
+      closeListIfOpen();
+      let quoteLines = [];
+      while(i < lines.length && /^\s*>\s?/.test(lines[i])){
+        quoteLines.push(lines[i].replace(/^\s*>\s?/, ""));
+        i++;
+      }
+      html += "<blockquote>\n" + mdParseLines(quoteLines) + "</blockquote>\n";
+      continue;
+    }
+
+    // lista
+    let li = line.match(/^\s*[-*]\s+(.*)$/);
+    if(li){
+      if(!inList){ html += "<ul>\n"; inList = true; }
+      html += "<li>" + mdInlineFormat(li[1]) + "</li>\n";
+      i++;
+      continue;
+    }
+
+    // párrafo normal
+    closeListIfOpen();
+    html += "<p>" + mdInlineFormat(line.trim()) + "</p>\n";
+    i++;
+  }
+
+  closeListIfOpen();
+  return html;
 }
 
-function renderStatblock(m) {
-  const subtitle = [m.size, m.type, m.alignment].filter(Boolean).join(' • ');
-  const extraFields = [
-    ['init',       'Iniciativa'],
-    ['saves',      'Salvación'],
-    ['skills',     'Habilidades'],
-    ['dmg_vuln',   'Vuln. a daño'],
-    ['dmg_resist', 'Resist. a daño'],
-    ['dmg_immun',  'Inmune a daño'],
-    ['cond_immun', 'Inmune a estados'],
-    ['senses',     'Sentidos'],
-    ['languages',  'Idiomas'],
-    ['environment','Hábitat'],
-    ['treasure',   'Tesoro'],
-  ].map(([k, label]) => sbInfoRow(label, m[k])).join('');
-  const actionFields = [
-    ['traits',         'RASGOS'],
-    ['actions',        'ACCIONES'],
-    ['bonus_actions',  'ACCIONES BONO'],
-    ['reactions',      'REACCIONES'],
-    ['legend_actions', 'ACCIONES LEGENDARIAS'],
-    ['myth_actions',   'ACCIONES MÍTICAS'],
-    ['lair_actions',   'ACCIONES DE GUARIDA'],
-    ['region_effects', 'EFECTOS DE REGIÓN'],
-  ].map(([k, label]) => sbInfoRow(label, m[k])).join('');
+function mdConvertMarkdown(src){
+  const lines = src.replace(/\r\n/g, "\n").split("\n");
+  return mdParseLines(lines);
+}
 
+function renderStatblockMarkdown(md) {
   document.getElementById('statblockContent').innerHTML = `
     <div class="sb-header">
       <button class="sb-close" onclick="closeModal('statblockModal')">✕</button>
-      <div class="sb-title">${formatMonsterName(m.name)}${m.source ? ` <span class="sb-title-source">(${esc(m.source)})</span>` : ''}</div>
-      ${subtitle ? `<div class="sb-subtitle">${esc(subtitle)}</div>` : ''}
     </div>
-    <div class="sb-body">
-      <div class="sb-info-section">
-        ${sbInfoRow('🛡 AC', m.AC, true)}
-        ${sbInfoRow('❤️ HP', m.HP, true)}
-        ${sbInfoRow('⭐ CR', m.CR, true)}
-      </div>
-      <div class="sb-divider"></div>
-      <div class="sb-attr-grid">
-        ${sbAttrBox('STR', m.STR)}
-        ${sbAttrBox('DEX', m.DEX)}
-        ${sbAttrBox('CON', m.CON)}
-        ${sbAttrBox('INT', m.INT)}
-        ${sbAttrBox('WIS', m.WIS)}
-        ${sbAttrBox('CHA', m.CHA)}
-      </div>
-      <div class="sb-divider"></div>
-      <div class="sb-info-section">
-        ${sbInfoRow('Velocidad', m.speed, true)}
-      </div>
-      ${extraFields ? `<div class="sb-divider"></div><div class="sb-info-section">${extraFields}</div>` : ''}
-      ${actionFields ? `<div class="sb-divider"></div><div class="sb-info-section">${actionFields}</div>` : ''}
-      ${m.link ? `<div class="sb-divider"></div><a class="sb-full-link" href="${m.link}" target="_blank" rel="noopener noreferrer">Ver todo ↗</a>` : ''}
-    </div>`;
+    <div class="statblock">${mdConvertMarkdown(md)}</div>`;
 }
 
 async function openStatblockModal(combatantId) {
@@ -297,8 +337,9 @@ async function openStatblockModal(combatantId) {
   if (!c || c.type !== 'monster') return;
 
   // El nombre puede llevar un sufijo de cantidad (ej. "Goblin 1"); se quita
-  // antes de combinarlo con el source para armar el nombre de archivo
-  // esperado: monstruo_source.json
+  // antes de combinarlo con el source para armar el nombre buscado.
+  // No hay conversión: se busca directamente "Nombre (Source).md",
+  // sin distinguir mayúsculas/minúsculas.
   const baseName   = c.name.replace(/\s+\d+$/, '');
   const lookupName = c.source ? `${baseName} (${c.source})` : baseName;
 
@@ -312,17 +353,17 @@ async function openStatblockModal(combatantId) {
   }
 
   document.getElementById('statblockContent').innerHTML =
-    '<div class="sb-loading">Cargando...</div>';
+    '<div class="sb-header"><button class="sb-close" onclick="closeModal(\'statblockModal\')">✕</button></div><div class="sb-loading">Cargando...</div>';
   openModal('statblockModal');
 
   try {
-    const res = await fetch(`bestiary_stats/${filename}.json`);
+    const res = await fetch(`bestiary_stats/${encodeURIComponent(filename)}.md`);
     if (!res.ok) throw new Error('Not found');
-    const m = await res.json();
-    renderStatblock(m);
+    const md = await res.text();
+    renderStatblockMarkdown(md);
   } catch(e) {
     document.getElementById('statblockContent').innerHTML =
-      '<div class="sb-loading">No se pudieron cargar las estadísticas.</div>';
+      '<div class="sb-header"><button class="sb-close" onclick="closeModal(\'statblockModal\')">✕</button></div><div class="sb-loading">No se pudieron cargar las estadísticas.</div>';
   }
 }
 
