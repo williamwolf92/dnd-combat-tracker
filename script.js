@@ -300,19 +300,65 @@ function mdParseLines(lines){
       continue;
     }
 
-    // lista
+    // lista (con soporte para líneas de continuación "perezosas": una línea
+    // simple justo después de un elemento de lista, sin línea vacía de por
+    // medio, se anexa al mismo <li> en vez de crear un párrafo aparte)
     let li = line.match(/^\s*[-*]\s+(.*)$/);
     if(li){
       if(!inList){ html += "<ul>\n"; inList = true; }
-      html += "<li>" + mdInlineFormat(li[1]) + "</li>\n";
+      let itemLines = [li[1]];
       i++;
+      while(i < lines.length){
+        let cl = lines[i];
+        if(cl.trim() === "") break;
+        if(/^\s*[-*]\s+(.*)$/.test(cl)) break;
+        if(/^\s*\|.*\|\s*$/.test(cl) && lines[i+1] && /^\s*\|?[\s:|-]+\|?\s*$/.test(lines[i+1])) break;
+        if(/^(#{1,6})\s+(.*)$/.test(cl)) break;
+        if(/^\s*(---|\*\*\*|___)\s*$/.test(cl)) break;
+        if(/^\s*>\s?/.test(cl)) break;
+        itemLines.push(cl);
+        i++;
+      }
+      let itemHtml = "";
+      for(let idx = 0; idx < itemLines.length; idx++){
+        const isLast = idx === itemLines.length - 1;
+        const hasHardBreak = /  +$/.test(itemLines[idx]);
+        itemHtml += mdInlineFormat(itemLines[idx].trim());
+        if(!isLast){
+          itemHtml += hasHardBreak ? "<br>\n" : " ";
+        }
+      }
+      html += "<li>" + itemHtml + "</li>\n";
       continue;
     }
 
-    // párrafo normal
+    // párrafo normal: se agrupan las líneas consecutivas no vacías
+    // (y que no pertenezcan a otro tipo de bloque) en un mismo <p>.
+    // Si una línea termina en 2+ espacios, se inserta <br> antes de
+    // pasar a la siguiente línea del mismo párrafo (salto de línea estándar).
     closeListIfOpen();
-    html += "<p>" + mdInlineFormat(line.trim()) + "</p>\n";
-    i++;
+    let paraLines = [];
+    while(i < lines.length){
+      let pl = lines[i];
+      if(pl.trim() === "") break;
+      if(/^\s*\|.*\|\s*$/.test(pl) && lines[i+1] && /^\s*\|?[\s:|-]+\|?\s*$/.test(lines[i+1])) break;
+      if(/^(#{1,6})\s+(.*)$/.test(pl)) break;
+      if(/^\s*(---|\*\*\*|___)\s*$/.test(pl)) break;
+      if(/^\s*>\s?/.test(pl)) break;
+      if(/^\s*[-*]\s+(.*)$/.test(pl)) break;
+      paraLines.push(pl);
+      i++;
+    }
+    let paraHtml = "";
+    for(let idx = 0; idx < paraLines.length; idx++){
+      const isLast = idx === paraLines.length - 1;
+      const hasHardBreak = /  +$/.test(paraLines[idx]);
+      paraHtml += mdInlineFormat(paraLines[idx].trim());
+      if(!isLast){
+        paraHtml += hasHardBreak ? "<br>\n" : " ";
+      }
+    }
+    html += "<p>" + paraHtml + "</p>\n";
   }
 
   closeListIfOpen();

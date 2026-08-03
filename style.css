@@ -1599,7 +1599,7 @@ header h1 {
 .statblock {
     padding: 14px 18px 18px;
     color: var(--text);
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: Convergence;
     font-size: 14px;
     line-height: 1.3;
 }
@@ -1617,7 +1617,6 @@ header h1 {
 }
 
 .statblock h1 {
-    font-family: Georgia, 'Times New Roman', serif;
     font-size: 26px;
     color: var(--red);
     margin: 4px 0 0;
@@ -1625,7 +1624,6 @@ header h1 {
 }
 
 .statblock h2 {
-    font-family: Georgia, 'Times New Roman', serif;
     font-size: 22px;
     color: var(--red);
     margin: 4px 0 0;
@@ -1633,7 +1631,6 @@ header h1 {
 }
 
 .statblock h3 {
-    font-family: Georgia, 'Times New Roman', serif;
     font-variant: small-caps;
     font-size: 19px;
     color: var(--red);
@@ -1644,7 +1641,6 @@ header h1 {
 }
 
 .statblock h4 {
-    font-family: Georgia, 'Times New Roman', serif;
     font-size: 17px;
     color: var(--red);
     margin: 4px 0 0;
@@ -1652,7 +1648,6 @@ header h1 {
 }
 
 .statblock h5 {
-    font-family: Georgia, 'Times New Roman', serif;
     font-size: 14px;
     color: var(--red);
     margin: 4px 0 0;
@@ -1660,7 +1655,6 @@ header h1 {
 }
 
 .statblock h6 {
-    font-family: Georgia, 'Times New Roman', serif;
     color: var(--red);
     font-size: 11px;
     margin: 4px 0 0;
@@ -1691,16 +1685,17 @@ header h1 {
     border-spacing: 0;
     border-radius: 5px;
     margin: 10px 0;
-    font-size: 13px;
+    font-size: 14px;
 }
 .statblock table th {
     color: var(--red);
     background: rgba(64,0,0,0.08);
     border-bottom: 1px solid var(--red);
-    padding: 4px;
+    padding: 6px 4px;
+    font-size: 15px;
 }
 .statblock table td {
-    padding: 4px;
+    padding: 6px 4px;
 }
 
 .statblock blockquote {
