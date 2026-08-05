@@ -202,17 +202,97 @@ function findBestStatFile(name) {
   return null;
 }
 
+// ── Clasifica un carácter como 'space' (espacio), 'punct' (puntuación),
+//    'word' (letra/número/etc.) o 'edge' (inicio/fin de la cadena).
+//    Se usa para decidir si una tanda de asteriscos puede abrir y/o cerrar
+//    énfasis, siguiendo la misma regla que el markdown estándar.
+function mdCharType(ch){
+  if (ch === undefined) return 'edge';
+  if (/\s/.test(ch)) return 'space';
+  if (/[!-\/:-@\[-`{-~]/.test(ch)) return 'punct';
+  return 'word';
+}
+
+// ── Emparejador de énfasis (negrita/cursiva) con asteriscos ──
+// A diferencia de un simple regex, empareja tandas de asteriscos de forma
+// correcta aunque el número de asteriscos no coincida en ambos lados
+// (p. ej. "*texto**" produce "<em>texto</em>*", dejando el asterisco sobrante
+// como texto literal, tal como en markdown estándar), y resuelve
+// correctamente el anidado de ***negrita+cursiva***.
+function mdParseEmphasis(text){
+  const tokens = [];
+  const re = /(\*+)|([^*]+)/g;
+  let m;
+  while ((m = re.exec(text)) !== null){
+    if (m[1]) tokens.push({ type:'delim', remaining:m[1].length, parts:[] });
+    else tokens.push({ type:'text', val:m[2] });
+  }
+
+  for (let i = 0; i < tokens.length; i++){
+    if (tokens[i].type !== 'delim') continue;
+    const prevText = (i > 0 && tokens[i-1].type === 'text') ? tokens[i-1].val : '';
+    const nextText = (i < tokens.length-1 && tokens[i+1].type === 'text') ? tokens[i+1].val : '';
+    const beforeChar = prevText.length ? prevText[prevText.length-1] : undefined;
+    const afterChar  = nextText.length ? nextText[0] : undefined;
+    const beforeType = (i === 0) ? 'edge' : mdCharType(beforeChar);
+    const afterType  = (i === tokens.length-1) ? 'edge' : mdCharType(afterChar);
+
+    const leftFlanking  = afterType !== 'space' && afterType !== 'edge' &&
+      (afterType !== 'punct' || beforeType === 'space' || beforeType === 'punct' || beforeType === 'edge');
+    const rightFlanking = beforeType !== 'space' && beforeType !== 'edge' &&
+      (beforeType !== 'punct' || afterType === 'space' || afterType === 'punct' || afterType === 'edge');
+
+    tokens[i].canOpen  = leftFlanking;
+    tokens[i].canClose = rightFlanking;
+  }
+
+  const stack = [];
+  for (let i = 0; i < tokens.length; i++){
+    const t = tokens[i];
+    if (t.type !== 'delim') continue;
+
+    if (t.canClose){
+      const closeEventsThisPass = [];
+      while (t.remaining > 0 && stack.length){
+        const openIdx = stack[stack.length - 1];
+        const opener = tokens[openIdx];
+        if (opener.remaining <= 0){ stack.pop(); continue; }
+        const use = Math.min(2, t.remaining, opener.remaining);
+        const tag = use === 2 ? 'strong' : 'em';
+        opener.remaining -= use;
+        t.remaining -= use;
+        opener.parts.push({ tag, role:'open' });
+        closeEventsThisPass.push({ tag, role:'close' });
+        if (opener.remaining === 0){
+          const idx = stack.indexOf(openIdx);
+          if (idx !== -1) stack.splice(idx, 1);
+        }
+      }
+      closeEventsThisPass.reverse();
+      t.parts.push(...closeEventsThisPass);
+    }
+    if (t.remaining > 0 && t.canOpen) stack.push(i);
+  }
+
+  let out = '';
+  for (const t of tokens){
+    if (t.type === 'text'){ out += t.val; continue; }
+    for (const p of t.parts){
+      if (p.tag === 'strong') out += (p.role === 'open' ? '<strong>' : '</strong>');
+      else out += (p.role === 'open' ? '<em>' : '</em>');
+    }
+    out += '*'.repeat(t.remaining); // asteriscos sobrantes sin pareja → literales
+  }
+  return out;
+}
+
 // ── Stat block modal: conversor Markdown → HTML ──
 // (misma lógica que el "Convertidor Markdown a HTML": sin dependencias externas)
 function mdInlineFormat(text){
   // escapar
   text = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-  // negrita + cursiva combinadas: ***texto***
-  text = text.replace(/\*\*\*(.+?)\*\*\*/g, "<strong><em>$1</em></strong>");
-  // negrita: **texto**
-  text = text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-  // cursiva: *texto*
-  text = text.replace(/\*(.+?)\*/g, "<em>$1</em>");
+  // negrita / cursiva / negrita+cursiva, con emparejamiento correcto de asteriscos
+  text = mdParseEmphasis(text);
   // código en línea
   text = text.replace(/`(.+?)`/g, "<code>$1</code>");
   return text;
